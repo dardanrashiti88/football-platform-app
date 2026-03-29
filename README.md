@@ -74,6 +74,43 @@ Live check while backend and DB API are running:
 npm run healthcheck:live
 ```
 
+**Docker**
+
+If you want the app in containers, this repo now includes:
+
+- `frontend/Dockerfile`
+- `backend/Dockerfile`
+- `db-api/Dockerfile`
+- `docker-compose.yml`
+
+Start everything:
+
+```bash
+npm run docker:up
+```
+
+Or:
+
+```bash
+docker compose up --build
+```
+
+Open:
+
+- frontend root: `http://localhost:8080`
+- desktop: `http://localhost:8080/frontend/index.html`
+- mobile: `http://localhost:8080/mobile`
+- backend API: `http://localhost:3002/api/health`
+- DB API health: `http://localhost:3010/api/v1/health`
+
+The frontend container proxies `/api` to the backend container, so the browser can use the app from the frontend server cleanly.
+
+Stop everything:
+
+```bash
+npm run docker:down
+```
+
 **Project Structure**
 
 ```text

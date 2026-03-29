@@ -3,7 +3,12 @@ const getApiBase = () => {
     return 'http://localhost:3002/api';
   }
 
-  const { hostname, origin } = window.location;
+  const { hostname, origin, port } = window.location;
+
+  if (port === '8080') {
+    return `${origin}/api`;
+  }
+
   if (hostname === 'localhost' || hostname === '127.0.0.1') {
     return 'http://localhost:3002/api';
   }

@@ -1,0 +1,48 @@
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+    container_name: fod-frontend
+    ports:
+      - "8080:80"
+    depends_on:
+      backend:
+        condition: service_healthy
+      db-api:
+        condition: service_healthy
+    restart: unless-stopped
+
+  db-api:
+    build:
+      context: .
+      dockerfile: db-api/Dockerfile
+    container_name: fod-db-api
+    environment:
+      NODE_ENV: production
+      PORT: 3010
+      API_BASE_PATH: /api/v1
+    ports:
+      - "3010:3010"
+    restart: unless-stopped
+
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    container_name: fod-backend
+    environment:
+      NODE_ENV: production
+      PORT: 3002
+      FODR_DB_PATH: /data/fodr.sqlite
+    ports:
+      - "3002:3002"
+    volumes:
+      - fod-backend-data:/data
+    depends_on:
+      db-api:
+        condition: service_healthy
+    restart: unless-stopped
+
+volumes:
+  fod-backend-data:

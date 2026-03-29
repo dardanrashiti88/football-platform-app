@@ -7,6 +7,9 @@
     "dev:dashboard": "npm --prefix Dashboard-view run dev",
     "build:dashboard": "npm --prefix Dashboard-view run build",
     "dev:db-api": "npm --prefix db-api start",
+    "docker:up": "docker compose up --build",
+    "docker:down": "docker compose down",
+    "docker:logs": "docker compose logs -f",
     "healthcheck": "node scripts/healthcheck.js",
     "healthcheck:live": "node scripts/healthcheck.js --live"
   }
