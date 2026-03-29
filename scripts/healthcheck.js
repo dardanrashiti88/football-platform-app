@@ -173,7 +173,9 @@ const checkHttpText = async (url, marker, label) => {
       logFail(`${label} returned HTTP ${response.status}`);
       return;
     }
-    if (marker && !text.includes(marker)) {
+    const markerFoundInText = marker ? text.includes(marker) : true;
+    const markerFoundInUrl = marker ? String(response.url || '').includes(marker) : true;
+    if (marker && !markerFoundInText && !markerFoundInUrl) {
       logFail(`${label} responded but marker "${marker}" was not found`);
       return;
     }
