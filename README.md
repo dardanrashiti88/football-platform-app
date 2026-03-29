@@ -233,6 +233,37 @@ npm run build:dashboard
 npm run dev:db-api
 ```
 
+**Workflow Structure**
+
+The repo now keeps CI/CD separated in two places:
+
+- `.github/workflows/`
+  - real GitHub Actions entrypoints
+- `workflows/`
+  - grouped helper scripts and notes for:
+    - `testing/`
+    - `staging/`
+    - `production/`
+
+Current flow:
+
+1. `Testing`
+   - runs on pushes and pull requests
+   - installs dependencies
+   - runs `npm run healthcheck`
+   - builds the dashboard
+
+2. `Staging`
+   - runs on pushes to `main`
+   - starts backend + DB API
+   - runs `npm run healthcheck:live`
+   - checks register/login smoke flow
+
+3. `Production`
+   - manual only
+   - reruns testing + staging checks
+   - validates and builds Docker images before release
+
 **Extra Services**
 
 `Dashboard-view/`
