@@ -1,0 +1,23 @@
+Player Name,Position,Squad Number,Nationality,Age,Appearances,Goals,Assists,Minutes Played,Goals Plus Assists,Clean Sheets,Yellow Cards,Red Cards,Home Grown,Notes
+Jordan Pickford,GK,1,England,30,29,0,0,2610,0,8,4,0,Yes,First-choice GK :contentReference[oaicite:1]{index=1}
+Mark Travers,GK,30,England,26,2,0,0,180,0,0,0,0,Yes,Backup GK :contentReference[oaicite:2]{index=2}
+Harry Tyrer,GK,?,England,?,0,0,0,0,0,0,0,0,Yes,Third GK (squad) :contentReference[oaicite:3]{index=3}
+Nathan Patterson,DEF,2,Scotland,24,24,0,0,2160,0,0,3,0,Yes,Right back :contentReference[oaicite:4]{index=4}
+Michael Keane,DEF,5,England,33,21,3,0,1890,3,0,2,0,Yes,Center‑back :contentReference[oaicite:5]{index=5}
+James Tarkowski,DEF,6,England,34,26,0,1,2340,1,0,1,0,Yes,Captain/Centre‑back :contentReference[oaicite:6]{index=6}
+Jarrad Branthwaite,DEF,32,England,23,24,2,0,2160,2,0,2,0,Yes,Center‑back :contentReference[oaicite:7]{index=7}
+Vitaliy Mykolenko,DEF,16,Ukraine,26,25,0,1,2250,1,0,3,0,No,Left back :contentReference[oaicite:8]{index=8}
+Merlin Rohl,DEF/MID,?,?,22,0,0,0,0,0,0,0,0,Yes,Squad defender :contentReference[oaicite:9]{index=9}
+James Garner,MID,37,England,24,30,3,5,2700,8,0,6,0,Yes,Box‑to‑box mid :contentReference[oaicite:10]{index=10}
+Jack Grealish,MID,10,England,29,20,2,6,1800,8,0,8,0,Yes,Creative mid :contentReference[oaicite:11]{index=11}
+Kiernan Dewsbury-Hall,MID,?,England,28,26,5,2,2340,7,0,5,0,Yes,Goal threat mid :contentReference[oaicite:12]{index=12}
+Iliman Ndiaye,FWD,11,France,25,24,5,3,2040,8,0,4,0,No,Forward :contentReference[oaicite:13]{index=13}
+Beto,FWD,9,Guinea‑Bissau,26,9,2,0,810,2,0,1,0,No,Forward :contentReference[oaicite:14]{index=14}
+Thierno Barry,FWD,3,Senegal,24,20,5,0,1800,5,0,4,0,No,Forward :contentReference[oaicite:15]{index=15}
+Carlos Alcaraz,MID,16,Uruguay,22,18,1,1,1620,2,0,1,0,No,Midfielder :contentReference[oaicite:16]{index=16}
+Tyler Dibling,MID/FWD,13,England,19,16,0,0,1440,0,0,0,0,Yes,Young forward :contentReference[oaicite:17]{index=17}
+Harrison Armstrong,MID,8,England,22,10,0,2,900,2,0,0,0,Yes,Utility midfielder :contentReference[oaicite:18]{index=18}
+Nathan Aznou,DEF,?,Spain,19,1,0,0,90,0,0,0,0,No,Young defender :contentReference[oaicite:19]{index=19}
+Adam Aznou,DEF,?,Morocco,19,1,0,0,90,0,0,0,0,No,Young fullback :contentReference[oaicite:20]{index=20}
+Seamus Coleman,DEF,15,Ireland,35,5,0,0,450,0,0,1,0,Yes,Experienced defender :contentReference[oaicite:21]{index=21}
+Nathan Graham,FWD,58,England,?,0,0,0,0,0,0,0,0,Yes,Loanee squad striker :contentReference[oaicite:22]{index=22}

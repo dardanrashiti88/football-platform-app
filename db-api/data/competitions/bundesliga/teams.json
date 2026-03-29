@@ -1,0 +1,182 @@
+[
+  {
+    "id": "augsburg",
+    "slug": "augsburg",
+    "name": "Augsburg",
+    "shortName": "Augsburg",
+    "country": "Germany",
+    "aliases": [
+      "Augsburg"
+    ]
+  },
+  {
+    "id": "b-monchengladbach",
+    "slug": "b-monchengladbach",
+    "name": "B. Monchengladbach",
+    "shortName": "Monchengladbach",
+    "country": "Germany",
+    "aliases": [
+      "B. Monchengladbach"
+    ]
+  },
+  {
+    "id": "bayer-leverkusen",
+    "slug": "bayer-leverkusen",
+    "name": "Bayer Leverkusen",
+    "shortName": "Leverkusen",
+    "country": "Germany",
+    "aliases": [
+      "Bayer Leverkusen"
+    ]
+  },
+  {
+    "id": "bayern-munich",
+    "slug": "bayern-munich",
+    "name": "Bayern Munich",
+    "shortName": "Bayern",
+    "country": "Germany",
+    "aliases": [
+      "Bayern Munich"
+    ]
+  },
+  {
+    "id": "dortmund",
+    "slug": "dortmund",
+    "name": "Dortmund",
+    "shortName": "Dortmund",
+    "country": "Germany",
+    "aliases": [
+      "Dortmund"
+    ]
+  },
+  {
+    "id": "eintracht-frankfurt",
+    "slug": "eintracht-frankfurt",
+    "name": "Eintracht Frankfurt",
+    "shortName": "Frankfurt",
+    "country": "Germany",
+    "aliases": [
+      "Eintracht Frankfurt"
+    ]
+  },
+  {
+    "id": "fc-koln",
+    "slug": "fc-koln",
+    "name": "FC Koln",
+    "shortName": "Koln",
+    "country": "Germany",
+    "aliases": [
+      "FC Koln"
+    ]
+  },
+  {
+    "id": "freiburg",
+    "slug": "freiburg",
+    "name": "Freiburg",
+    "shortName": "Freiburg",
+    "country": "Germany",
+    "aliases": [
+      "Freiburg"
+    ]
+  },
+  {
+    "id": "hamburger-sv",
+    "slug": "hamburger-sv",
+    "name": "Hamburger SV",
+    "shortName": "Hamburg",
+    "country": "Germany",
+    "aliases": [
+      "Hamburger SV"
+    ]
+  },
+  {
+    "id": "heidenheim",
+    "slug": "heidenheim",
+    "name": "Heidenheim",
+    "shortName": "Heidenheim",
+    "country": "Germany",
+    "aliases": [
+      "Heidenheim"
+    ]
+  },
+  {
+    "id": "hoffenheim",
+    "slug": "hoffenheim",
+    "name": "Hoffenheim",
+    "shortName": "Hoffenheim",
+    "country": "Germany",
+    "aliases": [
+      "Hoffenheim"
+    ]
+  },
+  {
+    "id": "mainz",
+    "slug": "mainz",
+    "name": "Mainz",
+    "shortName": "Mainz",
+    "country": "Germany",
+    "aliases": [
+      "Mainz"
+    ]
+  },
+  {
+    "id": "rb-leipzig",
+    "slug": "rb-leipzig",
+    "name": "RB Leipzig",
+    "shortName": "Leipzig",
+    "country": "Germany",
+    "aliases": [
+      "RB Leipzig"
+    ]
+  },
+  {
+    "id": "st-pauli",
+    "slug": "st-pauli",
+    "name": "St. Pauli",
+    "shortName": "St. Pauli",
+    "country": "Germany",
+    "aliases": [
+      "St. Pauli"
+    ]
+  },
+  {
+    "id": "stuttgart",
+    "slug": "stuttgart",
+    "name": "Stuttgart",
+    "shortName": "Stuttgart",
+    "country": "Germany",
+    "aliases": [
+      "Stuttgart"
+    ]
+  },
+  {
+    "id": "union-berlin",
+    "slug": "union-berlin",
+    "name": "Union Berlin",
+    "shortName": "Union",
+    "country": "Germany",
+    "aliases": [
+      "Union Berlin"
+    ]
+  },
+  {
+    "id": "werder-bremen",
+    "slug": "werder-bremen",
+    "name": "Werder Bremen",
+    "shortName": "Werder Bremen",
+    "country": "Germany",
+    "aliases": [
+      "Werder Bremen"
+    ]
+  },
+  {
+    "id": "wolfsburg",
+    "slug": "wolfsburg",
+    "name": "Wolfsburg",
+    "shortName": "Wolfsburg",
+    "country": "Germany",
+    "aliases": [
+      "Wolfsburg"
+    ]
+  }
+]

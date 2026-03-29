@@ -1,0 +1,22 @@
+Player Name,Position,Squad Number,Nationality,Age,Appearances,Goals,Assists,Minutes Played,Goals Plus Assists,Clean Sheets,Yellow Cards,Red Cards,Home Grown,Notes
+Alberto Paleari,GK,1,Italy,33,18,0,0,1620,0,5,2,0,Yes,Primary keeper with most saves/clean sheets:contentReference[oaicite:1]{index=1}
+Franco Israel,GK,81,Uruguay,25,?,0,0,?,0,3,1,0,No,Backup keeper with some starts:contentReference[oaicite:2]{index=2}
+Mihai Popa,GK,71,Romania,24,?,0,0,?,0,2,1,0,No,Third keeper:contentReference[oaicite:3]{index=3}
+Nikola Vlašić,MID/FWD,10,Croatia,28,27,6,3,2160,9,0,7,0,No,Top scorer/assist creator for Torino:contentReference[oaicite:4]{index=4}
+Giovanni Simeone,FWD,18,Argentina,30,22,6,0,1412,6,0,4,0,No,Main striker, big goal involvement:contentReference[oaicite:5]{index=5}
+Ché Adams,FWD,19,Scotland,29,25,4,2,1480,6,0,4,0,No,Fwd rotation with goals & assists:contentReference[oaicite:6]{index=6}
+Cesare Casadei,MID,22,Italy,23,25,4,0,1614,4,0,5,0,Yes,Young midfield contributor:contentReference[oaicite:7]{index=7}
+Guillermo Maripán,DEF,13,Chile,31,24,2,0,2026,2,0,3,0,No,Defender with goal contributions:contentReference[oaicite:8]{index=8}
+Duván Zapata,FWD,91,Colombia,34,22,2,1,841,3,0,?,0,No,Target forward contributions:contentReference[oaicite:9]{index=9}
+Valentino Lazaro,DEF/MID,20,Austria,29,27,0,2,?,2,0,4,0,No,Versatile wing player:contentReference[oaicite:10]{index=10}
+Saúl Coco,DEF,23,Equatorial Guinea,26,20,1,1,?,2,0,?,0,No,Full‑back/utility defender:contentReference[oaicite:11]{index=11}
+Marcus Pedersen,DEF,16,Norway,25,20,0,0,?,0,0,3,0,No,Right‑back/rotation option:contentReference[oaicite:12]{index=12}
+Ivan Ilić,MID,8,Serbia,24,?,1,1,?,2,0,?,0,No,Box‑to‑box mid:contentReference[oaicite:13]{index=13}
+Gvidas Gineitis,MID,66,Lithuania,21,19,0,0,?,0,0,4,0,No,Midfield rotation:contentReference[oaicite:14]{index=14}
+Kristjan Asllani,MID,32,Albania,23,?,0,0,?,0,0,3,0,No,Midfield depth:contentReference[oaicite:15]{index=15}
+Zakaria Aboukhlal,FWD,7,Netherlands,25,?,0,?,?,0,0,4,0,No,Attacking depth:contentReference[oaicite:16]{index=16}
+Alieu Njie,FWD,92,Gambia,20,9,1,1,?,2,0,0,0,No,Young forward (subs):contentReference[oaicite:17]{index=17}
+Adrien Tamèze,MID,61,France,31,22,0,0,?,0,0,?,0,No,Veteran mid rotation:contentReference[oaicite:18]{index=18}
+Niels Nkounkou,DEF,25,France/Congo,25,?,0,0,?,0,0,?,0,No,Full‑back depth:contentReference[oaicite:19]{index=19}
+Cristiano Biraghi,DEF,34,Italy,33,?,0,0,?,0,0,?,0,Yes,Experienced full‑back:contentReference[oaicite:20]{index=20}
+Matteo Prati,MID,4,Italy,22,25,1,1,?,2,0,5,0,Yes,Young midfield option:contentReference[oaicite:21]{index=21}

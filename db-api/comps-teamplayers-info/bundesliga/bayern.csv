@@ -1,0 +1,24 @@
+Player Name,Position,Squad Number,Nationality,Age,Appearances,Goals,Assists,Minutes Played,Goals Plus Assists,Clean Sheets,Yellow Cards,Red Cards,Home Grown,Notes
+Manuel Neuer,GK,1,Germany,39,34,0,0,2970,0,12,3,0,Yes,First‑choice keeper, club legend :contentReference[oaicite:1]{index=1}
+Sven Ulreich,GK,26,Germany,37,?,0,0,?,0,?,?,0,No,Experienced backup keeper :contentReference[oaicite:2]{index=2}
+Jonas Urbig,GK,40,Germany,22,12,0,0,990,0,3,1,0,No,Young keeper rotation :contentReference[oaicite:3]{index=3}
+Leon Klanac,GK,48,Germany,19,?,0,0,?,0,?,0,0,No,Youth keeper, few apps :contentReference[oaicite:4]{index=4}
+Dayot Upamecano,DEF,2,France,27,37,1,3,2809,4,0,5,0,No,Center‑back starter with goal threat :contentReference[oaicite:5]{index=5}
+Minjae Kim,DEF,3,South Korea,29,26,1,1,1369,2,0,2,0,No,Rock at CB with goal & assist :contentReference[oaicite:6]{index=6}
+Jonathan Tah,DEF,4,Germany,30,40,3,3,3198,6,0,4,0,No,Experienced defender with goals :contentReference[oaicite:7]{index=7}
+Raphaël Guerreiro,DEF,22,Portugal,32,25,4,2,1018,6,0,4,0,No,Likely full‑back or wing‑back with offensive output :contentReference[oaicite:8]{index=8}
+Josip Stanišić,DEF,44,Croatia,25,32,3,4,2394,7,0,3,0,No,Vital full‑back with goals/assists :contentReference[oaicite:9]{index=9}
+Alphonso Davies,DEF/MID,19,Canada,25,13,2,1,525,3,0,3,0,No,Left‑back/wing threat :contentReference[oaicite:10]{index=10}
+Hiroki Ito,DEF,21,Japan,26,15,1,2,601,3,0,2,0,No,Rotation defender with attacking numbers :contentReference[oaicite:11]{index=11}
+Joshua Kimmich,MID,6,Germany,30,40,2,9,3291,11,0,4,0,Yes,Key midfielder & assist man :contentReference[oaicite:12]{index=12}
+Leon Goretzka,MID,8,Germany,31,37,3,1,1693,4,0,4,0,No,Veteran midfielder :contentReference[oaicite:13]{index=13}
+Jamal Musiala,MID,10,Germany,23,15,6,2,546,8,0,2,0,No,Creative forward/midstar :contentReference[oaicite:14]{index=14}
+Tom Bischof,MID,20,Germany,20,30,3,0,1236,3,0,1,0,No,Young midfield contributor :contentReference[oaicite:15]{index=15}
+Konrad Laimer,MID,27,Austria,28,36,3,7,2568,10,0,4,0,No,Box‑to‑box with assists :contentReference[oaicite:16]{index=16}
+Lennart Karl,MID/FWD,42,Germany,18,32,7,4,1567,11,0,?,0,No,Bright young attacker :contentReference[oaicite:17]{index=17}
+Aleksandar Pavlović,MID,45,Germany,21,38,3,1,2646,4,0,3,0,No,Creative rotation :contentReference[oaicite:18]{index=18}
+Serge Gnabry,FWD,7,Germany,30,37,8,12,2004,20,0,3,0,No,Experienced goal + assist man :contentReference[oaicite:19]{index=19}
+Harry Kane,FWD,9,England,32,42,48,6,3377,54,0,2,0,No,Top scorer & world‑class striker :contentReference[oaicite:20]{index=20}
+Nicolas Jackson,FWD,11,Senegal,24,24,7,2,821,9,0,2,0,No,Forward depth with goals :contentReference[oaicite:21]{index=21}
+Luis Díaz,FWD,14,Colombia,29,36,20,14,2969,34,0,?,0,No,Big attacking force :contentReference[oaicite:22]{index=22}
+Michael Olise,FWD,17,France,24,42,18,24,3304,42,0,?,0,No,Creative forward with goals & assists :contentReference[oaicite:23]{index=23}

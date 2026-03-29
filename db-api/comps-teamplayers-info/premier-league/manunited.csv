@@ -1,0 +1,27 @@
+Player Name,Position,Squad Number,Nationality,Age,Appearances,Goals,Assists,Minutes Played,Goals Plus Assists,Clean Sheets,Yellow Cards,Red Cards,Home Grown,Notes
+Altay Bayındır,GK,1,Turkey,27,6,0,0,540,0,1,3,0,No,Backup goalkeeper :contentReference[oaicite:1]{index=1}
+Senne Lammens,GK,31,Belgium,23,25,0,0,2250,0,8,2,0,No,Deputy keeper :contentReference[oaicite:2]{index=2}
+Diogo Dalot,DEF,2,Portugal,26,27,1,5,2430,6,0,5,0,No,Right‑back :contentReference[oaicite:3]{index=3}
+Noussair Mazraoui,DEF,3,Morocco,28,15,0,0,1350,0,0,6,0,No,Full‑back rotation :contentReference[oaicite:4]{index=4}
+Matthijs de Ligt,DEF,4,Netherlands,24,14,1,0,1260,1,0,0,0,No,Centre‑back :contentReference[oaicite:5]{index=5}
+Harry Maguire,DEF,5,England,32,15,2,0,1350,2,0,4,1,Yes,Veteran defender :contentReference[oaicite:6]{index=6}
+Lisandro Martínez,DEF,6,Argentina,28,10,0,0,900,0,0,0,0,No,Defensive support :contentReference[oaicite:7]{index=7}
+Patrick Dorgu,DEF,13,Denmark,19,16,3,1,1440,4,0,4,0,Yes,Young defender :contentReference[oaicite:8]{index=8}
+Ayden Heaven,DEF,26,England,19,9,0,0,810,0,0,2,0,Yes,Rotation backline :contentReference[oaicite:9]{index=9}
+Joshua Zirkzee,FWD,11,Netherlands,24,4,2,0,360,2,0,1,0,No,Forward play :contentReference[oaicite:10]{index=10}
+Matheus Cunha,FWD,10,Brazil,26,26,7,1,2340,8,0,1,0,No,Main striker :contentReference[oaicite:11]{index=11}
+Amad Diallo,FWD,16,Ivory Coast,23,23,2,0,2070,2,0,2,0,No,Winger/forward :contentReference[oaicite:12]{index=12}
+Casemiro,MID,18,Brazil,34,29,7,0,2610,7,0,10,1,No,Defensive mid :contentReference[oaicite:13]{index=13}
+Bruno Fernandes,MID,8,Portugal,31,29,8,0,2610,8,0,3,0,No,Club main playmaker :contentReference[oaicite:14]{index=14}
+Mason Mount,MID,7,England,27,11,3,0,990,3,0,0,0,Yes,Midfield engine :contentReference[oaicite:15]{index=15}
+Manuel Ugarte,MID,25,Uruguay,24,9,0,0,810,0,0,1,0,No,Central mid :contentReference[oaicite:16]{index=16}
+Kobbie Mainoo,MID,37,England,20,12,0,0,1080,0,0,0,0,Yes,Young midfield :contentReference[oaicite:17]{index=17}
+Bryan Mbeumo,FWD,19,Cameroon,26,26,10,0,2340,10,0,4,0,No,Goal threat :contentReference[oaicite:18]{index=18}
+Benjamin Šeško,FWD,30,Slovenia,22,15,10,0,1350,10,0,2,0,No,Top scorer so far :contentReference[oaicite:19]{index=19}
+Luke Shaw,DEF,23,England,31,31,0,0,2790,0,0,5,0,Yes,Left back :contentReference[oaicite:20]{index=20}
+Tyrell Malacia,DEF,12,Netherlands,26,2,0,0,180,0,0,0,0,Yes,Backup LB :contentReference[oaicite:21]{index=21}
+Shea Lacey,FWD,61,England,18,3,0,0,270,0,0,2,1,Yes,U21 forward :contentReference[oaicite:22]{index=22}
+Bendito Mantato,FWD,70,England,18,1,0,0,90,0,0,0,0,Yes,Young forward :contentReference[oaicite:23]{index=23}
+Tyler Fredricson,DEF,33,England,?,1,0,0,90,0,0,1,0,Yes,Young defender :contentReference[oaicite:24]{index=24}
+Chido Obi,FWD,32,?,0,0,0,0,0,0,0,0,0,Yes,Development player :contentReference[oaicite:25]{index=25}
+Jack Fletcher,MID,38,England,18,3,0,0,270,0,0,0,0,Yes,U21 midfielder :contentReference[oaicite:26]{index=26}

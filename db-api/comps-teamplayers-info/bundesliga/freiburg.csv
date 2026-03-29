@@ -1,0 +1,22 @@
+Player Name,Position,Squad Number,Nationality,Age,Appearances,Goals,Assists,Minutes Played,Goals Plus Assists,Clean Sheets,Yellow Cards,Red Cards,Home Grown,Notes
+Noah Atubolu,GK,1,Germany,23,25,0,0,2250,0,8,3,0,Yes,Starter keeper with most games & clean sheets this season :contentReference[oaicite:1]{index=1}
+Florian Müller,GK,21,Germany,28,0,0,0,0,0,0,0,0,No,Backup keeper, no league apps :contentReference[oaicite:2]{index=2}
+Jannik Huth,GK,24,Germany,31,0,0,0,0,0,0,0,0,No,Third keeper, no senior apps :contentReference[oaicite:3]{index=3}
+Philipp Lienhart,DEF,3,Austria,29,12,0,0,1080,0,0,2,1,No,Center‑back starter :contentReference[oaicite:4]{index=4}
+Anthony Jung,DEF,5,Germany,34,10,0,0,900,0,0,2,0,No,Experienced defender :contentReference[oaicite:5]{index=5}
+Lukas Kübler,DEF,17,Germany,33,16,2,1,1440,3,0,2,0,No,Full‑back with goals/assists :contentReference[oaicite:6]{index=6}
+Niklas Beste,DEF,19,Germany,27,18,1,2,1440,3,0,5,0,Yes,Homegrown defender with output :contentReference[oaicite:7]{index=7}
+Matthias Ginter,DEF,28,Germany,32,23,2,3,2070,5,0,1,0,No,Center‑back who chips in goals/assists :contentReference[oaicite:8]{index=8}
+Philipp Treu,DEF,29,Germany,25,20,1,2,1800,3,0,2,0,No,Right‑back starter :contentReference[oaicite:9]{index=9}
+Christian Günter,DEF,30,Germany,33,17,0,3,1530,3,0,1,0,Yes,Left‑back + assist threat :contentReference[oaicite:10]{index=10}
+Jordy Makengo,DEF,33,France,24,13,0,0,1170,0,0,1,0,No,Defensive squad option :contentReference[oaicite:11]{index=11}
+Derry Scherhant,FWD,7,Germany,23,21,4,0,1680,4,0,1,0,No,Goal scorer and starter :contentReference[oaicite:12]{index=12}
+Igor Matanović,FWD,31,Croatia,22,21,6,1,1680,7,0,1,0,No,Leading attacker with goals/assists :contentReference[oaicite:13]{index=13}
+Lucas Höler,FWD,9,Germany,31,23,5,1,1840,6,0,1,0,No,Forward scoring contributor :contentReference[oaicite:14]{index=14}
+Yuito Suzuki,MID,14,Japan,24,19,3,2,1710,5,0,2,0,No,Creative midfield work :contentReference[oaicite:15]{index=15}
+Johan Manzambi,MID,44,Switzerland,20,18,3,2,1620,5,0,2,1,No,Creative mid/wing contribution :contentReference[oaicite:16]{index=16}
+Patrick Osterhage,MID,6,Germany,26,19,1,0,1710,1,0,0,0,Yes,Homegrown defensive mid :contentReference[oaicite:17]{index=17}
+Maximilian Eggestein,MID,8,Germany,29,25,2,0,?,2,0,3,0,No,Box‑to‑box midfielder :contentReference[oaicite:18]{index=18}
+Vincenzo Grifo,MID,32,Italy,32,24,9,6,?,15,0,3,0,No,Leading scorer/creator for Freiburg :contentReference[oaicite:19]{index=19}
+Daniel‑Kofi Kyereh,MID,11,Ghana,29,?,5,?,?,5,0,?,0,No,Attacking mid contributor (stats partial) :contentReference[oaicite:20]{index=20}
+Maximilian Philipp,FWD,26,Germany,31,?,1,0,?,1,0,?,0,No,Forward depth scorer :contentReference[oaicite:21]{index=21}

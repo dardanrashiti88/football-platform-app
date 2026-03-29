@@ -1,0 +1,13 @@
+{
+  "id": "premier-league-2025-2026",
+  "slug": "premier-league",
+  "name": "Premier League",
+  "type": "league",
+  "country": "England",
+  "season": "2025-2026",
+  "format": {
+    "standings": true,
+    "groups": false,
+    "knockout": false
+  }
+}

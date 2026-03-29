@@ -1,0 +1,13 @@
+{
+  "id": "bundesliga-2025-2026",
+  "slug": "bundesliga",
+  "name": "Bundesliga",
+  "type": "league",
+  "country": "Germany",
+  "season": "2025-2026",
+  "format": {
+    "standings": true,
+    "groups": false,
+    "knockout": false
+  }
+}

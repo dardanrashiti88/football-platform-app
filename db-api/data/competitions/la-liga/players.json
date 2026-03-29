@@ -1,0 +1,3122 @@
+[
+  {
+    "id": "joan-garcia-barcelona",
+    "name": "Joan Garcia",
+    "teamId": "fc-barcelona",
+    "teamName": "FC Barcelona",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Spain"
+  },
+  {
+    "id": "wojciech-szczesny-barcelona",
+    "name": "Wojciech Szczesny",
+    "teamId": "fc-barcelona",
+    "teamName": "FC Barcelona",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Poland"
+  },
+  {
+    "id": "joao-cancelo-barcelona",
+    "name": "Joao Cancelo",
+    "teamId": "fc-barcelona",
+    "teamName": "FC Barcelona",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Portugal"
+  },
+  {
+    "id": "alejandro-balde-barcelona",
+    "name": "Alejandro Balde",
+    "teamId": "fc-barcelona",
+    "teamName": "FC Barcelona",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Spain"
+  },
+  {
+    "id": "ronald-araujo-barcelona",
+    "name": "Ronald Araujo",
+    "teamId": "fc-barcelona",
+    "teamName": "FC Barcelona",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Uruguay"
+  },
+  {
+    "id": "pau-cubarsi-barcelona",
+    "name": "Pau Cubarsi",
+    "teamId": "fc-barcelona",
+    "teamName": "FC Barcelona",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Spain"
+  },
+  {
+    "id": "andreas-christensen-barcelona",
+    "name": "Andreas Christensen",
+    "teamId": "fc-barcelona",
+    "teamName": "FC Barcelona",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Denmark"
+  },
+  {
+    "id": "jules-kounde-barcelona",
+    "name": "Jules Kounde",
+    "teamId": "fc-barcelona",
+    "teamName": "FC Barcelona",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "France"
+  },
+  {
+    "id": "eric-garcia-barcelona",
+    "name": "Eric Garcia",
+    "teamId": "fc-barcelona",
+    "teamName": "FC Barcelona",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Spain"
+  },
+  {
+    "id": "gerard-martin-barcelona",
+    "name": "Gerard Martin",
+    "teamId": "fc-barcelona",
+    "teamName": "FC Barcelona",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Spain"
+  },
+  {
+    "id": "gavi-barcelona",
+    "name": "Gavi",
+    "teamId": "fc-barcelona",
+    "teamName": "FC Barcelona",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Spain"
+  },
+  {
+    "id": "pedri-barcelona",
+    "name": "Pedri",
+    "teamId": "fc-barcelona",
+    "teamName": "FC Barcelona",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Spain"
+  },
+  {
+    "id": "fermin-lopez-barcelona",
+    "name": "Fermin Lopez",
+    "teamId": "fc-barcelona",
+    "teamName": "FC Barcelona",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Spain"
+  },
+  {
+    "id": "marc-casado-barcelona",
+    "name": "Marc Casado",
+    "teamId": "fc-barcelona",
+    "teamName": "FC Barcelona",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Spain"
+  },
+  {
+    "id": "dani-olmo-barcelona",
+    "name": "Dani Olmo",
+    "teamId": "fc-barcelona",
+    "teamName": "FC Barcelona",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Spain"
+  },
+  {
+    "id": "frenkie-de-jong-barcelona",
+    "name": "Frenkie de Jong",
+    "teamId": "fc-barcelona",
+    "teamName": "FC Barcelona",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Netherlands"
+  },
+  {
+    "id": "marc-bernal-barcelona",
+    "name": "Marc Bernal",
+    "teamId": "fc-barcelona",
+    "teamName": "FC Barcelona",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Spain"
+  },
+  {
+    "id": "ferran-torres-barcelona",
+    "name": "Ferran Torres",
+    "teamId": "fc-barcelona",
+    "teamName": "FC Barcelona",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Spain"
+  },
+  {
+    "id": "robert-lewandowski-barcelona",
+    "name": "Robert Lewandowski",
+    "teamId": "fc-barcelona",
+    "teamName": "FC Barcelona",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Poland"
+  },
+  {
+    "id": "lamine-yamal-barcelona",
+    "name": "Lamine Yamal",
+    "teamId": "fc-barcelona",
+    "teamName": "FC Barcelona",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Spain"
+  },
+  {
+    "id": "raphinha-barcelona",
+    "name": "Raphinha",
+    "teamId": "fc-barcelona",
+    "teamName": "FC Barcelona",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Brazil"
+  },
+  {
+    "id": "marcus-rashford-barcelona",
+    "name": "Marcus Rashford",
+    "teamId": "fc-barcelona",
+    "teamName": "FC Barcelona",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "England"
+  },
+  {
+    "id": "roony-bardghji-barcelona",
+    "name": "Roony Bardghji",
+    "teamId": "fc-barcelona",
+    "teamName": "FC Barcelona",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Sweden"
+  },
+  {
+    "id": "thibaut-courtois-real-madrid",
+    "name": "Thibaut Courtois",
+    "teamId": "real-madrid",
+    "teamName": "Real Madrid",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Belgium"
+  },
+  {
+    "id": "andriy-lunin-real-madrid",
+    "name": "Andriy Lunin",
+    "teamId": "real-madrid",
+    "teamName": "Real Madrid",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Ukraine"
+  },
+  {
+    "id": "gonzalo-garcia-real-madrid",
+    "name": "Gonzalo Garcia",
+    "teamId": "real-madrid",
+    "teamName": "Real Madrid",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Spain"
+  },
+  {
+    "id": "dani-carvajal-real-madrid",
+    "name": "Dani Carvajal",
+    "teamId": "real-madrid",
+    "teamName": "Real Madrid",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Spain"
+  },
+  {
+    "id": "eder-militao-real-madrid",
+    "name": "Eder Militao",
+    "teamId": "real-madrid",
+    "teamName": "Real Madrid",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Brazil"
+  },
+  {
+    "id": "antonio-rudiger-real-madrid",
+    "name": "Antonio Rudiger",
+    "teamId": "real-madrid",
+    "teamName": "Real Madrid",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Germany"
+  },
+  {
+    "id": "dean-huijsen-real-madrid",
+    "name": "Dean Huijsen",
+    "teamId": "real-madrid",
+    "teamName": "Real Madrid",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Spain"
+  },
+  {
+    "id": "ferland-mendy-real-madrid",
+    "name": "Ferland Mendy",
+    "teamId": "real-madrid",
+    "teamName": "Real Madrid",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "France"
+  },
+  {
+    "id": "alvaro-carreras-real-madrid",
+    "name": "Alvaro Carreras",
+    "teamId": "real-madrid",
+    "teamName": "Real Madrid",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Spain"
+  },
+  {
+    "id": "trent-alexander-arnold-real-madrid",
+    "name": "Trent Alexander-Arnold",
+    "teamId": "real-madrid",
+    "teamName": "Real Madrid",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "England"
+  },
+  {
+    "id": "jude-bellingham-real-madrid",
+    "name": "Jude Bellingham",
+    "teamId": "real-madrid",
+    "teamName": "Real Madrid",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "England"
+  },
+  {
+    "id": "fede-valverde-real-madrid",
+    "name": "Fede Valverde",
+    "teamId": "real-madrid",
+    "teamName": "Real Madrid",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Uruguay"
+  },
+  {
+    "id": "eduardo-camavinga-real-madrid",
+    "name": "Eduardo Camavinga",
+    "teamId": "real-madrid",
+    "teamName": "Real Madrid",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "France"
+  },
+  {
+    "id": "aurelien-tchouameni-real-madrid",
+    "name": "Aurelien Tchouameni",
+    "teamId": "real-madrid",
+    "teamName": "Real Madrid",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "France"
+  },
+  {
+    "id": "brahim-diaz-real-madrid",
+    "name": "Brahim Diaz",
+    "teamId": "real-madrid",
+    "teamName": "Real Madrid",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Spain"
+  },
+  {
+    "id": "arda-guler-real-madrid",
+    "name": "Arda Guler",
+    "teamId": "real-madrid",
+    "teamName": "Real Madrid",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Turkey"
+  },
+  {
+    "id": "franco-mastantuono-real-madrid",
+    "name": "Franco Mastantuono",
+    "teamId": "real-madrid",
+    "teamName": "Real Madrid",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Argentina"
+  },
+  {
+    "id": "kylian-mbappe-real-madrid",
+    "name": "Kylian Mbappe",
+    "teamId": "real-madrid",
+    "teamName": "Real Madrid",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "France"
+  },
+  {
+    "id": "vinicius-junior-real-madrid",
+    "name": "Vinicius Junior",
+    "teamId": "real-madrid",
+    "teamName": "Real Madrid",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Brazil"
+  },
+  {
+    "id": "endrick-real-madrid",
+    "name": "Endrick",
+    "teamId": "real-madrid",
+    "teamName": "Real Madrid",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Brazil"
+  },
+  {
+    "id": "filip-jorgensen-villarreal",
+    "name": "Filip Jorgensen",
+    "teamId": "villarreal-cf",
+    "teamName": "Villarreal CF",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Denmark"
+  },
+  {
+    "id": "sergio-asenjo-villarreal",
+    "name": "Sergio Asenjo",
+    "teamId": "villarreal-cf",
+    "teamName": "Villarreal CF",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Spain"
+  },
+  {
+    "id": "juan-foyth-villarreal",
+    "name": "Juan Foyth",
+    "teamId": "villarreal-cf",
+    "teamName": "Villarreal CF",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Argentina"
+  },
+  {
+    "id": "raul-albiol-villarreal",
+    "name": "Raul Albiol",
+    "teamId": "villarreal-cf",
+    "teamName": "Villarreal CF",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Spain"
+  },
+  {
+    "id": "alphonse-areola-villarreal",
+    "name": "Jorge Cuenca",
+    "teamId": "villarreal-cf",
+    "teamName": "Villarreal CF",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Spain"
+  },
+  {
+    "id": "pepe-reina-villarreal",
+    "name": "Alfonso Pedraza",
+    "teamId": "villarreal-cf",
+    "teamName": "Villarreal CF",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Spain"
+  },
+  {
+    "id": "aissa-mandi-villarreal",
+    "name": "Aissa Mandi",
+    "teamId": "villarreal-cf",
+    "teamName": "Villarreal CF",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Algeria"
+  },
+  {
+    "id": "marc-ferra-villarreal",
+    "name": "Marc Ferra",
+    "teamId": "villarreal-cf",
+    "teamName": "Villarreal CF",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Spain"
+  },
+  {
+    "id": "alex-baena-villarreal",
+    "name": "Alex Baena",
+    "teamId": "villarreal-cf",
+    "teamName": "Villarreal CF",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Spain"
+  },
+  {
+    "id": "etienne-capoue-villarreal",
+    "name": "Etienne Capoue",
+    "teamId": "villarreal-cf",
+    "teamName": "Villarreal CF",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "France"
+  },
+  {
+    "id": "goncalo-guedes-villarreal",
+    "name": "Goncalo Guedes",
+    "teamId": "villarreal-cf",
+    "teamName": "Villarreal CF",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Portugal"
+  },
+  {
+    "id": "juan-bernat-villarreal",
+    "name": "Nicolas Pepe",
+    "teamId": "villarreal-cf",
+    "teamName": "Villarreal CF",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Ivory Coast"
+  },
+  {
+    "id": "yeremi-pino-villarreal",
+    "name": "Yeremi Pino",
+    "teamId": "villarreal-cf",
+    "teamName": "Villarreal CF",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Spain"
+  },
+  {
+    "id": "arnaut-danjuma-villarreal",
+    "name": "Arnaut Danjuma",
+    "teamId": "villarreal-cf",
+    "teamName": "Villarreal CF",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Netherlands"
+  },
+  {
+    "id": "ayoze-perez-villarreal",
+    "name": "Ayoze Perez",
+    "teamId": "villarreal-cf",
+    "teamName": "Villarreal CF",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Spain"
+  },
+  {
+    "id": "jose-luis-morales-villarreal",
+    "name": "Alexander Sorloth",
+    "teamId": "villarreal-cf",
+    "teamName": "Villarreal CF",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Norway"
+  },
+  {
+    "id": "jan-oblak-atletico",
+    "name": "Jan Oblak",
+    "teamId": "atletico-madrid",
+    "teamName": "Atletico Madrid",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Slovenia"
+  },
+  {
+    "id": "antonio-adan-atletico",
+    "name": "Antonio Adan",
+    "teamId": "atletico-madrid",
+    "teamName": "Atletico Madrid",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Spain"
+  },
+  {
+    "id": "nahuel-molina-atletico",
+    "name": "Nahuel Molina",
+    "teamId": "atletico-madrid",
+    "teamName": "Atletico Madrid",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Argentina"
+  },
+  {
+    "id": "jose-gimenez-atletico",
+    "name": "Jose Gimenez",
+    "teamId": "atletico-madrid",
+    "teamName": "Atletico Madrid",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Uruguay"
+  },
+  {
+    "id": "robin-le-normand-atletico",
+    "name": "Robin Le Normand",
+    "teamId": "atletico-madrid",
+    "teamName": "Atletico Madrid",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Spain"
+  },
+  {
+    "id": "clement-lenglet-atletico",
+    "name": "Clement Lenglet",
+    "teamId": "atletico-madrid",
+    "teamName": "Atletico Madrid",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "France"
+  },
+  {
+    "id": "reinildo-atletico",
+    "name": "Reinildo",
+    "teamId": "atletico-madrid",
+    "teamName": "Atletico Madrid",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Mozambique"
+  },
+  {
+    "id": "javi-galan-atletico",
+    "name": "Javi Galan",
+    "teamId": "atletico-madrid",
+    "teamName": "Atletico Madrid",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Spain"
+  },
+  {
+    "id": "cesar-azpilicueta-atletico",
+    "name": "Cesar Azpilicueta",
+    "teamId": "atletico-madrid",
+    "teamName": "Atletico Madrid",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Spain"
+  },
+  {
+    "id": "koke-atletico",
+    "name": "Koke",
+    "teamId": "atletico-madrid",
+    "teamName": "Atletico Madrid",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Spain"
+  },
+  {
+    "id": "pablo-barrios-atletico",
+    "name": "Pablo Barrios",
+    "teamId": "atletico-madrid",
+    "teamName": "Atletico Madrid",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Spain"
+  },
+  {
+    "id": "rodrigo-de-paul-atletico",
+    "name": "Rodrigo De Paul",
+    "teamId": "atletico-madrid",
+    "teamName": "Atletico Madrid",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Argentina"
+  },
+  {
+    "id": "marcos-llorente-atletico",
+    "name": "Marcos Llorente",
+    "teamId": "atletico-madrid",
+    "teamName": "Atletico Madrid",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Spain"
+  },
+  {
+    "id": "saul-niguez-atletico",
+    "name": "Saul Niguez",
+    "teamId": "atletico-madrid",
+    "teamName": "Atletico Madrid",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Spain"
+  },
+  {
+    "id": "julian-alvarez-atletico",
+    "name": "Julian Alvarez",
+    "teamId": "atletico-madrid",
+    "teamName": "Atletico Madrid",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Argentina"
+  },
+  {
+    "id": "antoine-griezmann-atletico",
+    "name": "Antoine Griezmann",
+    "teamId": "atletico-madrid",
+    "teamName": "Atletico Madrid",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "France"
+  },
+  {
+    "id": "angel-correa-atletico",
+    "name": "Angel Correa",
+    "teamId": "atletico-madrid",
+    "teamName": "Atletico Madrid",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Argentina"
+  },
+  {
+    "id": "thomas-lemar-atletico",
+    "name": "Thomas Lemar",
+    "teamId": "atletico-madrid",
+    "teamName": "Atletico Madrid",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "France"
+  },
+  {
+    "id": "rui-silva-betis",
+    "name": "Rui Silva",
+    "teamId": "real-betis",
+    "teamName": "Real Betis Seville",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Portugal"
+  },
+  {
+    "id": "fran-vieites-betis",
+    "name": "Fran Vieites",
+    "teamId": "real-betis",
+    "teamName": "Real Betis Seville",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Spain"
+  },
+  {
+    "id": "hector-bellerin-betis",
+    "name": "Hector Bellerin",
+    "teamId": "real-betis",
+    "teamName": "Real Betis Seville",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Spain"
+  },
+  {
+    "id": "marc-bartra-betis",
+    "name": "Marc Bartra",
+    "teamId": "real-betis",
+    "teamName": "Real Betis Seville",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Spain"
+  },
+  {
+    "id": "youssouf-sabaly-betis",
+    "name": "Youssouf Sabaly",
+    "teamId": "real-betis",
+    "teamName": "Real Betis Seville",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Senegal"
+  },
+  {
+    "id": "juan-miranda-betis",
+    "name": "Juan Miranda",
+    "teamId": "real-betis",
+    "teamName": "Real Betis Seville",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Spain"
+  },
+  {
+    "id": "german-pezzella-betis",
+    "name": "German Pezzella",
+    "teamId": "real-betis",
+    "teamName": "Real Betis Seville",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Argentina"
+  },
+  {
+    "id": "guido-rodriguez-betis",
+    "name": "Guido Rodriguez",
+    "teamId": "real-betis",
+    "teamName": "Real Betis Seville",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Argentina"
+  },
+  {
+    "id": "isco-betis",
+    "name": "Isco",
+    "teamId": "real-betis",
+    "teamName": "Real Betis Seville",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Spain"
+  },
+  {
+    "id": "william-carvalho-betis",
+    "name": "William Carvalho",
+    "teamId": "real-betis",
+    "teamName": "Real Betis Seville",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Portugal"
+  },
+  {
+    "id": "nabil-fekir-betis",
+    "name": "Nabil Fekir",
+    "teamId": "real-betis",
+    "teamName": "Real Betis Seville",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "France"
+  },
+  {
+    "id": "juanmi-betis",
+    "name": "Juanmi",
+    "teamId": "real-betis",
+    "teamName": "Real Betis Seville",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Spain"
+  },
+  {
+    "id": "aitor-ruibal-betis",
+    "name": "Aitor Ruibal",
+    "teamId": "real-betis",
+    "teamName": "Real Betis Seville",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Spain"
+  },
+  {
+    "id": "antony-betis",
+    "name": "Antony",
+    "teamId": "real-betis",
+    "teamName": "Real Betis Seville",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Brazil"
+  },
+  {
+    "id": "borja-iglesias-betis",
+    "name": "Borja Iglesias",
+    "teamId": "real-betis",
+    "teamName": "Real Betis Seville",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Spain"
+  },
+  {
+    "id": "ez-abde-betis",
+    "name": "Ez Abde",
+    "teamId": "real-betis",
+    "teamName": "Real Betis Seville",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Morocco"
+  },
+  {
+    "id": "ivan-villar-celta",
+    "name": "Ivan Villar",
+    "teamId": "rc-celta-vigo",
+    "teamName": "RC Celta de Vigo",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Spain"
+  },
+  {
+    "id": "matias-dituro-celta",
+    "name": "Matias Dituro",
+    "teamId": "rc-celta-vigo",
+    "teamName": "RC Celta de Vigo",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Argentina"
+  },
+  {
+    "id": "hugo-mallo-celta",
+    "name": "Hugo Mallo",
+    "teamId": "rc-celta-vigo",
+    "teamName": "RC Celta de Vigo",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Spain"
+  },
+  {
+    "id": "oscar-mingueza-celta",
+    "name": "Oscar Mingueza",
+    "teamId": "rc-celta-vigo",
+    "teamName": "RC Celta de Vigo",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Spain"
+  },
+  {
+    "id": "joseph-aidoo-celta",
+    "name": "Joseph Aidoo",
+    "teamId": "rc-celta-vigo",
+    "teamName": "RC Celta de Vigo",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Ghana"
+  },
+  {
+    "id": "jailson-celta",
+    "name": "Jailson",
+    "teamId": "rc-celta-vigo",
+    "teamName": "RC Celta de Vigo",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Brazil"
+  },
+  {
+    "id": "miguel-rodriguez-celta",
+    "name": "Marcos Alonso",
+    "teamId": "rc-celta-vigo",
+    "teamName": "RC Celta de Vigo",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Spain"
+  },
+  {
+    "id": "renato-tapia-celta",
+    "name": "Renato Tapia",
+    "teamId": "rc-celta-vigo",
+    "teamName": "RC Celta de Vigo",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Peru"
+  },
+  {
+    "id": "franco-cervi-celta",
+    "name": "Franco Cervi",
+    "teamId": "rc-celta-vigo",
+    "teamName": "RC Celta de Vigo",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Argentina"
+  },
+  {
+    "id": "luca-de-la-torre-celta",
+    "name": "Luca de la Torre",
+    "teamId": "rc-celta-vigo",
+    "teamName": "RC Celta de Vigo",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "United States"
+  },
+  {
+    "id": "augusto-solari-celta",
+    "name": "Augusto Solari",
+    "teamId": "rc-celta-vigo",
+    "teamName": "RC Celta de Vigo",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Argentina"
+  },
+  {
+    "id": "iago-aspas-celta",
+    "name": "Iago Aspas",
+    "teamId": "rc-celta-vigo",
+    "teamName": "RC Celta de Vigo",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Spain"
+  },
+  {
+    "id": "jorgen-strand-larsen-celta",
+    "name": "Jorgen Strand Larsen",
+    "teamId": "rc-celta-vigo",
+    "teamName": "RC Celta de Vigo",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Norway"
+  },
+  {
+    "id": "williot-swedberg-celta",
+    "name": "Williot Swedberg",
+    "teamId": "rc-celta-vigo",
+    "teamName": "RC Celta de Vigo",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Sweden"
+  },
+  {
+    "id": "pablo-duran-celta",
+    "name": "Anastasios Douvikas",
+    "teamId": "rc-celta-vigo",
+    "teamName": "RC Celta de Vigo",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Greece"
+  },
+  {
+    "id": "alex-remiro-sociedad",
+    "name": "Alex Remiro",
+    "teamId": "real-sociedad",
+    "teamName": "Real Sociedad",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Spain"
+  },
+  {
+    "id": "unai-marrero-sociedad",
+    "name": "Unai Marrero",
+    "teamId": "real-sociedad",
+    "teamName": "Real Sociedad",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Spain"
+  },
+  {
+    "id": "andoni-gorosabel-sociedad",
+    "name": "Andoni Gorosabel",
+    "teamId": "real-sociedad",
+    "teamName": "Real Sociedad",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Spain"
+  },
+  {
+    "id": "aritz-elustondo-sociedad",
+    "name": "Aritz Elustondo",
+    "teamId": "real-sociedad",
+    "teamName": "Real Sociedad",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Spain"
+  },
+  {
+    "id": "igor-zubeldia-sociedad",
+    "name": "Igor Zubeldia",
+    "teamId": "real-sociedad",
+    "teamName": "Real Sociedad",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Spain"
+  },
+  {
+    "id": "aihen-munoz-sociedad",
+    "name": "Aihen Munoz",
+    "teamId": "real-sociedad",
+    "teamName": "Real Sociedad",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Spain"
+  },
+  {
+    "id": "hamari-traore-sociedad",
+    "name": "Hamari Traore",
+    "teamId": "real-sociedad",
+    "teamName": "Real Sociedad",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Mali"
+  },
+  {
+    "id": "takefusa-kubo-sociedad",
+    "name": "Takefusa Kubo",
+    "teamId": "real-sociedad",
+    "teamName": "Real Sociedad",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Japan"
+  },
+  {
+    "id": "martin-zubimendi-sociedad",
+    "name": "Martin Zubimendi",
+    "teamId": "real-sociedad",
+    "teamName": "Real Sociedad",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Spain"
+  },
+  {
+    "id": "brais-mendez-sociedad",
+    "name": "Brais Mendez",
+    "teamId": "real-sociedad",
+    "teamName": "Real Sociedad",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Spain"
+  },
+  {
+    "id": "ander-barrenetxea-sociedad",
+    "name": "Ander Barrenetxea",
+    "teamId": "real-sociedad",
+    "teamName": "Real Sociedad",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Spain"
+  },
+  {
+    "id": "petar-musa-sociedad",
+    "name": "Petar Musa",
+    "teamId": "real-sociedad",
+    "teamName": "Real Sociedad",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Croatia"
+  },
+  {
+    "id": "mikel-oyarzabal-sociedad",
+    "name": "Mikel Oyarzabal",
+    "teamId": "real-sociedad",
+    "teamName": "Real Sociedad",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Spain"
+  },
+  {
+    "id": "sheraldo-becker-sociedad",
+    "name": "Sheraldo Becker",
+    "teamId": "real-sociedad",
+    "teamName": "Real Sociedad",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Netherlands"
+  },
+  {
+    "id": "oscar-rodriguez-sociedad",
+    "name": "Oscar Rodriguez",
+    "teamId": "real-sociedad",
+    "teamName": "Real Sociedad",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Spain"
+  },
+  {
+    "id": "david-soria-getafe",
+    "name": "David Soria",
+    "teamId": "getafe-cf",
+    "teamName": "Getafe CF",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Spain"
+  },
+  {
+    "id": "ian-mackay-getafe",
+    "name": "David Timor",
+    "teamId": "getafe-cf",
+    "teamName": "Getafe CF",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Spain"
+  },
+  {
+    "id": "djene-dakonam-getafe",
+    "name": "Djene Dakonam",
+    "teamId": "getafe-cf",
+    "teamName": "Getafe CF",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Togo"
+  },
+  {
+    "id": "stefan-mitrovic-getafe",
+    "name": "Stefan Mitrovic",
+    "teamId": "getafe-cf",
+    "teamName": "Getafe CF",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Serbia"
+  },
+  {
+    "id": "jose-angel-getafe",
+    "name": "Jose Angel",
+    "teamId": "getafe-cf",
+    "teamName": "Getafe CF",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Spain"
+  },
+  {
+    "id": "damian-suarez-getafe",
+    "name": "Damian Suarez",
+    "teamId": "getafe-cf",
+    "teamName": "Getafe CF",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Uruguay"
+  },
+  {
+    "id": "mathias-olivera-getafe",
+    "name": "Pedro Ortiz",
+    "teamId": "getafe-cf",
+    "teamName": "Getafe CF",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Spain"
+  },
+  {
+    "id": "mauro-arambarri-getafe",
+    "name": "Mauro Arambarri",
+    "teamId": "getafe-cf",
+    "teamName": "Getafe CF",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Uruguay"
+  },
+  {
+    "id": "carles-alena-getafe",
+    "name": "Carles Alena",
+    "teamId": "getafe-cf",
+    "teamName": "Getafe CF",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Spain"
+  },
+  {
+    "id": "roberto-ramajo-getafe",
+    "name": "Luis Milla",
+    "teamId": "getafe-cf",
+    "teamName": "Getafe CF",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Spain"
+  },
+  {
+    "id": "jakub-jankto-getafe",
+    "name": "Jakub Jankto",
+    "teamId": "getafe-cf",
+    "teamName": "Getafe CF",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Czech Republic"
+  },
+  {
+    "id": "enes-unal-getafe",
+    "name": "Enes Unal",
+    "teamId": "getafe-cf",
+    "teamName": "Getafe CF",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Turkey"
+  },
+  {
+    "id": "borja-mayoral-getafe",
+    "name": "Borja Mayoral",
+    "teamId": "getafe-cf",
+    "teamName": "Getafe CF",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Spain"
+  },
+  {
+    "id": "mason-greenwood-getafe",
+    "name": "Mason Greenwood",
+    "teamId": "getafe-cf",
+    "teamName": "Getafe CF",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "England"
+  },
+  {
+    "id": "chrisantus-uche-getafe",
+    "name": "Chrisantus Uche",
+    "teamId": "getafe-cf",
+    "teamName": "Getafe CF",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Nigeria"
+  },
+  {
+    "id": "joan-garcia-espanyol",
+    "name": "Joan Garcia",
+    "teamId": "espanyol-barcelona",
+    "teamName": "Espanyol Barcelona",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Spain"
+  },
+  {
+    "id": "carlos-ortega-espanyol",
+    "name": "Carlos Ortega",
+    "teamId": "espanyol-barcelona",
+    "teamName": "Espanyol Barcelona",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Spain"
+  },
+  {
+    "id": "leandro-cabrera-espanyol",
+    "name": "Leandro Cabrera",
+    "teamId": "espanyol-barcelona",
+    "teamName": "Espanyol Barcelona",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Uruguay"
+  },
+  {
+    "id": "sergi-gomez-espanyol",
+    "name": "Sergi Gomez",
+    "teamId": "espanyol-barcelona",
+    "teamName": "Espanyol Barcelona",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Spain"
+  },
+  {
+    "id": "fernando-calero-espanyol",
+    "name": "Fernando Calero",
+    "teamId": "espanyol-barcelona",
+    "teamName": "Espanyol Barcelona",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Spain"
+  },
+  {
+    "id": "martin-garcia-espanyol",
+    "name": "Martin Garcia",
+    "teamId": "espanyol-barcelona",
+    "teamName": "Espanyol Barcelona",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Spain"
+  },
+  {
+    "id": "brian-olivan-espanyol",
+    "name": "Brian Olivan",
+    "teamId": "espanyol-barcelona",
+    "teamName": "Espanyol Barcelona",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Spain"
+  },
+  {
+    "id": "pol-lozano-espanyol",
+    "name": "Pol Lozano",
+    "teamId": "espanyol-barcelona",
+    "teamName": "Espanyol Barcelona",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Spain"
+  },
+  {
+    "id": "esteban-granero-espanyol",
+    "name": "Omar El Hilali",
+    "teamId": "espanyol-barcelona",
+    "teamName": "Espanyol Barcelona",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Morocco"
+  },
+  {
+    "id": "ruben-sanchez-espanyol",
+    "name": "Ruben Sanchez",
+    "teamId": "espanyol-barcelona",
+    "teamName": "Espanyol Barcelona",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Spain"
+  },
+  {
+    "id": "keidi-bare-espanyol",
+    "name": "Keidi Bare",
+    "teamId": "espanyol-barcelona",
+    "teamName": "Espanyol Barcelona",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Albania"
+  },
+  {
+    "id": "alejo-veliz-espanyol",
+    "name": "Alejo Veliz",
+    "teamId": "espanyol-barcelona",
+    "teamName": "Espanyol Barcelona",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Argentina"
+  },
+  {
+    "id": "javi-puado-espanyol",
+    "name": "Javi Puado",
+    "teamId": "espanyol-barcelona",
+    "teamName": "Espanyol Barcelona",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Spain"
+  },
+  {
+    "id": "christian-stuani-espanyol",
+    "name": "Abde Ezzalzouli",
+    "teamId": "espanyol-barcelona",
+    "teamName": "Espanyol Barcelona",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Morocco"
+  },
+  {
+    "id": "sergio-herrera-osasuna",
+    "name": "Sergio Herrera",
+    "teamId": "ca-osasuna",
+    "teamName": "CA Osasuna",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Spain"
+  },
+  {
+    "id": "aitor-fernandez-osasuna",
+    "name": "Aitor Fernandez",
+    "teamId": "ca-osasuna",
+    "teamName": "CA Osasuna",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Spain"
+  },
+  {
+    "id": "nacho-vidal-osasuna",
+    "name": "Nacho Vidal",
+    "teamId": "ca-osasuna",
+    "teamName": "CA Osasuna",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Spain"
+  },
+  {
+    "id": "david-garcia-osasuna",
+    "name": "David Garcia",
+    "teamId": "ca-osasuna",
+    "teamName": "CA Osasuna",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Spain"
+  },
+  {
+    "id": "juan-cruz-osasuna",
+    "name": "Juan Cruz",
+    "teamId": "ca-osasuna",
+    "teamName": "CA Osasuna",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Spain"
+  },
+  {
+    "id": "unai-garcia-osasuna",
+    "name": "Unai Garcia",
+    "teamId": "ca-osasuna",
+    "teamName": "CA Osasuna",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Spain"
+  },
+  {
+    "id": "moncayola-osasuna",
+    "name": "Jon Moncayola",
+    "teamId": "ca-osasuna",
+    "teamName": "CA Osasuna",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Spain"
+  },
+  {
+    "id": "lucas-torro-osasuna",
+    "name": "Lucas Torro",
+    "teamId": "ca-osasuna",
+    "teamName": "CA Osasuna",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Spain"
+  },
+  {
+    "id": "darko-brasanac-osasuna",
+    "name": "Darko Brasanac",
+    "teamId": "ca-osasuna",
+    "teamName": "CA Osasuna",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Serbia"
+  },
+  {
+    "id": "pablo-ibanez-osasuna",
+    "name": "Pablo Ibanez",
+    "teamId": "ca-osasuna",
+    "teamName": "CA Osasuna",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Spain"
+  },
+  {
+    "id": "abde-osasuna",
+    "name": "Abde Ezzalzouli",
+    "teamId": "ca-osasuna",
+    "teamName": "CA Osasuna",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Morocco"
+  },
+  {
+    "id": "ante-budimir-osasuna",
+    "name": "Ante Budimir",
+    "teamId": "ca-osasuna",
+    "teamName": "CA Osasuna",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Croatia"
+  },
+  {
+    "id": "ezequiel-avila-osasuna",
+    "name": "Chimy Avila",
+    "teamId": "ca-osasuna",
+    "teamName": "CA Osasuna",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Argentina"
+  },
+  {
+    "id": "bryan-zaragoza-osasuna",
+    "name": "Bryan Zaragoza",
+    "teamId": "ca-osasuna",
+    "teamName": "CA Osasuna",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Spain"
+  },
+  {
+    "id": "iker-munoz-osasuna",
+    "name": "Iker Munoz",
+    "teamId": "ca-osasuna",
+    "teamName": "CA Osasuna",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Spain"
+  },
+  {
+    "id": "unai-simon-athletic",
+    "name": "Unai Simon",
+    "teamId": "athletic-bilbao",
+    "teamName": "Athletic Bilbao",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Spain"
+  },
+  {
+    "id": "julen-agirrezabala-athletic",
+    "name": "Julen Agirrezabala",
+    "teamId": "athletic-bilbao",
+    "teamName": "Athletic Bilbao",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Spain"
+  },
+  {
+    "id": "dani-vivian-athletic",
+    "name": "Dani Vivian",
+    "teamId": "athletic-bilbao",
+    "teamName": "Athletic Bilbao",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Spain"
+  },
+  {
+    "id": "yeray-alvarez-athletic",
+    "name": "Yeray Alvarez",
+    "teamId": "athletic-bilbao",
+    "teamName": "Athletic Bilbao",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Spain"
+  },
+  {
+    "id": "mikel-jauregizar-athletic",
+    "name": "Mikel Jauregizar",
+    "teamId": "athletic-bilbao",
+    "teamName": "Athletic Bilbao",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Spain"
+  },
+  {
+    "id": "mikel-balenziaga-athletic",
+    "name": "Yuri Berchiche",
+    "teamId": "athletic-bilbao",
+    "teamName": "Athletic Bilbao",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Spain"
+  },
+  {
+    "id": "oscar-de-marcos-athletic",
+    "name": "Oscar de Marcos",
+    "teamId": "athletic-bilbao",
+    "teamName": "Athletic Bilbao",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Spain"
+  },
+  {
+    "id": "oihan-sancet-athletic",
+    "name": "Oihan Sancet",
+    "teamId": "athletic-bilbao",
+    "teamName": "Athletic Bilbao",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Spain"
+  },
+  {
+    "id": "ander-herrera-athletic",
+    "name": "Ander Herrera",
+    "teamId": "athletic-bilbao",
+    "teamName": "Athletic Bilbao",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Spain"
+  },
+  {
+    "id": "dani-garcia-athletic",
+    "name": "Dani Garcia",
+    "teamId": "athletic-bilbao",
+    "teamName": "Athletic Bilbao",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Spain"
+  },
+  {
+    "id": "papi-gomez-athletic",
+    "name": "Unai Gomez",
+    "teamId": "athletic-bilbao",
+    "teamName": "Athletic Bilbao",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Spain"
+  },
+  {
+    "id": "benat-prados-athletic",
+    "name": "Benat Prados",
+    "teamId": "athletic-bilbao",
+    "teamName": "Athletic Bilbao",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Spain"
+  },
+  {
+    "id": "inaki-williams-athletic",
+    "name": "Inaki Williams",
+    "teamId": "athletic-bilbao",
+    "teamName": "Athletic Bilbao",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Ghana"
+  },
+  {
+    "id": "nico-williams-athletic",
+    "name": "Nico Williams",
+    "teamId": "athletic-bilbao",
+    "teamName": "Athletic Bilbao",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Spain"
+  },
+  {
+    "id": "gorka-guruzeta-athletic",
+    "name": "Gorka Guruzeta",
+    "teamId": "athletic-bilbao",
+    "teamName": "Athletic Bilbao",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Spain"
+  },
+  {
+    "id": "alex-berenguer-athletic",
+    "name": "Alex Berenguer",
+    "teamId": "athletic-bilbao",
+    "teamName": "Athletic Bilbao",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Spain"
+  },
+  {
+    "id": "paulo-gazzaniga-girona",
+    "name": "Paulo Gazzaniga",
+    "teamId": "girona-fc",
+    "teamName": "Girona FC",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Argentina"
+  },
+  {
+    "id": "juan-carlos-girona",
+    "name": "Juan Carlos",
+    "teamId": "girona-fc",
+    "teamName": "Girona FC",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Spain"
+  },
+  {
+    "id": "bernardo-martinez-girona",
+    "name": "Bernardo Martinez",
+    "teamId": "girona-fc",
+    "teamName": "Girona FC",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Spain"
+  },
+  {
+    "id": "eric-garcia-girona",
+    "name": "Eric Garcia",
+    "teamId": "girona-fc",
+    "teamName": "Girona FC",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Spain"
+  },
+  {
+    "id": "miguel-gutierrez-girona",
+    "name": "Miguel Gutierrez",
+    "teamId": "girona-fc",
+    "teamName": "Girona FC",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Spain"
+  },
+  {
+    "id": "ladislav-krejci-girona",
+    "name": "Ladislav Krejci",
+    "teamId": "girona-fc",
+    "teamName": "Girona FC",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Czech Republic"
+  },
+  {
+    "id": "oscar-mingueza-girona",
+    "name": "Oscar Mingueza",
+    "teamId": "girona-fc",
+    "teamName": "Girona FC",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Spain"
+  },
+  {
+    "id": "aleix-garcia-girona",
+    "name": "Aleix Garcia",
+    "teamId": "girona-fc",
+    "teamName": "Girona FC",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Spain"
+  },
+  {
+    "id": "oriol-romeu-girona",
+    "name": "Oriol Romeu",
+    "teamId": "girona-fc",
+    "teamName": "Girona FC",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Spain"
+  },
+  {
+    "id": "ivan-martin-girona",
+    "name": "Ivan Martin",
+    "teamId": "girona-fc",
+    "teamName": "Girona FC",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Spain"
+  },
+  {
+    "id": "yangel-herrera-girona",
+    "name": "Yangel Herrera",
+    "teamId": "girona-fc",
+    "teamName": "Girona FC",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Venezuela"
+  },
+  {
+    "id": "borja-garcia-girona",
+    "name": "Savio",
+    "teamId": "girona-fc",
+    "teamName": "Girona FC",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Brazil"
+  },
+  {
+    "id": "abel-ruiz-girona",
+    "name": "Abel Ruiz",
+    "teamId": "girona-fc",
+    "teamName": "Girona FC",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Spain"
+  },
+  {
+    "id": "cristhian-stuani-girona",
+    "name": "Cristhian Stuani",
+    "teamId": "girona-fc",
+    "teamName": "Girona FC",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Uruguay"
+  },
+  {
+    "id": "jhon-solis-girona",
+    "name": "Donny van de Beek",
+    "teamId": "girona-fc",
+    "teamName": "Girona FC",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Netherlands"
+  },
+  {
+    "id": "stole-dimitrievski-rayo",
+    "name": "Stole Dimitrievski",
+    "teamId": "rayo-vallecano",
+    "teamName": "Rayo Vallecano",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "North Macedonia"
+  },
+  {
+    "id": "luca-zidane-rayo",
+    "name": "Pedro Ortiz",
+    "teamId": "rayo-vallecano",
+    "teamName": "Rayo Vallecano",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Spain"
+  },
+  {
+    "id": "ivan-balliu-rayo",
+    "name": "Ivan Balliu",
+    "teamId": "rayo-vallecano",
+    "teamName": "Rayo Vallecano",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Albania"
+  },
+  {
+    "id": "alejandro-catena-rayo",
+    "name": "Alejandro Catena",
+    "teamId": "rayo-vallecano",
+    "teamName": "Rayo Vallecano",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Spain"
+  },
+  {
+    "id": "florian-lejeune-rayo",
+    "name": "Florian Lejeune",
+    "teamId": "rayo-vallecano",
+    "teamName": "Rayo Vallecano",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "France"
+  },
+  {
+    "id": "fran-garcia-rayo",
+    "name": "Fran Garcia",
+    "teamId": "rayo-vallecano",
+    "teamName": "Rayo Vallecano",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Spain"
+  },
+  {
+    "id": "jose-fontan-rayo",
+    "name": "Jose Fontan",
+    "teamId": "rayo-vallecano",
+    "teamName": "Rayo Vallecano",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Spain"
+  },
+  {
+    "id": "oscar-trejo-rayo",
+    "name": "Oscar Trejo",
+    "teamId": "rayo-vallecano",
+    "teamName": "Rayo Vallecano",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Argentina"
+  },
+  {
+    "id": "santi-comesana-rayo",
+    "name": "Santi Comesana",
+    "teamId": "rayo-vallecano",
+    "teamName": "Rayo Vallecano",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Spain"
+  },
+  {
+    "id": "unai-lopez-rayo",
+    "name": "Unai Lopez",
+    "teamId": "rayo-vallecano",
+    "teamName": "Rayo Vallecano",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Spain"
+  },
+  {
+    "id": "isi-palazon-rayo",
+    "name": "Isi Palazon",
+    "teamId": "rayo-vallecano",
+    "teamName": "Rayo Vallecano",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Spain"
+  },
+  {
+    "id": "pathian-rayo",
+    "name": "Pathian Lozano",
+    "teamId": "rayo-vallecano",
+    "teamName": "Rayo Vallecano",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Spain"
+  },
+  {
+    "id": "sergio-camello-rayo",
+    "name": "Sergio Camello",
+    "teamId": "rayo-vallecano",
+    "teamName": "Rayo Vallecano",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Spain"
+  },
+  {
+    "id": "raul-de-tomas-rayo",
+    "name": "Raul de Thomas",
+    "teamId": "rayo-vallecano",
+    "teamName": "Rayo Vallecano",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Spain"
+  },
+  {
+    "id": "alvaro-garcia-rayo",
+    "name": "Alvaro Garcia",
+    "teamId": "rayo-vallecano",
+    "teamName": "Rayo Vallecano",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Spain"
+  },
+  {
+    "id": "giorgi-mamardashvili-valencia",
+    "name": "Giorgi Mamardashvili",
+    "teamId": "valencia-cf",
+    "teamName": "Valencia CF",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Georgia"
+  },
+  {
+    "id": "jesus-coronado-valencia",
+    "name": "Jaume Domenech",
+    "teamId": "valencia-cf",
+    "teamName": "Valencia CF",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Spain"
+  },
+  {
+    "id": "cesar-tarrega-valencia",
+    "name": "Cesar Tarrega",
+    "teamId": "valencia-cf",
+    "teamName": "Valencia CF",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Spain"
+  },
+  {
+    "id": "thierry-correia-valencia",
+    "name": "Thierry Correia",
+    "teamId": "valencia-cf",
+    "teamName": "Valencia CF",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Portugal"
+  },
+  {
+    "id": "yarek-gasiorowski-valencia",
+    "name": "Yarek Gasiorowski",
+    "teamId": "valencia-cf",
+    "teamName": "Valencia CF",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Spain"
+  },
+  {
+    "id": "jose-gaya-valencia",
+    "name": "Jose Gaya",
+    "teamId": "valencia-cf",
+    "teamName": "Valencia CF",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Spain"
+  },
+  {
+    "id": "dimitri-foulquier-valencia",
+    "name": "Dimitri Foulquier",
+    "teamId": "valencia-cf",
+    "teamName": "Valencia CF",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "France"
+  },
+  {
+    "id": "hugo-guillamon-valencia",
+    "name": "Hugo Guillamon",
+    "teamId": "valencia-cf",
+    "teamName": "Valencia CF",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Spain"
+  },
+  {
+    "id": "javi-guerra-valencia",
+    "name": "Javi Guerra",
+    "teamId": "valencia-cf",
+    "teamName": "Valencia CF",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Spain"
+  },
+  {
+    "id": "andre-almeida-valencia",
+    "name": "Andre Almeida",
+    "teamId": "valencia-cf",
+    "teamName": "Valencia CF",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Portugal"
+  },
+  {
+    "id": "pepelu-valencia",
+    "name": "Pepelu",
+    "teamId": "valencia-cf",
+    "teamName": "Valencia CF",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Spain"
+  },
+  {
+    "id": "diego-lopez-valencia",
+    "name": "Diego Lopez",
+    "teamId": "valencia-cf",
+    "teamName": "Valencia CF",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Spain"
+  },
+  {
+    "id": "hugo-duro-valencia",
+    "name": "Hugo Duro",
+    "teamId": "valencia-cf",
+    "teamName": "Valencia CF",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Spain"
+  },
+  {
+    "id": "justin-kluivert-valencia",
+    "name": "Justin Kluivert",
+    "teamId": "valencia-cf",
+    "teamName": "Valencia CF",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Netherlands"
+  },
+  {
+    "id": "yassine-bounou-sevilla",
+    "name": "Yassine Bounou",
+    "teamId": "sevilla-fc",
+    "teamName": "Sevilla FC",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Morocco"
+  },
+  {
+    "id": "orjan-nyland-sevilla",
+    "name": "Orjan Nyland",
+    "teamId": "sevilla-fc",
+    "teamName": "Sevilla FC",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Norway"
+  },
+  {
+    "id": "marcos-acuna-sevilla",
+    "name": "Marcos Acuna",
+    "teamId": "sevilla-fc",
+    "teamName": "Sevilla FC",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Argentina"
+  },
+  {
+    "id": "loic-bade-sevilla",
+    "name": "Loic Bade",
+    "teamId": "sevilla-fc",
+    "teamName": "Sevilla FC",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "France"
+  },
+  {
+    "id": "gonzalo-montiel-sevilla",
+    "name": "Gonzalo Montiel",
+    "teamId": "sevilla-fc",
+    "teamName": "Sevilla FC",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Argentina"
+  },
+  {
+    "id": "adria-pedrosa-sevilla",
+    "name": "Adria Pedrosa",
+    "teamId": "sevilla-fc",
+    "teamName": "Sevilla FC",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Spain"
+  },
+  {
+    "id": "tanguy-nianzou-sevilla",
+    "name": "Tanguy Nianzou",
+    "teamId": "sevilla-fc",
+    "teamName": "Sevilla FC",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "France"
+  },
+  {
+    "id": "nemanja-gudelj-sevilla",
+    "name": "Nemanja Gudelj",
+    "teamId": "sevilla-fc",
+    "teamName": "Sevilla FC",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Serbia"
+  },
+  {
+    "id": "suso-sevilla",
+    "name": "Suso",
+    "teamId": "sevilla-fc",
+    "teamName": "Sevilla FC",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Spain"
+  },
+  {
+    "id": "joan-jordan-sevilla",
+    "name": "Joan Jordan",
+    "teamId": "sevilla-fc",
+    "teamName": "Sevilla FC",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Spain"
+  },
+  {
+    "id": "ivan-rakitic-sevilla",
+    "name": "Lucien Agoume",
+    "teamId": "sevilla-fc",
+    "teamName": "Sevilla FC",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "France"
+  },
+  {
+    "id": "youssef-en-nesyri-sevilla",
+    "name": "Youssef En-Nesyri",
+    "teamId": "sevilla-fc",
+    "teamName": "Sevilla FC",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Morocco"
+  },
+  {
+    "id": "lucas-ocampos-sevilla",
+    "name": "Lucas Ocampos",
+    "teamId": "sevilla-fc",
+    "teamName": "Sevilla FC",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Argentina"
+  },
+  {
+    "id": "kelechi-iheanacho-sevilla",
+    "name": "Kelechi Iheanacho",
+    "teamId": "sevilla-fc",
+    "teamName": "Sevilla FC",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Nigeria"
+  },
+  {
+    "id": "kiko-casilla-elche",
+    "name": "Kiko Casilla",
+    "teamId": "elche-cf",
+    "teamName": "Elche CF",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Spain"
+  },
+  {
+    "id": "pablo-martinez-elche",
+    "name": "Diego Altube",
+    "teamId": "elche-cf",
+    "teamName": "Elche CF",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Spain"
+  },
+  {
+    "id": "gonzalo-verdu-elche",
+    "name": "Gonzalo Verdu",
+    "teamId": "elche-cf",
+    "teamName": "Elche CF",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Spain"
+  },
+  {
+    "id": "josema-elche",
+    "name": "Josema",
+    "teamId": "elche-cf",
+    "teamName": "Elche CF",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Spain"
+  },
+  {
+    "id": "pedro-bigas-elche",
+    "name": "Pedro Bigas",
+    "teamId": "elche-cf",
+    "teamName": "Elche CF",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Spain"
+  },
+  {
+    "id": "carlos-clerc-elche",
+    "name": "Carlos Clerc",
+    "teamId": "elche-cf",
+    "teamName": "Elche CF",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Spain"
+  },
+  {
+    "id": "pepe-macia-elche",
+    "name": "Pepe Macia",
+    "teamId": "elche-cf",
+    "teamName": "Elche CF",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Spain"
+  },
+  {
+    "id": "ivan-marcone-elche",
+    "name": "Ivan Marcone",
+    "teamId": "elche-cf",
+    "teamName": "Elche CF",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Argentina"
+  },
+  {
+    "id": "fidel-chaves-elche",
+    "name": "Fidel Chaves",
+    "teamId": "elche-cf",
+    "teamName": "Elche CF",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Spain"
+  },
+  {
+    "id": "antonio-barragan-elche",
+    "name": "Antonio Barragan",
+    "teamId": "elche-cf",
+    "teamName": "Elche CF",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Spain"
+  },
+  {
+    "id": "raul-guti-elche",
+    "name": "Raul Guti",
+    "teamId": "elche-cf",
+    "teamName": "Elche CF",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Spain"
+  },
+  {
+    "id": "alvaro-rodriguez-elche",
+    "name": "Alvaro Rodriguez",
+    "teamId": "elche-cf",
+    "teamName": "Elche CF",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Spain"
+  },
+  {
+    "id": "marc-cardona-elche",
+    "name": "Marc Cardona",
+    "teamId": "elche-cf",
+    "teamName": "Elche CF",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Spain"
+  },
+  {
+    "id": "tete-morente-elche",
+    "name": "Tete Morente",
+    "teamId": "elche-cf",
+    "teamName": "Elche CF",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Spain"
+  },
+  {
+    "id": "antonio-sivera-alaves",
+    "name": "Antonio Sivera",
+    "teamId": "deportivo-alaves",
+    "teamName": "Deportivo Alaves",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Spain"
+  },
+  {
+    "id": "aleksandar-sedlar-alaves",
+    "name": "Aleksandar Sedlar",
+    "teamId": "deportivo-alaves",
+    "teamName": "Deportivo Alaves",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Serbia"
+  },
+  {
+    "id": "florian-lejeune-alaves",
+    "name": "Florian Lejeune",
+    "teamId": "deportivo-alaves",
+    "teamName": "Deportivo Alaves",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "France"
+  },
+  {
+    "id": "abqar-abqar-alaves",
+    "name": "Ruben Duarte",
+    "teamId": "deportivo-alaves",
+    "teamName": "Deportivo Alaves",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Spain"
+  },
+  {
+    "id": "abdel-abqar-alaves",
+    "name": "Antonio Sivera",
+    "teamId": "deportivo-alaves",
+    "teamName": "Deportivo Alaves",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Spain"
+  },
+  {
+    "id": "carlos-vicente-alaves",
+    "name": "Carlos Vicente",
+    "teamId": "deportivo-alaves",
+    "teamName": "Deportivo Alaves",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Spain"
+  },
+  {
+    "id": "facundo-pellistri-alaves",
+    "name": "Jon Guridi",
+    "teamId": "deportivo-alaves",
+    "teamName": "Deportivo Alaves",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Spain"
+  },
+  {
+    "id": "toni-moya-alaves",
+    "name": "Toni Moya",
+    "teamId": "deportivo-alaves",
+    "teamName": "Deportivo Alaves",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Spain"
+  },
+  {
+    "id": "luis-rioja-alaves",
+    "name": "Luis Rioja",
+    "teamId": "deportivo-alaves",
+    "teamName": "Deportivo Alaves",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Spain"
+  },
+  {
+    "id": "costa-ricky-alaves",
+    "name": "Ricky Costa",
+    "teamId": "deportivo-alaves",
+    "teamName": "Deportivo Alaves",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Portugal"
+  },
+  {
+    "id": "gonzalo-escalante-alaves",
+    "name": "Gonzalo Escalante",
+    "teamId": "deportivo-alaves",
+    "teamName": "Deportivo Alaves",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Argentina"
+  },
+  {
+    "id": "kike-garcia-alaves",
+    "name": "Kike Garcia",
+    "teamId": "deportivo-alaves",
+    "teamName": "Deportivo Alaves",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Spain"
+  },
+  {
+    "id": "facundo-pellistri2-alaves",
+    "name": "Facundo Pellistri",
+    "teamId": "deportivo-alaves",
+    "teamName": "Deportivo Alaves",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Uruguay"
+  },
+  {
+    "id": "santiago-mourio-alaves",
+    "name": "Santiago Mourino",
+    "teamId": "deportivo-alaves",
+    "teamName": "Deportivo Alaves",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Spain"
+  },
+  {
+    "id": "predrag-rajkovic-mallorca",
+    "name": "Predrag Rajkovic",
+    "teamId": "rcd-mallorca",
+    "teamName": "RCD Mallorca",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Serbia"
+  },
+  {
+    "id": "leo-roman-mallorca",
+    "name": "Leo Roman",
+    "teamId": "rcd-mallorca",
+    "teamName": "RCD Mallorca",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Spain"
+  },
+  {
+    "id": "pablo-maffeo-mallorca",
+    "name": "Pablo Maffeo",
+    "teamId": "rcd-mallorca",
+    "teamName": "RCD Mallorca",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Spain"
+  },
+  {
+    "id": "antonio-raillo-mallorca",
+    "name": "Antonio Raillo",
+    "teamId": "rcd-mallorca",
+    "teamName": "RCD Mallorca",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Spain"
+  },
+  {
+    "id": "mateu-morey-mallorca",
+    "name": "Mateu Morey",
+    "teamId": "rcd-mallorca",
+    "teamName": "RCD Mallorca",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Spain"
+  },
+  {
+    "id": "jaume-costa-mallorca",
+    "name": "Jaume Costa",
+    "teamId": "rcd-mallorca",
+    "teamName": "RCD Mallorca",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Spain"
+  },
+  {
+    "id": "martin-valjent-mallorca",
+    "name": "Martin Valjent",
+    "teamId": "rcd-mallorca",
+    "teamName": "RCD Mallorca",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Slovakia"
+  },
+  {
+    "id": "dani-rodriguez-mallorca",
+    "name": "Dani Rodriguez",
+    "teamId": "rcd-mallorca",
+    "teamName": "RCD Mallorca",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Spain"
+  },
+  {
+    "id": "iddrisu-baba-mallorca",
+    "name": "Iddrisu Baba",
+    "teamId": "rcd-mallorca",
+    "teamName": "RCD Mallorca",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Ghana"
+  },
+  {
+    "id": "morlane-mallorca",
+    "name": "Morlane",
+    "teamId": "rcd-mallorca",
+    "teamName": "RCD Mallorca",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Spain"
+  },
+  {
+    "id": "samu-costa-mallorca",
+    "name": "Samu Costa",
+    "teamId": "rcd-mallorca",
+    "teamName": "RCD Mallorca",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Portugal"
+  },
+  {
+    "id": "cyle-larin-mallorca",
+    "name": "Cyle Larin",
+    "teamId": "rcd-mallorca",
+    "teamName": "RCD Mallorca",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Canada"
+  },
+  {
+    "id": "vedat-muriqi-mallorca",
+    "name": "Vedat Muriqi",
+    "teamId": "rcd-mallorca",
+    "teamName": "RCD Mallorca",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Kosovo"
+  },
+  {
+    "id": "alex-moreno-mallorca",
+    "name": "Abdon Prats",
+    "teamId": "rcd-mallorca",
+    "teamName": "RCD Mallorca",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Spain"
+  },
+  {
+    "id": "sergi-darder-mallorca",
+    "name": "Sergi Darder",
+    "teamId": "rcd-mallorca",
+    "teamName": "RCD Mallorca",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Spain"
+  },
+  {
+    "id": "dani-cardenas-levante",
+    "name": "Dani Cardenas",
+    "teamId": "levante-ud",
+    "teamName": "Levante UD",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Spain"
+  },
+  {
+    "id": "unai-garcia-levante",
+    "name": "Unai Garcia",
+    "teamId": "levante-ud",
+    "teamName": "Levante UD",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Spain"
+  },
+  {
+    "id": "sergio-postigo-levante",
+    "name": "Sergio Postigo",
+    "teamId": "levante-ud",
+    "teamName": "Levante UD",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Spain"
+  },
+  {
+    "id": "pablo-martinez-levante",
+    "name": "Pablo Martinez",
+    "teamId": "levante-ud",
+    "teamName": "Levante UD",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Spain"
+  },
+  {
+    "id": "mickael-malsa-levante",
+    "name": "Mickael Malsa",
+    "teamId": "levante-ud",
+    "teamName": "Levante UD",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "France"
+  },
+  {
+    "id": "ivan-ruiz-levante",
+    "name": "Ivan Ruiz",
+    "teamId": "levante-ud",
+    "teamName": "Levante UD",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Spain"
+  },
+  {
+    "id": "nikola-vukcevic-levante",
+    "name": "Nikola Vukcevic",
+    "teamId": "levante-ud",
+    "teamName": "Levante UD",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Montenegro"
+  },
+  {
+    "id": "enis-bardhi-levante",
+    "name": "Enis Bardhi",
+    "teamId": "levante-ud",
+    "teamName": "Levante UD",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "North Macedonia"
+  },
+  {
+    "id": "jose-campana-levante",
+    "name": "Jose Campana",
+    "teamId": "levante-ud",
+    "teamName": "Levante UD",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Spain"
+  },
+  {
+    "id": "carlos-clerc-levante",
+    "name": "Mikel Vesga",
+    "teamId": "levante-ud",
+    "teamName": "Levante UD",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Spain"
+  },
+  {
+    "id": "nemanja-radoja-levante",
+    "name": "Nemanja Radoja",
+    "teamId": "levante-ud",
+    "teamName": "Levante UD",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Serbia"
+  },
+  {
+    "id": "jorge-de-frutos-levante",
+    "name": "Jorge de Frutos",
+    "teamId": "levante-ud",
+    "teamName": "Levante UD",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Spain"
+  },
+  {
+    "id": "jose-luis-morales-levante",
+    "name": "Jose Luis Morales",
+    "teamId": "levante-ud",
+    "teamName": "Levante UD",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Spain"
+  },
+  {
+    "id": "pablo-ferrandez-levante",
+    "name": "Pablo Ferrandez",
+    "teamId": "levante-ud",
+    "teamName": "Levante UD",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Spain"
+  },
+  {
+    "id": "alfonso-herrero-oviedo",
+    "name": "Alfonso Herrero",
+    "teamId": "real-oviedo",
+    "teamName": "Real Oviedo",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Spain"
+  },
+  {
+    "id": "ivan-cuellar-oviedo",
+    "name": "Ivan Cuellar",
+    "teamId": "real-oviedo",
+    "teamName": "Real Oviedo",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Spain"
+  },
+  {
+    "id": "christian-fernandez-oviedo",
+    "name": "Christian Fernandez",
+    "teamId": "real-oviedo",
+    "teamName": "Real Oviedo",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Spain"
+  },
+  {
+    "id": "nahuel-tenaglia-oviedo",
+    "name": "Nahuel Tenaglia",
+    "teamId": "real-oviedo",
+    "teamName": "Real Oviedo",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Argentina"
+  },
+  {
+    "id": "carles-perez-oviedo",
+    "name": "Dauda Mohammed",
+    "teamId": "real-oviedo",
+    "teamName": "Real Oviedo",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Ghana"
+  },
+  {
+    "id": "omar-ramos-oviedo",
+    "name": "Sekou Gassama",
+    "teamId": "real-oviedo",
+    "teamName": "Real Oviedo",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Gambia"
+  },
+  {
+    "id": "jose-manuel-fernandez-oviedo",
+    "name": "Jose Manuel Fernandez",
+    "teamId": "real-oviedo",
+    "teamName": "Real Oviedo",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Spain"
+  },
+  {
+    "id": "borja-sanchez-oviedo",
+    "name": "Borja Sanchez",
+    "teamId": "real-oviedo",
+    "teamName": "Real Oviedo",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Spain"
+  },
+  {
+    "id": "german-valera-oviedo",
+    "name": "German Valera",
+    "teamId": "real-oviedo",
+    "teamName": "Real Oviedo",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Spain"
+  },
+  {
+    "id": "ivan-balliu-oviedo",
+    "name": "Javi Mier",
+    "teamId": "real-oviedo",
+    "teamName": "Real Oviedo",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Spain"
+  },
+  {
+    "id": "lolo-plata-oviedo",
+    "name": "Lolo Plata",
+    "teamId": "real-oviedo",
+    "teamName": "Real Oviedo",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Spain"
+  },
+  {
+    "id": "lucas-ahijado-oviedo",
+    "name": "Lucas Ahijado",
+    "teamId": "real-oviedo",
+    "teamName": "Real Oviedo",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Spain"
+  },
+  {
+    "id": "santi-cazorla-oviedo",
+    "name": "Santi Cazorla",
+    "teamId": "real-oviedo",
+    "teamName": "Real Oviedo",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Spain"
+  },
+  {
+    "id": "gabri-martinez-oviedo",
+    "name": "Gabri Martinez",
+    "teamId": "real-oviedo",
+    "teamName": "Real Oviedo",
+    "competitionId": "la-liga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Spain"
+  }
+]

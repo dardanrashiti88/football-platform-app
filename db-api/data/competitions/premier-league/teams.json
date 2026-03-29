@@ -1,0 +1,215 @@
+[
+  {
+    "id": "afc-bournemouth",
+    "slug": "afc-bournemouth",
+    "name": "AFC Bournemouth",
+    "shortName": "Bournemouth",
+    "country": "England",
+    "aliases": [
+      "Bournemouth",
+      "AFC Bournemouth"
+    ]
+  },
+  {
+    "id": "arsenal",
+    "slug": "arsenal",
+    "name": "Arsenal",
+    "shortName": "Arsenal",
+    "country": "England",
+    "aliases": [
+      "Arsenal"
+    ]
+  },
+  {
+    "id": "aston-villa",
+    "slug": "aston-villa",
+    "name": "Aston Villa",
+    "shortName": "Aston Villa",
+    "country": "England",
+    "aliases": [
+      "Aston Villa"
+    ]
+  },
+  {
+    "id": "brentford",
+    "slug": "brentford",
+    "name": "Brentford",
+    "shortName": "Brentford",
+    "country": "England",
+    "aliases": [
+      "Brentford"
+    ]
+  },
+  {
+    "id": "brighton-and-hove-albion",
+    "slug": "brighton-and-hove-albion",
+    "name": "Brighton & Hove Albion",
+    "shortName": "Brighton",
+    "country": "England",
+    "aliases": [
+      "Brighton",
+      "Brighton & Hove Albion"
+    ]
+  },
+  {
+    "id": "burnley",
+    "slug": "burnley",
+    "name": "Burnley",
+    "shortName": "Burnley",
+    "country": "England",
+    "aliases": [
+      "Burnley"
+    ]
+  },
+  {
+    "id": "chelsea",
+    "slug": "chelsea",
+    "name": "Chelsea",
+    "shortName": "Chelsea",
+    "country": "England",
+    "aliases": [
+      "Chelsea"
+    ]
+  },
+  {
+    "id": "crystal-palace",
+    "slug": "crystal-palace",
+    "name": "Crystal Palace",
+    "shortName": "Crystal Palace",
+    "country": "England",
+    "aliases": [
+      "Crystal Palace"
+    ]
+  },
+  {
+    "id": "everton",
+    "slug": "everton",
+    "name": "Everton",
+    "shortName": "Everton",
+    "country": "England",
+    "aliases": [
+      "Everton"
+    ]
+  },
+  {
+    "id": "fulham",
+    "slug": "fulham",
+    "name": "Fulham",
+    "shortName": "Fulham",
+    "country": "England",
+    "aliases": [
+      "Fulham"
+    ]
+  },
+  {
+    "id": "leeds-united",
+    "slug": "leeds-united",
+    "name": "Leeds United",
+    "shortName": "Leeds",
+    "country": "England",
+    "aliases": [
+      "Leeds",
+      "Leeds United"
+    ]
+  },
+  {
+    "id": "liverpool",
+    "slug": "liverpool",
+    "name": "Liverpool",
+    "shortName": "Liverpool",
+    "country": "England",
+    "aliases": [
+      "Liverpool"
+    ]
+  },
+  {
+    "id": "manchester-city",
+    "slug": "manchester-city",
+    "name": "Manchester City",
+    "shortName": "Man City",
+    "country": "England",
+    "aliases": [
+      "Manchester City",
+      "Man City"
+    ]
+  },
+  {
+    "id": "manchester-united",
+    "slug": "manchester-united",
+    "name": "Manchester United",
+    "shortName": "Man Utd",
+    "country": "England",
+    "aliases": [
+      "Manchester United",
+      "Manchester Utd",
+      "Man Utd"
+    ]
+  },
+  {
+    "id": "newcastle-united",
+    "slug": "newcastle-united",
+    "name": "Newcastle United",
+    "shortName": "Newcastle",
+    "country": "England",
+    "aliases": [
+      "Newcastle",
+      "Newcastle United"
+    ]
+  },
+  {
+    "id": "nottingham-forest",
+    "slug": "nottingham-forest",
+    "name": "Nottingham Forest",
+    "shortName": "Nottingham",
+    "country": "England",
+    "aliases": [
+      "Nottingham",
+      "Nottingham Forest",
+      "Nott'm Forest"
+    ]
+  },
+  {
+    "id": "sunderland",
+    "slug": "sunderland",
+    "name": "Sunderland",
+    "shortName": "Sunderland",
+    "country": "England",
+    "aliases": [
+      "Sunderland"
+    ]
+  },
+  {
+    "id": "tottenham-hotspur",
+    "slug": "tottenham-hotspur",
+    "name": "Tottenham Hotspur",
+    "shortName": "Tottenham",
+    "country": "England",
+    "aliases": [
+      "Tottenham",
+      "Tottenham Hotspur",
+      "Spurs"
+    ]
+  },
+  {
+    "id": "west-ham-united",
+    "slug": "west-ham-united",
+    "name": "West Ham United",
+    "shortName": "West Ham",
+    "country": "England",
+    "aliases": [
+      "West Ham",
+      "West Ham United"
+    ]
+  },
+  {
+    "id": "wolverhampton-wanderers",
+    "slug": "wolverhampton-wanderers",
+    "name": "Wolverhampton Wanderers",
+    "shortName": "Wolves",
+    "country": "England",
+    "aliases": [
+      "Wolves",
+      "Wolverhampton Wanderers"
+    ]
+  }
+]

@@ -1,0 +1,22 @@
+Player Name,Position,Squad Number,Nationality,Age,Appearances,Goals,Assists,Minutes Played,Goals Plus Assists,Clean Sheets,Yellow Cards,Red Cards,Home Grown,Notes
+Marco Carnesecchi,GK,29,Italy,25,28,0,1,2520,1,11,2,0,No,First‑choice keeper, high clean sheet total in Serie A :contentReference[oaicite:1]{index=1}
+Marco Sportiello,GK,57,Italy,33,0,0,0,0,0,0,0,0,Yes,Backup goalkeeper :contentReference[oaicite:2]{index=2}
+Francesco Rossi,GK,31,Italy,34,0,0,0,0,0,0,0,0,No,Third goalkeeper :contentReference[oaicite:3]{index=3}
+Honest Ahanor,DEF,69,Nigeria,18,?,1,0,?,1,0,?,0,No,Young defender, occasional appearances :contentReference[oaicite:4]{index=4}
+Raoul Bellanova,DEF,16,Italy,26,?,0,0,?,0,0,?,0,No,Full‑back rotation :contentReference[oaicite:5]{index=5}
+Lorenzo Bernasconi,DEF,47,Italy,19,?,0,0,?,0,0,?,0,No,Young defensive squad member :contentReference[oaicite:6]{index=6}
+Berat Djimsiti,DEF,19,Albania,33,?,0,0,?,0,0,?,0,No,Central defender :contentReference[oaicite:7]{index=7}
+Isak Hien,DEF,4,Sweden,24,?,1,0,?,1,0,?,0,No,Defender with goal contribution :contentReference[oaicite:8]{index=8}
+Sead Kolašinac,DEF,23,Bosnia‑Herzegovina,31,?,0,0,?,0,0,?,0,No,Full‑back depth :contentReference[oaicite:9]{index=9}
+Odilon Kossounou,DEF,3,Côte d’Ivoire,25,?,1,0,?,1,0,?,0,No,Center‑back :contentReference[oaicite:10]{index=10}
+Giorgio Scalvini,DEF,42,Italy,21,?,2,0,?,2,0,?,0,Yes,Young blocker & contributor :contentReference[oaicite:11]{index=11}
+Davide Zappacosta,DEF/MID,77,Italy,33,?,2,1,?,3,0,?,0,No,Wing‑back/assist provider :contentReference[oaicite:12]{index=12}
+Marten de Roon,MID,15,Netherlands,34,?,2,0,?,2,0,?,0,No,Veteran midfield leader :contentReference[oaicite:13]{index=13}
+Mario Pašalić,MID,8,Croatia,30,?,3,3,?,6,0,?,0,No,Midfield goal/assist threat :contentReference[oaicite:14]{index=14}
+Yunus Musah,MID,6,USA,21,?,1,0,?,1,0,?,0,No,Midfield contributor :contentReference[oaicite:15]{index=15}
+Lazar Samardžić,MID,10,Germany,24,?,2,4,?,6,0,?,0,No,Creative midfield playmaker :contentReference[oaicite:16]{index=16}
+Charles De Ketelaere,FWD/MID,17,Belgium,25,?,3,3,?,6,0,?,0,No,Attack contribution :contentReference[oaicite:17]{index=17}
+Nicola Zalewski,MID/FWD,59,Italy,22,?,2,0,?,2,0,?,0,No,Wide attacker :contentReference[oaicite:18]{index=18}
+Gianluca Scamacca,FWD,9,Italy,26,?,8,?1,?,?,9,0,?,0,No,Top scorer for the club this season :contentReference[oaicite:19]{index=19}
+Nikola Krstović,FWD,90,Montenegro,25,?,8,4,?,12,0,?,0,No,Goals + assists leader :contentReference[oaicite:20]{index=20}
+Ademola Lookman,FWD,11,Nigeria,27,?,2,0,?,2,0,?,0,No,Forward rotation contributor :contentReference[oaicite:21]{index=21}

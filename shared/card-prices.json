@@ -1,0 +1,24 @@
+{
+  "cards": {
+    "alexander isak::liverpool": {
+      "value": 12000000,
+      "sell": 9000000
+    },
+    "mohamed salah::liverpool": {
+      "value": 4700000,
+      "sell": 3200000
+    },
+    "virgil van dijk::liverpool": {
+      "value": 5000000,
+      "sell": 3500000
+    },
+    "steven gerrard::liverpool": {
+      "value": 4800000,
+      "sell": 3400000
+    },
+    "ronaldo nazario::brazil": {
+      "value": 12000000,
+      "sell": 8000000
+    }
+  }
+}

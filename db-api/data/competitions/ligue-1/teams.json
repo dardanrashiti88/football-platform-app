@@ -1,0 +1,182 @@
+[
+  {
+    "id": "angers",
+    "slug": "angers",
+    "name": "Angers",
+    "shortName": "Angers",
+    "country": "France",
+    "aliases": [
+      "Angers"
+    ]
+  },
+  {
+    "id": "auxerre",
+    "slug": "auxerre",
+    "name": "Auxerre",
+    "shortName": "Auxerre",
+    "country": "France",
+    "aliases": [
+      "Auxerre"
+    ]
+  },
+  {
+    "id": "brest",
+    "slug": "brest",
+    "name": "Brest",
+    "shortName": "Brest",
+    "country": "France",
+    "aliases": [
+      "Brest"
+    ]
+  },
+  {
+    "id": "le-havre",
+    "slug": "le-havre",
+    "name": "Le Havre",
+    "shortName": "Le Havre",
+    "country": "France",
+    "aliases": [
+      "Le Havre"
+    ]
+  },
+  {
+    "id": "lens",
+    "slug": "lens",
+    "name": "Lens",
+    "shortName": "Lens",
+    "country": "France",
+    "aliases": [
+      "Lens"
+    ]
+  },
+  {
+    "id": "lille",
+    "slug": "lille",
+    "name": "Lille",
+    "shortName": "Lille",
+    "country": "France",
+    "aliases": [
+      "Lille"
+    ]
+  },
+  {
+    "id": "lorient",
+    "slug": "lorient",
+    "name": "Lorient",
+    "shortName": "Lorient",
+    "country": "France",
+    "aliases": [
+      "Lorient"
+    ]
+  },
+  {
+    "id": "lyon",
+    "slug": "lyon",
+    "name": "Lyon",
+    "shortName": "Lyon",
+    "country": "France",
+    "aliases": [
+      "Lyon"
+    ]
+  },
+  {
+    "id": "marseille",
+    "slug": "marseille",
+    "name": "Marseille",
+    "shortName": "Marseille",
+    "country": "France",
+    "aliases": [
+      "Marseille"
+    ]
+  },
+  {
+    "id": "metz",
+    "slug": "metz",
+    "name": "Metz",
+    "shortName": "Metz",
+    "country": "France",
+    "aliases": [
+      "Metz"
+    ]
+  },
+  {
+    "id": "monaco",
+    "slug": "monaco",
+    "name": "Monaco",
+    "shortName": "Monaco",
+    "country": "France",
+    "aliases": [
+      "Monaco"
+    ]
+  },
+  {
+    "id": "nantes",
+    "slug": "nantes",
+    "name": "Nantes",
+    "shortName": "Nantes",
+    "country": "France",
+    "aliases": [
+      "Nantes"
+    ]
+  },
+  {
+    "id": "nice",
+    "slug": "nice",
+    "name": "Nice",
+    "shortName": "Nice",
+    "country": "France",
+    "aliases": [
+      "Nice"
+    ]
+  },
+  {
+    "id": "paris-fc",
+    "slug": "paris-fc",
+    "name": "Paris FC",
+    "shortName": "Paris FC",
+    "country": "France",
+    "aliases": [
+      "Paris FC"
+    ]
+  },
+  {
+    "id": "psg",
+    "slug": "psg",
+    "name": "PSG",
+    "shortName": "PSG",
+    "country": "France",
+    "aliases": [
+      "PSG"
+    ]
+  },
+  {
+    "id": "rennes",
+    "slug": "rennes",
+    "name": "Rennes",
+    "shortName": "Rennes",
+    "country": "France",
+    "aliases": [
+      "Rennes"
+    ]
+  },
+  {
+    "id": "strasbourg",
+    "slug": "strasbourg",
+    "name": "Strasbourg",
+    "shortName": "Strasbourg",
+    "country": "France",
+    "aliases": [
+      "Strasbourg"
+    ]
+  },
+  {
+    "id": "toulouse",
+    "slug": "toulouse",
+    "name": "Toulouse",
+    "shortName": "Toulouse",
+    "country": "France",
+    "aliases": [
+      "Toulouse"
+    ]
+  }
+]

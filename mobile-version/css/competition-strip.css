@@ -1,0 +1,89 @@
+#competition-strip {
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.26), rgba(255, 255, 255, 0.08)),
+    linear-gradient(180deg, rgba(11, 11, 11, 0.14), rgba(11, 11, 11, 0.06));
+  border-radius: 22px;
+  border: 2px solid rgba(255, 255, 255, 0.34);
+  box-shadow:
+    0 10px 22px rgba(0, 0, 0, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.26);
+  backdrop-filter: blur(14px) saturate(135%);
+  -webkit-backdrop-filter: blur(14px) saturate(135%);
+  padding: 10px 8px;
+  position: relative;
+  overflow: hidden;
+}
+
+#competition-strip::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(255, 255, 255, 0.12), transparent 42%);
+  pointer-events: none;
+}
+
+.mobile-comp-strip {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0 0 2px;
+  scrollbar-width: none;
+}
+
+.mobile-comp-strip::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+.mobile-sidebar-item {
+  width: 58px;
+  height: 58px;
+  flex: 0 0 58px;
+  background: var(--white);
+  border: 2px solid var(--ink);
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  padding: 6px;
+  box-shadow: 0 2px 0 var(--ink);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.mobile-sidebar-item.active {
+  border-width: 3px;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 0 var(--ink);
+}
+
+.mobile-sidebar-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.mobile-sidebar-item.premier img {
+  transform: translateY(-4px);
+}
+
+.mobile-sidebar-item.championship img {
+  width: 90%;
+  height: 90%;
+}
+
+.mobile-sidebar-item.seriea img {
+  width: 72%;
+  height: 78%;
+}
+
+.mobile-sidebar-item.facup img,
+.mobile-sidebar-item.carabaocup img {
+  width: 78%;
+  height: 78%;
+}
+
+.mobile-sidebar-item.worldcup img {
+  width: 86%;
+  height: 86%;
+  transform: translateY(-4px);
+}

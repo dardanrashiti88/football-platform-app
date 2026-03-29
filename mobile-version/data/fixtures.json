@@ -1,0 +1,1921 @@
+{
+  "premier": {
+    "matchdays": [
+      "MW30",
+      "MW31",
+      "MW32",
+      "MW33"
+    ],
+    "labels": {
+      "left": "Played",
+      "right": "Upcoming"
+    },
+    "fixtures": [
+      {
+        "id": "pl-2025-2026-261",
+        "competitionId": "premier-league-2025-2026",
+        "state": "played",
+        "score": "2-2",
+        "meta": "FT",
+        "home": {
+          "short": "WOL",
+          "name": "Wolverhampton Wanderers",
+          "logo": "/images/Teams-logos/Premier-league/wolves.svg"
+        },
+        "away": {
+          "short": "ARS",
+          "name": "Arsenal",
+          "logo": "/images/Teams-logos/Premier-league/arsenal.svg"
+        }
+      },
+      {
+        "id": "pl-2025-2026-303",
+        "competitionId": "premier-league-2025-2026",
+        "state": "upcoming",
+        "score": "13:30",
+        "meta": "",
+        "home": {
+          "short": "BRI",
+          "name": "Brighton & Hove Albion",
+          "logo": "/images/Teams-logos/Premier-league/brighton.svg"
+        },
+        "away": {
+          "short": "LIV",
+          "name": "Liverpool",
+          "logo": "/images/Teams-logos/Premier-league/liverpool.svg"
+        }
+      },
+      {
+        "id": "pl-2025-2026-302",
+        "competitionId": "premier-league-2025-2026",
+        "state": "played",
+        "score": "2-2",
+        "meta": "FT",
+        "home": {
+          "short": "BOU",
+          "name": "AFC Bournemouth",
+          "logo": "/images/Teams-logos/Premier-league/bournemouth.svg"
+        },
+        "away": {
+          "short": "MNU",
+          "name": "Manchester United",
+          "logo": "/images/Teams-logos/Premier-league/Manu.svg"
+        }
+      },
+      {
+        "id": "pl-2025-2026-304",
+        "competitionId": "premier-league-2025-2026",
+        "state": "upcoming",
+        "score": "16:00",
+        "meta": "",
+        "home": {
+          "short": "FUL",
+          "name": "Fulham",
+          "logo": "/images/Teams-logos/Premier-league/fulham.svg"
+        },
+        "away": {
+          "short": "BUR",
+          "name": "Burnley",
+          "logo": "/images/Teams-logos/Premier-league/burnley.svg"
+        }
+      },
+      {
+        "id": "pl-2025-2026-305",
+        "competitionId": "premier-league-2025-2026",
+        "state": "upcoming",
+        "score": "18:30",
+        "meta": "",
+        "home": {
+          "short": "EVE",
+          "name": "Everton",
+          "logo": "/images/Teams-logos/Premier-league/everton.svg"
+        },
+        "away": {
+          "short": "CHE",
+          "name": "Chelsea",
+          "logo": "/images/Teams-logos/Premier-league/chelsea.svg"
+        }
+      },
+      {
+        "id": "pl-2025-2026-306",
+        "competitionId": "premier-league-2025-2026",
+        "state": "upcoming",
+        "score": "21:00",
+        "meta": "",
+        "home": {
+          "short": "LEE",
+          "name": "Leeds United",
+          "logo": "/images/Teams-logos/Premier-league/leeds.svg"
+        },
+        "away": {
+          "short": "BRE",
+          "name": "Brentford",
+          "logo": "/images/Teams-logos/Premier-league/brentford.svg"
+        }
+      },
+      {
+        "id": "pl-2025-2026-307",
+        "competitionId": "premier-league-2025-2026",
+        "state": "upcoming",
+        "score": "13:00",
+        "meta": "",
+        "home": {
+          "short": "NEW",
+          "name": "Newcastle United",
+          "logo": "/images/Teams-logos/Premier-league/newcastle.svg"
+        },
+        "away": {
+          "short": "SUN",
+          "name": "Sunderland",
+          "logo": "/images/Teams-logos/Premier-league/sunderland.svg"
+        }
+      },
+      {
+        "id": "pl-2025-2026-308",
+        "competitionId": "premier-league-2025-2026",
+        "state": "upcoming",
+        "score": "15:15",
+        "meta": "",
+        "home": {
+          "short": "AVI",
+          "name": "Aston Villa",
+          "logo": "/images/Teams-logos/Premier-league/astonvilla.svg"
+        },
+        "away": {
+          "short": "WHA",
+          "name": "West Ham United",
+          "logo": "/images/Teams-logos/Premier-league/westham.svg"
+        }
+      },
+      {
+        "id": "pl-2025-2026-309",
+        "competitionId": "premier-league-2025-2026",
+        "state": "upcoming",
+        "score": "15:15",
+        "meta": "",
+        "home": {
+          "short": "TOT",
+          "name": "Tottenham Hotspur",
+          "logo": "/images/Teams-logos/Premier-league/tottenham.svg"
+        },
+        "away": {
+          "short": "NOT",
+          "name": "Nottingham Forest",
+          "logo": "/images/Teams-logos/Premier-league/forest.svg"
+        }
+      },
+      {
+        "id": "pl-2025-2026-380",
+        "competitionId": "premier-league-2025-2026",
+        "state": "upcoming",
+        "score": "17:30",
+        "meta": "",
+        "home": {
+          "short": "MNC",
+          "name": "Manchester City",
+          "logo": "/images/Teams-logos/Premier-league/mancity.svg"
+        },
+        "away": {
+          "short": "CPA",
+          "name": "Crystal Palace",
+          "logo": "/images/Teams-logos/Premier-league/crystalpalace.svg"
+        }
+      }
+    ]
+  },
+  "championship": {
+    "matchdays": [
+      "MW1",
+      "MW2",
+      "MW3",
+      "MW4"
+    ],
+    "labels": {
+      "left": "Played",
+      "right": "Upcoming"
+    },
+    "fixtures": [
+      {
+        "id": "championship-1-birmingham-city-vs-ipswich-town-0",
+        "competitionId": "efl-championship-2025-2026",
+        "state": "played",
+        "score": "1-1",
+        "meta": "MW1",
+        "home": {
+          "short": "BCI",
+          "name": "Birmingham City",
+          "logo": "/images/Teams-logos/EFLchampionship/birmingham.png"
+        },
+        "away": {
+          "short": "ITO",
+          "name": "Ipswich Town",
+          "logo": "/images/Teams-logos/EFLchampionship/ipswichtown.png"
+        }
+      },
+      {
+        "id": "championship-1-charlton-athletic-vs-watford-1",
+        "competitionId": "efl-championship-2025-2026",
+        "state": "played",
+        "score": "1-0",
+        "meta": "MW1",
+        "home": {
+          "short": "CHA",
+          "name": "Charlton Athletic",
+          "logo": "/images/Teams-logos/EFLchampionship/charlton.png"
+        },
+        "away": {
+          "short": "WAT",
+          "name": "Watford",
+          "logo": "/images/Teams-logos/EFLchampionship/watford.png"
+        }
+      },
+      {
+        "id": "championship-1-coventry-city-vs-hull-city-2",
+        "competitionId": "efl-championship-2025-2026",
+        "state": "played",
+        "score": "0-0",
+        "meta": "MW1",
+        "home": {
+          "short": "CCI",
+          "name": "Coventry City",
+          "logo": "/images/Teams-logos/EFLchampionship/coventry city.png"
+        },
+        "away": {
+          "short": "HCI",
+          "name": "Hull City",
+          "logo": "/images/Teams-logos/EFLchampionship/hullcity.png"
+        }
+      },
+      {
+        "id": "championship-1-southampton-vs-wrexham-3",
+        "competitionId": "efl-championship-2025-2026",
+        "state": "played",
+        "score": "2-1",
+        "meta": "MW1",
+        "home": {
+          "short": "SOU",
+          "name": "Southampton",
+          "logo": "/images/Teams-logos/EFLchampionship/southampton.png"
+        },
+        "away": {
+          "short": "WRE",
+          "name": "Wrexham",
+          "logo": "/images/Teams-logos/EFLchampionship/wrexham.png"
+        }
+      },
+      {
+        "id": "championship-1-middlesbrough-vs-swansea-city-4",
+        "competitionId": "efl-championship-2025-2026",
+        "state": "played",
+        "score": "1-0",
+        "meta": "MW1",
+        "home": {
+          "short": "MID",
+          "name": "Middlesbrough",
+          "logo": "/images/Teams-logos/EFLchampionship/middlesbrough.png"
+        },
+        "away": {
+          "short": "SCI",
+          "name": "Swansea City",
+          "logo": "/images/Teams-logos/EFLchampionship/swanseacity.png"
+        }
+      },
+      {
+        "id": "championship-1-norwich-city-vs-millwall-5",
+        "competitionId": "efl-championship-2025-2026",
+        "state": "played",
+        "score": "1-2",
+        "meta": "MW1",
+        "home": {
+          "short": "NCI",
+          "name": "Norwich City",
+          "logo": "/images/Teams-logos/EFLchampionship/norwich.png"
+        },
+        "away": {
+          "short": "MIL",
+          "name": "Millwall",
+          "logo": "/images/Teams-logos/EFLchampionship/millwall.png"
+        }
+      },
+      {
+        "id": "championship-1-oxford-united-vs-portsmouth-6",
+        "competitionId": "efl-championship-2025-2026",
+        "state": "played",
+        "score": "0-1",
+        "meta": "MW1",
+        "home": {
+          "short": "OUN",
+          "name": "Oxford United",
+          "logo": "/images/Teams-logos/EFLchampionship/oxfordunited.png"
+        },
+        "away": {
+          "short": "POR",
+          "name": "Portsmouth",
+          "logo": "/images/Teams-logos/EFLchampionship/portsmouth.png"
+        }
+      },
+      {
+        "id": "championship-1-queens-park-rangers-vs-preston-north-end-7",
+        "competitionId": "efl-championship-2025-2026",
+        "state": "played",
+        "score": "1-1",
+        "meta": "MW1",
+        "home": {
+          "short": "QPR",
+          "name": "Queens Park Rangers",
+          "logo": "/images/Teams-logos/EFLchampionship/queenparkrangers.png"
+        },
+        "away": {
+          "short": "PNE",
+          "name": "Preston North End",
+          "logo": "/images/Teams-logos/EFLchampionship/prestonnorthend.png"
+        }
+      }
+    ]
+  },
+  "facup": {
+    "matchdays": [
+      "R3",
+      "R4",
+      "R5",
+      "QF"
+    ],
+    "labels": {
+      "left": "Round",
+      "right": "Next"
+    },
+    "fixtures": [
+      {
+        "id": "facup-quarter-finals-man-city-vs-liverpool-116",
+        "competitionId": "fa-cup-2025-2026",
+        "state": "upcoming",
+        "score": "00:00",
+        "meta": "Quarter Finals",
+        "home": {
+          "short": "MNC",
+          "name": "Man City",
+          "logo": "/images/Teams-logos/Premier-league/mancity.svg"
+        },
+        "away": {
+          "short": "LIV",
+          "name": "Liverpool",
+          "logo": "/images/Teams-logos/Premier-league/liverpool.svg"
+        }
+      },
+      {
+        "id": "facup-quarter-finals-chelsea-vs-port-vale-117",
+        "competitionId": "fa-cup-2025-2026",
+        "state": "upcoming",
+        "score": "00:00",
+        "meta": "Quarter Finals",
+        "home": {
+          "short": "CHE",
+          "name": "Chelsea",
+          "logo": "/images/Teams-logos/Premier-league/chelsea.svg"
+        },
+        "away": {
+          "short": "PVA",
+          "name": "Port Vale",
+          "logo": null
+        }
+      },
+      {
+        "id": "facup-quarter-finals-southampton-vs-arsenal-118",
+        "competitionId": "fa-cup-2025-2026",
+        "state": "upcoming",
+        "score": "00:00",
+        "meta": "Quarter Finals",
+        "home": {
+          "short": "SOU",
+          "name": "Southampton",
+          "logo": "/images/Teams-logos/EFLchampionship/southampton.png"
+        },
+        "away": {
+          "short": "ARS",
+          "name": "Arsenal",
+          "logo": "/images/Teams-logos/Premier-league/arsenal.svg"
+        }
+      },
+      {
+        "id": "facup-quarter-finals-west-ham-vs-leeds-united-119",
+        "competitionId": "fa-cup-2025-2026",
+        "state": "upcoming",
+        "score": "00:00",
+        "meta": "Quarter Finals",
+        "home": {
+          "short": "WHU",
+          "name": "West Ham",
+          "logo": "/images/Teams-logos/Premier-league/westham.svg"
+        },
+        "away": {
+          "short": "LUN",
+          "name": "Leeds United",
+          "logo": "/images/Teams-logos/Premier-league/leeds.svg"
+        }
+      }
+    ]
+  },
+  "carabaocup": {
+    "matchdays": [
+      "QF",
+      "SF",
+      "SF",
+      "FIN"
+    ],
+    "labels": {
+      "left": "Round",
+      "right": "Next"
+    },
+    "fixtures": [
+      {
+        "id": "carabao-final-arsenal-vs-man-city-92",
+        "competitionId": "carabao-cup-2025-2026",
+        "state": "played",
+        "score": "0-2",
+        "meta": "Final",
+        "home": {
+          "short": "ARS",
+          "name": "Arsenal",
+          "logo": "/images/Teams-logos/Premier-league/arsenal.svg"
+        },
+        "away": {
+          "short": "MNC",
+          "name": "Man City",
+          "logo": "/images/Teams-logos/Premier-league/mancity.svg"
+        }
+      }
+    ]
+  },
+  "seriea": {
+    "matchdays": [
+      "MW29",
+      "MW30",
+      "MW31",
+      "MW32"
+    ],
+    "labels": {
+      "left": "Played",
+      "right": "Upcoming"
+    },
+    "fixtures": [
+      {
+        "id": "sa-2025-2026-291",
+        "competitionId": "serie-a-2025-2026",
+        "state": "played",
+        "score": "0-1",
+        "meta": "FT",
+        "home": {
+          "short": "CAG",
+          "name": "Cagliari",
+          "logo": "/images/Teams-logos/serie-a/cagliari.webp"
+        },
+        "away": {
+          "short": "NAP",
+          "name": "Napoli",
+          "logo": "/images/Teams-logos/serie-a/napoli.webp"
+        }
+      },
+      {
+        "id": "sa-2025-2026-293",
+        "competitionId": "serie-a-2025-2026",
+        "state": "upcoming",
+        "score": "15:00",
+        "meta": "",
+        "home": {
+          "short": "PAR",
+          "name": "Parma",
+          "logo": "/images/Teams-logos/serie-a/parma.webp"
+        },
+        "away": {
+          "short": "CRE",
+          "name": "Cremonese",
+          "logo": "/images/Teams-logos/serie-a/cremonese.webp"
+        }
+      },
+      {
+        "id": "sa-2025-2026-292",
+        "competitionId": "serie-a-2025-2026",
+        "state": "played",
+        "score": "0-2",
+        "meta": "FT",
+        "home": {
+          "short": "GEN",
+          "name": "Genoa",
+          "logo": "/images/Teams-logos/serie-a/genoa.webp"
+        },
+        "away": {
+          "short": "UDI",
+          "name": "Udinese",
+          "logo": "/images/Teams-logos/serie-a/udinese.webp"
+        }
+      },
+      {
+        "id": "sa-2025-2026-294",
+        "competitionId": "serie-a-2025-2026",
+        "state": "upcoming",
+        "score": "18:00",
+        "meta": "",
+        "home": {
+          "short": "MIL",
+          "name": "AC Milan",
+          "logo": "/images/Teams-logos/serie-a/milan.webp"
+        },
+        "away": {
+          "short": "TOR",
+          "name": "Torino",
+          "logo": "/images/Teams-logos/serie-a/torino.webp"
+        }
+      },
+      {
+        "id": "sa-2025-2026-295",
+        "competitionId": "serie-a-2025-2026",
+        "state": "upcoming",
+        "score": "20:45",
+        "meta": "",
+        "home": {
+          "short": "JUV",
+          "name": "Juventus",
+          "logo": "/images/Teams-logos/serie-a/juventus.webp"
+        },
+        "away": {
+          "short": "SAS",
+          "name": "Sassuolo",
+          "logo": "/images/Teams-logos/serie-a/sassuolo.webp"
+        }
+      },
+      {
+        "id": "sa-2025-2026-296",
+        "competitionId": "serie-a-2025-2026",
+        "state": "upcoming",
+        "score": "12:30",
+        "meta": "",
+        "home": {
+          "short": "COM",
+          "name": "Como",
+          "logo": "/images/Teams-logos/serie-a/como.webp"
+        },
+        "away": {
+          "short": "PIS",
+          "name": "Pisa",
+          "logo": "/images/Teams-logos/serie-a/pisa.webp"
+        }
+      },
+      {
+        "id": "sa-2025-2026-297",
+        "competitionId": "serie-a-2025-2026",
+        "state": "upcoming",
+        "score": "15:00",
+        "meta": "",
+        "home": {
+          "short": "ATA",
+          "name": "Atalanta",
+          "logo": "/images/Teams-logos/serie-a/atalanta.webp"
+        },
+        "away": {
+          "short": "VER",
+          "name": "Verona",
+          "logo": "/images/Teams-logos/serie-a/verona.webp"
+        }
+      },
+      {
+        "id": "sa-2025-2026-298",
+        "competitionId": "serie-a-2025-2026",
+        "state": "upcoming",
+        "score": "15:00",
+        "meta": "",
+        "home": {
+          "short": "BOL",
+          "name": "Bologna",
+          "logo": "/images/Teams-logos/serie-a/bologna.webp"
+        },
+        "away": {
+          "short": "LAZ",
+          "name": "Lazio",
+          "logo": "/images/Teams-logos/serie-a/lazio.webp"
+        }
+      },
+      {
+        "id": "sa-2025-2026-299",
+        "competitionId": "serie-a-2025-2026",
+        "state": "upcoming",
+        "score": "18:00",
+        "meta": "",
+        "home": {
+          "short": "ROM",
+          "name": "AS Roma",
+          "logo": "/images/Teams-logos/serie-a/roma.webp"
+        },
+        "away": {
+          "short": "LEC",
+          "name": "Lecce",
+          "logo": "/images/Teams-logos/serie-a/lecce.webp"
+        }
+      },
+      {
+        "id": "sa-2025-2026-300",
+        "competitionId": "serie-a-2025-2026",
+        "state": "upcoming",
+        "score": "20:45",
+        "meta": "",
+        "home": {
+          "short": "FIO",
+          "name": "Fiorentina",
+          "logo": "/images/Teams-logos/serie-a/fiorentina.webp"
+        },
+        "away": {
+          "short": "INT",
+          "name": "Inter",
+          "logo": "/images/Teams-logos/serie-a/inter.webp"
+        }
+      }
+    ]
+  },
+  "laliga": {
+    "matchdays": [
+      "MW28",
+      "MW29",
+      "MW30",
+      "MW31"
+    ],
+    "labels": {
+      "left": "Played",
+      "right": "Upcoming"
+    },
+    "fixtures": [
+      {
+        "id": "ll-2025-2026-281",
+        "competitionId": "la-liga-2025-2026",
+        "state": "played",
+        "score": "3-1",
+        "meta": "FT",
+        "home": {
+          "short": "VIL",
+          "name": "Villarreal",
+          "logo": "/images/Teams-logos/laliga/villarreal.png"
+        },
+        "away": {
+          "short": "RSO",
+          "name": "Real Sociedad",
+          "logo": "/images/Teams-logos/laliga/real-sociedad.png"
+        }
+      },
+      {
+        "id": "ll-2025-2026-282",
+        "competitionId": "la-liga-2025-2026",
+        "state": "upcoming",
+        "score": "14:00",
+        "meta": "",
+        "home": {
+          "short": "ELC",
+          "name": "Elche",
+          "logo": "/images/Teams-logos/laliga/elche.png"
+        },
+        "away": {
+          "short": "MAL",
+          "name": "Mallorca",
+          "logo": null
+        }
+      },
+      {
+        "id": "ll-2025-2026-283",
+        "competitionId": "la-liga-2025-2026",
+        "state": "upcoming",
+        "score": "16:15",
+        "meta": "",
+        "home": {
+          "short": "ESP",
+          "name": "Espanyol",
+          "logo": "/images/Teams-logos/laliga/ecdespanyoldebarcelona.png"
+        },
+        "away": {
+          "short": "GET",
+          "name": "Getafe",
+          "logo": "/images/Teams-logos/laliga/getafe.png"
+        }
+      },
+      {
+        "id": "ll-2025-2026-284",
+        "competitionId": "la-liga-2025-2026",
+        "state": "upcoming",
+        "score": "18:30",
+        "meta": "",
+        "home": {
+          "short": "LEV",
+          "name": "Levante",
+          "logo": "/images/Teams-logos/laliga/levante.png"
+        },
+        "away": {
+          "short": "OVI",
+          "name": "Oviedo",
+          "logo": "/images/Teams-logos/laliga/oviedo.png"
+        }
+      },
+      {
+        "id": "ll-2025-2026-285",
+        "competitionId": "la-liga-2025-2026",
+        "state": "upcoming",
+        "score": "18:30",
+        "meta": "",
+        "home": {
+          "short": "OSA",
+          "name": "Osasuna",
+          "logo": "/images/Teams-logos/laliga/osasuna.png"
+        },
+        "away": {
+          "short": "GIR",
+          "name": "Girona",
+          "logo": "/images/Teams-logos/laliga/girona.png"
+        }
+      },
+      {
+        "id": "ll-2025-2026-286",
+        "competitionId": "la-liga-2025-2026",
+        "state": "upcoming",
+        "score": "21:00",
+        "meta": "",
+        "home": {
+          "short": "SEV",
+          "name": "Sevilla",
+          "logo": "/images/Teams-logos/laliga/sevilla.png"
+        },
+        "away": {
+          "short": "VAL",
+          "name": "Valencia",
+          "logo": "/images/Teams-logos/laliga/valencia.png"
+        }
+      },
+      {
+        "id": "ll-2025-2026-287",
+        "competitionId": "la-liga-2025-2026",
+        "state": "upcoming",
+        "score": "14:00",
+        "meta": "",
+        "home": {
+          "short": "BAR",
+          "name": "Barcelona",
+          "logo": "/images/Teams-logos/laliga/barcelona.png"
+        },
+        "away": {
+          "short": "RVA",
+          "name": "Rayo Vallecano",
+          "logo": "/images/Teams-logos/laliga/rayovallecano.png"
+        }
+      },
+      {
+        "id": "ll-2025-2026-288",
+        "competitionId": "la-liga-2025-2026",
+        "state": "upcoming",
+        "score": "16:15",
+        "meta": "",
+        "home": {
+          "short": "CVI",
+          "name": "Celta Vigo",
+          "logo": "/images/Teams-logos/laliga/celtavigo.png"
+        },
+        "away": {
+          "short": "ALA",
+          "name": "Alaves",
+          "logo": null
+        }
+      },
+      {
+        "id": "ll-2025-2026-289",
+        "competitionId": "la-liga-2025-2026",
+        "state": "upcoming",
+        "score": "18:30",
+        "meta": "",
+        "home": {
+          "short": "ATH",
+          "name": "Ath Bilbao",
+          "logo": "/images/Teams-logos/laliga/athletic.png"
+        },
+        "away": {
+          "short": "BET",
+          "name": "Betis",
+          "logo": "/images/Teams-logos/laliga/betis.png"
+        }
+      },
+      {
+        "id": "ll-2025-2026-290",
+        "competitionId": "la-liga-2025-2026",
+        "state": "upcoming",
+        "score": "21:00",
+        "meta": "",
+        "home": {
+          "short": "RMA",
+          "name": "Real Madrid",
+          "logo": "/images/Teams-logos/laliga/real-madrid.png"
+        },
+        "away": {
+          "short": "ATM",
+          "name": "Atl. Madrid",
+          "logo": "/images/Teams-logos/laliga/atletico.png"
+        }
+      }
+    ]
+  },
+  "bundesliga": {
+    "matchdays": [
+      "MW26",
+      "MW27",
+      "MW28",
+      "MW29"
+    ],
+    "labels": {
+      "left": "Played",
+      "right": "Upcoming"
+    },
+    "fixtures": [
+      {
+        "id": "bl-2025-2026-235",
+        "competitionId": "bundesliga-2025-2026",
+        "state": "played",
+        "score": "5-0",
+        "meta": "FT",
+        "home": {
+          "short": "LEI",
+          "name": "RB Leipzig",
+          "logo": "/images/Teams-logos/bundesliga/rb leipzig.svg"
+        },
+        "away": {
+          "short": "HOF",
+          "name": "Hoffenheim",
+          "logo": "/images/Teams-logos/bundesliga/hoffenheim.svg"
+        }
+      },
+      {
+        "id": "bl-2025-2026-236",
+        "competitionId": "bundesliga-2025-2026",
+        "state": "upcoming",
+        "score": "15:30",
+        "meta": "",
+        "home": {
+          "short": "BAY",
+          "name": "Bayern Munich",
+          "logo": "/images/Teams-logos/bundesliga/bayern.svg"
+        },
+        "away": {
+          "short": "UNI",
+          "name": "Union Berlin",
+          "logo": "/images/Teams-logos/bundesliga/unionberlin.svg"
+        }
+      },
+      {
+        "id": "bl-2025-2026-237",
+        "competitionId": "bundesliga-2025-2026",
+        "state": "upcoming",
+        "score": "15:30",
+        "meta": "",
+        "home": {
+          "short": "KOL",
+          "name": "FC Koln",
+          "logo": "/images/Teams-logos/bundesliga/cologne.svg"
+        },
+        "away": {
+          "short": "MON",
+          "name": "B. Monchengladbach",
+          "logo": "/images/Teams-logos/bundesliga/monchengladbach.svg"
+        }
+      },
+      {
+        "id": "bl-2025-2026-238",
+        "competitionId": "bundesliga-2025-2026",
+        "state": "upcoming",
+        "score": "15:30",
+        "meta": "",
+        "home": {
+          "short": "HEI",
+          "name": "Heidenheim",
+          "logo": "/images/Teams-logos/bundesliga/heidenheim.svg"
+        },
+        "away": {
+          "short": "LEV",
+          "name": "Bayer Leverkusen",
+          "logo": "/images/Teams-logos/bundesliga/leverkusen.svg"
+        }
+      },
+      {
+        "id": "bl-2025-2026-239",
+        "competitionId": "bundesliga-2025-2026",
+        "state": "upcoming",
+        "score": "15:30",
+        "meta": "",
+        "home": {
+          "short": "WOL",
+          "name": "Wolfsburg",
+          "logo": "/images/Teams-logos/bundesliga/wolfsburg.svg"
+        },
+        "away": {
+          "short": "WBR",
+          "name": "Werder Bremen",
+          "logo": "/images/Teams-logos/bundesliga/werder.svg"
+        }
+      },
+      {
+        "id": "bl-2025-2026-240",
+        "competitionId": "bundesliga-2025-2026",
+        "state": "upcoming",
+        "score": "18:30",
+        "meta": "",
+        "home": {
+          "short": "DOR",
+          "name": "Dortmund",
+          "logo": null
+        },
+        "away": {
+          "short": "HAM",
+          "name": "Hamburger SV",
+          "logo": "/images/Teams-logos/bundesliga/hamburg.svg"
+        }
+      },
+      {
+        "id": "bl-2025-2026-241",
+        "competitionId": "bundesliga-2025-2026",
+        "state": "upcoming",
+        "score": "15:30",
+        "meta": "",
+        "home": {
+          "short": "MAI",
+          "name": "Mainz",
+          "logo": "/images/Teams-logos/bundesliga/mainz.svg"
+        },
+        "away": {
+          "short": "FRA",
+          "name": "Eintracht Frankfurt",
+          "logo": "/images/Teams-logos/bundesliga/frankfurt.svg"
+        }
+      },
+      {
+        "id": "bl-2025-2026-242",
+        "competitionId": "bundesliga-2025-2026",
+        "state": "upcoming",
+        "score": "17:30",
+        "meta": "",
+        "home": {
+          "short": "STP",
+          "name": "St. Pauli",
+          "logo": "/images/Teams-logos/bundesliga/stpauli.svg"
+        },
+        "away": {
+          "short": "FRE",
+          "name": "Freiburg",
+          "logo": "/images/Teams-logos/bundesliga/freiburg.svg"
+        }
+      },
+      {
+        "id": "bl-2025-2026-243",
+        "competitionId": "bundesliga-2025-2026",
+        "state": "upcoming",
+        "score": "19:30",
+        "meta": "",
+        "home": {
+          "short": "AUG",
+          "name": "Augsburg",
+          "logo": "/images/Teams-logos/bundesliga/augsburg.svg"
+        },
+        "away": {
+          "short": "STU",
+          "name": "Stuttgart",
+          "logo": "/images/Teams-logos/bundesliga/stuttgart.svg"
+        }
+      }
+    ]
+  },
+  "ligue1": {
+    "matchdays": [
+      "MW1",
+      "MW2",
+      "MW3",
+      "MW4"
+    ],
+    "labels": {
+      "left": "Played",
+      "right": "Upcoming"
+    },
+    "fixtures": [
+      {
+        "id": "l1-2025-2026-304",
+        "competitionId": "ligue-1-2025-2026",
+        "state": "played",
+        "score": "0-1",
+        "meta": "FT",
+        "home": {
+          "short": "LEN",
+          "name": "Lens",
+          "logo": null
+        },
+        "away": {
+          "short": "LYO",
+          "name": "Lyon",
+          "logo": "/images/Teams-logos/Ligue-1/lyon.png"
+        }
+      },
+      {
+        "id": "l1-2025-2026-305",
+        "competitionId": "ligue-1-2025-2026",
+        "state": "upcoming",
+        "score": "20:45",
+        "meta": "",
+        "home": {
+          "short": "REN",
+          "name": "Rennes",
+          "logo": null
+        },
+        "away": {
+          "short": "MAR",
+          "name": "Marseille",
+          "logo": "/images/Teams-logos/Ligue-1/marseille.png"
+        }
+      },
+      {
+        "id": "l1-2025-2026-303",
+        "competitionId": "ligue-1-2025-2026",
+        "state": "played",
+        "score": "3-1",
+        "meta": "FT",
+        "home": {
+          "short": "MON",
+          "name": "Monaco",
+          "logo": "/images/Teams-logos/Ligue-1/monaco.png"
+        },
+        "away": {
+          "short": "HAV",
+          "name": "Le Havre",
+          "logo": "/images/Teams-logos/Ligue-1/havre.png"
+        }
+      },
+      {
+        "id": "l1-2025-2026-302",
+        "competitionId": "ligue-1-2025-2026",
+        "state": "played",
+        "score": "0-1",
+        "meta": "FT",
+        "home": {
+          "short": "NIC",
+          "name": "Nice",
+          "logo": "/images/Teams-logos/Ligue-1/nice.png"
+        },
+        "away": {
+          "short": "TOU",
+          "name": "Toulouse",
+          "logo": "/images/Teams-logos/Ligue-1/toulouse.png"
+        }
+      },
+      {
+        "id": "l1-2025-2026-301",
+        "competitionId": "ligue-1-2025-2026",
+        "state": "played",
+        "score": "3-3",
+        "meta": "FT",
+        "home": {
+          "short": "BRE",
+          "name": "Brest",
+          "logo": "/images/Teams-logos/Ligue-1/brest.png"
+        },
+        "away": {
+          "short": "LIL",
+          "name": "Lille",
+          "logo": null
+        }
+      },
+      {
+        "id": "l1-2025-2026-298",
+        "competitionId": "ligue-1-2025-2026",
+        "state": "played",
+        "score": "1-0",
+        "meta": "FT",
+        "home": {
+          "short": "ANG",
+          "name": "Angers",
+          "logo": "/images/Teams-logos/Ligue-1/angers sco.png"
+        },
+        "away": {
+          "short": "PAR",
+          "name": "Paris FC",
+          "logo": "/images/Teams-logos/Ligue-1/parisfc.png"
+        }
+      },
+      {
+        "id": "l1-2025-2026-299",
+        "competitionId": "ligue-1-2025-2026",
+        "state": "played",
+        "score": "1-0",
+        "meta": "FT",
+        "home": {
+          "short": "AUX",
+          "name": "Auxerre",
+          "logo": "/images/Teams-logos/Ligue-1/auxerre.png"
+        },
+        "away": {
+          "short": "LOR",
+          "name": "Lorient",
+          "logo": "/images/Teams-logos/Ligue-1/lorient.png"
+        }
+      },
+      {
+        "id": "l1-2025-2026-300",
+        "competitionId": "ligue-1-2025-2026",
+        "state": "played",
+        "score": "0-1",
+        "meta": "FT",
+        "home": {
+          "short": "MET",
+          "name": "Metz",
+          "logo": "/images/Teams-logos/Ligue-1/metz.png"
+        },
+        "away": {
+          "short": "STR",
+          "name": "Strasbourg",
+          "logo": "/images/Teams-logos/Ligue-1/strasbourg.png"
+        }
+      },
+      {
+        "id": "l1-2025-2026-297",
+        "competitionId": "ligue-1-2025-2026",
+        "state": "played",
+        "score": "0-1",
+        "meta": "FT",
+        "home": {
+          "short": "NAN",
+          "name": "Nantes",
+          "logo": "/images/Teams-logos/Ligue-1/nantes.png"
+        },
+        "away": {
+          "short": "PSG",
+          "name": "PSG",
+          "logo": "/images/Teams-logos/Ligue-1/psg.png"
+        }
+      }
+    ]
+  },
+  "ucl": {
+    "matchdays": [
+      "QF",
+      "R16",
+      "round_of_32",
+      "R8"
+    ],
+    "labels": {
+      "left": "Played",
+      "right": "Upcoming"
+    },
+    "fixtures": [
+      {
+        "id": "ucl-2025-2026-001",
+        "competitionId": "champions-league-2025-2026",
+        "state": "upcoming",
+        "score": "21:00",
+        "meta": "",
+        "home": {
+          "short": "RMA",
+          "name": "Real Madrid",
+          "logo": "/images/Teams-logos/champions-league/realmadrid.png"
+        },
+        "away": {
+          "short": "BAY",
+          "name": "Bayern Munich",
+          "logo": "/images/Teams-logos/champions-league/bayern.png"
+        }
+      },
+      {
+        "id": "ucl-2025-2026-002",
+        "competitionId": "champions-league-2025-2026",
+        "state": "upcoming",
+        "score": "21:00",
+        "meta": "",
+        "home": {
+          "short": "SPO",
+          "name": "Sporting CP",
+          "logo": "/images/Teams-logos/champions-league/sporting.png"
+        },
+        "away": {
+          "short": "ARS",
+          "name": "Arsenal",
+          "logo": "/images/Teams-logos/champions-league/arsenal.svg"
+        }
+      },
+      {
+        "id": "ucl-2025-2026-003",
+        "competitionId": "champions-league-2025-2026",
+        "state": "upcoming",
+        "score": "21:00",
+        "meta": "",
+        "home": {
+          "short": "BAR",
+          "name": "Barcelona",
+          "logo": "/images/Teams-logos/champions-league/barcelona.png"
+        },
+        "away": {
+          "short": "ATM",
+          "name": "Atletico Madrid",
+          "logo": "/images/Teams-logos/champions-league/atletiko.png"
+        }
+      },
+      {
+        "id": "ucl-2025-2026-004",
+        "competitionId": "champions-league-2025-2026",
+        "state": "upcoming",
+        "score": "21:00",
+        "meta": "",
+        "home": {
+          "short": "PSG",
+          "name": "Paris Saint-Germain",
+          "logo": "/images/Teams-logos/champions-league/psg.png"
+        },
+        "away": {
+          "short": "LIV",
+          "name": "Liverpool",
+          "logo": "/images/Teams-logos/champions-league/liverpool.png"
+        }
+      }
+    ]
+  },
+  "europa": {
+    "matchdays": [
+      "LP",
+      "PO",
+      "R16",
+      "QF"
+    ],
+    "labels": {
+      "left": "Leg 1",
+      "right": "Leg 2"
+    },
+    "fixtures": [
+      {
+        "id": "europa-round-of-16-ferencvaros-vs-sporting-braga-leg1",
+        "competitionId": "europa-league-2025-2026",
+        "state": "played",
+        "score": "2-0",
+        "meta": "Leg 1",
+        "home": {
+          "short": "FER",
+          "name": "Ferencv\u00e1ros",
+          "logo": "/images/Teams-logos/Europa-league/ferencvaros.png"
+        },
+        "away": {
+          "short": "SBR",
+          "name": "Sporting Braga",
+          "logo": "/images/Teams-logos/Europa-league/Braga.png"
+        }
+      },
+      {
+        "id": "europa-round-of-16-ferencvaros-vs-sporting-braga-leg2",
+        "competitionId": "europa-league-2025-2026",
+        "state": "played",
+        "score": "0-4",
+        "meta": "Leg 2",
+        "home": {
+          "short": "SBR",
+          "name": "Sporting Braga",
+          "logo": "/images/Teams-logos/Europa-league/Braga.png"
+        },
+        "away": {
+          "short": "FER",
+          "name": "Ferencv\u00e1ros",
+          "logo": "/images/Teams-logos/Europa-league/ferencvaros.png"
+        }
+      },
+      {
+        "id": "europa-round-of-16-panathinaikos-vs-real-betis-leg1",
+        "competitionId": "europa-league-2025-2026",
+        "state": "played",
+        "score": "1-0",
+        "meta": "Leg 1",
+        "home": {
+          "short": "PAN",
+          "name": "Panathinaikos",
+          "logo": "/images/Teams-logos/Europa-league/panathinaikos.png"
+        },
+        "away": {
+          "short": "RBE",
+          "name": "Real Betis",
+          "logo": "/images/Teams-logos/Europa-league/Real Betis.png"
+        }
+      },
+      {
+        "id": "europa-round-of-16-panathinaikos-vs-real-betis-leg2",
+        "competitionId": "europa-league-2025-2026",
+        "state": "played",
+        "score": "0-4",
+        "meta": "Leg 2",
+        "home": {
+          "short": "RBE",
+          "name": "Real Betis",
+          "logo": "/images/Teams-logos/Europa-league/Real Betis.png"
+        },
+        "away": {
+          "short": "PAN",
+          "name": "Panathinaikos",
+          "logo": "/images/Teams-logos/Europa-league/panathinaikos.png"
+        }
+      },
+      {
+        "id": "europa-round-of-16-racing-genk-vs-sc-freiburg-leg1",
+        "competitionId": "europa-league-2025-2026",
+        "state": "played",
+        "score": "1-0",
+        "meta": "Leg 1",
+        "home": {
+          "short": "RGE",
+          "name": "Racing Genk",
+          "logo": "/images/Teams-logos/Europa-league/genk.png"
+        },
+        "away": {
+          "short": "FRE",
+          "name": "SC Freiburg",
+          "logo": "/images/Teams-logos/Europa-league/Freiburg.png"
+        }
+      },
+      {
+        "id": "europa-round-of-16-racing-genk-vs-sc-freiburg-leg2",
+        "competitionId": "europa-league-2025-2026",
+        "state": "played",
+        "score": "1-5",
+        "meta": "Leg 2",
+        "home": {
+          "short": "FRE",
+          "name": "SC Freiburg",
+          "logo": "/images/Teams-logos/Europa-league/Freiburg.png"
+        },
+        "away": {
+          "short": "RGE",
+          "name": "Racing Genk",
+          "logo": "/images/Teams-logos/Europa-league/genk.png"
+        }
+      },
+      {
+        "id": "europa-round-of-16-celta-de-vigo-vs-olympique-lyon-leg1",
+        "competitionId": "europa-league-2025-2026",
+        "state": "played",
+        "score": "1-1",
+        "meta": "Leg 1",
+        "home": {
+          "short": "CVI",
+          "name": "Celta de Vigo",
+          "logo": "/images/Teams-logos/Europa-league/celta.png"
+        },
+        "away": {
+          "short": "OLY",
+          "name": "Olympique Lyon",
+          "logo": "/images/Teams-logos/Europa-league/Lyon.png"
+        }
+      },
+      {
+        "id": "europa-round-of-16-celta-de-vigo-vs-olympique-lyon-leg2",
+        "competitionId": "europa-league-2025-2026",
+        "state": "played",
+        "score": "2-0",
+        "meta": "Leg 2",
+        "home": {
+          "short": "OLY",
+          "name": "Olympique Lyon",
+          "logo": "/images/Teams-logos/Europa-league/Lyon.png"
+        },
+        "away": {
+          "short": "CVI",
+          "name": "Celta de Vigo",
+          "logo": "/images/Teams-logos/Europa-league/celta.png"
+        }
+      },
+      {
+        "id": "europa-round-of-16-vfb-stuttgart-vs-fc-porto-leg1",
+        "competitionId": "europa-league-2025-2026",
+        "state": "played",
+        "score": "1-2",
+        "meta": "Leg 1",
+        "home": {
+          "short": "VFB",
+          "name": "VfB Stuttgart",
+          "logo": "/images/Teams-logos/Europa-league/stuttgard.png"
+        },
+        "away": {
+          "short": "POR",
+          "name": "FC Porto",
+          "logo": "/images/Teams-logos/Europa-league/Porto.png"
+        }
+      },
+      {
+        "id": "europa-round-of-16-vfb-stuttgart-vs-fc-porto-leg2",
+        "competitionId": "europa-league-2025-2026",
+        "state": "played",
+        "score": "0-2",
+        "meta": "Leg 2",
+        "home": {
+          "short": "POR",
+          "name": "FC Porto",
+          "logo": "/images/Teams-logos/Europa-league/Porto.png"
+        },
+        "away": {
+          "short": "VFB",
+          "name": "VfB Stuttgart",
+          "logo": "/images/Teams-logos/Europa-league/stuttgard.png"
+        }
+      },
+      {
+        "id": "europa-round-of-16-nottingham-forest-vs-fc-midtjylland-leg1",
+        "competitionId": "europa-league-2025-2026",
+        "state": "played",
+        "score": "0-1",
+        "meta": "Leg 1",
+        "home": {
+          "short": "NFO",
+          "name": "Nottingham Forest",
+          "logo": "/images/Teams-logos/Europa-league/forest.png"
+        },
+        "away": {
+          "short": "MID",
+          "name": "FC Midtjylland",
+          "logo": "/images/Teams-logos/Europa-league/Midtjylland.png"
+        }
+      },
+      {
+        "id": "europa-round-of-16-nottingham-forest-vs-fc-midtjylland-leg2",
+        "competitionId": "europa-league-2025-2026",
+        "state": "played",
+        "score": "2-1",
+        "meta": "Leg 2",
+        "home": {
+          "short": "MID",
+          "name": "FC Midtjylland",
+          "logo": "/images/Teams-logos/Europa-league/Midtjylland.png"
+        },
+        "away": {
+          "short": "NFO",
+          "name": "Nottingham Forest",
+          "logo": "/images/Teams-logos/Europa-league/forest.png"
+        }
+      },
+      {
+        "id": "europa-round-of-16-bologna-vs-as-roma-leg1",
+        "competitionId": "europa-league-2025-2026",
+        "state": "played",
+        "score": "1-1",
+        "meta": "Leg 1",
+        "home": {
+          "short": "BOL",
+          "name": "Bologna",
+          "logo": "/images/Teams-logos/Europa-league/bologna.png"
+        },
+        "away": {
+          "short": "ROM",
+          "name": "AS Roma",
+          "logo": "/images/Teams-logos/Europa-league/Roma.png"
+        }
+      },
+      {
+        "id": "europa-round-of-16-bologna-vs-as-roma-leg2",
+        "competitionId": "europa-league-2025-2026",
+        "state": "played",
+        "score": "4-3",
+        "meta": "Leg 2",
+        "home": {
+          "short": "ROM",
+          "name": "AS Roma",
+          "logo": "/images/Teams-logos/Europa-league/Roma.png"
+        },
+        "away": {
+          "short": "BOL",
+          "name": "Bologna",
+          "logo": "/images/Teams-logos/Europa-league/bologna.png"
+        }
+      },
+      {
+        "id": "europa-round-of-16-lille-osc-vs-aston-villa-leg1",
+        "competitionId": "europa-league-2025-2026",
+        "state": "played",
+        "score": "0-1",
+        "meta": "Leg 1",
+        "home": {
+          "short": "LOS",
+          "name": "Lille OSC",
+          "logo": "/images/Teams-logos/Europa-league/lille.png"
+        },
+        "away": {
+          "short": "AVI",
+          "name": "Aston Villa",
+          "logo": "/images/Teams-logos/Europa-league/AstonVilla.png"
+        }
+      },
+      {
+        "id": "europa-round-of-16-lille-osc-vs-aston-villa-leg2",
+        "competitionId": "europa-league-2025-2026",
+        "state": "played",
+        "score": "0-2",
+        "meta": "Leg 2",
+        "home": {
+          "short": "AVI",
+          "name": "Aston Villa",
+          "logo": "/images/Teams-logos/Europa-league/AstonVilla.png"
+        },
+        "away": {
+          "short": "LOS",
+          "name": "Lille OSC",
+          "logo": "/images/Teams-logos/Europa-league/lille.png"
+        }
+      }
+    ]
+  },
+  "conference": {
+    "matchdays": [
+      "LP",
+      "PO",
+      "R16",
+      "QF"
+    ],
+    "labels": {
+      "left": "Leg 1",
+      "right": "Leg 2"
+    },
+    "fixtures": [
+      {
+        "id": "conference-round-of-16-lech-poznan-vs-shakhtar-donetsk-leg1",
+        "competitionId": "conference-league-2025-2026",
+        "state": "played",
+        "score": "1-3",
+        "meta": "Leg 1",
+        "home": {
+          "short": "LPO",
+          "name": "Lech Poznan",
+          "logo": "/images/Teams-logos/conference-league/Lech Poznan.png"
+        },
+        "away": {
+          "short": "SDO",
+          "name": "Shakhtar Donetsk",
+          "logo": "/images/Teams-logos/conference-league/shakhtar.png"
+        }
+      },
+      {
+        "id": "conference-round-of-16-lech-poznan-vs-shakhtar-donetsk-leg2",
+        "competitionId": "conference-league-2025-2026",
+        "state": "played",
+        "score": "2-1",
+        "meta": "Leg 2",
+        "home": {
+          "short": "SDO",
+          "name": "Shakhtar Donetsk",
+          "logo": "/images/Teams-logos/conference-league/shakhtar.png"
+        },
+        "away": {
+          "short": "LPO",
+          "name": "Lech Poznan",
+          "logo": "/images/Teams-logos/conference-league/Lech Poznan.png"
+        }
+      },
+      {
+        "id": "conference-round-of-16-az-alkmaar-vs-sparta-praha-leg1",
+        "competitionId": "conference-league-2025-2026",
+        "state": "played",
+        "score": "2-1",
+        "meta": "Leg 1",
+        "home": {
+          "short": "AZA",
+          "name": "AZ Alkmaar",
+          "logo": "/images/Teams-logos/conference-league/AZ Alkmaar.png"
+        },
+        "away": {
+          "short": "SPR",
+          "name": "Sparta Praha",
+          "logo": "/images/Teams-logos/conference-league/Sparta Praha.png"
+        }
+      },
+      {
+        "id": "conference-round-of-16-az-alkmaar-vs-sparta-praha-leg2",
+        "competitionId": "conference-league-2025-2026",
+        "state": "played",
+        "score": "4-0",
+        "meta": "Leg 2",
+        "home": {
+          "short": "SPR",
+          "name": "Sparta Praha",
+          "logo": "/images/Teams-logos/conference-league/Sparta Praha.png"
+        },
+        "away": {
+          "short": "AZA",
+          "name": "AZ Alkmaar",
+          "logo": "/images/Teams-logos/conference-league/AZ Alkmaar.png"
+        }
+      },
+      {
+        "id": "conference-round-of-16-crystal-palace-vs-aek-larnaca-leg1",
+        "competitionId": "conference-league-2025-2026",
+        "state": "played",
+        "score": "0-0",
+        "meta": "Leg 1",
+        "home": {
+          "short": "CPA",
+          "name": "Crystal Palace",
+          "logo": "/images/Teams-logos/conference-league/Crystal Palace.png"
+        },
+        "away": {
+          "short": "AEK",
+          "name": "AEK Larnaca",
+          "logo": "/images/Teams-logos/conference-league/AEK Larnaca.png"
+        }
+      },
+      {
+        "id": "conference-round-of-16-crystal-palace-vs-aek-larnaca-leg2",
+        "competitionId": "conference-league-2025-2026",
+        "state": "played",
+        "score": "2-1",
+        "meta": "Leg 2",
+        "home": {
+          "short": "AEK",
+          "name": "AEK Larnaca",
+          "logo": "/images/Teams-logos/conference-league/AEK Larnaca.png"
+        },
+        "away": {
+          "short": "CPA",
+          "name": "Crystal Palace",
+          "logo": "/images/Teams-logos/conference-league/Crystal Palace.png"
+        }
+      },
+      {
+        "id": "conference-round-of-16-fiorentina-vs-rakow-czestochowa-leg1",
+        "competitionId": "conference-league-2025-2026",
+        "state": "played",
+        "score": "2-1",
+        "meta": "Leg 1",
+        "home": {
+          "short": "FIO",
+          "name": "Fiorentina",
+          "logo": "/images/Teams-logos/conference-league/fiorentina.png"
+        },
+        "away": {
+          "short": "RCZ",
+          "name": "Rak\u00f3w Czestochowa",
+          "logo": "/images/Teams-logos/conference-league/Rakow.png"
+        }
+      },
+      {
+        "id": "conference-round-of-16-fiorentina-vs-rakow-czestochowa-leg2",
+        "competitionId": "conference-league-2025-2026",
+        "state": "played",
+        "score": "2-1",
+        "meta": "Leg 2",
+        "home": {
+          "short": "RCZ",
+          "name": "Rak\u00f3w Czestochowa",
+          "logo": "/images/Teams-logos/conference-league/Rakow.png"
+        },
+        "away": {
+          "short": "FIO",
+          "name": "Fiorentina",
+          "logo": "/images/Teams-logos/conference-league/fiorentina.png"
+        }
+      },
+      {
+        "id": "conference-round-of-16-samsunspor-vs-rayo-vallecano-leg1",
+        "competitionId": "conference-league-2025-2026",
+        "state": "played",
+        "score": "1-3",
+        "meta": "Leg 1",
+        "home": {
+          "short": "SAM",
+          "name": "Samsunspor",
+          "logo": "/images/Teams-logos/conference-league/Samsunspor.png"
+        },
+        "away": {
+          "short": "RVA",
+          "name": "Rayo Vallecano",
+          "logo": "/images/Teams-logos/conference-league/Raya Vallecano.png"
+        }
+      },
+      {
+        "id": "conference-round-of-16-samsunspor-vs-rayo-vallecano-leg2",
+        "competitionId": "conference-league-2025-2026",
+        "state": "played",
+        "score": "1-0",
+        "meta": "Leg 2",
+        "home": {
+          "short": "RVA",
+          "name": "Rayo Vallecano",
+          "logo": "/images/Teams-logos/conference-league/Raya Vallecano.png"
+        },
+        "away": {
+          "short": "SAM",
+          "name": "Samsunspor",
+          "logo": "/images/Teams-logos/conference-league/Samsunspor.png"
+        }
+      },
+      {
+        "id": "conference-round-of-16-nk-celje-vs-aek-athens-leg1",
+        "competitionId": "conference-league-2025-2026",
+        "state": "played",
+        "score": "0-4",
+        "meta": "Leg 1",
+        "home": {
+          "short": "NKC",
+          "name": "NK Celje",
+          "logo": "/images/Teams-logos/conference-league/Celje.png"
+        },
+        "away": {
+          "short": "AEK",
+          "name": "AEK Athens",
+          "logo": "/images/Teams-logos/conference-league/AEK Athens.png"
+        }
+      },
+      {
+        "id": "conference-round-of-16-nk-celje-vs-aek-athens-leg2",
+        "competitionId": "conference-league-2025-2026",
+        "state": "played",
+        "score": "2-0",
+        "meta": "Leg 2",
+        "home": {
+          "short": "AEK",
+          "name": "AEK Athens",
+          "logo": "/images/Teams-logos/conference-league/AEK Athens.png"
+        },
+        "away": {
+          "short": "NKC",
+          "name": "NK Celje",
+          "logo": "/images/Teams-logos/conference-league/Celje.png"
+        }
+      },
+      {
+        "id": "conference-round-of-16-sigma-olomouc-vs-fsv-mainz-05-leg1",
+        "competitionId": "conference-league-2025-2026",
+        "state": "played",
+        "score": "0-0",
+        "meta": "Leg 1",
+        "home": {
+          "short": "SOL",
+          "name": "Sigma Olomouc",
+          "logo": "/images/Teams-logos/conference-league/Sigma Olomouc.png"
+        },
+        "away": {
+          "short": "FM0",
+          "name": "FSV Mainz 05",
+          "logo": "/images/Teams-logos/conference-league/Mainz.png"
+        }
+      },
+      {
+        "id": "conference-round-of-16-sigma-olomouc-vs-fsv-mainz-05-leg2",
+        "competitionId": "conference-league-2025-2026",
+        "state": "played",
+        "score": "0-2",
+        "meta": "Leg 2",
+        "home": {
+          "short": "FM0",
+          "name": "FSV Mainz 05",
+          "logo": "/images/Teams-logos/conference-league/Mainz.png"
+        },
+        "away": {
+          "short": "SOL",
+          "name": "Sigma Olomouc",
+          "logo": "/images/Teams-logos/conference-league/Sigma Olomouc.png"
+        }
+      },
+      {
+        "id": "conference-round-of-16-nk-rijeka-vs-rc-strasbourg-leg1",
+        "competitionId": "conference-league-2025-2026",
+        "state": "played",
+        "score": "1-2",
+        "meta": "Leg 1",
+        "home": {
+          "short": "NKR",
+          "name": "NK Rijeka",
+          "logo": "/images/Teams-logos/conference-league/rijeka.png"
+        },
+        "away": {
+          "short": "STR",
+          "name": "RC Strasbourg",
+          "logo": "/images/Teams-logos/conference-league/Strasbourg.png"
+        }
+      },
+      {
+        "id": "conference-round-of-16-nk-rijeka-vs-rc-strasbourg-leg2",
+        "competitionId": "conference-league-2025-2026",
+        "state": "played",
+        "score": "1-1",
+        "meta": "Leg 2",
+        "home": {
+          "short": "STR",
+          "name": "RC Strasbourg",
+          "logo": "/images/Teams-logos/conference-league/Strasbourg.png"
+        },
+        "away": {
+          "short": "NKR",
+          "name": "NK Rijeka",
+          "logo": "/images/Teams-logos/conference-league/rijeka.png"
+        }
+      }
+    ]
+  },
+  "worldcup": {
+    "matchdays": [
+      "GRP A",
+      "GRP B",
+      "GRP C",
+      "GRP D"
+    ],
+    "labels": {
+      "left": "Groups",
+      "right": "Kick Off"
+    },
+    "fixtures": [
+      {
+        "id": "worldcup-group-a-mexico-vs-south-africa-0",
+        "competitionId": "worldcup-2026",
+        "state": "upcoming",
+        "score": "19:00",
+        "meta": "Group A",
+        "home": {
+          "short": "MEX",
+          "name": "Mexico",
+          "logo": "/images/Flags/mexico.png"
+        },
+        "away": {
+          "short": "SAF",
+          "name": "South Africa",
+          "logo": "/images/Flags/RSA.png"
+        }
+      },
+      {
+        "id": "worldcup-group-a-south-korea-vs-uefa-path-d-winner-1",
+        "competitionId": "worldcup-2026",
+        "state": "upcoming",
+        "score": "02:00",
+        "meta": "Group A",
+        "home": {
+          "short": "SKO",
+          "name": "South Korea",
+          "logo": "/images/Flags/korea.jpg"
+        },
+        "away": {
+          "short": "UPD",
+          "name": "UEFA Path D winner",
+          "logo": null
+        }
+      },
+      {
+        "id": "worldcup-group-a-uefa-path-d-winner-vs-south-africa-2",
+        "competitionId": "worldcup-2026",
+        "state": "upcoming",
+        "score": "16:00",
+        "meta": "Group A",
+        "home": {
+          "short": "UPD",
+          "name": "UEFA Path D winner",
+          "logo": null
+        },
+        "away": {
+          "short": "SAF",
+          "name": "South Africa",
+          "logo": "/images/Flags/RSA.png"
+        }
+      },
+      {
+        "id": "worldcup-group-a-mexico-vs-south-korea-3",
+        "competitionId": "worldcup-2026",
+        "state": "upcoming",
+        "score": "01:00",
+        "meta": "Group A",
+        "home": {
+          "short": "MEX",
+          "name": "Mexico",
+          "logo": "/images/Flags/mexico.png"
+        },
+        "away": {
+          "short": "SKO",
+          "name": "South Korea",
+          "logo": "/images/Flags/korea.jpg"
+        }
+      },
+      {
+        "id": "worldcup-group-a-uefa-path-d-winner-vs-mexico-4",
+        "competitionId": "worldcup-2026",
+        "state": "upcoming",
+        "score": "01:00",
+        "meta": "Group A",
+        "home": {
+          "short": "UPD",
+          "name": "UEFA Path D winner",
+          "logo": null
+        },
+        "away": {
+          "short": "MEX",
+          "name": "Mexico",
+          "logo": "/images/Flags/mexico.png"
+        }
+      },
+      {
+        "id": "worldcup-group-a-south-africa-vs-south-korea-5",
+        "competitionId": "worldcup-2026",
+        "state": "upcoming",
+        "score": "01:00",
+        "meta": "Group A",
+        "home": {
+          "short": "SAF",
+          "name": "South Africa",
+          "logo": "/images/Flags/RSA.png"
+        },
+        "away": {
+          "short": "SKO",
+          "name": "South Korea",
+          "logo": "/images/Flags/korea.jpg"
+        }
+      }
+    ]
+  }
+}

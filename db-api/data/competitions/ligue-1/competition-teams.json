@@ -1,0 +1,110 @@
+[
+  {
+    "competitionId": "ligue-1-2025-2026",
+    "teamId": "angers",
+    "seedOrder": 1,
+    "groupName": null
+  },
+  {
+    "competitionId": "ligue-1-2025-2026",
+    "teamId": "auxerre",
+    "seedOrder": 2,
+    "groupName": null
+  },
+  {
+    "competitionId": "ligue-1-2025-2026",
+    "teamId": "brest",
+    "seedOrder": 3,
+    "groupName": null
+  },
+  {
+    "competitionId": "ligue-1-2025-2026",
+    "teamId": "le-havre",
+    "seedOrder": 4,
+    "groupName": null
+  },
+  {
+    "competitionId": "ligue-1-2025-2026",
+    "teamId": "lens",
+    "seedOrder": 5,
+    "groupName": null
+  },
+  {
+    "competitionId": "ligue-1-2025-2026",
+    "teamId": "lille",
+    "seedOrder": 6,
+    "groupName": null
+  },
+  {
+    "competitionId": "ligue-1-2025-2026",
+    "teamId": "lorient",
+    "seedOrder": 7,
+    "groupName": null
+  },
+  {
+    "competitionId": "ligue-1-2025-2026",
+    "teamId": "lyon",
+    "seedOrder": 8,
+    "groupName": null
+  },
+  {
+    "competitionId": "ligue-1-2025-2026",
+    "teamId": "marseille",
+    "seedOrder": 9,
+    "groupName": null
+  },
+  {
+    "competitionId": "ligue-1-2025-2026",
+    "teamId": "metz",
+    "seedOrder": 10,
+    "groupName": null
+  },
+  {
+    "competitionId": "ligue-1-2025-2026",
+    "teamId": "monaco",
+    "seedOrder": 11,
+    "groupName": null
+  },
+  {
+    "competitionId": "ligue-1-2025-2026",
+    "teamId": "nantes",
+    "seedOrder": 12,
+    "groupName": null
+  },
+  {
+    "competitionId": "ligue-1-2025-2026",
+    "teamId": "nice",
+    "seedOrder": 13,
+    "groupName": null
+  },
+  {
+    "competitionId": "ligue-1-2025-2026",
+    "teamId": "paris-fc",
+    "seedOrder": 14,
+    "groupName": null
+  },
+  {
+    "competitionId": "ligue-1-2025-2026",
+    "teamId": "psg",
+    "seedOrder": 15,
+    "groupName": null
+  },
+  {
+    "competitionId": "ligue-1-2025-2026",
+    "teamId": "rennes",
+    "seedOrder": 16,
+    "groupName": null
+  },
+  {
+    "competitionId": "ligue-1-2025-2026",
+    "teamId": "strasbourg",
+    "seedOrder": 17,
+    "groupName": null
+  },
+  {
+    "competitionId": "ligue-1-2025-2026",
+    "teamId": "toulouse",
+    "seedOrder": 18,
+    "groupName": null
+  }
+]

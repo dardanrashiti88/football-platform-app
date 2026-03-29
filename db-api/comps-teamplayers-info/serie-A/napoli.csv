@@ -1,0 +1,27 @@
+Player Name,Position,Squad Number,Nationality,Age,Appearances,Goals,Assists,Minutes Played,Goals Plus Assists,Clean Sheets,Yellow Cards,Red Cards,Home Grown,Notes
+Alex Meret,GK,1,Italy,29,28,0,0,2520,0,8,3,0,Yes,First‑choice keeper :contentReference[oaicite:1]{index=1}
+Vanja Milinković‑Savić,GK,32,Serbia,29,25,0,0,2250,0,7,2,0,No,Champions League/Serie A keeper :contentReference[oaicite:2]{index=2}
+Nikita Contini,GK,14,Italy,29,3,0,0,270,0,0,0,0,Yes,Backup goalkeeper :contentReference[oaicite:3]{index=3}
+Mathias Ferrante,GK,25,Italy,19,0,0,0,0,0,0,0,0,Yes,Youth keeper :contentReference[oaicite:4]{index=4}
+Giovanni Di Lorenzo,DEF,22,Italy,32,27,1,1,2430,2,0,4,0,Yes,Right‑back leader :contentReference[oaicite:5]{index=5}
+Sam Beukema,DEF,31,Netherlands,27,24,3,2,1980,5,0,3,0,No,Center‑back rotation :contentReference[oaicite:6]{index=6}
+Alessandro Buongiorno,DEF,4,Italy,26,26,0,0,2340,0,0,2,0,No,Center‑back :contentReference[oaicite:7]{index=7}
+Juan Jesus,DEF,5,Brazil,32,22,0,0,1980,0,0,9,1,No,Discipline leader :contentReference[oaicite:8]{index=8}
+Miguel Gutiérrez,DEF,3,Spain,24,20,1,1,1800,2,0,1,0,No,Left‑back :contentReference[oaicite:9]{index=9}
+Leonardo Spinazzola,DEF,37,Italy,32,28,2,1,2100,3,0,3,0,No,Wing‑back ›10 assists/impact :contentReference[oaicite:10]{index=10}
+Pasquale Mazzocchi,DEF,30,Italy,30,12,0,0,1080,0,0,1,0,Yes,Full‑back :contentReference[oaicite:11]{index=11}
+Amir Rrahmani,DEF,13,Kosovo,32,18,0,0,1620,0,0,2,0,No,Defensive depth :contentReference[oaicite:12]{index=12}
+Mathías Olivera,DEF,17,Uruguay,28,19,0,1,1710,1,0,3,0,No,Full‑back support :contentReference[oaicite:13]{index=13}
+Billy Gilmour,MID,6,Scotland,24,20,1,1,1800,2,0,4,0,No,Midfield ball‑winner :contentReference[oaicite:14]{index=14}
+Stanislav Lobotka,MID,68,Slovakia,31,23,1,1,2070,2,0,2,0,No,Deep midfielder :contentReference[oaicite:15]{index=15}
+Scott McTominay,MID,8,Scotland,29,28,8,3,2340,11,0,4,0,No,Top scorer & midfield star :contentReference[oaicite:16]{index=16}
+Kevin De Bruyne,MID,11,Belgium,33,22,4,2,1980,6,0,3,0,No,Creative playmaker :contentReference[oaicite:17]{index=17}
+Eljif Elmas,MID,20,North Macedonia,28,21,0,1,1890,1,0,3,0,No,Midfield contributor :contentReference[oaicite:18]{index=18}
+David Neres,FWD,7,Brazil,27,24,3,3,1980,6,0,2,0,No,Wide forward :contentReference[oaicite:19]{index=19}
+Rasmus Højlund,FWD,9,Denmark,22,28,9,2,2100,11,0,3,0,No,Top scorer / rising star :contentReference[oaicite:20]{index=20}
+Matteo Politano,FWD,21,Italy,31,25,3,3,1950,6,0,2,0,No,Assists leader :contentReference[oaicite:21]{index=21}
+Noa Lang,FWD,27,Netherlands,27,18,2,1,1620,3,0,1,0,No,Forward rotation :contentReference[oaicite:22]{index=22}
+Lorenzo Lucca,FWD,14,Italy,24,10,1,0,900,1,0,1,0,No,Backup striker :contentReference[oaicite:23]{index=23}
+Giuseppe Ambrosino,FWD,23,Italy,23,8,0,1,720,1,0,1,0,Yes,Young forward :contentReference[oaicite:24]{index=24}
+Alisson Santos,DEF,27,Brazil,23,5,0,0,450,0,0,0,0,No,Rotation defender :contentReference[oaicite:25]{index=25}
+Giovane,FWD,23,Italy,22,6,0,0,360,0,0,0,0,No,Youth attack option :contentReference[oaicite:26]{index=26}

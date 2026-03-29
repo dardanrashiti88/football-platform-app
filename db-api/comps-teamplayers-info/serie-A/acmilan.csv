@@ -1,0 +1,25 @@
+Player Name,Position,Squad Number,Nationality,Age,Appearances,Goals,Assists,Minutes Played,Goals Plus Assists,Clean Sheets,Yellow Cards,Red Cards,Home Grown,Notes
+Mike Maignan,GK,16,France,30,29,0,0,2610,0,11,3,0,No,Starting GK & Captain
+Pietro Terracciano,GK,1,Italy,36,2,0,0,180,0,1,0,0,Yes,Backup GK
+Lorenzo Torriani,GK,96,Italy,21,0,0,0,0,0,0,0,0,Yes,Third GK
+Pervis Estupinan,DEF,2,Ecuador,27,17,1,3,1380,4,0,4,0,No,Starting LB
+Koni De Winter,DEF,5,Belgium,24,23,1,1,1950,2,0,5,0,No,CB rotation
+Fikayo Tomori,DEF,23,England,28,28,0,2,2420,2,0,6,0,No,CB starter
+Strahinja Pavlovic,DEF,31,Serbia,27,27,4,1,2350,5,0,7,1,No,Key CB
+Matteo Gabbia,DEF,46,Italy,25,24,0,0,1980,0,0,3,0,Yes,Homegrown CB
+Davide Bartesaghi,DEF,33,Italy,20,24,2,0,1680,2,0,2,0,Yes,Versatile defender
+Zachary Athekame,DEF,24,Switzerland,21,21,1,2,1420,3,0,3,0,No,Young fullback
+David Odogu,DEF,27,Germany,20,2,0,0,90,0,0,0,0,No,Young CB prospect
+Samuele Ricci,MID,4,Italy,25,26,1,3,2100,4,0,5,0,Yes,Defensive midfielder
+Ruben Loftus-Cheek,MID,8,England,29,25,3,4,1850,7,0,4,0,No,Box-to-box
+Luka Modric,MID,14,Croatia,40,22,2,5,1650,7,0,2,0,No,Experienced playmaker
+Youssouf Fofana,MID,19,France,26,28,1,2,2200,3,0,6,0,No,Key midfielder
+Ardon Jashari,MID,30,Switzerland,23,18,2,1,1250,3,0,3,0,No,Rotation mid
+Adrien Rabiot,MID,12,France,30,20,3,2,1480,5,0,4,0,No,Experienced mid
+Christian Pulisic,FWD,11,USA,27,30,10,8,2450,18,0,2,0,No,Key attacker
+Rafael Leao,FWD,10,Portugal,26,31,9,10,2650,19,0,5,0,No,Star winger
+Santiago Gimenez,FWD,7,Mexico,24,27,11,4,1980,15,0,3,0,No,Main striker
+Christopher Nkunku,FWD,18,France,28,24,8,6,1720,14,0,2,0,No,Versatile forward
+Alexis Saelemaekers,FWD,56,Belgium,26,28,2,4,1950,6,0,4,0,No,Utility attacker
+Noah Okafor,FWD,17,Switzerland,25,15,4,2,780,6,0,1,0,No,Rotation forward
+Francesco Camarda,FWD,70,Italy,18,10,2,1,450,3,0,0,0,Yes,Top young talent

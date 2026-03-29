@@ -1,0 +1,30 @@
+.mobile-shell {
+  width: min(100%, var(--mobile-max));
+  min-height: 100vh;
+  margin: 0 auto;
+  background: var(--black);
+  padding-bottom: calc(188px + env(safe-area-inset-bottom));
+}
+
+.mobile-main {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 12px 10px calc(32px + env(safe-area-inset-bottom));
+}
+
+.mobile-day-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.mobile-day-pill {
+  background: var(--black);
+  color: var(--white);
+  border-radius: var(--radius-pill);
+  padding: 8px 18px;
+  border: 2px solid var(--sidebar-border);
+  font-weight: 600;
+  box-shadow: 0 2px 0 var(--sidebar-border);
+}

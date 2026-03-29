@@ -1,0 +1,1410 @@
+.players-view {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.players-search {
+  display: flex;
+  align-items: center;
+}
+
+.players-panel {
+  position: relative;
+  background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.08), transparent 55%),
+    linear-gradient(135deg, #0a0a0a 0%, #121212 55%, #0a0a0a 100%);
+  border-radius: 18px;
+  border: 2px solid rgba(255, 255, 255, 0.12);
+  padding: 18px;
+  min-height: 720px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
+  --team-primary: #b0001a;
+  --team-secondary: #f2f2f2;
+}
+
+.players-view.is-profile .players-search,
+.players-view.is-profile .team-pill-row {
+  display: none;
+}
+
+.team-pill-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(240px, 1fr));
+  gap: 16px;
+  margin: 6px 0 20px;
+}
+
+.team-pill {
+  appearance: none;
+  background: var(--team-pill-bg, #0f0f0f);
+  border-radius: 18px;
+  height: 120px;
+  border: 1px solid var(--team-pill-border, #2b2b2b);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 14px;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.team-pill-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: 'Cinzel', 'Playfair Display', serif;
+  font-size: 34px;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: #ffffff;
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.45);
+}
+
+.team-pill-word {
+  display: inline-block;
+}
+
+.team-pill-logo {
+  width: 56px;
+  height: 56px;
+  display: grid;
+  place-items: center;
+}
+
+.team-pill-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4));
+}
+
+.team-pill.is-worldcup .team-pill-title {
+  font-size: 24px;
+  gap: 12px;
+  letter-spacing: 0.8px;
+}
+
+.team-pill.is-worldcup .team-pill-logo {
+  width: 52px;
+  height: 34px;
+}
+
+.team-pill.is-worldcup .team-pill-logo img {
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.team-pill[data-team-id='tottenham-hotspur'] .team-pill-logo {
+  width: 30px;
+  height: 30px;
+  transform: translateY(-20px);
+}
+
+.team-pill.is-long .team-pill-title {
+  font-size: 22px;
+  letter-spacing: 0.6px;
+  gap: 6px;
+  flex-wrap: nowrap;
+}
+
+.team-pill.is-long .team-pill-logo {
+  width: 44px;
+  height: 44px;
+}
+
+.team-pill.is-long .team-pill-word {
+  max-width: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.team-pill:focus-visible {
+  outline: 2px solid #6a1bb8;
+  outline-offset: 2px;
+}
+
+.team-pill.is-active {
+  border-color: #ffffff;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.25);
+}
+
+.team-pill.is-active span {
+  color: #ffffff;
+}
+
+.players-grid {
+  display: block;
+}
+
+.players-empty {
+  margin-top: 40px;
+  text-align: center;
+  color: #f5f5f5;
+  font-size: 15px;
+  letter-spacing: 0.4px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.players-group {
+  grid-column: 1 / -1;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--team-header-border, #2b2b2b);
+  background: var(--team-header-bg, #131313);
+  color: #f2f2f2;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.player-card {
+  background: var(--team-row-bg, #0f0f0f);
+  border: 1px solid var(--team-row-border, #2b2b2b);
+  border-radius: 12px;
+  padding: 10px 12px;
+  min-height: 78px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.player-card-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: #f5f5f5;
+  text-transform: uppercase;
+  letter-spacing: 0.2px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.player-card-meta {
+  display: flex;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #e0e0e0;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.player-card-meta span {
+  background: rgba(0, 0, 0, 0.25);
+  padding: 2px 6px;
+  border-radius: 999px;
+}
+
+.team-profile {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.team-hero {
+  border-radius: 16px;
+  background: linear-gradient(180deg, var(--team-primary) 0%, #101010 70%, #050505 100%);
+  padding: 54px 24px 64px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+}
+
+.team-profile[data-team-id='liverpool'] .team-hero {
+  background: linear-gradient(180deg, #9a0b0b 0%, #6b0000 45%, #0a0a0a 100%);
+}
+
+.team-profile[data-team-id='afc-bournemouth'] .team-hero-title {
+  font-size: clamp(48px, 8vw, 120px);
+  gap: 12px;
+}
+
+.team-profile[data-team-id='afc-bournemouth'] .team-hero-logo {
+  width: 180px;
+  height: 180px;
+}
+
+.team-hero-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.team-hero-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  font-family: 'Cinzel', 'Playfair Display', serif;
+  font-size: clamp(72px, 12vw, 190px);
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #ffffff;
+  text-transform: uppercase;
+  text-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
+  max-width: 100%;
+}
+
+.team-profile.long-name .team-hero-title {
+  font-size: clamp(48px, 8.5vw, 140px);
+  flex-wrap: wrap;
+  row-gap: 8px;
+}
+
+.team-profile.long-name .team-hero-word {
+  white-space: normal;
+  text-align: center;
+}
+
+.team-profile.long-name .team-hero-logo {
+  width: 200px;
+  height: 200px;
+}
+
+.team-profile.long-name[data-team-id='tottenham-hotspur'] .team-hero-logo {
+  width: 95px;
+  height: 95px;
+  transform: translateY(-50px);
+}
+
+.team-hero-logo {
+  width: 260px;
+  height: 260px;
+  display: grid;
+  place-items: center;
+}
+
+.team-hero-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 14px rgba(0, 0, 0, 0.45));
+}
+
+
+.team-exit {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  background: rgba(0, 0, 0, 0.35);
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  cursor: pointer;
+}
+
+.team-tabs {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.team-tab {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(0, 0, 0, 0.65));
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  border-radius: 10px;
+  padding: 8px 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  cursor: pointer;
+}
+
+.team-tab.active {
+  background: linear-gradient(135deg, var(--team-primary), #111111);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.team-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 520px;
+  gap: 18px;
+}
+
+.team-squad {
+  display: grid;
+  grid-template-columns: minmax(230px, 1fr) minmax(230px, 1fr) minmax(180px, 0.85fr);
+  gap: 14px;
+}
+
+.squad-column {
+  background: transparent;
+  border: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.squad-column-title {
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: rgba(255, 255, 255, 0.8);
+  padding: 6px 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.squad-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.squad-card {
+  display: grid;
+  grid-template-columns: 80px 1fr auto;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  border-radius: 18px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  background: linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--team-primary) 92%, #000000 8%) 0%,
+      var(--team-primary) 55%,
+      color-mix(in srgb, var(--team-primary) 35%, #000000 65%) 100%
+    );
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
+}
+
+.squad-photo {
+  width: 72px;
+  height: 72px;
+  border-radius: 12px;
+  overflow: visible;
+  background: transparent;
+  display: grid;
+  place-items: center;
+}
+
+.squad-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.squad-photo-fallback {
+  font-weight: 700;
+  color: #fff;
+}
+
+.squad-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.squad-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.squad-meta {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.7);
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.squad-flag {
+  width: 18px;
+  height: 12px;
+  object-fit: cover;
+  border-radius: 2px;
+}
+
+.squad-stats {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.squad-stats span {
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+
+.squad-number {
+  font-size: 40px;
+  font-weight: 700;
+  font-family: 'Bebas Neue', 'Teko', 'Space Grotesk', sans-serif;
+  color: #ffffff;
+  letter-spacing: 1px;
+  line-height: 1;
+  padding-right: 6px;
+  text-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
+}
+
+.squad-empty {
+  font-size: 12px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+  text-align: center;
+  padding: 12px;
+}
+
+.team-fixtures {
+  background: transparent;
+  border-radius: 16px;
+  border: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.team-fixtures-title {
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: 1.6px;
+  color: rgba(255, 255, 255, 0.9);
+  text-align: right;
+  padding-right: 4px;
+}
+
+.team-fixtures-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.team-profile.fixtures-view .team-body {
+  grid-template-columns: 1fr;
+}
+
+.team-profile.history-view .team-body {
+  grid-template-columns: 1fr;
+}
+
+.team-profile.table-view .team-body,
+.team-body.table-only {
+  grid-template-columns: 1fr;
+}
+
+.team-tables {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  align-items: start;
+  width: 100%;
+}
+
+.team-tables.single {
+  grid-template-columns: 1fr;
+}
+
+.team-table-col {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.team-body.table-only {
+  display: block;
+}
+
+.team-table-card {
+  background: rgba(0, 0, 0, 0.35);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 14px;
+  align-self: start;
+  height: fit-content;
+  width: 100%;
+}
+
+.team-table-card.league-premier {
+  background: linear-gradient(160deg, rgba(87, 34, 155, 0.6), rgba(25, 12, 45, 0.8));
+  border-color: rgba(174, 137, 255, 0.4);
+}
+
+.team-table-card.league-ucl {
+  background: linear-gradient(160deg, rgba(12, 32, 86, 0.8), rgba(6, 13, 34, 0.9));
+  border-color: rgba(87, 126, 255, 0.45);
+}
+
+.team-table-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1.4px;
+  color: #fff;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.team-table-title img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+}
+
+.team-table {
+  display: grid;
+  gap: 6px;
+}
+
+.team-table-row {
+  display: grid;
+  grid-template-columns: 28px minmax(140px, 1fr) repeat(7, 36px) 44px;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 8px;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.35);
+  color: #f2f2f2;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
+.team-table-row.header {
+  background: rgba(255, 255, 255, 0.08);
+  font-weight: 800;
+}
+
+.team-table-row.is-team {
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(77, 163, 255, 0.55);
+  box-shadow: 0 0 0 2px rgba(77, 163, 255, 0.25);
+  position: relative;
+}
+
+.team-table-row.is-team::after {
+  content: '';
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: 4px;
+  height: 2px;
+  background: #4da3ff;
+}
+
+.team-table-cell {
+  text-align: center;
+}
+
+.team-table-cell.team {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-align: left;
+}
+
+.team-table-cell.team img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+}
+
+.team-logo-fallback {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  display: inline-block;
+}
+
+.team-table-cell.rank {
+  font-weight: 800;
+}
+
+.team-table-cell.pts {
+  font-weight: 800;
+}
+
+.team-table-empty {
+  padding: 16px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 0.8px;
+}
+
+.cup-round-card {
+  margin-top: 0;
+  width: 100%;
+  background: linear-gradient(160deg, rgba(178, 15, 20, 0.85), rgba(72, 4, 10, 0.9));
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  padding: 14px 16px;
+  color: #fff;
+  min-height: 120px;
+}
+
+.cup-round-title {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.cup-round-value {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: 0.6px;
+}
+.trophy-cabinet {
+  background: #ffffff;
+  border-radius: 18px;
+  border: 3px solid #b10f0f;
+  padding: 22px 18px 40px;
+  display: grid;
+  grid-template-columns: repeat(8, minmax(140px, 1fr));
+  gap: 18px;
+  min-height: 320px;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.25);
+}
+
+.trophy-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+  color: #111;
+  background: #ffffff;
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  padding: 14px 10px 16px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+}
+
+.trophy-card img {
+  width: 125px;
+  height: 160px;
+  object-fit: contain;
+  margin-top: 6px;
+}
+
+.trophy-duo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.trophy-duo img {
+  width: 100px;
+  height: 130px;
+  margin-top: 6px;
+}
+
+.trophy-title {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+.trophy-count {
+  font-family: 'Bungee', 'Bebas Neue', 'Teko', sans-serif;
+  font-size: 44px;
+  color: #111;
+  margin-top: 0;
+  line-height: 1;
+  transform: translateY(20px);
+}
+
+.trophy-count-premier {
+  transform: translateY(50px);
+}
+
+.trophy-empty {
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 14px;
+  padding: 18px;
+  color: #fff;
+  text-align: center;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+.team-profile.fixtures-view .team-fixtures-title {
+  text-align: left;
+  font-size: 14px;
+  letter-spacing: 2px;
+}
+
+.team-profile.fixtures-view .team-fixtures-list {
+  gap: 16px;
+}
+
+.team-profile.fixtures-view .team-fixture-card {
+  min-height: 128px;
+  grid-template-columns: minmax(0, 1fr) 100px minmax(0, 1fr) 160px;
+  padding: 14px 0 14px 20px;
+}
+
+.team-profile.fixtures-view .fixture-team img {
+  width: 84px;
+  height: 84px;
+}
+
+.team-profile.fixtures-view .fixture-vs {
+  width: 100px;
+  overflow: visible;
+}
+
+.team-profile.fixtures-view .fixture-vs img {
+  width: 100%;
+  height: 100%;
+  transform: scale(1.5);
+}
+
+.team-profile.fixtures-view .fixture-score {
+  font-size: 40px;
+  font-weight: 700;
+}
+
+.team-profile.fixtures-view .fixture-clock {
+  font-size: 36px;
+}
+
+.team-profile.fixtures-view .fixture-date {
+  font-size: 11px;
+}
+
+.team-profile.fixtures-view .fixture-time {
+  padding-left: 14px;
+  padding-right: 14px;
+}
+
+.team-profile.fixtures-view .fixture-comp-logo {
+  width: 30px;
+  height: 30px;
+  top: 8px;
+  left: 12px;
+}
+
+.fixtures-show-more {
+  border: none;
+  border-radius: 999px;
+  padding: 10px 16px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #111;
+  background: #f5c942;
+  cursor: pointer;
+  align-self: center;
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.18);
+}
+
+.fixtures-show-more:hover {
+  filter: brightness(0.95);
+}
+
+.team-fixture-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 70px minmax(0, 1fr) 96px;
+  gap: 10px;
+  align-items: center;
+  padding: 8px 0 8px 16px;
+  border-radius: 18px;
+  background: #ffffff;
+  border: 2px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18);
+  position: relative;
+  min-height: 96px;
+  overflow: hidden;
+}
+
+.team-fixture-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  pointer-events: none;
+}
+
+.team-fixtures-title {
+  color: #fff;
+}
+
+.fixture-comp-logo {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+}
+
+.fixture-team {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  font-weight: 800;
+  color: #111;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.fixture-team.right {
+  justify-content: center;
+  text-align: center;
+}
+
+.fixture-team::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 2px;
+  width: 70%;
+  height: 2px;
+  background: rgba(0, 0, 0, 0.12);
+  transform: translateX(-50%);
+}
+
+.fixture-team img {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+}
+
+.fixture-team img.fixture-logo--dark {
+  filter: brightness(0) saturate(100%);
+}
+
+.fixture-logo-fallback {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: rgba(255, 255, 255, 0.15);
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.fixture-vs {
+  width: 70px;
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+}
+
+.fixture-vs img {
+  width: 120%;
+  height: 120%;
+  object-fit: contain;
+}
+
+.fixture-score {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: 'Bebas Neue', 'Teko', 'Space Grotesk', sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: #111;
+  letter-spacing: 1px;
+}
+
+.fixture-score .score-dash {
+  opacity: 0.6;
+}
+
+.fixture-time {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-weight: 900;
+  padding: 6px 10px;
+  border-radius: 0 16px 16px 0;
+  color: #111;
+  align-self: stretch;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.08);
+  margin: -8px 0 -8px 0;
+}
+
+.fixture-clock {
+  font-size: 28px;
+  font-family: 'Bebas Neue', 'Teko', 'Space Grotesk', sans-serif;
+  letter-spacing: 1px;
+}
+
+.fixture-date {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  opacity: 0.75;
+}
+
+.team-profile[data-team-id='liverpool'] .fixture-team.right img {
+  filter: brightness(0) saturate(100%) invert(10%) sepia(91%) saturate(5035%)
+    hue-rotate(353deg) brightness(92%) contrast(114%);
+}
+
+.fixture-time--league {
+  background: #f5c942;
+  color: #111;
+}
+
+.fixture-time--cl {
+  background: #2c5bff;
+  color: #ffffff;
+}
+
+.fixture-time--fa {
+  background: #d81f33;
+  color: #ffffff;
+}
+
+@media (max-width: 1200px) {
+  .team-pill-row {
+    grid-template-columns: repeat(2, minmax(200px, 1fr));
+  }
+
+  .team-body {
+    grid-template-columns: 1fr;
+  }
+
+  .team-squad {
+    grid-template-columns: repeat(2, minmax(220px, 1fr));
+  }
+
+  .team-tables {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 900px) {
+  .players-search {
+    justify-content: center;
+  }
+
+  .players-panel {
+    padding: 16px;
+  }
+
+  .team-pill-row {
+    grid-template-columns: 1fr;
+  }
+
+  .team-squad {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 620px) {
+  .team-hero-title {
+    font-size: 28px;
+    flex-wrap: wrap;
+  }
+}
+
+body.players-embed-mode .players-view {
+  gap: 8px;
+}
+
+body.players-embed-mode .players-panel {
+  padding: 10px;
+  min-height: auto;
+  border-radius: 14px;
+}
+
+body.players-embed-mode .team-hero {
+  min-height: 180px;
+  padding: 28px 14px 34px;
+  border-radius: 14px;
+}
+
+body.players-embed-mode .team-hero-title {
+  font-size: clamp(42px, 10vw, 78px);
+  gap: 10px;
+  letter-spacing: 1px;
+  flex-wrap: nowrap;
+}
+
+body.players-embed-mode .team-profile.long-name .team-hero-title {
+  font-size: clamp(24px, 6vw, 42px);
+  gap: 6px;
+}
+
+body.players-embed-mode .team-hero-logo {
+  width: 96px;
+  height: 96px;
+}
+
+body.players-embed-mode .team-profile.long-name .team-hero-logo {
+  width: 74px;
+  height: 74px;
+}
+
+body.players-embed-mode .team-profile.long-name[data-team-id='tottenham-hotspur'] .team-hero-logo {
+  width: 42px;
+  height: 42px;
+  transform: translateY(-18px);
+}
+
+body.players-embed-mode .team-exit {
+  top: 10px;
+  left: 10px;
+  padding: 5px 10px;
+  font-size: 9px;
+}
+
+body.players-embed-mode .team-tabs {
+  gap: 6px;
+}
+
+body.players-embed-mode .team-tab {
+  padding: 6px 10px;
+  font-size: 9px;
+  letter-spacing: 0.4px;
+}
+
+body.players-embed-mode .team-body {
+  grid-template-columns: minmax(0, 1fr) 214px !important;
+  gap: 8px;
+  align-items: start;
+}
+
+body.players-embed-mode .team-squad {
+  grid-template-columns: 1fr !important;
+  gap: 6px;
+}
+
+body.players-embed-mode .squad-column {
+  gap: 6px;
+}
+
+body.players-embed-mode .squad-column-title {
+  font-size: 9px;
+  padding: 4px 6px;
+}
+
+body.players-embed-mode .squad-list {
+  gap: 6px;
+}
+
+body.players-embed-mode .squad-card {
+  grid-template-columns: 52px 1fr auto;
+  gap: 6px;
+  padding: 8px 9px;
+  border-radius: 12px;
+}
+
+body.players-embed-mode .squad-photo {
+  width: 50px;
+  height: 50px;
+}
+
+body.players-embed-mode .squad-name {
+  font-size: 10px;
+  line-height: 1.15;
+}
+
+body.players-embed-mode .squad-meta {
+  font-size: 8px;
+  gap: 3px;
+}
+
+body.players-embed-mode .squad-flag {
+  width: 12px;
+  height: 8px;
+}
+
+body.players-embed-mode .squad-stats {
+  gap: 3px;
+}
+
+body.players-embed-mode .squad-stats span {
+  font-size: 7px;
+  padding: 1px 3px;
+}
+
+body.players-embed-mode .squad-number {
+  font-size: 28px;
+  padding-right: 2px;
+}
+
+body.players-embed-mode .team-fixtures {
+  gap: 8px;
+  max-width: 214px;
+  justify-self: end;
+  margin-left: auto;
+  padding-left: 6px;
+}
+
+body.players-embed-mode .team-fixtures-title {
+  font-size: 9px;
+  letter-spacing: 0.8px;
+  text-align: right;
+  padding-right: 4px;
+}
+
+body.players-embed-mode .team-fixtures-list {
+  gap: 8px;
+}
+
+body.players-embed-mode .team-fixture-card {
+  grid-template-columns: minmax(0, 1fr) 36px minmax(0, 1fr) 64px;
+  gap: 4px;
+  min-height: 46px;
+  padding: 3px 0 3px 6px;
+  border-radius: 14px;
+  margin-left: auto;
+}
+
+body.players-embed-mode .fixture-comp-logo {
+  top: 5px;
+  left: 6px;
+  width: 16px;
+  height: 16px;
+}
+
+body.players-embed-mode .fixture-team {
+  gap: 3px;
+  font-size: 8px;
+  padding-bottom: 5px;
+  letter-spacing: 0.25px;
+}
+
+body.players-embed-mode .fixture-team img {
+  width: 30px;
+  height: 30px;
+}
+
+body.players-embed-mode .fixture-team::after {
+  bottom: 1px;
+  width: 64%;
+}
+
+body.players-embed-mode .fixture-vs {
+  width: 36px;
+}
+
+body.players-embed-mode .fixture-vs img {
+  width: 116%;
+  height: 116%;
+}
+
+body.players-embed-mode .fixture-score {
+  gap: 3px;
+  font-size: 14px;
+}
+
+body.players-embed-mode .fixture-time {
+  gap: 1px;
+  padding: 2px 4px;
+  border-radius: 0 14px 14px 0;
+  margin: -3px 0 -3px 0;
+}
+
+body.players-embed-mode .fixture-clock {
+  font-size: 14px;
+}
+
+body.players-embed-mode .fixture-date {
+  font-size: 6px;
+  letter-spacing: 0.35px;
+}
+
+body.players-embed-mode .team-profile.fixtures-view .team-body {
+  grid-template-columns: 1fr !important;
+}
+
+body.players-embed-mode .team-profile.fixtures-view .team-fixtures {
+  width: 100%;
+  max-width: none;
+  justify-self: stretch;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+body.players-embed-mode .team-profile.fixtures-view .team-fixtures-title {
+  text-align: left;
+  font-size: 12px;
+  letter-spacing: 1.4px;
+  padding-right: 0;
+}
+
+body.players-embed-mode .team-profile.fixtures-view .team-fixtures-list {
+  gap: 12px;
+}
+
+body.players-embed-mode .team-profile.fixtures-view .team-fixture-card {
+  grid-template-columns: minmax(0, 1fr) 84px minmax(0, 1fr) 124px;
+  gap: 8px;
+  min-height: 108px;
+  padding: 12px 0 12px 16px;
+  border-radius: 18px;
+  margin-left: 0;
+  width: 100%;
+}
+
+body.players-embed-mode .team-profile.fixtures-view .fixture-comp-logo {
+  top: 8px;
+  left: 10px;
+  width: 26px;
+  height: 26px;
+}
+
+body.players-embed-mode .team-profile.fixtures-view .fixture-team {
+  gap: 6px;
+  font-size: 11px;
+  padding-bottom: 9px;
+  letter-spacing: 0.45px;
+}
+
+body.players-embed-mode .team-profile.fixtures-view .fixture-team img {
+  width: 70px;
+  height: 70px;
+}
+
+body.players-embed-mode .team-profile.fixtures-view .fixture-team::after {
+  width: 70%;
+  bottom: 2px;
+}
+
+body.players-embed-mode .team-profile.fixtures-view .fixture-vs {
+  width: 84px;
+}
+
+body.players-embed-mode .team-profile.fixtures-view .fixture-vs img {
+  width: 100%;
+  height: 100%;
+  transform: scale(1.35);
+}
+
+body.players-embed-mode .team-profile.fixtures-view .fixture-score {
+  gap: 8px;
+  font-size: 30px;
+}
+
+body.players-embed-mode .team-profile.fixtures-view .fixture-time {
+  gap: 4px;
+  padding: 8px 10px;
+  border-radius: 0 18px 18px 0;
+  margin: -12px 0 -12px 0;
+}
+
+body.players-embed-mode .team-profile.fixtures-view .fixture-clock {
+  font-size: 30px;
+}
+
+body.players-embed-mode .team-profile.fixtures-view .fixture-date {
+  font-size: 10px;
+  letter-spacing: 0.55px;
+}
+
+body.players-embed-mode .team-profile.table-view .team-body,
+body.players-embed-mode .team-body.table-only {
+  grid-template-columns: 1fr !important;
+}
+
+body.players-embed-mode .team-profile.table-view .team-tables,
+body.players-embed-mode .team-body.table-only .team-tables {
+  grid-template-columns: 1fr;
+  gap: 10px;
+  width: calc(100% - 8px);
+  margin-right: 8px;
+}
+
+body.players-embed-mode .team-profile.table-view .team-table-col,
+body.players-embed-mode .team-body.table-only .team-table-col {
+  gap: 10px;
+}
+
+body.players-embed-mode .team-profile.table-view .team-table-card,
+body.players-embed-mode .team-body.table-only .team-table-card {
+  padding: 10px 8px 10px 10px;
+  border-radius: 14px;
+}
+
+body.players-embed-mode .team-profile.table-view .team-table-title,
+body.players-embed-mode .team-body.table-only .team-table-title {
+  gap: 8px;
+  font-size: 10px;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+body.players-embed-mode .team-profile.table-view .team-table-title img,
+body.players-embed-mode .team-body.table-only .team-table-title img {
+  width: 18px;
+  height: 18px;
+}
+
+body.players-embed-mode .team-profile.table-view .team-table,
+body.players-embed-mode .team-body.table-only .team-table {
+  gap: 4px;
+}
+
+body.players-embed-mode .team-profile.table-view .team-table-row,
+body.players-embed-mode .team-body.table-only .team-table-row {
+  grid-template-columns: 20px minmax(84px, 1fr) repeat(7, 21px) 28px;
+  gap: 3px;
+  padding: 5px 4px;
+  font-size: 8px;
+}
+
+body.players-embed-mode .team-profile.table-view .team-table-cell.team,
+body.players-embed-mode .team-body.table-only .team-table-cell.team {
+  gap: 5px;
+}
+
+body.players-embed-mode .team-profile.table-view .team-table-cell.team img,
+body.players-embed-mode .team-body.table-only .team-table-cell.team img {
+  width: 16px;
+  height: 16px;
+}
+
+body.players-embed-mode .team-profile.table-view .team-logo-fallback,
+body.players-embed-mode .team-body.table-only .team-logo-fallback {
+  width: 14px;
+  height: 14px;
+}
+
+body.players-embed-mode .team-profile.table-view .team-table-row.is-team::after,
+body.players-embed-mode .team-body.table-only .team-table-row.is-team::after {
+  left: 6px;
+  right: 6px;
+}

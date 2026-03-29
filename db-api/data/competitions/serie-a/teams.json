@@ -1,0 +1,202 @@
+[
+  {
+    "id": "ac-milan",
+    "slug": "ac-milan",
+    "name": "AC Milan",
+    "shortName": "Milan",
+    "country": "Italy",
+    "aliases": [
+      "AC Milan"
+    ]
+  },
+  {
+    "id": "as-roma",
+    "slug": "as-roma",
+    "name": "AS Roma",
+    "shortName": "Roma",
+    "country": "Italy",
+    "aliases": [
+      "AS Roma"
+    ]
+  },
+  {
+    "id": "atalanta",
+    "slug": "atalanta",
+    "name": "Atalanta",
+    "shortName": "Atalanta",
+    "country": "Italy",
+    "aliases": [
+      "Atalanta"
+    ]
+  },
+  {
+    "id": "bologna",
+    "slug": "bologna",
+    "name": "Bologna",
+    "shortName": "Bologna",
+    "country": "Italy",
+    "aliases": [
+      "Bologna"
+    ]
+  },
+  {
+    "id": "cagliari",
+    "slug": "cagliari",
+    "name": "Cagliari",
+    "shortName": "Cagliari",
+    "country": "Italy",
+    "aliases": [
+      "Cagliari"
+    ]
+  },
+  {
+    "id": "como",
+    "slug": "como",
+    "name": "Como",
+    "shortName": "Como",
+    "country": "Italy",
+    "aliases": [
+      "Como"
+    ]
+  },
+  {
+    "id": "cremonese",
+    "slug": "cremonese",
+    "name": "Cremonese",
+    "shortName": "Cremonese",
+    "country": "Italy",
+    "aliases": [
+      "Cremonese"
+    ]
+  },
+  {
+    "id": "fiorentina",
+    "slug": "fiorentina",
+    "name": "Fiorentina",
+    "shortName": "Fiorentina",
+    "country": "Italy",
+    "aliases": [
+      "Fiorentina"
+    ]
+  },
+  {
+    "id": "genoa",
+    "slug": "genoa",
+    "name": "Genoa",
+    "shortName": "Genoa",
+    "country": "Italy",
+    "aliases": [
+      "Genoa"
+    ]
+  },
+  {
+    "id": "inter",
+    "slug": "inter",
+    "name": "Inter",
+    "shortName": "Inter",
+    "country": "Italy",
+    "aliases": [
+      "Inter"
+    ]
+  },
+  {
+    "id": "juventus",
+    "slug": "juventus",
+    "name": "Juventus",
+    "shortName": "Juventus",
+    "country": "Italy",
+    "aliases": [
+      "Juventus"
+    ]
+  },
+  {
+    "id": "lazio",
+    "slug": "lazio",
+    "name": "Lazio",
+    "shortName": "Lazio",
+    "country": "Italy",
+    "aliases": [
+      "Lazio"
+    ]
+  },
+  {
+    "id": "lecce",
+    "slug": "lecce",
+    "name": "Lecce",
+    "shortName": "Lecce",
+    "country": "Italy",
+    "aliases": [
+      "Lecce"
+    ]
+  },
+  {
+    "id": "napoli",
+    "slug": "napoli",
+    "name": "Napoli",
+    "shortName": "Napoli",
+    "country": "Italy",
+    "aliases": [
+      "Napoli"
+    ]
+  },
+  {
+    "id": "parma",
+    "slug": "parma",
+    "name": "Parma",
+    "shortName": "Parma",
+    "country": "Italy",
+    "aliases": [
+      "Parma"
+    ]
+  },
+  {
+    "id": "pisa",
+    "slug": "pisa",
+    "name": "Pisa",
+    "shortName": "Pisa",
+    "country": "Italy",
+    "aliases": [
+      "Pisa"
+    ]
+  },
+  {
+    "id": "sassuolo",
+    "slug": "sassuolo",
+    "name": "Sassuolo",
+    "shortName": "Sassuolo",
+    "country": "Italy",
+    "aliases": [
+      "Sassuolo"
+    ]
+  },
+  {
+    "id": "torino",
+    "slug": "torino",
+    "name": "Torino",
+    "shortName": "Torino",
+    "country": "Italy",
+    "aliases": [
+      "Torino"
+    ]
+  },
+  {
+    "id": "udinese",
+    "slug": "udinese",
+    "name": "Udinese",
+    "shortName": "Udinese",
+    "country": "Italy",
+    "aliases": [
+      "Udinese"
+    ]
+  },
+  {
+    "id": "verona",
+    "slug": "verona",
+    "name": "Verona",
+    "shortName": "Verona",
+    "country": "Italy",
+    "aliases": [
+      "Verona"
+    ]
+  }
+]

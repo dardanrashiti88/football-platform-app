@@ -1,0 +1,21 @@
+Player Name,Position,Squad Number,Nationality,Age,Appearances,Goals,Assists,Minutes Played,Goals Plus Assists,Clean Sheets,Yellow Cards,Red Cards,Home Grown,Notes
+Bart Verbruggen,GK,1,Netherlands,23,29,0,0,2610,0,7,8,0,No,First-choice GK :contentReference[oaicite:1]{index=1}
+Jason Steele,GK,23,England,35,0,0,0,0,0,0,0,0,Yes,Backup keeper :contentReference[oaicite:2]{index=2}
+Tom McGill,GK,38,Canada,25,0,0,0,0,0,0,0,0,No,Third GK :contentReference[oaicite:3]{index=3}
+Jan Paul van Hecke,DEF,6,Netherlands,25,27,3,2,2430,5,0,7,0,No,Center‑back :contentReference[oaicite:4]{index=4}
+Lewis Dunk,DEF,5,England,34,27,1,0,2430,1,0,9,0,Yes,Experienced CB :contentReference[oaicite:5]{index=5}
+Olivier Boscagli,DEF,21,France,28,8,3,0,720,3,0,2,0,No,Rotation defender :contentReference[oaicite:6]{index=6}
+Igor Julio,DEF,3,Brazil,28,4,3,0,360,3,0,0,0,No,Defender :contentReference[oaicite:7]{index=7}
+Adam Webster,DEF,4,England,31,0,0,0,0,0,0,0,0,Yes,Backup CB :contentReference[oaicite:8]{index=8}
+Ferdi Kadioglu,DEF,24,Turkey,26,28,4,0,2520,4,0,6,0,No,Left‑back rotation :contentReference[oaicite:9]{index=9}
+Maxim De Cuyper,DEF,29,Belgium,25,22,2,0,1980,2,0,5,0,No,Left‑back :contentReference[oaicite:10]{index=10}
+Yankuba Minteh,FWD,7,Gambia,21,25,?,4,?,4,0,?,0,?,No,Winger (assists leader) :contentReference[oaicite:11]{index=11}
+Danny Welbeck,FWD,18,England,35,28,10,0,2520,10,0,4,0,No,Top scorer :contentReference[oaicite:12]{index=12}
+Diego Gómez,MID,25,Paraguay,22,26,5,?,?,5,0,?,0,?,No,Midfielder scorer :contentReference[oaicite:13]{index=13}
+Georginio Rutter,FWD,10,France,23,24,3,2,?,5,0,?,0,?,No,Forward option :contentReference[oaicite:14]{index=14}
+Yasin Ayari,MID,26,Sweden,22,?,3,2,?,5,0,?,0,?,No,Midfielder :contentReference[oaicite:15]{index=15}
+Mats Wieffer,MID,27,Netherlands,26,?,?,3,?,3,0,?,0,?,No,Midfielder :contentReference[oaicite:16]{index=16}
+Jack Hinshelwood,MID,13,England,20,?,2,2,?,4,0,?,0,?,Yes,Young midfield :contentReference[oaicite:17]{index=17}
+Charalampos Kostoulas,FWD,19,Greece,18,?,2,0,?,2,0,?,0,?,No,Young forward :contentReference[oaicite:18]{index=18}
+Tom Watson,FWD,14,England,19,?,0,1,?,1,0,?,0,?,Yes,Young forward :contentReference[oaicite:19]{index=19}
+(Possible Subs like transfers/loans: Nils Ramming GK, Carl Rushworth GK, Yoon Do‑young, etc., not included due to lack of stat data) :contentReference[oaicite:20]{index=20}

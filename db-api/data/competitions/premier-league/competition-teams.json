@@ -1,0 +1,122 @@
+[
+  {
+    "competitionId": "premier-league-2025-2026",
+    "teamId": "afc-bournemouth",
+    "seedOrder": 1,
+    "groupName": null
+  },
+  {
+    "competitionId": "premier-league-2025-2026",
+    "teamId": "arsenal",
+    "seedOrder": 2,
+    "groupName": null
+  },
+  {
+    "competitionId": "premier-league-2025-2026",
+    "teamId": "aston-villa",
+    "seedOrder": 3,
+    "groupName": null
+  },
+  {
+    "competitionId": "premier-league-2025-2026",
+    "teamId": "brentford",
+    "seedOrder": 4,
+    "groupName": null
+  },
+  {
+    "competitionId": "premier-league-2025-2026",
+    "teamId": "brighton-and-hove-albion",
+    "seedOrder": 5,
+    "groupName": null
+  },
+  {
+    "competitionId": "premier-league-2025-2026",
+    "teamId": "burnley",
+    "seedOrder": 6,
+    "groupName": null
+  },
+  {
+    "competitionId": "premier-league-2025-2026",
+    "teamId": "chelsea",
+    "seedOrder": 7,
+    "groupName": null
+  },
+  {
+    "competitionId": "premier-league-2025-2026",
+    "teamId": "crystal-palace",
+    "seedOrder": 8,
+    "groupName": null
+  },
+  {
+    "competitionId": "premier-league-2025-2026",
+    "teamId": "everton",
+    "seedOrder": 9,
+    "groupName": null
+  },
+  {
+    "competitionId": "premier-league-2025-2026",
+    "teamId": "fulham",
+    "seedOrder": 10,
+    "groupName": null
+  },
+  {
+    "competitionId": "premier-league-2025-2026",
+    "teamId": "leeds-united",
+    "seedOrder": 11,
+    "groupName": null
+  },
+  {
+    "competitionId": "premier-league-2025-2026",
+    "teamId": "liverpool",
+    "seedOrder": 12,
+    "groupName": null
+  },
+  {
+    "competitionId": "premier-league-2025-2026",
+    "teamId": "manchester-city",
+    "seedOrder": 13,
+    "groupName": null
+  },
+  {
+    "competitionId": "premier-league-2025-2026",
+    "teamId": "manchester-united",
+    "seedOrder": 14,
+    "groupName": null
+  },
+  {
+    "competitionId": "premier-league-2025-2026",
+    "teamId": "newcastle-united",
+    "seedOrder": 15,
+    "groupName": null
+  },
+  {
+    "competitionId": "premier-league-2025-2026",
+    "teamId": "nottingham-forest",
+    "seedOrder": 16,
+    "groupName": null
+  },
+  {
+    "competitionId": "premier-league-2025-2026",
+    "teamId": "sunderland",
+    "seedOrder": 17,
+    "groupName": null
+  },
+  {
+    "competitionId": "premier-league-2025-2026",
+    "teamId": "tottenham-hotspur",
+    "seedOrder": 18,
+    "groupName": null
+  },
+  {
+    "competitionId": "premier-league-2025-2026",
+    "teamId": "west-ham-united",
+    "seedOrder": 19,
+    "groupName": null
+  },
+  {
+    "competitionId": "premier-league-2025-2026",
+    "teamId": "wolverhampton-wanderers",
+    "seedOrder": 20,
+    "groupName": null
+  }
+]

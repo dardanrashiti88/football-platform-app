@@ -1,0 +1,22 @@
+Player Name,Position,Squad Number,Nationality,Age,Appearances,Goals,Assists,Minutes Played,Goals Plus Assists,Clean Sheets,Yellow Cards,Red Cards,Home Grown,Notes
+Oliver Baumann,GK,1,Germany,34,24,0,0,2160,0,7,3,0,No,First‑choice keeper with regular clean sheets:contentReference[oaicite:1]{index=1}
+Lúkas Petersson,GK,36,Sweden,20,9,0,0,810,0,2,1,0,No,Backup goalkeeper:contentReference[oaicite:2]{index=2}
+Luca Philipp,GK,37,Germany,25,2,0,0,180,0,0,0,0,Yes,Third keeper with limited apps:contentReference[oaicite:3]{index=3}
+Andrej Kramarić,FWD,27,Croatia,34,25,10,2,1587,12,0,4,0,No,Team’s top scorer so far:contentReference[oaicite:4]{index=4}
+Fisnik Asllani,FWD,11,Kosovo,23,24,8,0,1700,8,0,3,0,No,Strong goal threat up front:contentReference[oaicite:5]{index=5}
+Tim Lemperle,FWD,19,Germany,23,20,7,0,1320,7,0,3,0,No,Important forward contributor:contentReference[oaicite:6]{index=6}
+Grischa Prömel,MID,6,Germany,30,25,6,1,1365,7,0,2,0,Yes,Creative mid with goals:contentReference[oaicite:7]{index=7}
+Wouter Burger,MID,18,Netherlands,25,22,4,0,1751,4,0,3,0,No,Midfield engine with work rate:contentReference[oaicite:8]{index=8}
+Ozan Kabak,DEF,5,Turkey,25,16,4,0,935,4,0,2,0,No,Defender with some goal threat:contentReference[oaicite:9]{index=9}
+Alexander Prass,MID,22,Austria,24,23,3,0,931,3,0,2,0,No,Creative midfielder:contentReference[oaicite:10]{index=10}
+Bazoumana Touré,FWD,29,Ivory Coast,19,21,2,0,1618,2,0,2,0,No,Young forward depth contributor:contentReference[oaicite:11]{index=11}
+Max Moerstedt,FWD,33,Germany,19,17,2,0,355,2,0,1,0,No,Rotation striker:contentReference[oaicite:12]{index=12}
+Albian Hajdari,DEF,21,Switzerland/Kosovo,22,?,1,0,?,1,0,?,0,No,Defender squad option:contentReference[oaicite:13]{index=13}
+Kevin Akpoguma,DEF,25,Nigeria,30,?,2,1,?,3,0,?,0,No,Experienced defender with goal & assist:contentReference[oaicite:14]{index=14}
+Bernardo,DEF,13,Brazil,30,?,1,0,?,?,1,0,?,0,No,Full‑back starter:contentReference[oaicite:15]{index=15}
+Vladimír Coufal,DEF,34,Czechia,33,?,0,1,?,?,1,0,?,0,No,Right‑back with creativity:contentReference[oaicite:16]{index=16}
+Leon Avdullahu,MID,7,Kosovo/Switzerland,21,?,0,1,?,1,0,?,0,Yes,Home‑grown midfielder:contentReference[oaicite:17]{index=17}
+Muhammed Damar,MID,10,Germany,21,?,3,0,?,3,0,?,0,No,Attack‑minded midfield option:contentReference[oaicite:18]{index=18}
+Grischa Prömel (no dup fix),…,…,…,…,…,…,…,…,…,…,…,…
+Wouter Burger (dup removed),…,…,…,…,…,…,…,…,…,…
+Other Squad Players,Various,0,Various,0,0,0,0,0,0,0,0,Yes,Rotation & youth players (no apps):contentReference[oaicite:19]{index=19}

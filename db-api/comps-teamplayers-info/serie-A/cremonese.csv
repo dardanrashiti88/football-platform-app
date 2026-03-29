@@ -1,0 +1,20 @@
+Player Name,Position,Squad Number,Nationality,Age,Appearances,Goals,Assists,Minutes Played,Goals Plus Assists,Clean Sheets,Yellow Cards,Red Cards,Home Grown,Notes
+Emil Audero,GK,1,Indonesia/Italy,28,24,0,0,2160,0,8,2,0,No,Main keeper, good clean sheet count in tough defense :contentReference[oaicite:1]{index=1}
+Tommaso Barbieri,DEF,4,Italy,23,20,0,1,1800,1,0,5,0,Yes,Full‑back starter with cards :contentReference[oaicite:2]{index=2}
+Federico Baschirotto,DEF,6,Italy,29,25,2,0,2250,2,0,0,0,No,Center‑back with some goals :contentReference[oaicite:3]{index=3}
+Matteo Bianchetti,DEF,15,Italy,32,21,0,2,1890,2,0,2,0,No,Defensive utility + assists :contentReference[oaicite:4]{index=4}
+Federico Bonazzoli,FWD,90,Italy,28,25,6,1,?,7,0,3,0,No,Top scorer for Cremonese :contentReference[oaicite:5]{index=5}
+Warren Bondo,MID,38,France,22,21,0,0,?,0,0,4,0,No,Midfield rotation player :contentReference[oaicite:6]{index=6}
+Jari Vandeputte,MID,?,Belgium,?,23,0,4,?,4,0,1,0,No,Assist leader :contentReference[oaicite:7]{index=7}
+Alessio Zerbin,MID/FWD,?,Italy,?,23,0,2,?,2,0,2,0,No,Attacking rotation with assists :contentReference[oaicite:8]{index=8}
+Jamie Vardy,FWD,?,England,?,24,5,1,?,6,0,4,0,No,Second top scorer & veteran threat :contentReference[oaicite:9]{index=9}
+Filippo Terracciano,MF/DEF,?,Italy,?,26,2,0,?,2,0,4,0,Yes,Regular starter with goals :contentReference[oaicite:10]{index=10}
+Morten Thorsby,MID,?,Norway,?,18,3,1,?,4,0,1,0,No,Midfielder with goal threat :contentReference[oaicite:11]{index=11}
+Federico Ceccherini,DEF,?,Italy,?,8,0,0,?,0,0,1,1,No,Defender with occasional apps :contentReference[oaicite:12]{index=12}
+Dennis Johnsen,MID/FWD,?,Norway,?,11,1,1,?,2,0,1,0,No,Rotation winger :contentReference[oaicite:13]{index=13}
+Franco Vázquez,MID,?,Argentina,?,15,1,2,?,3,0,2,0,No,Experienced midfielder :contentReference[oaicite:14]{index=14}
+Antonio Sanabria,FWD,?,Paraguay,?,20,1,1,?,2,0,1,0,No,Forward rotation :contentReference[oaicite:15]{index=15}
+Sebastiano Luperto,DEF,?,Italy,?,24,1,1,?,2,0,1,0,No,Center‑back depth :contentReference[oaicite:16]{index=16}
+Giuseppe Pezzella,DEF,?,Italy,?,22,0,1,?,1,0,7,0,No,Booked often defender :contentReference[oaicite:17]{index=17}
+Matteo Grassi,MID,?,Italy,?,18,0,0,0,0,0,0,0,Yes,Youth/academy (no apps) :contentReference[oaicite:18]{index=18}
+Other Youth,Various,0,Various,0,0,0,0,0,0,0,0,Yes,Multiple youth players no senior apps :contentReference[oaicite:19]{index=19}

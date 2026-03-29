@@ -1,0 +1,3032 @@
+[
+  {
+    "id": "manuel-neuer-bayern-munich",
+    "name": "Manuel Neuer",
+    "teamId": "bayern-munich",
+    "teamName": "Bayern Munich",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Germany"
+  },
+  {
+    "id": "sven-ulreich-bayern-munich",
+    "name": "Sven Ulreich",
+    "teamId": "bayern-munich",
+    "teamName": "Bayern Munich",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Germany"
+  },
+  {
+    "id": "jonas-urbig-bayern-munich",
+    "name": "Jonas Urbig",
+    "teamId": "bayern-munich",
+    "teamName": "Bayern Munich",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Germany"
+  },
+  {
+    "id": "dayot-upamecano-bayern-munich",
+    "name": "Dayot Upamecano",
+    "teamId": "bayern-munich",
+    "teamName": "Bayern Munich",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "France"
+  },
+  {
+    "id": "kim-min-jae-bayern-munich",
+    "name": "Kim Min-jae",
+    "teamId": "bayern-munich",
+    "teamName": "Bayern Munich",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "South Korea"
+  },
+  {
+    "id": "jonathan-tah-bayern-munich",
+    "name": "Jonathan Tah",
+    "teamId": "bayern-munich",
+    "teamName": "Bayern Munich",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Germany"
+  },
+  {
+    "id": "alphonso-davies-bayern-munich",
+    "name": "Alphonso Davies",
+    "teamId": "bayern-munich",
+    "teamName": "Bayern Munich",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Canada"
+  },
+  {
+    "id": "raphael-guerreiro-bayern-munich",
+    "name": "Raphael Guerreiro",
+    "teamId": "bayern-munich",
+    "teamName": "Bayern Munich",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Portugal"
+  },
+  {
+    "id": "hiroki-ito-bayern-munich",
+    "name": "Hiroki Ito",
+    "teamId": "bayern-munich",
+    "teamName": "Bayern Munich",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Japan"
+  },
+  {
+    "id": "josip-stanisic-bayern-munich",
+    "name": "Josip Stanisic",
+    "teamId": "bayern-munich",
+    "teamName": "Bayern Munich",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Croatia"
+  },
+  {
+    "id": "joshua-kimmich-bayern-munich",
+    "name": "Joshua Kimmich",
+    "teamId": "bayern-munich",
+    "teamName": "Bayern Munich",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Germany"
+  },
+  {
+    "id": "leon-goretzka-bayern-munich",
+    "name": "Leon Goretzka",
+    "teamId": "bayern-munich",
+    "teamName": "Bayern Munich",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Germany"
+  },
+  {
+    "id": "konrad-laimer-bayern-munich",
+    "name": "Konrad Laimer",
+    "teamId": "bayern-munich",
+    "teamName": "Bayern Munich",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Austria"
+  },
+  {
+    "id": "jamal-musiala-bayern-munich",
+    "name": "Jamal Musiala",
+    "teamId": "bayern-munich",
+    "teamName": "Bayern Munich",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Germany"
+  },
+  {
+    "id": "aleksandar-pavlovic-bayern-munich",
+    "name": "Aleksandar Pavlovic",
+    "teamId": "bayern-munich",
+    "teamName": "Bayern Munich",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Germany"
+  },
+  {
+    "id": "tom-bischof-bayern-munich",
+    "name": "Tom Bischof",
+    "teamId": "bayern-munich",
+    "teamName": "Bayern Munich",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Germany"
+  },
+  {
+    "id": "lennart-karl-bayern-munich",
+    "name": "Lennart Karl",
+    "teamId": "bayern-munich",
+    "teamName": "Bayern Munich",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Germany"
+  },
+  {
+    "id": "harry-kane-bayern-munich",
+    "name": "Harry Kane",
+    "teamId": "bayern-munich",
+    "teamName": "Bayern Munich",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "England"
+  },
+  {
+    "id": "serge-gnabry-bayern-munich",
+    "name": "Serge Gnabry",
+    "teamId": "bayern-munich",
+    "teamName": "Bayern Munich",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Germany"
+  },
+  {
+    "id": "michael-olise-bayern-munich",
+    "name": "Michael Olise",
+    "teamId": "bayern-munich",
+    "teamName": "Bayern Munich",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "France"
+  },
+  {
+    "id": "luis-diaz-bayern-munich",
+    "name": "Luis Diaz",
+    "teamId": "bayern-munich",
+    "teamName": "Bayern Munich",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Colombia"
+  },
+  {
+    "id": "nicolas-jackson-bayern-munich",
+    "name": "Nicolas Jackson",
+    "teamId": "bayern-munich",
+    "teamName": "Bayern Munich",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Senegal"
+  },
+  {
+    "id": "gregor-kobel-dortmund",
+    "name": "Gregor Kobel",
+    "teamId": "borussia-dortmund",
+    "teamName": "Borussia Dortmund",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Switzerland"
+  },
+  {
+    "id": "patrick-drewes-dortmund",
+    "name": "Patrick Drewes",
+    "teamId": "borussia-dortmund",
+    "teamName": "Borussia Dortmund",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Germany"
+  },
+  {
+    "id": "alexander-meyer-dortmund",
+    "name": "Alexander Meyer",
+    "teamId": "borussia-dortmund",
+    "teamName": "Borussia Dortmund",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Germany"
+  },
+  {
+    "id": "waldemar-anton-dortmund",
+    "name": "Waldemar Anton",
+    "teamId": "borussia-dortmund",
+    "teamName": "Borussia Dortmund",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Germany"
+  },
+  {
+    "id": "nico-schlotterbeck-dortmund",
+    "name": "Nico Schlotterbeck",
+    "teamId": "borussia-dortmund",
+    "teamName": "Borussia Dortmund",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Germany"
+  },
+  {
+    "id": "niklas-sule-dortmund",
+    "name": "Niklas Sule",
+    "teamId": "borussia-dortmund",
+    "teamName": "Borussia Dortmund",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Germany"
+  },
+  {
+    "id": "ramy-bensebaini-dortmund",
+    "name": "Ramy Bensebaini",
+    "teamId": "borussia-dortmund",
+    "teamName": "Borussia Dortmund",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Algeria"
+  },
+  {
+    "id": "yan-couto-dortmund",
+    "name": "Yan Couto",
+    "teamId": "borussia-dortmund",
+    "teamName": "Borussia Dortmund",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Brazil"
+  },
+  {
+    "id": "julian-ryerson-dortmund",
+    "name": "Julian Ryerson",
+    "teamId": "borussia-dortmund",
+    "teamName": "Borussia Dortmund",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Norway"
+  },
+  {
+    "id": "daniel-svensson-dortmund",
+    "name": "Daniel Svensson",
+    "teamId": "borussia-dortmund",
+    "teamName": "Borussia Dortmund",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Sweden"
+  },
+  {
+    "id": "filippo-mane-dortmund",
+    "name": "Filippo Mane",
+    "teamId": "borussia-dortmund",
+    "teamName": "Borussia Dortmund",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Italy"
+  },
+  {
+    "id": "emre-can-dortmund",
+    "name": "Emre Can",
+    "teamId": "borussia-dortmund",
+    "teamName": "Borussia Dortmund",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Germany"
+  },
+  {
+    "id": "felix-nmecha-dortmund",
+    "name": "Felix Nmecha",
+    "teamId": "borussia-dortmund",
+    "teamName": "Borussia Dortmund",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Germany"
+  },
+  {
+    "id": "julian-brandt-dortmund",
+    "name": "Julian Brandt",
+    "teamId": "borussia-dortmund",
+    "teamName": "Borussia Dortmund",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Germany"
+  },
+  {
+    "id": "salih-ozcan-dortmund",
+    "name": "Salih Ozcan",
+    "teamId": "borussia-dortmund",
+    "teamName": "Borussia Dortmund",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Turkey"
+  },
+  {
+    "id": "marcel-sabitzer-dortmund",
+    "name": "Marcel Sabitzer",
+    "teamId": "borussia-dortmund",
+    "teamName": "Borussia Dortmund",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Austria"
+  },
+  {
+    "id": "jobe-bellingham-dortmund",
+    "name": "Jobe Bellingham",
+    "teamId": "borussia-dortmund",
+    "teamName": "Borussia Dortmund",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "England"
+  },
+  {
+    "id": "carney-chukwuemeka-dortmund",
+    "name": "Carney Chukwuemeka",
+    "teamId": "borussia-dortmund",
+    "teamName": "Borussia Dortmund",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "England"
+  },
+  {
+    "id": "serhou-guirassy-dortmund",
+    "name": "Serhou Guirassy",
+    "teamId": "borussia-dortmund",
+    "teamName": "Borussia Dortmund",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Guinea"
+  },
+  {
+    "id": "maximilian-beier-dortmund",
+    "name": "Maximilian Beier",
+    "teamId": "borussia-dortmund",
+    "teamName": "Borussia Dortmund",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Germany"
+  },
+  {
+    "id": "karim-adeyemi-dortmund",
+    "name": "Karim Adeyemi",
+    "teamId": "borussia-dortmund",
+    "teamName": "Borussia Dortmund",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Germany"
+  },
+  {
+    "id": "fabio-silva-dortmund",
+    "name": "Fabio Silva",
+    "teamId": "borussia-dortmund",
+    "teamName": "Borussia Dortmund",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Portugal"
+  },
+  {
+    "id": "peter-gulacsi-leipzig",
+    "name": "Peter Gulacsi",
+    "teamId": "rb-leipzig",
+    "teamName": "RB Leipzig",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Hungary"
+  },
+  {
+    "id": "janis-blaswich-leipzig",
+    "name": "Janis Blaswich",
+    "teamId": "rb-leipzig",
+    "teamName": "RB Leipzig",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Germany"
+  },
+  {
+    "id": "willi-orban-leipzig",
+    "name": "Willi Orban",
+    "teamId": "rb-leipzig",
+    "teamName": "RB Leipzig",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Hungary"
+  },
+  {
+    "id": "lukas-klostermann-leipzig",
+    "name": "Lukas Klostermann",
+    "teamId": "rb-leipzig",
+    "teamName": "RB Leipzig",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Germany"
+  },
+  {
+    "id": "castello-lukeba-leipzig",
+    "name": "Castello Lukeba",
+    "teamId": "rb-leipzig",
+    "teamName": "RB Leipzig",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "France"
+  },
+  {
+    "id": "david-raum-leipzig",
+    "name": "David Raum",
+    "teamId": "rb-leipzig",
+    "teamName": "RB Leipzig",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Germany"
+  },
+  {
+    "id": "benjamin-henrichs-leipzig",
+    "name": "Benjamin Henrichs",
+    "teamId": "rb-leipzig",
+    "teamName": "RB Leipzig",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Germany"
+  },
+  {
+    "id": "nicolas-seiwald-leipzig",
+    "name": "Nicolas Seiwald",
+    "teamId": "rb-leipzig",
+    "teamName": "RB Leipzig",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Austria"
+  },
+  {
+    "id": "christoph-baumgartner-leipzig",
+    "name": "Christoph Baumgartner",
+    "teamId": "rb-leipzig",
+    "teamName": "RB Leipzig",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Austria"
+  },
+  {
+    "id": "assan-ouedraogo-leipzig",
+    "name": "Assan Ouedraogo",
+    "teamId": "rb-leipzig",
+    "teamName": "RB Leipzig",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Germany"
+  },
+  {
+    "id": "romulo-leipzig",
+    "name": "Romulo",
+    "teamId": "rb-leipzig",
+    "teamName": "RB Leipzig",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Brazil"
+  },
+  {
+    "id": "kevin-kampl-leipzig",
+    "name": "Kevin Kampl",
+    "teamId": "rb-leipzig",
+    "teamName": "RB Leipzig",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Slovenia"
+  },
+  {
+    "id": "amadou-haidara-leipzig",
+    "name": "Amadou Haidara",
+    "teamId": "rb-leipzig",
+    "teamName": "RB Leipzig",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Mali"
+  },
+  {
+    "id": "xavi-simons-leipzig",
+    "name": "Xavi Simons",
+    "teamId": "rb-leipzig",
+    "teamName": "RB Leipzig",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Netherlands"
+  },
+  {
+    "id": "lois-openda-leipzig",
+    "name": "Lois Openda",
+    "teamId": "rb-leipzig",
+    "teamName": "RB Leipzig",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Belgium"
+  },
+  {
+    "id": "yan-diomande-leipzig",
+    "name": "Yan Diomande",
+    "teamId": "rb-leipzig",
+    "teamName": "RB Leipzig",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Ivory Coast"
+  },
+  {
+    "id": "benjamin-sesko-leipzig",
+    "name": "Benjamin Sesko",
+    "teamId": "rb-leipzig",
+    "teamName": "RB Leipzig",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Slovenia"
+  },
+  {
+    "id": "alexander-nubel-stuttgart",
+    "name": "Alexander Nubel",
+    "teamId": "vfb-stuttgart",
+    "teamName": "VfB Stuttgart",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Germany"
+  },
+  {
+    "id": "fabian-bredlow-stuttgart",
+    "name": "Fabian Bredlow",
+    "teamId": "vfb-stuttgart",
+    "teamName": "VfB Stuttgart",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Germany"
+  },
+  {
+    "id": "stefan-drljaca-stuttgart",
+    "name": "Stefan Drljaca",
+    "teamId": "vfb-stuttgart",
+    "teamName": "VfB Stuttgart",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Germany"
+  },
+  {
+    "id": "jeff-chabot-stuttgart",
+    "name": "Jeff Chabot",
+    "teamId": "vfb-stuttgart",
+    "teamName": "VfB Stuttgart",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Germany"
+  },
+  {
+    "id": "dan-axel-zagadou-stuttgart",
+    "name": "Dan-Axel Zagadou",
+    "teamId": "vfb-stuttgart",
+    "teamName": "VfB Stuttgart",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "France"
+  },
+  {
+    "id": "ameen-al-dakhil-stuttgart",
+    "name": "Ameen Al Dakhil",
+    "teamId": "vfb-stuttgart",
+    "teamName": "VfB Stuttgart",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Belgium"
+  },
+  {
+    "id": "maximilian-mittelstadt-stuttgart",
+    "name": "Maximilian Mittelstadt",
+    "teamId": "vfb-stuttgart",
+    "teamName": "VfB Stuttgart",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Germany"
+  },
+  {
+    "id": "josha-vagnoman-stuttgart",
+    "name": "Josha Vagnoman",
+    "teamId": "vfb-stuttgart",
+    "teamName": "VfB Stuttgart",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Germany"
+  },
+  {
+    "id": "pascal-stenzel-stuttgart",
+    "name": "Pascal Stenzel",
+    "teamId": "vfb-stuttgart",
+    "teamName": "VfB Stuttgart",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Germany"
+  },
+  {
+    "id": "ramon-hendriks-stuttgart",
+    "name": "Ramon Hendriks",
+    "teamId": "vfb-stuttgart",
+    "teamName": "VfB Stuttgart",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Netherlands"
+  },
+  {
+    "id": "luca-jaquez-stuttgart",
+    "name": "Luca Jaquez",
+    "teamId": "vfb-stuttgart",
+    "teamName": "VfB Stuttgart",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Switzerland"
+  },
+  {
+    "id": "lorenz-assignon-stuttgart",
+    "name": "Lorenz Assignon",
+    "teamId": "vfb-stuttgart",
+    "teamName": "VfB Stuttgart",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "France"
+  },
+  {
+    "id": "angelo-stiller-stuttgart",
+    "name": "Angelo Stiller",
+    "teamId": "vfb-stuttgart",
+    "teamName": "VfB Stuttgart",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Germany"
+  },
+  {
+    "id": "atakan-karazor-stuttgart",
+    "name": "Atakan Karazor",
+    "teamId": "vfb-stuttgart",
+    "teamName": "VfB Stuttgart",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Turkey"
+  },
+  {
+    "id": "bilal-el-khannouss-stuttgart",
+    "name": "Bilal El Khannouss",
+    "teamId": "vfb-stuttgart",
+    "teamName": "VfB Stuttgart",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Morocco"
+  },
+  {
+    "id": "chema-andres-stuttgart",
+    "name": "Chema Andres",
+    "teamId": "vfb-stuttgart",
+    "teamName": "VfB Stuttgart",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Spain"
+  },
+  {
+    "id": "jamie-leweling-stuttgart",
+    "name": "Jamie Leweling",
+    "teamId": "vfb-stuttgart",
+    "teamName": "VfB Stuttgart",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Germany"
+  },
+  {
+    "id": "chris-fuhrich-stuttgart",
+    "name": "Chris Fuhrich",
+    "teamId": "vfb-stuttgart",
+    "teamName": "VfB Stuttgart",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Germany"
+  },
+  {
+    "id": "deniz-undav-stuttgart",
+    "name": "Deniz Undav",
+    "teamId": "vfb-stuttgart",
+    "teamName": "VfB Stuttgart",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Germany"
+  },
+  {
+    "id": "ermedin-demirovic-stuttgart",
+    "name": "Ermedin Demirovic",
+    "teamId": "vfb-stuttgart",
+    "teamName": "VfB Stuttgart",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Bosnia and Herzegovina"
+  },
+  {
+    "id": "tiago-tomas-stuttgart",
+    "name": "Tiago Tomas",
+    "teamId": "vfb-stuttgart",
+    "teamName": "VfB Stuttgart",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Portugal"
+  },
+  {
+    "id": "badredine-bouanani-stuttgart",
+    "name": "Badredine Bouanani",
+    "teamId": "vfb-stuttgart",
+    "teamName": "VfB Stuttgart",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Algeria"
+  },
+  {
+    "id": "oliver-baumann-hoffenheim",
+    "name": "Oliver Baumann",
+    "teamId": "tsg-hoffenheim",
+    "teamName": "TSG Hoffenheim",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Germany"
+  },
+  {
+    "id": "luca-philipp-hoffenheim",
+    "name": "Luca Philipp",
+    "teamId": "tsg-hoffenheim",
+    "teamName": "TSG Hoffenheim",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Germany"
+  },
+  {
+    "id": "kevin-akpoguma-hoffenheim",
+    "name": "Kevin Akpoguma",
+    "teamId": "tsg-hoffenheim",
+    "teamName": "TSG Hoffenheim",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Germany"
+  },
+  {
+    "id": "ozan-kabak-hoffenheim",
+    "name": "Ozan Kabak",
+    "teamId": "tsg-hoffenheim",
+    "teamName": "TSG Hoffenheim",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Turkey"
+  },
+  {
+    "id": "adam-gnezda-cerin-hoffenheim",
+    "name": "Adam Gnezda Cerin",
+    "teamId": "tsg-hoffenheim",
+    "teamName": "TSG Hoffenheim",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Slovenia"
+  },
+  {
+    "id": "bazoumana-toure-hoffenheim",
+    "name": "Bazoumana Toure",
+    "teamId": "tsg-hoffenheim",
+    "teamName": "TSG Hoffenheim",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "France"
+  },
+  {
+    "id": "vladimir-coufal-hoffenheim",
+    "name": "Vladimir Coufal",
+    "teamId": "tsg-hoffenheim",
+    "teamName": "TSG Hoffenheim",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Czech Republic"
+  },
+  {
+    "id": "marco-john-hoffenheim",
+    "name": "Marco John",
+    "teamId": "tsg-hoffenheim",
+    "teamName": "TSG Hoffenheim",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Germany"
+  },
+  {
+    "id": "florian-grillitsch-hoffenheim",
+    "name": "Florian Grillitsch",
+    "teamId": "tsg-hoffenheim",
+    "teamName": "TSG Hoffenheim",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Austria"
+  },
+  {
+    "id": "grischa-promel-hoffenheim",
+    "name": "Grischa Promel",
+    "teamId": "tsg-hoffenheim",
+    "teamName": "TSG Hoffenheim",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Germany"
+  },
+  {
+    "id": "wouter-burger-hoffenheim",
+    "name": "Wouter Burger",
+    "teamId": "tsg-hoffenheim",
+    "teamName": "TSG Hoffenheim",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Netherlands"
+  },
+  {
+    "id": "andrej-kramaric-hoffenheim",
+    "name": "Andrej Kramaric",
+    "teamId": "tsg-hoffenheim",
+    "teamName": "TSG Hoffenheim",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Croatia"
+  },
+  {
+    "id": "tom-bischoff-hoffenheim",
+    "name": "Jacob Bruun Larsen",
+    "teamId": "tsg-hoffenheim",
+    "teamName": "TSG Hoffenheim",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Denmark"
+  },
+  {
+    "id": "fisnik-asllani-hoffenheim",
+    "name": "Fisnik Asllani",
+    "teamId": "tsg-hoffenheim",
+    "teamName": "TSG Hoffenheim",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Kosovo"
+  },
+  {
+    "id": "tim-lemperle-hoffenheim",
+    "name": "Tim Lemperle",
+    "teamId": "tsg-hoffenheim",
+    "teamName": "TSG Hoffenheim",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Germany"
+  },
+  {
+    "id": "maximilian-beier-hoffenheim",
+    "name": "Tom Bischoff",
+    "teamId": "tsg-hoffenheim",
+    "teamName": "TSG Hoffenheim",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Germany"
+  },
+  {
+    "id": "lukas-hradecky-leverkusen",
+    "name": "Lukas Hradecky",
+    "teamId": "bayer-leverkusen",
+    "teamName": "Bayer Leverkusen",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Finland"
+  },
+  {
+    "id": "matej-kovar-leverkusen",
+    "name": "Matej Kovar",
+    "teamId": "bayer-leverkusen",
+    "teamName": "Bayer Leverkusen",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Czech Republic"
+  },
+  {
+    "id": "edmond-tapsoba-leverkusen",
+    "name": "Edmond Tapsoba",
+    "teamId": "bayer-leverkusen",
+    "teamName": "Bayer Leverkusen",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Burkina Faso"
+  },
+  {
+    "id": "piero-hincapie-leverkusen",
+    "name": "Piero Hincapie",
+    "teamId": "bayer-leverkusen",
+    "teamName": "Bayer Leverkusen",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Ecuador"
+  },
+  {
+    "id": "alejandro-grimaldo-leverkusen",
+    "name": "Alejandro Grimaldo",
+    "teamId": "bayer-leverkusen",
+    "teamName": "Bayer Leverkusen",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Spain"
+  },
+  {
+    "id": "jeremie-frimpong-leverkusen",
+    "name": "Jeremie Frimpong",
+    "teamId": "bayer-leverkusen",
+    "teamName": "Bayer Leverkusen",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Netherlands"
+  },
+  {
+    "id": "jonathan-tah-leverkusen",
+    "name": "Odilon Kossounou",
+    "teamId": "bayer-leverkusen",
+    "teamName": "Bayer Leverkusen",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Ivory Coast"
+  },
+  {
+    "id": "josip-stanisic-leverkusen",
+    "name": "Josip Stanisic",
+    "teamId": "bayer-leverkusen",
+    "teamName": "Bayer Leverkusen",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Croatia"
+  },
+  {
+    "id": "granit-xhaka-leverkusen",
+    "name": "Granit Xhaka",
+    "teamId": "bayer-leverkusen",
+    "teamName": "Bayer Leverkusen",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Switzerland"
+  },
+  {
+    "id": "aleix-garcia-leverkusen",
+    "name": "Aleix Garcia",
+    "teamId": "bayer-leverkusen",
+    "teamName": "Bayer Leverkusen",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Spain"
+  },
+  {
+    "id": "florian-wirtz-leverkusen",
+    "name": "Florian Wirtz",
+    "teamId": "bayer-leverkusen",
+    "teamName": "Bayer Leverkusen",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Germany"
+  },
+  {
+    "id": "robert-andrich-leverkusen",
+    "name": "Robert Andrich",
+    "teamId": "bayer-leverkusen",
+    "teamName": "Bayer Leverkusen",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Germany"
+  },
+  {
+    "id": "exequiel-palacios-leverkusen",
+    "name": "Exequiel Palacios",
+    "teamId": "bayer-leverkusen",
+    "teamName": "Bayer Leverkusen",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Argentina"
+  },
+  {
+    "id": "martin-terrier-leverkusen",
+    "name": "Martin Terrier",
+    "teamId": "bayer-leverkusen",
+    "teamName": "Bayer Leverkusen",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "France"
+  },
+  {
+    "id": "patrik-schick-leverkusen",
+    "name": "Patrik Schick",
+    "teamId": "bayer-leverkusen",
+    "teamName": "Bayer Leverkusen",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Czech Republic"
+  },
+  {
+    "id": "ernest-poku-leverkusen",
+    "name": "Ernest Poku",
+    "teamId": "bayer-leverkusen",
+    "teamName": "Bayer Leverkusen",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Ghana"
+  },
+  {
+    "id": "niclas-fullkrug-leverkusen",
+    "name": "Niclas Fullkrug",
+    "teamId": "bayer-leverkusen",
+    "teamName": "Bayer Leverkusen",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Germany"
+  },
+  {
+    "id": "kevin-trapp-frankfurt",
+    "name": "Kevin Trapp",
+    "teamId": "eintracht-frankfurt",
+    "teamName": "Eintracht Frankfurt",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Germany"
+  },
+  {
+    "id": "kaua-santos-frankfurt",
+    "name": "Kaua Santos",
+    "teamId": "eintracht-frankfurt",
+    "teamName": "Eintracht Frankfurt",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Brazil"
+  },
+  {
+    "id": "tuta-frankfurt",
+    "name": "Tuta",
+    "teamId": "eintracht-frankfurt",
+    "teamName": "Eintracht Frankfurt",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Brazil"
+  },
+  {
+    "id": "nathaniel-brown-frankfurt",
+    "name": "Nathaniel Brown",
+    "teamId": "eintracht-frankfurt",
+    "teamName": "Eintracht Frankfurt",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "United States"
+  },
+  {
+    "id": "willian-pacho-frankfurt",
+    "name": "Willian Pacho",
+    "teamId": "eintracht-frankfurt",
+    "teamName": "Eintracht Frankfurt",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Ecuador"
+  },
+  {
+    "id": "niels-nkounkou-frankfurt",
+    "name": "Niels Nkounkou",
+    "teamId": "eintracht-frankfurt",
+    "teamName": "Eintracht Frankfurt",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "France"
+  },
+  {
+    "id": "aurelio-buta-frankfurt",
+    "name": "Aurelio Buta",
+    "teamId": "eintracht-frankfurt",
+    "teamName": "Eintracht Frankfurt",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Portugal"
+  },
+  {
+    "id": "ansgar-knauff-frankfurt",
+    "name": "Ansgar Knauff",
+    "teamId": "eintracht-frankfurt",
+    "teamName": "Eintracht Frankfurt",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Germany"
+  },
+  {
+    "id": "hugo-larsson-frankfurt",
+    "name": "Hugo Larsson",
+    "teamId": "eintracht-frankfurt",
+    "teamName": "Eintracht Frankfurt",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Sweden"
+  },
+  {
+    "id": "ellyes-skhiri-frankfurt",
+    "name": "Ellyes Skhiri",
+    "teamId": "eintracht-frankfurt",
+    "teamName": "Eintracht Frankfurt",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Tunisia"
+  },
+  {
+    "id": "fares-chaibi-frankfurt",
+    "name": "Fares Chaibi",
+    "teamId": "eintracht-frankfurt",
+    "teamName": "Eintracht Frankfurt",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Algeria"
+  },
+  {
+    "id": "mario-gotze-frankfurt",
+    "name": "Mario Gotze",
+    "teamId": "eintracht-frankfurt",
+    "teamName": "Eintracht Frankfurt",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Germany"
+  },
+  {
+    "id": "ritsu-doan-frankfurt",
+    "name": "Ritsu Doan",
+    "teamId": "eintracht-frankfurt",
+    "teamName": "Eintracht Frankfurt",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Japan"
+  },
+  {
+    "id": "can-uzun-frankfurt",
+    "name": "Can Uzun",
+    "teamId": "eintracht-frankfurt",
+    "teamName": "Eintracht Frankfurt",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Germany"
+  },
+  {
+    "id": "jonathan-burkardt-frankfurt",
+    "name": "Jonathan Burkardt",
+    "teamId": "eintracht-frankfurt",
+    "teamName": "Eintracht Frankfurt",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Germany"
+  },
+  {
+    "id": "ragnar-ache-frankfurt",
+    "name": "Ragnar Ache",
+    "teamId": "eintracht-frankfurt",
+    "teamName": "Eintracht Frankfurt",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Germany"
+  },
+  {
+    "id": "noah-atubolu-freiburg",
+    "name": "Noah Atubolu",
+    "teamId": "sc-freiburg",
+    "teamName": "SC Freiburg",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Germany"
+  },
+  {
+    "id": "mark-flekken-freiburg",
+    "name": "Mark Flekken",
+    "teamId": "sc-freiburg",
+    "teamName": "SC Freiburg",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Netherlands"
+  },
+  {
+    "id": "manuel-gulde-freiburg",
+    "name": "Manuel Gulde",
+    "teamId": "sc-freiburg",
+    "teamName": "SC Freiburg",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Germany"
+  },
+  {
+    "id": "philipp-lienhart-freiburg",
+    "name": "Philipp Lienhart",
+    "teamId": "sc-freiburg",
+    "teamName": "SC Freiburg",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Austria"
+  },
+  {
+    "id": "christian-gunter-freiburg",
+    "name": "Christian Gunter",
+    "teamId": "sc-freiburg",
+    "teamName": "SC Freiburg",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Germany"
+  },
+  {
+    "id": "lukas-kubler-freiburg",
+    "name": "Lukas Kubler",
+    "teamId": "sc-freiburg",
+    "teamName": "SC Freiburg",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Germany"
+  },
+  {
+    "id": "kiliann-sildillia-freiburg",
+    "name": "Kiliann Sildillia",
+    "teamId": "sc-freiburg",
+    "teamName": "SC Freiburg",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "France"
+  },
+  {
+    "id": "patrick-osterhage-freiburg",
+    "name": "Patrick Osterhage",
+    "teamId": "sc-freiburg",
+    "teamName": "SC Freiburg",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Germany"
+  },
+  {
+    "id": "nicolas-hofler-freiburg",
+    "name": "Nicolas Hofler",
+    "teamId": "sc-freiburg",
+    "teamName": "SC Freiburg",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Germany"
+  },
+  {
+    "id": "maximilian-eggestein-freiburg",
+    "name": "Maximilian Eggestein",
+    "teamId": "sc-freiburg",
+    "teamName": "SC Freiburg",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Germany"
+  },
+  {
+    "id": "vincenzo-grifo-freiburg",
+    "name": "Vincenzo Grifo",
+    "teamId": "sc-freiburg",
+    "teamName": "SC Freiburg",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Italy"
+  },
+  {
+    "id": "ritsu-doan-freiburg",
+    "name": "Ritsu Doan",
+    "teamId": "sc-freiburg",
+    "teamName": "SC Freiburg",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Japan"
+  },
+  {
+    "id": "eren-dinkci-freiburg",
+    "name": "Eren Dinkci",
+    "teamId": "sc-freiburg",
+    "teamName": "SC Freiburg",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Germany"
+  },
+  {
+    "id": "johan-manzambi-freiburg",
+    "name": "Johan Manzambi",
+    "teamId": "sc-freiburg",
+    "teamName": "SC Freiburg",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Belgium"
+  },
+  {
+    "id": "michael-gregoritsch-freiburg",
+    "name": "Michael Gregoritsch",
+    "teamId": "sc-freiburg",
+    "teamName": "SC Freiburg",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Austria"
+  },
+  {
+    "id": "lukas-kubler2-freiburg",
+    "name": "Lucas Holer",
+    "teamId": "sc-freiburg",
+    "teamName": "SC Freiburg",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Austria"
+  },
+  {
+    "id": "daniel-heuer-fernandes-hamburg",
+    "name": "Daniel Heuer Fernandes",
+    "teamId": "hamburger-sv",
+    "teamName": "Hamburger SV",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Germany"
+  },
+  {
+    "id": "matheo-raab-hamburg",
+    "name": "Matheo Raab",
+    "teamId": "hamburger-sv",
+    "teamName": "Hamburger SV",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Germany"
+  },
+  {
+    "id": "luka-vuskovic-hamburg",
+    "name": "Luka Vuskovic",
+    "teamId": "hamburger-sv",
+    "teamName": "Hamburger SV",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Croatia"
+  },
+  {
+    "id": "sebastian-schonlau-hamburg",
+    "name": "Sebastian Schonlau",
+    "teamId": "hamburger-sv",
+    "teamName": "Hamburger SV",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Germany"
+  },
+  {
+    "id": "miro-muheim-hamburg",
+    "name": "Miro Muheim",
+    "teamId": "hamburger-sv",
+    "teamName": "Hamburger SV",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Switzerland"
+  },
+  {
+    "id": "jonas-meffert-hamburg",
+    "name": "Jonas Meffert",
+    "teamId": "hamburger-sv",
+    "teamName": "Hamburger SV",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Germany"
+  },
+  {
+    "id": "william-mikelbrencis-hamburg",
+    "name": "William Mikelbrencis",
+    "teamId": "hamburger-sv",
+    "teamName": "Hamburger SV",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Latvia"
+  },
+  {
+    "id": "silvan-hefti-hamburg",
+    "name": "Silvan Hefti",
+    "teamId": "hamburger-sv",
+    "teamName": "Hamburger SV",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Switzerland"
+  },
+  {
+    "id": "albert-sambi-lokonga-hamburg",
+    "name": "Albert Sambi Lokonga",
+    "teamId": "hamburger-sv",
+    "teamName": "Hamburger SV",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Belgium"
+  },
+  {
+    "id": "fabio-vieira-hamburg",
+    "name": "Fabio Vieira",
+    "teamId": "hamburger-sv",
+    "teamName": "Hamburger SV",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Portugal"
+  },
+  {
+    "id": "filippo-mane-hamburg",
+    "name": "Jean-Luc Dompe",
+    "teamId": "hamburger-sv",
+    "teamName": "Hamburger SV",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "France"
+  },
+  {
+    "id": "connor-ronan-hamburg",
+    "name": "Connor Ronan",
+    "teamId": "hamburger-sv",
+    "teamName": "Hamburger SV",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Republic of Ireland"
+  },
+  {
+    "id": "rayan-philippe-hamburg",
+    "name": "Rayan Philippe",
+    "teamId": "hamburger-sv",
+    "teamName": "Hamburger SV",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "France"
+  },
+  {
+    "id": "davie-selke-hamburg",
+    "name": "Davie Selke",
+    "teamId": "hamburger-sv",
+    "teamName": "Hamburger SV",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Germany"
+  },
+  {
+    "id": "ludovit-reis-hamburg",
+    "name": "Ludovit Reis",
+    "teamId": "hamburger-sv",
+    "teamName": "Hamburger SV",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Netherlands"
+  },
+  {
+    "id": "finn-dahmen-augsburg",
+    "name": "Finn Dahmen",
+    "teamId": "fc-augsburg",
+    "teamName": "FC Augsburg",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Germany"
+  },
+  {
+    "id": "tomas-koubek-augsburg",
+    "name": "Tomas Koubek",
+    "teamId": "fc-augsburg",
+    "teamName": "FC Augsburg",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Czech Republic"
+  },
+  {
+    "id": "jeffrey-gouweleeuw-augsburg",
+    "name": "Jeffrey Gouweleeuw",
+    "teamId": "fc-augsburg",
+    "teamName": "FC Augsburg",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Netherlands"
+  },
+  {
+    "id": "maximilian-bauer-augsburg",
+    "name": "Maximilian Bauer",
+    "teamId": "fc-augsburg",
+    "teamName": "FC Augsburg",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Germany"
+  },
+  {
+    "id": "iago-augsburg",
+    "name": "Iago",
+    "teamId": "fc-augsburg",
+    "teamName": "FC Augsburg",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Spain"
+  },
+  {
+    "id": "robert-gumny-augsburg",
+    "name": "Robert Gumny",
+    "teamId": "fc-augsburg",
+    "teamName": "FC Augsburg",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Poland"
+  },
+  {
+    "id": "maximilian-strobl-augsburg",
+    "name": "Maximilian Strobl",
+    "teamId": "fc-augsburg",
+    "teamName": "FC Augsburg",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Germany"
+  },
+  {
+    "id": "felix-uduokhai-augsburg",
+    "name": "Felix Uduokhai",
+    "teamId": "fc-augsburg",
+    "teamName": "FC Augsburg",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Germany"
+  },
+  {
+    "id": "niklas-dorsch-augsburg",
+    "name": "Niklas Dorsch",
+    "teamId": "fc-augsburg",
+    "teamName": "FC Augsburg",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Germany"
+  },
+  {
+    "id": "frederic-jensen-augsburg",
+    "name": "Frederic Jensen",
+    "teamId": "fc-augsburg",
+    "teamName": "FC Augsburg",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Denmark"
+  },
+  {
+    "id": "elvis-rexhbecaj-augsburg",
+    "name": "Elvis Rexhbecaj",
+    "teamId": "fc-augsburg",
+    "teamName": "FC Augsburg",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Germany"
+  },
+  {
+    "id": "arne-maier-augsburg",
+    "name": "Arne Maier",
+    "teamId": "fc-augsburg",
+    "teamName": "FC Augsburg",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Germany"
+  },
+  {
+    "id": "ruben-vargas-augsburg",
+    "name": "Ruben Vargas",
+    "teamId": "fc-augsburg",
+    "teamName": "FC Augsburg",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Switzerland"
+  },
+  {
+    "id": "samuel-essende-augsburg",
+    "name": "Samuel Essende",
+    "teamId": "fc-augsburg",
+    "teamName": "FC Augsburg",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Congo DR"
+  },
+  {
+    "id": "phillip-tietz-augsburg",
+    "name": "Phillip Tietz",
+    "teamId": "fc-augsburg",
+    "teamName": "FC Augsburg",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Germany"
+  },
+  {
+    "id": "erion-sadiku-augsburg",
+    "name": "Erion Sadiku",
+    "teamId": "fc-augsburg",
+    "teamName": "FC Augsburg",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Kosovo"
+  },
+  {
+    "id": "frederik-ronnow-union-berlin",
+    "name": "Frederik Ronnow",
+    "teamId": "union-berlin",
+    "teamName": "Union Berlin",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Denmark"
+  },
+  {
+    "id": "lennart-grill-union-berlin",
+    "name": "Lennart Grill",
+    "teamId": "union-berlin",
+    "teamName": "Union Berlin",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Germany"
+  },
+  {
+    "id": "danilho-doekhi-union-berlin",
+    "name": "Danilho Doekhi",
+    "teamId": "union-berlin",
+    "teamName": "Union Berlin",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Netherlands"
+  },
+  {
+    "id": "paul-jaeckel-union-berlin",
+    "name": "Paul Jaeckel",
+    "teamId": "union-berlin",
+    "teamName": "Union Berlin",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Germany"
+  },
+  {
+    "id": "jerome-roussillon-union-berlin",
+    "name": "Jerome Roussillon",
+    "teamId": "union-berlin",
+    "teamName": "Union Berlin",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "France"
+  },
+  {
+    "id": "christopher-trimmel-union-berlin",
+    "name": "Christopher Trimmel",
+    "teamId": "union-berlin",
+    "teamName": "Union Berlin",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Austria"
+  },
+  {
+    "id": "diogo-leite-union-berlin",
+    "name": "Diogo Leite",
+    "teamId": "union-berlin",
+    "teamName": "Union Berlin",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Portugal"
+  },
+  {
+    "id": "alex-kral-union-berlin",
+    "name": "Alex Kral",
+    "teamId": "union-berlin",
+    "teamName": "Union Berlin",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Czech Republic"
+  },
+  {
+    "id": "rani-khedira-union-berlin",
+    "name": "Rani Khedira",
+    "teamId": "union-berlin",
+    "teamName": "Union Berlin",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Germany"
+  },
+  {
+    "id": "andrej-ilic-union-berlin",
+    "name": "Andrej Ilic",
+    "teamId": "union-berlin",
+    "teamName": "Union Berlin",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Serbia"
+  },
+  {
+    "id": "kevin-behrens-union-berlin",
+    "name": "Kevin Behrens",
+    "teamId": "union-berlin",
+    "teamName": "Union Berlin",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Germany"
+  },
+  {
+    "id": "tim-skarke-union-berlin",
+    "name": "Tim Skarke",
+    "teamId": "union-berlin",
+    "teamName": "Union Berlin",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Germany"
+  },
+  {
+    "id": "ilyas-ansah-union-berlin",
+    "name": "Ilyas Ansah",
+    "teamId": "union-berlin",
+    "teamName": "Union Berlin",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Ghana"
+  },
+  {
+    "id": "oliver-burke-union-berlin",
+    "name": "Oliver Burke",
+    "teamId": "union-berlin",
+    "teamName": "Union Berlin",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Scotland"
+  },
+  {
+    "id": "benedict-hollerbach-union-berlin",
+    "name": "Benedict Hollerbach",
+    "teamId": "union-berlin",
+    "teamName": "Union Berlin",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Germany"
+  },
+  {
+    "id": "jonas-omlin-gladbach",
+    "name": "Jonas Omlin",
+    "teamId": "borussia-monchengladbach",
+    "teamName": "Borussia Monchengladbach",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Switzerland"
+  },
+  {
+    "id": "moritz-nicolas-gladbach",
+    "name": "Moritz Nicolas",
+    "teamId": "borussia-monchengladbach",
+    "teamName": "Borussia Monchengladbach",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Germany"
+  },
+  {
+    "id": "nico-elvedi-gladbach",
+    "name": "Nico Elvedi",
+    "teamId": "borussia-monchengladbach",
+    "teamName": "Borussia Monchengladbach",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Switzerland"
+  },
+  {
+    "id": "kevin-diks-gladbach",
+    "name": "Kevin Diks",
+    "teamId": "borussia-monchengladbach",
+    "teamName": "Borussia Monchengladbach",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Netherlands"
+  },
+  {
+    "id": "ko-itakura-gladbach",
+    "name": "Ko Itakura",
+    "teamId": "borussia-monchengladbach",
+    "teamName": "Borussia Monchengladbach",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Japan"
+  },
+  {
+    "id": "oscar-fraulo-gladbach",
+    "name": "Oscar Fraulo",
+    "teamId": "borussia-monchengladbach",
+    "teamName": "Borussia Monchengladbach",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Denmark"
+  },
+  {
+    "id": "joe-scally-gladbach",
+    "name": "Joe Scally",
+    "teamId": "borussia-monchengladbach",
+    "teamName": "Borussia Monchengladbach",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "United States"
+  },
+  {
+    "id": "marvin-friedrich-gladbach",
+    "name": "Marvin Friedrich",
+    "teamId": "borussia-monchengladbach",
+    "teamName": "Borussia Monchengladbach",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Germany"
+  },
+  {
+    "id": "julian-weigl-gladbach",
+    "name": "Julian Weigl",
+    "teamId": "borussia-monchengladbach",
+    "teamName": "Borussia Monchengladbach",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Germany"
+  },
+  {
+    "id": "nathan-ngoumou-gladbach",
+    "name": "Nathan Ngoumou",
+    "teamId": "borussia-monchengladbach",
+    "teamName": "Borussia Monchengladbach",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Cameroon"
+  },
+  {
+    "id": "franck-honorat-gladbach",
+    "name": "Franck Honorat",
+    "teamId": "borussia-monchengladbach",
+    "teamName": "Borussia Monchengladbach",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "France"
+  },
+  {
+    "id": "rocco-reitz-gladbach",
+    "name": "Rocco Reitz",
+    "teamId": "borussia-monchengladbach",
+    "teamName": "Borussia Monchengladbach",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Germany"
+  },
+  {
+    "id": "haris-tabakovic-gladbach",
+    "name": "Haris Tabakovic",
+    "teamId": "borussia-monchengladbach",
+    "teamName": "Borussia Monchengladbach",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Switzerland"
+  },
+  {
+    "id": "shuto-machino-gladbach",
+    "name": "Shuto Machino",
+    "teamId": "borussia-monchengladbach",
+    "teamName": "Borussia Monchengladbach",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Japan"
+  },
+  {
+    "id": "tom-bross-gladbach",
+    "name": "Niclas Lidstrom Olofsson",
+    "teamId": "borussia-monchengladbach",
+    "teamName": "Borussia Monchengladbach",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Sweden"
+  },
+  {
+    "id": "jiri-pavlenka-bremen",
+    "name": "Jiri Pavlenka",
+    "teamId": "werder-bremen",
+    "teamName": "Werder Bremen",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Czech Republic"
+  },
+  {
+    "id": "michael-zetterer-bremen",
+    "name": "Michael Zetterer",
+    "teamId": "werder-bremen",
+    "teamName": "Werder Bremen",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Germany"
+  },
+  {
+    "id": "amos-pieper-bremen",
+    "name": "Amos Pieper",
+    "teamId": "werder-bremen",
+    "teamName": "Werder Bremen",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Germany"
+  },
+  {
+    "id": "marco-friedl-bremen",
+    "name": "Marco Friedl",
+    "teamId": "werder-bremen",
+    "teamName": "Werder Bremen",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Austria"
+  },
+  {
+    "id": "niklas-stark-bremen",
+    "name": "Niklas Stark",
+    "teamId": "werder-bremen",
+    "teamName": "Werder Bremen",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Germany"
+  },
+  {
+    "id": "felix-agu-bremen",
+    "name": "Felix Agu",
+    "teamId": "werder-bremen",
+    "teamName": "Werder Bremen",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Nigeria"
+  },
+  {
+    "id": "yukinari-sugawara-bremen",
+    "name": "Yukinari Sugawara",
+    "teamId": "werder-bremen",
+    "teamName": "Werder Bremen",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Japan"
+  },
+  {
+    "id": "milos-veljkovic-bremen",
+    "name": "Milos Veljkovic",
+    "teamId": "werder-bremen",
+    "teamName": "Werder Bremen",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Serbia"
+  },
+  {
+    "id": "romano-schmid-bremen",
+    "name": "Romano Schmid",
+    "teamId": "werder-bremen",
+    "teamName": "Werder Bremen",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Austria"
+  },
+  {
+    "id": "jens-stage-bremen",
+    "name": "Jens Stage",
+    "teamId": "werder-bremen",
+    "teamName": "Werder Bremen",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Denmark"
+  },
+  {
+    "id": "christian-grosse-bremen",
+    "name": "Christian Grosse",
+    "teamId": "werder-bremen",
+    "teamName": "Werder Bremen",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Germany"
+  },
+  {
+    "id": "oliver-burkard-bremen",
+    "name": "Maximilian Philipp",
+    "teamId": "werder-bremen",
+    "teamName": "Werder Bremen",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Germany"
+  },
+  {
+    "id": "marvin-ducksch-bremen",
+    "name": "Marvin Ducksch",
+    "teamId": "werder-bremen",
+    "teamName": "Werder Bremen",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Germany"
+  },
+  {
+    "id": "justin-njinmah-bremen",
+    "name": "Justin Njinmah",
+    "teamId": "werder-bremen",
+    "teamName": "Werder Bremen",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Germany"
+  },
+  {
+    "id": "ole-werner-bremen",
+    "name": "Eren Dinkci",
+    "teamId": "werder-bremen",
+    "teamName": "Werder Bremen",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Germany"
+  },
+  {
+    "id": "robin-zentner-mainz",
+    "name": "Robin Zentner",
+    "teamId": "fsv-mainz",
+    "teamName": "FSV Mainz",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Germany"
+  },
+  {
+    "id": "finn-dahmen2-mainz",
+    "name": "Heinz Lindner",
+    "teamId": "fsv-mainz",
+    "teamName": "FSV Mainz",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Austria"
+  },
+  {
+    "id": "stefan-bell-mainz",
+    "name": "Stefan Bell",
+    "teamId": "fsv-mainz",
+    "teamName": "FSV Mainz",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Germany"
+  },
+  {
+    "id": "silvan-widmer-mainz",
+    "name": "Silvan Widmer",
+    "teamId": "fsv-mainz",
+    "teamName": "FSV Mainz",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Switzerland"
+  },
+  {
+    "id": "aaron-martin-mainz",
+    "name": "Aaron Martin",
+    "teamId": "fsv-mainz",
+    "teamName": "FSV Mainz",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Spain"
+  },
+  {
+    "id": "maxim-leitsch-mainz",
+    "name": "Maxim Leitsch",
+    "teamId": "fsv-mainz",
+    "teamName": "FSV Mainz",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Germany"
+  },
+  {
+    "id": "moussa-niakhate-mainz",
+    "name": "Moussa Niakhate",
+    "teamId": "fsv-mainz",
+    "teamName": "FSV Mainz",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Senegal"
+  },
+  {
+    "id": "john-neblett-mainz",
+    "name": "Alexander Hack",
+    "teamId": "fsv-mainz",
+    "teamName": "FSV Mainz",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Germany"
+  },
+  {
+    "id": "nadiem-amiri-mainz",
+    "name": "Nadiem Amiri",
+    "teamId": "fsv-mainz",
+    "teamName": "FSV Mainz",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Germany"
+  },
+  {
+    "id": "jo-lachei-mainz",
+    "name": "Leandro Barreiro",
+    "teamId": "fsv-mainz",
+    "teamName": "FSV Mainz",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Luxembourg"
+  },
+  {
+    "id": "jonathan-burkardt-mainz",
+    "name": "Jonathan Burkardt",
+    "teamId": "fsv-mainz",
+    "teamName": "FSV Mainz",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Germany"
+  },
+  {
+    "id": "anderson-lucoqui-mainz",
+    "name": "Edimilson Fernandes",
+    "teamId": "fsv-mainz",
+    "teamName": "FSV Mainz",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Switzerland"
+  },
+  {
+    "id": "karim-onisiwo-mainz",
+    "name": "Karim Onisiwo",
+    "teamId": "fsv-mainz",
+    "teamName": "FSV Mainz",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Austria"
+  },
+  {
+    "id": "ludovic-ajorque-mainz",
+    "name": "Ludovic Ajorque",
+    "teamId": "fsv-mainz",
+    "teamName": "FSV Mainz",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "France"
+  },
+  {
+    "id": "paul-neblett-mainz",
+    "name": "Aymen Barkok",
+    "teamId": "fsv-mainz",
+    "teamName": "FSV Mainz",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Germany"
+  },
+  {
+    "id": "marvin-schwabe-cologne",
+    "name": "Marvin Schwabe",
+    "teamId": "fc-cologne",
+    "teamName": "FC Cologne",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Germany"
+  },
+  {
+    "id": "dominik-drexler-cologne",
+    "name": "Jonas Urbig",
+    "teamId": "fc-cologne",
+    "teamName": "FC Cologne",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Germany"
+  },
+  {
+    "id": "timo-hubers-cologne",
+    "name": "Timo Hubers",
+    "teamId": "fc-cologne",
+    "teamName": "FC Cologne",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Germany"
+  },
+  {
+    "id": "luca-kilian-cologne",
+    "name": "Luca Kilian",
+    "teamId": "fc-cologne",
+    "teamName": "FC Cologne",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Germany"
+  },
+  {
+    "id": "linton-maina-cologne",
+    "name": "Christian Thielscher",
+    "teamId": "fc-cologne",
+    "teamName": "FC Cologne",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Germany"
+  },
+  {
+    "id": "benno-schmitz-cologne",
+    "name": "Benno Schmitz",
+    "teamId": "fc-cologne",
+    "teamName": "FC Cologne",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Germany"
+  },
+  {
+    "id": "max-fuhrich-cologne",
+    "name": "Max Meyer",
+    "teamId": "fc-cologne",
+    "teamName": "FC Cologne",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Germany"
+  },
+  {
+    "id": "jakub-kaminski-cologne",
+    "name": "Jakub Kaminski",
+    "teamId": "fc-cologne",
+    "teamName": "FC Cologne",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Poland"
+  },
+  {
+    "id": "florian-kainz-cologne",
+    "name": "Florian Kainz",
+    "teamId": "fc-cologne",
+    "teamName": "FC Cologne",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Austria"
+  },
+  {
+    "id": "dejan-ljubicic-cologne",
+    "name": "Dejan Ljubicic",
+    "teamId": "fc-cologne",
+    "teamName": "FC Cologne",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Austria"
+  },
+  {
+    "id": "tim-lemperle-cologne",
+    "name": "Tim Lemperle",
+    "teamId": "fc-cologne",
+    "teamName": "FC Cologne",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Germany"
+  },
+  {
+    "id": "said-el-mala-cologne",
+    "name": "Said El Mala",
+    "teamId": "fc-cologne",
+    "teamName": "FC Cologne",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Morocco"
+  },
+  {
+    "id": "marius-bulter-cologne",
+    "name": "Marius Bulter",
+    "teamId": "fc-cologne",
+    "teamName": "FC Cologne",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Germany"
+  },
+  {
+    "id": "ragnar-ache-cologne",
+    "name": "Ragnar Ache",
+    "teamId": "fc-cologne",
+    "teamName": "FC Cologne",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Germany"
+  },
+  {
+    "id": "davie-selke-cologne",
+    "name": "Sargis Adamyan",
+    "teamId": "fc-cologne",
+    "teamName": "FC Cologne",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Germany"
+  },
+  {
+    "id": "nikola-vasilj-st-pauli",
+    "name": "Nikola Vasilj",
+    "teamId": "fc-st-pauli",
+    "teamName": "FC St. Pauli",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Bosnia and Herzegovina"
+  },
+  {
+    "id": "sascha-burchert-st-pauli",
+    "name": "Sascha Burchert",
+    "teamId": "fc-st-pauli",
+    "teamName": "FC St. Pauli",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Germany"
+  },
+  {
+    "id": "karol-mets-st-pauli",
+    "name": "Karol Mets",
+    "teamId": "fc-st-pauli",
+    "teamName": "FC St. Pauli",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Estonia"
+  },
+  {
+    "id": "lars-ritzka-st-pauli",
+    "name": "Lars Ritzka",
+    "teamId": "fc-st-pauli",
+    "teamName": "FC St. Pauli",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Germany"
+  },
+  {
+    "id": "hauke-wahl-st-pauli",
+    "name": "Hauke Wahl",
+    "teamId": "fc-st-pauli",
+    "teamName": "FC St. Pauli",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Germany"
+  },
+  {
+    "id": "oladapo-afolabi-st-pauli",
+    "name": "Oladapo Afolabi",
+    "teamId": "fc-st-pauli",
+    "teamName": "FC St. Pauli",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Austria"
+  },
+  {
+    "id": "manolis-saliakas-st-pauli",
+    "name": "Manolis Saliakas",
+    "teamId": "fc-st-pauli",
+    "teamName": "FC St. Pauli",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Greece"
+  },
+  {
+    "id": "filip-bilbija-st-pauli",
+    "name": "Philipp Treu",
+    "teamId": "fc-st-pauli",
+    "teamName": "FC St. Pauli",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Germany"
+  },
+  {
+    "id": "carlo-boukhalfa-st-pauli",
+    "name": "Carlo Boukhalfa",
+    "teamId": "fc-st-pauli",
+    "teamName": "FC St. Pauli",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Germany"
+  },
+  {
+    "id": "joel-fujita-st-pauli",
+    "name": "Joel Chima Fujita",
+    "teamId": "fc-st-pauli",
+    "teamName": "FC St. Pauli",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Germany"
+  },
+  {
+    "id": "pjotr-lewczuk-st-pauli",
+    "name": "Jackson Irvine",
+    "teamId": "fc-st-pauli",
+    "teamName": "FC St. Pauli",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Australia"
+  },
+  {
+    "id": "lars-ritzka2-st-pauli",
+    "name": "Philipp Ziereis",
+    "teamId": "fc-st-pauli",
+    "teamName": "FC St. Pauli",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Germany"
+  },
+  {
+    "id": "elias-saad-st-pauli",
+    "name": "Elias Saad",
+    "teamId": "fc-st-pauli",
+    "teamName": "FC St. Pauli",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Germany"
+  },
+  {
+    "id": "johannes-eggestein-st-pauli",
+    "name": "Johannes Eggestein",
+    "teamId": "fc-st-pauli",
+    "teamName": "FC St. Pauli",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Germany"
+  },
+  {
+    "id": "lars-chokkalingam-st-pauli",
+    "name": "Andreas Hountondji",
+    "teamId": "fc-st-pauli",
+    "teamName": "FC St. Pauli",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Norway"
+  },
+  {
+    "id": "kamil-grabara-wolfsburg",
+    "name": "Kamil Grabara",
+    "teamId": "vfl-wolfsburg",
+    "teamName": "VfL Wolfsburg",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Poland"
+  },
+  {
+    "id": "koen-casteels-wolfsburg",
+    "name": "Koen Casteels",
+    "teamId": "vfl-wolfsburg",
+    "teamName": "VfL Wolfsburg",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Belgium"
+  },
+  {
+    "id": "maxence-lacroix-wolfsburg",
+    "name": "Maxence Lacroix",
+    "teamId": "vfl-wolfsburg",
+    "teamName": "VfL Wolfsburg",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "France"
+  },
+  {
+    "id": "felix-nmecha-wolfsburg",
+    "name": "Micky van de Ven",
+    "teamId": "vfl-wolfsburg",
+    "teamName": "VfL Wolfsburg",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Netherlands"
+  },
+  {
+    "id": "sael-kumbedi-wolfsburg",
+    "name": "Sael Kumbedi",
+    "teamId": "vfl-wolfsburg",
+    "teamName": "VfL Wolfsburg",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "France"
+  },
+  {
+    "id": "sebastian-bornauw-wolfsburg",
+    "name": "Sebastian Bornauw",
+    "teamId": "vfl-wolfsburg",
+    "teamName": "VfL Wolfsburg",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Belgium"
+  },
+  {
+    "id": "felix-uduokhai-wolfsburg",
+    "name": "Luca Waldschmidt",
+    "teamId": "vfl-wolfsburg",
+    "teamName": "VfL Wolfsburg",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Germany"
+  },
+  {
+    "id": "maximilian-arnold-wolfsburg",
+    "name": "Maximilian Arnold",
+    "teamId": "vfl-wolfsburg",
+    "teamName": "VfL Wolfsburg",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Germany"
+  },
+  {
+    "id": "lovro-majer-wolfsburg",
+    "name": "Lovro Majer",
+    "teamId": "vfl-wolfsburg",
+    "teamName": "VfL Wolfsburg",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Croatia"
+  },
+  {
+    "id": "christian-eriksen-wolfsburg",
+    "name": "Christian Eriksen",
+    "teamId": "vfl-wolfsburg",
+    "teamName": "VfL Wolfsburg",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Denmark"
+  },
+  {
+    "id": "patrick-wimmer-wolfsburg",
+    "name": "Patrick Wimmer",
+    "teamId": "vfl-wolfsburg",
+    "teamName": "VfL Wolfsburg",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Austria"
+  },
+  {
+    "id": "yannick-gerhardt-wolfsburg",
+    "name": "Yannick Gerhardt",
+    "teamId": "vfl-wolfsburg",
+    "teamName": "VfL Wolfsburg",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Germany"
+  },
+  {
+    "id": "mohamed-amoura-wolfsburg",
+    "name": "Mohamed Amoura",
+    "teamId": "vfl-wolfsburg",
+    "teamName": "VfL Wolfsburg",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Algeria"
+  },
+  {
+    "id": "dzenan-pejcinovic-wolfsburg",
+    "name": "Dzenan Pejcinovic",
+    "teamId": "vfl-wolfsburg",
+    "teamName": "VfL Wolfsburg",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Bosnia and Herzegovina"
+  },
+  {
+    "id": "jonas-wind-wolfsburg",
+    "name": "Jonas Wind",
+    "teamId": "vfl-wolfsburg",
+    "teamName": "VfL Wolfsburg",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Denmark"
+  },
+  {
+    "id": "kevin-muller-heidenheim",
+    "name": "Kevin Muller",
+    "teamId": "fc-heidenheim",
+    "teamName": "1. FC Heidenheim",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Germany"
+  },
+  {
+    "id": "jonas-urban-heidenheim",
+    "name": "Jonas Urban",
+    "teamId": "fc-heidenheim",
+    "teamName": "1. FC Heidenheim",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Germany"
+  },
+  {
+    "id": "patrick-mainka-heidenheim",
+    "name": "Patrick Mainka",
+    "teamId": "fc-heidenheim",
+    "teamName": "1. FC Heidenheim",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Germany"
+  },
+  {
+    "id": "jan-schoppner-heidenheim",
+    "name": "Jan Schoppner",
+    "teamId": "fc-heidenheim",
+    "teamName": "1. FC Heidenheim",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Germany"
+  },
+  {
+    "id": "jonas-rahn-heidenheim",
+    "name": "Jonas Rahn",
+    "teamId": "fc-heidenheim",
+    "teamName": "1. FC Heidenheim",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Germany"
+  },
+  {
+    "id": "lennard-maloney-heidenheim",
+    "name": "Lennard Maloney",
+    "teamId": "fc-heidenheim",
+    "teamName": "1. FC Heidenheim",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "United States"
+  },
+  {
+    "id": "maximilian-breunig-heidenheim",
+    "name": "Maximilian Breunig",
+    "teamId": "fc-heidenheim",
+    "teamName": "1. FC Heidenheim",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Germany"
+  },
+  {
+    "id": "jonas-grohs-heidenheim",
+    "name": "Jonas Grohs",
+    "teamId": "fc-heidenheim",
+    "teamName": "1. FC Heidenheim",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Germany"
+  },
+  {
+    "id": "benedikt-gimber-heidenheim",
+    "name": "Benedikt Gimber",
+    "teamId": "fc-heidenheim",
+    "teamName": "1. FC Heidenheim",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Germany"
+  },
+  {
+    "id": "paul-wanner-heidenheim",
+    "name": "Paul Wanner",
+    "teamId": "fc-heidenheim",
+    "teamName": "1. FC Heidenheim",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Germany"
+  },
+  {
+    "id": "oscar-dorley-heidenheim",
+    "name": "Oscar Dorley",
+    "teamId": "fc-heidenheim",
+    "teamName": "1. FC Heidenheim",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Liberia"
+  },
+  {
+    "id": "budu-zivzivadze-heidenheim",
+    "name": "Budu Zivzivadze",
+    "teamId": "fc-heidenheim",
+    "teamName": "1. FC Heidenheim",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Georgia"
+  },
+  {
+    "id": "stefan-schimmer-heidenheim",
+    "name": "Stefan Schimmer",
+    "teamId": "fc-heidenheim",
+    "teamName": "1. FC Heidenheim",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Germany"
+  },
+  {
+    "id": "mathias-honsak-heidenheim",
+    "name": "Mathias Honsak",
+    "teamId": "fc-heidenheim",
+    "teamName": "1. FC Heidenheim",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Austria"
+  },
+  {
+    "id": "eren-yilmaz-heidenheim",
+    "name": "Eren Yilmaz",
+    "teamId": "fc-heidenheim",
+    "teamName": "1. FC Heidenheim",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Germany"
+  },
+  {
+    "id": "fabian-ruck-stuttgart",
+    "name": "Fabian Ruck",
+    "teamId": "vfb-stuttgart",
+    "teamName": "VfB Stuttgart",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Germany"
+  },
+  {
+    "id": "konstantinos-mavropanos-stuttgart",
+    "name": "Konstantinos Mavropanos",
+    "teamId": "vfb-stuttgart",
+    "teamName": "VfB Stuttgart",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Greece"
+  },
+  {
+    "id": "nick-woltemade-stuttgart",
+    "name": "Nick Woltemade",
+    "teamId": "vfb-stuttgart",
+    "teamName": "VfB Stuttgart",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Germany"
+  },
+  {
+    "id": "stanislav-lobotka-hoffenheim",
+    "name": "Pavel Kaderabek",
+    "teamId": "tsg-hoffenheim",
+    "teamName": "TSG Hoffenheim",
+    "competitionId": "bundesliga-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Czech Republic"
+  }
+]

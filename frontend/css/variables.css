@@ -1,0 +1,32 @@
+:root {
+  --gold: #e7c84b;
+  --gold-deep: #d7b53f;
+  --ui-accent: #e7c84b;
+  --stats-accent: var(--premier);
+  --quiz-accent: var(--premier);
+  --black: #0b0b0b;
+  --white: #ffffff;
+  --ink: #141414;
+  --premier: #4a0c6a;
+  --seriea: #1c10b5;
+  --laliga: #d1121c;
+  --bundesliga: #9b0a12;
+  --ligue1: #0d3a7f;
+  --ucl: #0a2a6c;
+  --europa: #d65900;
+  --conference: #0b8f3f;
+  --carabaocup: #0f7c3a;
+  --facup: #1f5aa9;
+  --championship: #283271;
+  --worldcup: #0b4f6c;
+  --nav-green: #1aa356;
+  --home-blue: #2e2fbf;
+  --sidebar-border: #f7f0d7;
+  --panel-border: #fef7de;
+  --shadow: rgba(0, 0, 0, 0.25);
+  --radius-xl: 28px;
+  --radius-lg: 20px;
+  --radius-md: 14px;
+  --radius-pill: 999px;
+  --content-width: 1200px;
+}

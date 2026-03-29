@@ -1,0 +1,20 @@
+Player Name,Position,Squad Number,Nationality,Age,Appearances,Goals,Assists,Minutes Played,Goals Plus Assists,Clean Sheets,Yellow Cards,Red Cards,Home Grown,Notes
+Dominic Calvert‑Lewin,FWD,9,England,30,23,10,1,2070,11,0,3,0,Yes,Top scorer for Leeds this season :contentReference[oaicite:0]{index=0}
+Lukas Nmecha,FWD,11,Germany,26,19,5,0,1710,5,0,2,0,No,Forward contributor :contentReference[oaicite:1]{index=1}
+Brenden Aaronson,MID/FWD,7,USA,24,24,4,1,1920,5,0,3,0,No,Goal & assist output :contentReference[oaicite:2]{index=2}
+Noah Okafor,FWD,18,Switzerland,24,22,3,0,1980,3,0,2,0,No,Forward play :contentReference[oaicite:3]{index=3}
+Anton Stach,MID,8,Germany,26,21,3,0,1800,3,0,2,0,No,Midfield goals :contentReference[oaicite:4]{index=4}
+Joe Rodon,DEF,4,Wales,26,27,2,0,2365,2,0,2,0,Yes,Defender with goals :contentReference[oaicite:5]{index=5}
+Ao Tanaka,MID,16,Japan,25,20,2,0,?,2,0,1,0,No,Midfielder scorer :contentReference[oaicite:6]{index=6}
+Sean Longstaff,MID,39,England,27,15,1,?,1,0,?,1,0,Yes,Creative midfielder :contentReference[oaicite:7]{index=7}
+James Justin,DEF/MID,2,England,28,16,1,?,1,0,?,1,0,Yes,Versatile defender/mid :contentReference[oaicite:8]{index=8}
+Jayden Bogle,DEF,15,England,25,23,1,?,1,0,?,2,0,Yes,Assist/utility full‑back :contentReference[oaicite:9]{index=9}
+Gabriel Gudmundsson,DEF/MID,3,Sweden,27,24,0,0,?,0,0,1,0,No,Squad contributor :contentReference[oaicite:10]{index=10}
+Ethan Ampadu,DEF,5,Wales,23,22,1,0,?,1,0,1,0,Yes,Defensive rotation :contentReference[oaicite:11]{index=11}
+Ilia Gruev,MID,32,Bulgaria,25,5,0,1,?,1,0,1,0,No,Midfield backup :contentReference[oaicite:12]{index=12}
+Pascal Struijk,DEF,6,Netherlands,26,8,0,0,?,0,0,1,0,Yes,Central defender :contentReference[oaicite:13]{index=13}
+Wilfried Gnonto,FWD,19,Italy,21,28,?,1,?,?,1,0,1,0,No,Winger/assist :contentReference[oaicite:14]{index=14}
+Jaka Bijol,MID,27,Slovenia,28,12,1,0,?,1,0,1,0,No,Midfield rotation :contentReference[oaicite:15]{index=15}
+Joel Piroe,FWD,10,Netherlands,26,?,1,0,?,1,0,0,0,No,Forward depth (limited data) :contentReference[oaicite:16]{index=16}
+Lucas Perri,GK,1,Brazil,27,5,0,0,450,0,0,0,0,No,Backup keeper :contentReference[oaicite:17]{index=17}
+Karl Darlow,GK,26,Wales,34,5,0,0,450,0,0,0,0,No,Goalkeeper depth :contentReference[oaicite:18]{index=18}

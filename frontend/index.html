@@ -1,0 +1,3312 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FOD</title>
+    <link rel="icon" type="image/svg+xml" href="../images/web-logo/favicon.svg" />
+    <link rel="apple-touch-icon" href="../images/web-logo/CUSTOM~1.PNG" />
+    <script>
+      (() => {
+        const params = new URLSearchParams(window.location.search);
+        const root = document.documentElement;
+
+        if (params.get('embedMatch') === '1') root.classList.add('match-embed-mode');
+        if (params.get('embedPlayers') === '1') root.classList.add('players-embed-mode');
+        if (params.get('embedQuiz') === '1') root.classList.add('quiz-embed-mode');
+        if (params.get('embedCardgame') === '1') root.classList.add('cardgame-embed-mode');
+        if (params.get('mobileMatch') === '1') root.classList.add('match-mobile-embed-mode');
+      })();
+    </script>
+    <link rel="stylesheet" href="./css/variables.css" />
+    <link rel="stylesheet" href="./css/base.css" />
+    <link rel="stylesheet" href="./css/layout.css?v=20260327-3" />
+    <link rel="stylesheet" href="./css/components.css" />
+    <link rel="stylesheet" href="./css/home.css" />
+    <link rel="stylesheet" href="./css/leagues.css" />
+    <link rel="stylesheet" href="./css/players.css?v=20260327-7" />
+    <link rel="stylesheet" href="./css/stats.css" />
+    <link rel="stylesheet" href="./css/quiz.css" />
+    <link rel="stylesheet" href="./css/news.css" />
+    <link rel="stylesheet" href="./css/cardgame.css" />
+    <link rel="stylesheet" href="./css/match.css?v=20260327-2" />
+    <link rel="stylesheet" href="./css/settings.css" />
+    <link rel="stylesheet" href="./css/profile.css" />
+    <link rel="stylesheet" href="./css/search.css" />
+    <link rel="stylesheet" href="./css/auth.css" />
+  </head>
+  <body>
+    <script>
+      (() => {
+        const embedClasses = [
+          'match-embed-mode',
+          'players-embed-mode',
+          'quiz-embed-mode',
+          'cardgame-embed-mode',
+          'match-mobile-embed-mode'
+        ];
+        const root = document.documentElement;
+        const body = document.body;
+
+        embedClasses.forEach((className) => {
+          if (root.classList.contains(className)) {
+            body.classList.add(className);
+          }
+        });
+      })();
+    </script>
+    <div class="app">
+      <header class="topbar">
+        <button class="brand" id="brand-home" type="button" aria-label="Go to home">
+          <img src="../images/web-logo/CUSTOM~1.PNG" alt="FODR logo" />
+        </button>
+
+        <div class="nav-center">
+          <button
+            class="nav-action nav-home is-active"
+            type="button"
+            data-label="HOME"
+            aria-label="Home"
+          >
+            <svg class="nav-icon-img" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 3l9 8h-3v9h-5v-6H11v6H6v-9H3z" />
+            </svg>
+          </button>
+
+          <div class="nav-icons">
+            <button
+              class="nav-action"
+              type="button"
+              id="nav-leagues"
+              data-label="LEAGUES"
+              aria-label="Leagues"
+            >
+              <img
+                class="nav-icon-img"
+                src="../images/icons/Copy_of_User-removebg-preview.png"
+                alt=""
+              />
+            </button>
+            <button
+              class="nav-action"
+              type="button"
+              id="nav-players"
+              data-label="PLAYERS"
+              aria-label="Players"
+            >
+              <img
+                class="nav-icon-img"
+                src="../images/icons/Copy_of_User12-removebg-preview.png"
+                alt=""
+              />
+            </button>
+            <button
+              class="nav-action"
+              type="button"
+              id="nav-stats"
+              data-label="STATS"
+              aria-label="Stats"
+            >
+              <img
+                class="nav-icon-img"
+                src="../images/icons/Copy_of_User55-removebg-preview.png"
+                alt=""
+              />
+            </button>
+            <button class="nav-action" type="button" id="nav-quiz" data-label="QUIZ" aria-label="Quiz">
+              <img
+                class="nav-icon-img"
+                src="../images/icons/Copy_of_User98-removebg-preview.png"
+                alt=""
+              />
+            </button>
+            <button class="nav-action" type="button" id="nav-news" data-label="NEWS" aria-label="News">
+              <img
+                class="nav-icon-img"
+                src="../images/icons/Copy_of_Use3r-removebg-preview.png"
+                alt=""
+              />
+            </button>
+            <button
+              class="nav-action"
+              type="button"
+              id="nav-cardgame"
+              data-label="CARD-GAME"
+              aria-label="Card game"
+            >
+              <img
+                class="nav-icon-img"
+                src="../images/icons/Copy_of_User1-removebg-preview.png"
+                alt=""
+              />
+            </button>
+          </div>
+        </div>
+
+        <div class="top-actions">
+          <button class="action-btn" type="button" id="global-search-open" aria-label="Search">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="11" cy="11" r="6"></circle>
+              <line x1="16.5" y1="16.5" x2="21" y2="21"></line>
+            </svg>
+          </button>
+          <button class="action-btn" type="button" id="dashboard-open" aria-label="Dashboard">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4 20h16"></path>
+              <rect x="6" y="10" width="3" height="8"></rect>
+              <rect x="11" y="6" width="3" height="12"></rect>
+              <rect x="16" y="12" width="3" height="6"></rect>
+            </svg>
+          </button>
+          <button class="action-btn" type="button" aria-label="Notifications">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M18 16v-5a6 6 0 1 0-12 0v5l-2 2h16z"></path>
+              <path d="M9 20a3 3 0 0 0 6 0"></path>
+            </svg>
+          </button>
+          <button class="action-btn" type="button" id="settings-open" aria-label="Settings">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 8.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z"></path>
+              <path d="M19.4 15a7.7 7.7 0 0 0 0-6l2-1.2-2-3.4-2.2 1a8.2 8.2 0 0 0-5-2l-.6-2.4h-4l-.6 2.4a8.2 8.2 0 0 0-5 2l-2.2-1-2 3.4 2 1.2a7.7 7.7 0 0 0 0 6l-2 1.2 2 3.4 2.2-1a8.2 8.2 0 0 0 5 2l.6 2.4h4l.6-2.4a8.2 8.2 0 0 0 5-2l2.2 1 2-3.4z"></path>
+            </svg>
+          </button>
+
+          <div class="profile-menu-wrap">
+            <button class="user-pill" type="button" id="auth-open" aria-label="Open login">
+              <span class="avatar-dot" aria-hidden="true"></span>
+              <span id="auth-label">LOGIN</span>
+              <svg class="caret" viewBox="0 0 16 16" aria-hidden="true">
+                <path d="M3 6l5 5 5-5"></path>
+              </svg>
+            </button>
+            <div class="profile-menu is-hidden" id="profile-menu" role="menu" aria-label="Profile menu">
+              <button class="profile-item" type="button" data-profile-action="profile">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <circle cx="12" cy="8" r="4"></circle>
+                  <path d="M4 20c2.5-4 13.5-4 16 0"></path>
+                </svg>
+                <span>Profile</span>
+              </button>
+              <button class="profile-item" type="button" data-profile-action="settings">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 8.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z"></path>
+                  <path d="M19.4 15a7.7 7.7 0 0 0 0-6l2-1.2-2-3.4-2.2 1a8.2 8.2 0 0 0-5-2l-.6-2.4h-4l-.6 2.4a8.2 8.2 0 0 0-5 2l-2.2-1-2 3.4 2 1.2a7.7 7.7 0 0 0 0 6l-2 1.2 2 3.4 2.2-1a8.2 8.2 0 0 0 5 2l.6 2.4h4l.6-2.4a8.2 8.2 0 0 0 5-2l2.2 1 2-3.4z"></path>
+                </svg>
+                <span>Account Settings</span>
+              </button>
+              <button class="profile-item" type="button" data-profile-action="cookies">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <circle cx="9" cy="9" r="1.2"></circle>
+                  <circle cx="15" cy="8" r="1.2"></circle>
+                  <circle cx="13" cy="14" r="1.2"></circle>
+                  <path d="M4 13c0 4.4 3.6 8 8 8s8-3.6 8-8c0-.7-.1-1.4-.3-2.1-3.4 1.2-7.2-1-8.4-4.4-.7.2-1.4.3-2.1.3-3.3 0-6-2.7-6-6 0-.5.1-1 .2-1.4C2.1 1.8 2 2.4 2 3c0 4.4 3.6 8 8 8 1.2 0 2.3-.2 3.3-.6"></path>
+                </svg>
+                <span>Cookies</span>
+              </button>
+              <button class="profile-item" type="button" id="logout-btn">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M10 17l5-5-5-5"></path>
+                  <path d="M15 12H3"></path>
+                  <path d="M21 3h-8a2 2 0 0 0-2 2v3"></path>
+                  <path d="M11 16v3a2 2 0 0 0 2 2h8"></path>
+                </svg>
+                <span>Log out</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div class="content">
+        <aside class="sidebar">
+          <div class="sidebar-item active pl" data-league="premier">
+            <img
+              src="../images/comp-logos/Competition=Men_%20Premier%20League,%20Color=Color.webp"
+              alt="Premier League"
+            />
+          </div>
+          <div class="sidebar-item championship" data-league="championship">
+            <img src="../images/comp-logos/EFLchampionship.svg" alt="EFL Championship" />
+          </div>
+          <div class="sidebar-item facup" data-league="facup">
+            <img src="../images/comp-logos/facup.png" alt="FA Cup" />
+          </div>
+          <div class="sidebar-item carabaocup" data-league="carabaocup">
+            <img src="../images/comp-logos/carabao-cup-crest.svg" alt="Carabao Cup" />
+          </div>
+          <div class="sidebar-item seriea" data-league="seriea">
+            <img src="../images/comp-logos/seriea-enilive-logo_jssflz.png" alt="Serie A" />
+          </div>
+          <div class="sidebar-item" data-league="laliga">
+            <img src="../images/comp-logos/Screenshot%202026-03-02%20155633.png" alt="LaLiga" />
+          </div>
+          <div class="sidebar-item" data-league="bundesliga">
+            <img src="../images/comp-logos/bundesliga-app.svg" alt="Bundesliga" />
+          </div>
+          <div class="sidebar-item" data-league="ligue1">
+            <img src="../images/comp-logos/ligue-1.png" alt="Ligue 1" />
+          </div>
+          <div class="sidebar-item" data-league="ucl">
+            <img
+              src="../images/comp-logos/Competition=Men_%20Champions%20League,%20Color=Color.webp"
+              alt="UEFA Champions League"
+            />
+          </div>
+          <div class="sidebar-item europa" data-league="europa">
+            <img src="../images/comp-logos/europa-league.png" alt="UEFA Europa League" />
+          </div>
+          <div class="sidebar-item conference" data-league="conference">
+            <img src="../images/comp-logos/conference-league.svg" alt="UEFA Europa Conference League" />
+          </div>
+          <div class="sidebar-item worldcup" data-league="worldcup">
+            <img src="../images/comp-logos/2026-World-Cup.webp" alt="FIFA World Cup 2026" />
+          </div>
+        </aside>
+
+        <main class="main">
+          <section class="league-view">
+            <div class="day-row">
+              <div class="day-pill">Today</div>
+            </div>
+
+            <div class="league-grid">
+            <section class="league-card premier" data-league="premier">
+              <div class="league-header">
+                <div class="league-logo">
+                  <img
+                    src="../images/comp-logos/Competition=Men_%20Premier%20League,%20Color=Color.webp"
+                    alt="Premier League"
+                  />
+                </div>
+                <span class="flag flag-eng" aria-hidden="true"></span>
+                <div class="league-title">Premier League</div>
+              </div>
+              <div class="matchday-row">
+                <button class="mw-pill active" type="button">MW1</button>
+                <button class="mw-pill" type="button">MW2</button>
+                <button class="mw-pill" type="button">MW3</button>
+                <button class="mw-pill" type="button">MW4</button>
+              </div>
+              <div class="fixtures-head">
+                <span>Played</span>
+                <span>Upcoming</span>
+              </div>
+              <div class="match-grid">
+                <button class="match-card fixture-card" type="button" aria-label="Liverpool vs West Ham">
+                  <div class="team-side">
+                    <img
+                      class="team-logo"
+                      src="../images/Teams-logos/Premier-league/liverpool.svg"
+                      alt="Liverpool"
+                    />
+                    <span class="team-name">Liverpool</span>
+                  </div>
+                  <span class="score">5 - 2</span>
+                  <div class="team-side right">
+                    <img class="team-logo" src="../images/Teams-logos/Premier-league/westham.svg" alt="West Ham" />
+                    <span class="team-name">West Ham</span>
+                  </div>
+                </button>
+                <div class="match-card">
+                  <div class="team-side">
+                    <img class="team-logo" src="../images/Teams-logos/Premier-league/arsenal.svg" alt="Arsenal" />
+                    <span class="team-name">Arsenal</span>
+                  </div>
+                  <span class="score">0 - 0</span>
+                  <div class="team-side right">
+                    <img
+                      class="team-logo"
+                      src="../images/Teams-logos/Premier-league/liverpool.svg"
+                      alt="Liverpool"
+                    />
+                    <span class="team-name">Liverpool</span>
+                  </div>
+                </div>
+                <div class="match-card ghost"></div>
+                <div class="match-card">
+                  <div class="team-side">
+                    <img class="team-logo" src="../images/Teams-logos/Premier-league/mancity.svg" alt="Manchester City" />
+                    <span class="team-name">Man City</span>
+                  </div>
+                  <span class="score">0 - 0</span>
+                  <div class="team-side right">
+                    <img class="team-logo" src="../images/Teams-logos/Premier-league/Manu.svg" alt="Manchester United" />
+                    <span class="team-name">Man Utd</span>
+                  </div>
+                </div>
+                <div class="match-card ghost"></div>
+                <div class="match-card ghost"></div>
+                <div class="match-card ghost"></div>
+                <div class="match-card ghost"></div>
+                <div class="match-card ghost"></div>
+                <div class="match-card ghost"></div>
+                <div class="match-card ghost"></div>
+                <div class="match-card ghost"></div>
+                <div class="match-card ghost"></div>
+                <div class="match-card ghost"></div>
+                <div class="match-card ghost"></div>
+                <div class="match-card ghost"></div>
+                <div class="match-card ghost"></div>
+                <div class="match-card ghost"></div>
+                <div class="match-card ghost"></div>
+              </div>
+            </section>
+
+            <section class="league-card championship" data-league="championship">
+              <div class="league-header">
+                <div class="league-logo">
+                  <img src="../images/comp-logos/EFLchampionship.svg" alt="EFL Championship" />
+                </div>
+                <span class="flag flag-eng" aria-hidden="true"></span>
+                <div class="league-title">EFL Championship</div>
+              </div>
+              <div class="matchday-row">
+                <button class="mw-pill active" type="button">MW1</button>
+                <button class="mw-pill" type="button">MW2</button>
+                <button class="mw-pill" type="button">MW3</button>
+                <button class="mw-pill" type="button">MW4</button>
+              </div>
+              <div class="fixtures-head">
+                <span>Played</span>
+                <span>Upcoming</span>
+              </div>
+              <div class="match-grid">
+                <button class="match-card fixture-card" type="button" aria-label="Birmingham City vs Ipswich Town">
+                  <div class="team-side">
+                    <img class="team-logo" src="../images/Teams-logos/EFLchampionship/birmingham.png" alt="Birmingham City" />
+                    <span class="team-name">BIR</span>
+                  </div>
+                  <span class="score">1 - 1</span>
+                  <div class="team-side right">
+                    <img class="team-logo" src="../images/Teams-logos/EFLchampionship/ipswichtown.png" alt="Ipswich Town" />
+                    <span class="team-name">IPS</span>
+                  </div>
+                </button>
+                <button class="match-card fixture-card" type="button" aria-label="Charlton Athletic vs Watford">
+                  <div class="team-side">
+                    <img class="team-logo" src="../images/Teams-logos/EFLchampionship/charlton.png" alt="Charlton Athletic" />
+                    <span class="team-name">CHA</span>
+                  </div>
+                  <span class="score">1 - 0</span>
+                  <div class="team-side right">
+                    <img class="team-logo" src="../images/Teams-logos/EFLchampionship/watford.png" alt="Watford" />
+                    <span class="team-name">WAT</span>
+                  </div>
+                </button>
+                <button class="match-card fixture-card" type="button" aria-label="Southampton vs Wrexham">
+                  <div class="team-side">
+                    <img class="team-logo" src="../images/Teams-logos/EFLchampionship/southampton.png" alt="Southampton" />
+                    <span class="team-name">SOU</span>
+                  </div>
+                  <span class="score">2 - 1</span>
+                  <div class="team-side right">
+                    <img class="team-logo" src="../images/Teams-logos/EFLchampionship/wrexham.png" alt="Wrexham" />
+                    <span class="team-name">WRE</span>
+                  </div>
+                </button>
+                <button class="match-card fixture-card" type="button" aria-label="Middlesbrough vs Swansea City">
+                  <div class="team-side">
+                    <img
+                      class="team-logo"
+                      src="../images/Teams-logos/EFLchampionship/middlesbrough.png"
+                      alt="Middlesbrough"
+                    />
+                    <span class="team-name">MID</span>
+                  </div>
+                  <span class="score">1 - 0</span>
+                  <div class="team-side right">
+                    <img class="team-logo" src="../images/Teams-logos/EFLchampionship/swanseacity.png" alt="Swansea City" />
+                    <span class="team-name">SWA</span>
+                  </div>
+                </button>
+                <button class="match-card fixture-card" type="button" aria-label="Stoke City vs Derby County">
+                  <div class="team-side">
+                    <img class="team-logo" src="../images/Teams-logos/EFLchampionship/stroke.png" alt="Stoke City" />
+                    <span class="team-name">STO</span>
+                  </div>
+                  <span class="score">3 - 1</span>
+                  <div class="team-side right">
+                    <img class="team-logo" src="../images/Teams-logos/EFLchampionship/derbycounty.png" alt="Derby County" />
+                    <span class="team-name">DER</span>
+                  </div>
+                </button>
+                <button
+                  class="match-card fixture-card"
+                  type="button"
+                  aria-label="West Bromwich Albion vs Blackburn Rovers"
+                >
+                  <div class="team-side">
+                    <img
+                      class="team-logo"
+                      src="../images/Teams-logos/EFLchampionship/westbromwich%20albion.png"
+                      alt="West Bromwich Albion"
+                    />
+                    <span class="team-name">WBA</span>
+                  </div>
+                  <span class="score">1 - 0</span>
+                  <div class="team-side right">
+                    <img
+                      class="team-logo"
+                      src="../images/Teams-logos/EFLchampionship/blackburn%20rovers.png"
+                      alt="Blackburn Rovers"
+                    />
+                    <span class="team-name">BBR</span>
+                  </div>
+                </button>
+                <button class="match-card fixture-card" type="button" aria-label="Sheffield United vs Bristol City">
+                  <div class="team-side">
+                    <img
+                      class="team-logo"
+                      src="../images/Teams-logos/EFLchampionship/sheffieldunited.png"
+                      alt="Sheffield United"
+                    />
+                    <span class="team-name">SHU</span>
+                  </div>
+                  <span class="score">0 - 4</span>
+                  <div class="team-side right">
+                    <img class="team-logo" src="../images/Teams-logos/EFLchampionship/bristolcity.png" alt="Bristol City" />
+                    <span class="team-name">BRC</span>
+                  </div>
+                </button>
+                <button
+                  class="match-card fixture-card"
+                  type="button"
+                  aria-label="Leicester City vs Sheffield Wednesday"
+                >
+                  <div class="team-side">
+                    <img
+                      class="team-logo"
+                      src="../images/Teams-logos/EFLchampionship/leicestercity.png"
+                      alt="Leicester City"
+                    />
+                    <span class="team-name">LEI</span>
+                  </div>
+                  <span class="score">2 - 1</span>
+                  <div class="team-side right">
+                    <img
+                      class="team-logo"
+                      src="../images/Teams-logos/EFLchampionship/sheffieldwednesday.png"
+                      alt="Sheffield Wednesday"
+                    />
+                    <span class="team-name">SHW</span>
+                  </div>
+                </button>
+                <div class="match-card ghost"></div>
+                <div class="match-card ghost"></div>
+                <div class="match-card ghost"></div>
+                <div class="match-card ghost"></div>
+                <div class="match-card ghost"></div>
+                <div class="match-card ghost"></div>
+                <div class="match-card ghost"></div>
+                <div class="match-card ghost"></div>
+                <div class="match-card ghost"></div>
+                <div class="match-card ghost"></div>
+              </div>
+            </section>
+
+            <section class="league-card facup" data-league="facup">
+              <div class="league-header">
+                <div class="league-logo">
+                  <img src="../images/comp-logos/facup.png" alt="FA Cup" />
+                </div>
+                <span class="flag flag-eng" aria-hidden="true"></span>
+                <div class="league-title">FA Cup</div>
+              </div>
+              <div class="matchday-row">
+                <button class="mw-pill active" type="button">MW1</button>
+                <button class="mw-pill" type="button">MW2</button>
+                <button class="mw-pill" type="button">MW3</button>
+                <button class="mw-pill" type="button">MW4</button>
+              </div>
+              <div class="fixtures-head">
+                <span>Played</span>
+                <span>Upcoming</span>
+              </div>
+              <div class="match-grid">
+                <div class="match-card ghost"></div>
+                <div class="match-card ghost"></div>
+                <div class="match-card ghost"></div>
+                <div class="match-card ghost"></div>
+                <div class="match-card ghost"></div>
+                <div class="match-card ghost"></div>
+                <div class="match-card ghost"></div>
+                <div class="match-card ghost"></div>
+                <div class="match-card ghost"></div>
+                <div class="match-card ghost"></div>
+                <div class="match-card ghost"></div>
+                <div class="match-card ghost"></div>
+                <div class="match-card ghost"></div>
+                <div class="match-card ghost"></div>
+                <div class="match-card ghost"></div>
+                <div class="match-card ghost"></div>
+                <div class="match-card ghost"></div>
+                <div class="match-card ghost"></div>
+              </div>
+            </section>
+
+            <section class="league-card carabaocup" data-league="carabaocup">
+              <div class="league-header">
+                <div class="league-logo">
+                  <img src="../images/comp-logos/carabao-cup-crest.svg" alt="Carabao Cup" />
+                </div>
+                <span class="flag flag-eng" aria-hidden="true"></span>
+                <div class="league-title">Carabao Cup</div>
+              </div>
+              <div class="matchday-row">
+                <button class="mw-pill active" type="button">MW1</button>
+                <button class="mw-pill" type="button">MW2</button>
+                <button class="mw-pill" type="button">MW3</button>
+                <button class="mw-pill" type="button">MW4</button>
+              </div>
+              <div class="fixtures-head">
+                <span>Played</span>
+                <span>Upcoming</span>
+              </div>
+              <div class="match-grid">
+                <div class="match-card ghost"></div>
+                <div class="match-card ghost"></div>
+                <div class="match-card ghost"></div>
+                <div class="match-card ghost"></div>
+                <div class="match-card ghost"></div>
+                <div class="match-card ghost"></div>
+                <div class="match-card ghost"></div>
+                <div class="match-card ghost"></div>
+                <div class="match-card ghost"></div>
+                <div class="match-card ghost"></div>
+                <div class="match-card ghost"></div>
+                <div class="match-card ghost"></div>
+                <div class="match-card ghost"></div>
+                <div class="match-card ghost"></div>
+                <div class="match-card ghost"></div>
+                <div class="match-card ghost"></div>
+                <div class="match-card ghost"></div>
+                <div class="match-card ghost"></div>
+              </div>
+            </section>
+
+            <section class="league-card seriea" data-league="seriea">
+              <div class="league-header">
+                <div class="league-logo">
+                  <img src="../images/comp-logos/seriea-enilive-logo_jssflz.png" alt="Serie A" />
+                </div>
+                <span class="flag flag-ita" aria-hidden="true"></span>
+                <div class="league-title">Serie A</div>
+              </div>
+              <div class="matchday-row">
+                <button class="mw-pill active" type="button">MW1</button>
+                <button class="mw-pill" type="button">MW2</button>
+                <button class="mw-pill" type="button">MW3</button>
+                <button class="mw-pill" type="button">MW4</button>
+              </div>
+              <div class="fixtures-head">
+                <span>Played</span>
+                <span>Upcoming</span>
+              </div>
+              <div class="match-grid">
+                <div class="match-card ghost"></div>
+                <div class="match-card ghost"></div>
+                <div class="match-card ghost"></div>
+                <div class="match-card ghost"></div>
+                <div class="match-card ghost"></div>
+                <div class="match-card ghost"></div>
+                <div class="match-card ghost"></div>
+                <div class="match-card ghost"></div>
+                <div class="match-card ghost"></div>
+                <div class="match-card ghost"></div>
+                <div class="match-card ghost"></div>
+                <div class="match-card ghost"></div>
+                <div class="match-card ghost"></div>
+                <div class="match-card ghost"></div>
+                <div class="match-card ghost"></div>
+                <div class="match-card ghost"></div>
+                <div class="match-card ghost"></div>
+                <div class="match-card ghost"></div>
+              </div>
+            </section>
+
+            <section class="league-card laliga" data-league="laliga">
+              <div class="league-header">
+                <div class="league-logo">
+                  <img src="../images/comp-logos/Screenshot%202026-03-02%20155633.png" alt="LaLiga" />
+                </div>
+                <span class="flag flag-esp" aria-hidden="true"></span>
+                <div class="league-title">LALIGA</div>
+              </div>
+              <div class="matchday-row">
+                <button class="mw-pill active" type="button">MW1</button>
+                <button class="mw-pill" type="button">MW2</button>
+                <button class="mw-pill" type="button">MW3</button>
+                <button class="mw-pill" type="button">MW4</button>
+              </div>
+              <div class="fixtures-head">
+                <span>Played</span>
+                <span>Upcoming</span>
+              </div>
+              <div class="match-grid">
+                <div class="match-card ghost"></div>
+                <div class="match-card ghost"></div>
+                <div class="match-card ghost"></div>
+                <div class="match-card ghost"></div>
+                <div class="match-card ghost"></div>
+                <div class="match-card ghost"></div>
+                <div class="match-card ghost"></div>
+                <div class="match-card ghost"></div>
+                <div class="match-card ghost"></div>
+                <div class="match-card ghost"></div>
+                <div class="match-card ghost"></div>
+                <div class="match-card ghost"></div>
+                <div class="match-card ghost"></div>
+                <div class="match-card ghost"></div>
+                <div class="match-card ghost"></div>
+                <div class="match-card ghost"></div>
+                <div class="match-card ghost"></div>
+                <div class="match-card ghost"></div>
+              </div>
+            </section>
+              <section class="league-card bundesliga" data-league="bundesliga">
+                <div class="league-header">
+                  <div class="league-logo">
+                    <img src="../images/comp-logos/bundesliga-app.svg" alt="Bundesliga" />
+                  </div>
+                  <span class="flag flag-ger" aria-hidden="true"></span>
+                  <div class="league-title">Bundesliga</div>
+                </div>
+                <div class="matchday-row">
+                  <button class="mw-pill active" type="button">MW1</button>
+                  <button class="mw-pill" type="button">MW2</button>
+                  <button class="mw-pill" type="button">MW3</button>
+                  <button class="mw-pill" type="button">MW4</button>
+                </div>
+                <div class="fixtures-head">
+                  <span>Played</span>
+                  <span>Upcoming</span>
+                </div>
+                <div class="match-grid">
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                </div>
+              </section>
+              <section class="league-card ligue1" data-league="ligue1">
+                <div class="league-header">
+                  <div class="league-logo">
+                    <img src="../images/comp-logos/ligue-1.png" alt="Ligue 1" />
+                  </div>
+                  <span class="flag flag-fra" aria-hidden="true"></span>
+                  <div class="league-title">Ligue 1</div>
+                </div>
+                <div class="matchday-row">
+                  <button class="mw-pill active" type="button">MW1</button>
+                  <button class="mw-pill" type="button">MW2</button>
+                  <button class="mw-pill" type="button">MW3</button>
+                  <button class="mw-pill" type="button">MW4</button>
+                </div>
+                <div class="fixtures-head">
+                  <span>Played</span>
+                  <span>Upcoming</span>
+                </div>
+                <div class="match-grid">
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                </div>
+              </section>
+              <section class="league-card ucl" data-league="ucl">
+                <div class="league-header">
+                  <div class="league-logo">
+                    <img
+                      src="../images/comp-logos/Competition=Men_%20Champions%20League,%20Color=Color.webp"
+                      alt="UEFA Champions League"
+                    />
+                  </div>
+                  <span class="flag flag-eur" aria-hidden="true"></span>
+                  <div class="league-title">Champions League</div>
+                </div>
+                <div class="matchday-row">
+                  <button class="mw-pill active" type="button">MW1</button>
+                  <button class="mw-pill" type="button">MW2</button>
+                  <button class="mw-pill" type="button">MW3</button>
+                  <button class="mw-pill" type="button">MW4</button>
+                </div>
+                <div class="fixtures-head">
+                  <span>Played</span>
+                  <span>Upcoming</span>
+                </div>
+                <div class="match-grid">
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                </div>
+              </section>
+
+              <section class="league-card europa" data-league="europa">
+                <div class="league-header">
+                  <div class="league-logo">
+                    <img src="../images/comp-logos/europa-league.png" alt="UEFA Europa League" />
+                  </div>
+                  <span class="flag flag-eur" aria-hidden="true"></span>
+                  <div class="league-title">Europa League</div>
+                </div>
+                <div class="matchday-row">
+                  <button class="mw-pill active" type="button">MW1</button>
+                  <button class="mw-pill" type="button">MW2</button>
+                  <button class="mw-pill" type="button">MW3</button>
+                  <button class="mw-pill" type="button">MW4</button>
+                </div>
+                <div class="fixtures-head">
+                  <span>Played</span>
+                  <span>Upcoming</span>
+                </div>
+                <div class="match-grid">
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                </div>
+              </section>
+
+              <section class="league-card conference" data-league="conference">
+                <div class="league-header">
+                  <div class="league-logo">
+                    <img src="../images/comp-logos/conference-league.svg" alt="UEFA Europa Conference League" />
+                  </div>
+                  <span class="flag flag-eur" aria-hidden="true"></span>
+                  <div class="league-title">Conference League</div>
+                </div>
+                <div class="matchday-row">
+                  <button class="mw-pill active" type="button">MW1</button>
+                  <button class="mw-pill" type="button">MW2</button>
+                  <button class="mw-pill" type="button">MW3</button>
+                  <button class="mw-pill" type="button">MW4</button>
+                </div>
+                <div class="fixtures-head">
+                  <span>Played</span>
+                  <span>Upcoming</span>
+                </div>
+                <div class="match-grid">
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                </div>
+              </section>
+
+              <section class="league-card worldcup" data-league="worldcup">
+                <div class="league-header">
+                  <div class="league-logo">
+                    <img src="../images/comp-logos/2026-World-Cup.webp" alt="FIFA World Cup 2026" />
+                  </div>
+                  <div class="league-title">World Cup</div>
+                </div>
+                <div class="matchday-row">
+                  <button class="mw-pill active" type="button">MW1</button>
+                  <button class="mw-pill" type="button">MW2</button>
+                  <button class="mw-pill" type="button">MW3</button>
+                  <button class="mw-pill" type="button">MW4</button>
+                </div>
+                <div class="fixtures-head">
+                  <span>Played</span>
+                  <span>Upcoming</span>
+                </div>
+                <div class="match-grid">
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                  <div class="match-card ghost"></div>
+                </div>
+              </section>
+            </div>
+          </section>
+
+          <section class="leagues-view is-hidden" id="leagues-view">
+            <div class="leagues-search">
+              <div class="search-pill">
+                <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <circle cx="11" cy="11" r="6"></circle>
+                  <line x1="16.5" y1="16.5" x2="21" y2="21"></line>
+                </svg>
+                <input type="text" placeholder="Search" aria-label="Search leagues" />
+              </div>
+            </div>
+
+            <div class="tables-grid">
+              <article class="league-table-card premier" data-league="premier">
+                <div class="table-head">
+                  <div class="head-left">
+                    <img
+                      class="head-logo"
+                      src="../images/comp-logos/Competition=Men_%20Premier%20League,%20Color=Color.webp"
+                      alt="Premier League"
+                    />
+                    <span class="flag flag-eng" aria-hidden="true"></span>
+                    <span class="head-title">Premier League</span>
+                  </div>
+                  <div class="head-right">
+                    <span class="season-label">Season</span>
+                    <select class="season-select" aria-label="Premier League season"></select>
+                  </div>
+                </div>
+                <div class="table-columns">
+                  <span>T</span>
+                  <span>PL</span>
+                  <span>W</span>
+                  <span>D</span>
+                  <span>L</span>
+                  <span>GD</span>
+                  <span>PTS</span>
+                  <span>FORM</span>
+                </div>
+                <div class="table-body">
+                  <div class="table-row">
+                    <div class="row-team">
+                      <img src="../images/Teams-logos/Premier-league/arsenal.svg" alt="Arsenal" />
+                      <span>Arsenal</span>
+                    </div>
+                    <span class="row-stat"></span>
+                    <span class="row-stat"></span>
+                    <span class="row-stat"></span>
+                    <span class="row-stat"></span>
+                    <span class="row-stat"></span>
+                    <span class="row-stat"></span>
+                    <div class="row-form">
+                      <span class="form-box win"></span>
+                      <span class="form-box win"></span>
+                      <span class="form-box win"></span>
+                      <span class="form-box loss"></span>
+                    </div>
+                  </div>
+                  <div class="table-row">
+                    <div class="row-team">
+                      <img src="../images/Teams-logos/Premier-league/mancity.svg" alt="Manchester City" />
+                      <span>Manchester City</span>
+                    </div>
+                    <span class="row-stat"></span>
+                    <span class="row-stat"></span>
+                    <span class="row-stat"></span>
+                    <span class="row-stat"></span>
+                    <span class="row-stat"></span>
+                    <span class="row-stat"></span>
+                    <div class="row-form">
+                      <span class="form-box win"></span>
+                      <span class="form-box win"></span>
+                      <span class="form-box win"></span>
+                      <span class="form-box win"></span>
+                    </div>
+                  </div>
+                  <div class="table-row">
+                    <div class="row-team">
+                      <img src="../images/Teams-logos/Premier-league/Manu.svg" alt="Manchester United" />
+                      <span>Manchester United</span>
+                    </div>
+                    <span class="row-stat"></span>
+                    <span class="row-stat"></span>
+                    <span class="row-stat"></span>
+                    <span class="row-stat"></span>
+                    <span class="row-stat"></span>
+                    <span class="row-stat"></span>
+                    <div class="row-form">
+                      <span class="form-box loss"></span>
+                      <span class="form-box win"></span>
+                      <span class="form-box win"></span>
+                      <span class="form-box loss"></span>
+                    </div>
+                  </div>
+                  <div class="table-row">
+                    <div class="row-team">
+                      <img src="../images/Teams-logos/Premier-league/liverpool.svg" alt="Liverpool" />
+                      <span>Liverpool</span>
+                    </div>
+                    <span class="row-stat"></span>
+                    <span class="row-stat"></span>
+                    <span class="row-stat"></span>
+                    <span class="row-stat"></span>
+                    <span class="row-stat"></span>
+                    <span class="row-stat"></span>
+                    <div class="row-form">
+                      <span class="form-box win"></span>
+                      <span class="form-box win"></span>
+                      <span class="form-box loss"></span>
+                      <span class="form-box win"></span>
+                    </div>
+                  </div>
+                  <div class="table-row empty"></div>
+                  <div class="table-row empty"></div>
+                  <div class="table-row empty"></div>
+                  <div class="table-row empty"></div>
+                  <div class="table-row empty"></div>
+                  <div class="table-row empty"></div>
+                  <div class="table-row empty"></div>
+                  <div class="table-row empty"></div>
+                  <div class="table-row empty"></div>
+                  <div class="table-row empty"></div>
+                  <div class="table-row empty"></div>
+                  <div class="table-row empty"></div>
+                  <div class="table-row empty"></div>
+                  <div class="table-row empty"></div>
+                  <div class="table-row empty"></div>
+                  <div class="table-row empty"></div>
+                </div>
+              </article>
+
+              <article class="league-table-card championship" data-league="championship">
+                <div class="table-head">
+                  <div class="head-left">
+                    <img
+                      class="head-logo"
+                      src="../images/comp-logos/EFLchampionship.svg"
+                      alt="EFL Championship"
+                    />
+                    <span class="flag flag-eng" aria-hidden="true"></span>
+                    <span class="head-title">EFL Championship</span>
+                  </div>
+                  <div class="head-right">
+                    <span class="season-label">Season</span>
+                    <select class="season-select" aria-label="EFL Championship season"></select>
+                  </div>
+                </div>
+                <div class="table-columns">
+                  <span>T</span>
+                  <span>PL</span>
+                  <span>W</span>
+                  <span>D</span>
+                  <span>L</span>
+                  <span>GD</span>
+                  <span>PTS</span>
+                  <span>FORM</span>
+                </div>
+                <div class="table-body">
+                  <div class="table-row empty"><span>Loading Championship...</span></div>
+                </div>
+              </article>
+
+              <article class="league-table-card facup" data-league="facup">
+                <div class="table-head">
+                  <div class="head-left">
+                    <img class="head-logo" src="../images/comp-logos/facup.png" alt="FA Cup" />
+                    <span class="flag flag-eng" aria-hidden="true"></span>
+                    <span class="head-title">FA Cup</span>
+                  </div>
+                </div>
+                <div class="table-body">
+                  <div class="table-row empty"><span>FA Cup view coming soon.</span></div>
+                </div>
+              </article>
+
+              <article class="league-table-card carabaocup" data-league="carabaocup">
+                <div class="table-head">
+                  <div class="head-left">
+                    <img
+                      class="head-logo"
+                      src="../images/comp-logos/carabao-cup-crest.svg"
+                      alt="Carabao Cup"
+                    />
+                    <span class="flag flag-eng" aria-hidden="true"></span>
+                    <span class="head-title">Carabao Cup</span>
+                  </div>
+                </div>
+                <div class="table-body">
+                  <div class="table-row empty"><span>Carabao Cup view coming soon.</span></div>
+                </div>
+              </article>
+
+              <article class="league-table-card seriea" data-league="seriea">
+                <div class="table-head">
+                  <div class="head-left">
+                    <img
+                      class="head-logo"
+                      src="../images/comp-logos/seriea-enilive-logo_jssflz.png"
+                      alt="Serie A"
+                    />
+                    <span class="flag flag-ita" aria-hidden="true"></span>
+                    <span class="head-title">Serie A</span>
+                  </div>
+                  <div class="head-right">
+                    <span class="season-label">Season</span>
+                    <select class="season-select" aria-label="Serie A season"></select>
+                  </div>
+                </div>
+                <div class="table-columns">
+                  <span>T</span>
+                  <span>PL</span>
+                  <span>W</span>
+                  <span>D</span>
+                  <span>L</span>
+                  <span>GD</span>
+                  <span>PTS</span>
+                  <span>FORM</span>
+                </div>
+                <div class="table-body">
+                  <div class="table-row empty"></div>
+                  <div class="table-row empty"></div>
+                  <div class="table-row empty"></div>
+                  <div class="table-row empty"></div>
+                  <div class="table-row empty"></div>
+                  <div class="table-row empty"></div>
+                  <div class="table-row empty"></div>
+                  <div class="table-row empty"></div>
+                  <div class="table-row empty"></div>
+                  <div class="table-row empty"></div>
+                  <div class="table-row empty"></div>
+                  <div class="table-row empty"></div>
+                  <div class="table-row empty"></div>
+                  <div class="table-row empty"></div>
+                  <div class="table-row empty"></div>
+                  <div class="table-row empty"></div>
+                  <div class="table-row empty"></div>
+                  <div class="table-row empty"></div>
+                  <div class="table-row empty"></div>
+                  <div class="table-row empty"></div>
+                </div>
+              </article>
+
+              <article class="league-table-card laliga" data-league="laliga">
+                <div class="table-head">
+                  <div class="head-left">
+                    <img
+                      class="head-logo"
+                      src="../images/comp-logos/Screenshot%202026-03-02%20155633.png"
+                      alt="LaLiga"
+                    />
+                    <span class="flag flag-esp" aria-hidden="true"></span>
+                    <span class="head-title">LaLiga</span>
+                  </div>
+                  <div class="head-right">
+                    <span class="season-label">Season</span>
+                    <select class="season-select" aria-label="LaLiga season"></select>
+                  </div>
+                </div>
+                <div class="table-columns">
+                  <span>T</span>
+                  <span>PL</span>
+                  <span>W</span>
+                  <span>D</span>
+                  <span>L</span>
+                  <span>GD</span>
+                  <span>PTS</span>
+                  <span>FORM</span>
+                </div>
+                <div class="table-body">
+                  <div class="table-row empty"></div>
+                  <div class="table-row empty"></div>
+                  <div class="table-row empty"></div>
+                  <div class="table-row empty"></div>
+                  <div class="table-row empty"></div>
+                  <div class="table-row empty"></div>
+                  <div class="table-row empty"></div>
+                  <div class="table-row empty"></div>
+                  <div class="table-row empty"></div>
+                  <div class="table-row empty"></div>
+                  <div class="table-row empty"></div>
+                  <div class="table-row empty"></div>
+                  <div class="table-row empty"></div>
+                  <div class="table-row empty"></div>
+                  <div class="table-row empty"></div>
+                  <div class="table-row empty"></div>
+                  <div class="table-row empty"></div>
+                  <div class="table-row empty"></div>
+                  <div class="table-row empty"></div>
+                  <div class="table-row empty"></div>
+                </div>
+              </article>
+
+              <article class="league-table-card bundesliga" data-league="bundesliga">
+                <div class="table-head">
+                  <div class="head-left">
+                    <img
+                      class="head-logo"
+                      src="../images/comp-logos/bundesliga-app.svg"
+                      alt="Bundesliga"
+                    />
+                    <span class="flag flag-ger" aria-hidden="true"></span>
+                    <span class="head-title">Bundesliga</span>
+                  </div>
+                  <div class="head-right">
+                    <span class="season-label">Season</span>
+                    <select class="season-select" aria-label="Bundesliga season"></select>
+                  </div>
+                </div>
+                <div class="table-columns">
+                  <span>T</span>
+                  <span>PL</span>
+                  <span>W</span>
+                  <span>D</span>
+                  <span>L</span>
+                  <span>GD</span>
+                  <span>PTS</span>
+                  <span>FORM</span>
+                </div>
+                <div class="table-body">
+                  <div class="table-row empty"></div>
+                  <div class="table-row empty"></div>
+                  <div class="table-row empty"></div>
+                  <div class="table-row empty"></div>
+                  <div class="table-row empty"></div>
+                  <div class="table-row empty"></div>
+                  <div class="table-row empty"></div>
+                  <div class="table-row empty"></div>
+                  <div class="table-row empty"></div>
+                  <div class="table-row empty"></div>
+                  <div class="table-row empty"></div>
+                  <div class="table-row empty"></div>
+                  <div class="table-row empty"></div>
+                  <div class="table-row empty"></div>
+                  <div class="table-row empty"></div>
+                  <div class="table-row empty"></div>
+                  <div class="table-row empty"></div>
+                  <div class="table-row empty"></div>
+                </div>
+              </article>
+
+              <article class="league-table-card ligue1" data-league="ligue1">
+                <div class="table-head">
+                  <div class="head-left">
+                    <img
+                      class="head-logo"
+                      src="../images/comp-logos/ligue-1.png"
+                      alt="Ligue 1"
+                    />
+                    <span class="flag flag-fra" aria-hidden="true"></span>
+                    <span class="head-title">Ligue 1</span>
+                  </div>
+                  <div class="head-right">
+                    <span class="season-label">Season</span>
+                    <select class="season-select" aria-label="Ligue 1 season"></select>
+                  </div>
+                </div>
+                <div class="table-columns">
+                  <span>T</span>
+                  <span>PL</span>
+                  <span>W</span>
+                  <span>D</span>
+                  <span>L</span>
+                  <span>GD</span>
+                  <span>PTS</span>
+                  <span>FORM</span>
+                </div>
+                <div class="table-body">
+                  <div class="table-row empty"></div>
+                  <div class="table-row empty"></div>
+                  <div class="table-row empty"></div>
+                  <div class="table-row empty"></div>
+                  <div class="table-row empty"></div>
+                  <div class="table-row empty"></div>
+                  <div class="table-row empty"></div>
+                  <div class="table-row empty"></div>
+                  <div class="table-row empty"></div>
+                  <div class="table-row empty"></div>
+                  <div class="table-row empty"></div>
+                  <div class="table-row empty"></div>
+                  <div class="table-row empty"></div>
+                  <div class="table-row empty"></div>
+                  <div class="table-row empty"></div>
+                  <div class="table-row empty"></div>
+                  <div class="table-row empty"></div>
+                  <div class="table-row empty"></div>
+                </div>
+              </article>
+
+              <article class="league-table-card ucl" data-league="ucl">
+                <div class="table-head">
+                  <div class="head-left">
+                    <img
+                      class="head-logo"
+                      src="../images/comp-logos/Competition=Men_%20Champions%20League,%20Color=Color.webp"
+                      alt="Champions League"
+                    />
+                    <span class="flag flag-eur" aria-hidden="true"></span>
+                    <span class="head-title">Champions League</span>
+                  </div>
+                  <div class="head-right">
+                    <span class="season-label">Season</span>
+                    <select class="season-select" aria-label="Champions League season"></select>
+                  </div>
+                </div>
+                <div class="table-columns">
+                  <span>T</span>
+                  <span>PL</span>
+                  <span>W</span>
+                  <span>D</span>
+                  <span>L</span>
+                  <span>GD</span>
+                  <span>PTS</span>
+                  <span>FORM</span>
+                </div>
+                <div class="table-body">
+                  <div class="table-row empty"><span>Loading Champions League...</span></div>
+                </div>
+              </article>
+
+              <article class="league-table-card europa" data-league="europa">
+                <div class="table-head">
+                  <div class="head-left">
+                    <img class="head-logo" src="../images/comp-logos/europa-league.png" alt="Europa League" />
+                    <span class="flag flag-eur" aria-hidden="true"></span>
+                    <span class="head-title">Europa League</span>
+                  </div>
+                  <div class="head-right">
+                    <span class="season-label">Season</span>
+                    <select class="season-select" aria-label="Europa League season"></select>
+                  </div>
+                </div>
+                <div class="table-columns">
+                  <span>T</span>
+                  <span>PL</span>
+                  <span>W</span>
+                  <span>D</span>
+                  <span>L</span>
+                  <span>GD</span>
+                  <span>PTS</span>
+                  <span>FORM</span>
+                </div>
+                <div class="table-body">
+                  <div class="table-row empty"><span>Loading Europa League...</span></div>
+                </div>
+              </article>
+
+              <article class="league-table-card conference" data-league="conference">
+                <div class="table-head">
+                  <div class="head-left">
+                    <img
+                      class="head-logo"
+                      src="../images/comp-logos/conference-league.svg"
+                      alt="Conference League"
+                    />
+                    <span class="flag flag-eur" aria-hidden="true"></span>
+                    <span class="head-title">Conference League</span>
+                  </div>
+                  <div class="head-right">
+                    <span class="season-label">Season</span>
+                    <select class="season-select" aria-label="Conference League season"></select>
+                  </div>
+                </div>
+                <div class="table-columns">
+                  <span>T</span>
+                  <span>PL</span>
+                  <span>W</span>
+                  <span>D</span>
+                  <span>L</span>
+                  <span>GD</span>
+                  <span>PTS</span>
+                  <span>FORM</span>
+                </div>
+                <div class="table-body">
+                  <div class="table-row empty"><span>Loading Conference League...</span></div>
+                </div>
+              </article>
+
+              <article class="league-table-card worldcup" data-league="worldcup">
+                <div class="table-head">
+                  <div class="head-left">
+                    <img
+                      class="head-logo"
+                      src="../images/comp-logos/2026-World-Cup.webp"
+                      alt="FIFA World Cup 2026"
+                    />
+                    <span class="head-title">World Cup 2026</span>
+                  </div>
+                </div>
+                <div class="table-body">
+                  <div class="table-row empty"><span>World Cup view coming soon.</span></div>
+                </div>
+              </article>
+            </div>
+          </section>
+
+          <section class="players-view is-hidden" id="players-view">
+            <div class="players-search">
+              <div class="search-pill">
+                <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <circle cx="11" cy="11" r="6"></circle>
+                  <line x1="16.5" y1="16.5" x2="21" y2="21"></line>
+                </svg>
+                <input
+                  type="text"
+                  id="players-search-input"
+                  placeholder="Search"
+                  aria-label="Search players"
+                />
+              </div>
+            </div>
+
+            <div class="players-panel">
+              <div class="team-pill-row" id="players-team-row"></div>
+
+              <div class="players-grid" id="players-grid"></div>
+            </div>
+          </section>
+
+          <section class="stats-view is-hidden" id="stats-view">
+            <div class="stats-search">
+              <div class="search-pill">
+                <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <circle cx="11" cy="11" r="6"></circle>
+                  <line x1="16.5" y1="16.5" x2="21" y2="21"></line>
+                </svg>
+                <input type="text" placeholder="Search" aria-label="Search stats" />
+              </div>
+              <div class="stats-toggle" role="tablist" aria-label="Stats scope">
+                <button class="stats-toggle-btn active" type="button" data-scope="players">Players</button>
+                <button class="stats-toggle-btn" type="button" data-scope="teams">Teams</button>
+              </div>
+            </div>
+
+            <div class="stats-body">
+              <div class="stats-sidebar">
+                <button class="stats-league active" type="button" data-league="premier">
+                  <span class="stats-league-logo">
+                    <img
+                      src="../images/comp-logos/Competition=Men_%20Premier%20League,%20Color=Color.webp"
+                      alt="Premier League"
+                    />
+                  </span>
+                  <span class="flag flag-eng" aria-hidden="true"></span>
+                  <span>Premier League</span>
+                </button>
+                <button class="stats-league championship" type="button" data-league="championship">
+                  <span class="stats-league-logo">
+                    <img src="../images/comp-logos/EFLchampionship.svg" alt="EFL Championship" />
+                  </span>
+                  <span class="flag flag-eng" aria-hidden="true"></span>
+                  <span>EFL Championship</span>
+                </button>
+                <button class="stats-league seriea" type="button" data-league="seriea">
+                  <span class="stats-league-logo">
+                    <img src="../images/comp-logos/seriea-enilive-logo_jssflz.png" alt="Serie A" />
+                  </span>
+                  <span class="flag flag-ita" aria-hidden="true"></span>
+                  <span>Serie A</span>
+                </button>
+                <button class="stats-league laliga" type="button" data-league="laliga">
+                  <span class="stats-league-logo">
+                    <img
+                      src="../images/comp-logos/Screenshot%202026-03-02%20155633.png"
+                      alt="LaLiga"
+                    />
+                  </span>
+                  <span class="flag flag-esp" aria-hidden="true"></span>
+                  <span>LaLiga</span>
+                </button>
+                <button class="stats-league bundesliga" type="button" data-league="bundesliga">
+                  <span class="stats-league-logo">
+                    <img src="../images/comp-logos/bundesliga-app.svg" alt="Bundesliga" />
+                  </span>
+                  <span class="flag flag-ger" aria-hidden="true"></span>
+                  <span>Bundesliga</span>
+                </button>
+                <button class="stats-league ligue1" type="button" data-league="ligue1">
+                  <span class="stats-league-logo">
+                    <img src="../images/comp-logos/ligue-1.png" alt="Ligue 1" />
+                  </span>
+                  <span class="flag flag-fra" aria-hidden="true"></span>
+                  <span>Ligue 1</span>
+                </button>
+                <button class="stats-league ucl" type="button" data-league="ucl">
+                  <span class="stats-league-logo">
+                    <img
+                      src="../images/comp-logos/Competition=Men_%20Champions%20League,%20Color=Color.webp"
+                      alt="Champions League"
+                    />
+                  </span>
+                  <span class="flag flag-eur" aria-hidden="true"></span>
+                  <span>Champions League</span>
+                </button>
+              </div>
+
+              <div class="stats-divider" aria-hidden="true"></div>
+
+              <div class="stats-grid">
+                <div class="stats-card">
+                  <div class="stats-card-title">Top scorer</div>
+                  <div class="stats-card-body">
+                    <div class="stat-line">
+                      <div class="stat-player">
+                        <img src="../images/Teams-logos/Premier-league/mancity.svg" alt="Man City" />
+                        <span>Erling Haaland</span>
+                      </div>
+                      <span class="stat-value">22</span>
+                    </div>
+                    <div class="stat-line">
+                      <div class="stat-player">
+                        <img src="../images/Teams-logos/Premier-league/liverpool.svg" alt="Liverpool" />
+                        <span>Mohamed Salah</span>
+                      </div>
+                      <span class="stat-value">18</span>
+                    </div>
+                    <div class="stat-line">
+                      <div class="stat-player">
+                        <img src="../images/Teams-logos/Premier-league/arsenal.svg" alt="Arsenal" />
+                        <span>Bukayo Saka</span>
+                      </div>
+                      <span class="stat-value">16</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="stats-card">
+                  <div class="stats-card-title">Assists</div>
+                  <div class="stats-card-body">
+                    <div class="stat-line">
+                      <div class="stat-player">
+                        <img src="../images/Teams-logos/Premier-league/mancity.svg" alt="Man City" />
+                        <span>Kevin De Bruyne</span>
+                      </div>
+                      <span class="stat-value">14</span>
+                    </div>
+                    <div class="stat-line">
+                      <div class="stat-player">
+                        <img src="../images/Teams-logos/Premier-league/liverpool.svg" alt="Liverpool" />
+                        <span>Mohamed Salah</span>
+                      </div>
+                      <span class="stat-value">12</span>
+                    </div>
+                    <div class="stat-line">
+                      <div class="stat-player">
+                        <img src="../images/Teams-logos/Premier-league/Manu.svg" alt="Man United" />
+                        <span>Bruno Fernandes</span>
+                      </div>
+                      <span class="stat-value">11</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="stats-card">
+                  <div class="stats-card-title">Goals + Assists</div>
+                  <div class="stats-card-body">
+                    <div class="stat-line">
+                      <div class="stat-player">
+                        <img src="../images/Teams-logos/Premier-league/mancity.svg" alt="Man City" />
+                        <span>Erling Haaland</span>
+                      </div>
+                      <span class="stat-value">30</span>
+                    </div>
+                    <div class="stat-line">
+                      <div class="stat-player">
+                        <img src="../images/Teams-logos/Premier-league/liverpool.svg" alt="Liverpool" />
+                        <span>Mohamed Salah</span>
+                      </div>
+                      <span class="stat-value">28</span>
+                    </div>
+                    <div class="stat-line">
+                      <div class="stat-player">
+                        <img src="../images/Teams-logos/Premier-league/arsenal.svg" alt="Arsenal" />
+                        <span>Bukayo Saka</span>
+                      </div>
+                      <span class="stat-value">23</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="stats-card">
+                  <div class="stats-card-title">Rating</div>
+                  <div class="stats-card-body">
+                    <div class="stat-line">
+                      <div class="stat-player">
+                        <img src="../images/Teams-logos/Premier-league/arsenal.svg" alt="Arsenal" />
+                        <span>Martin Odegaard</span>
+                      </div>
+                      <span class="stat-value">8.1</span>
+                    </div>
+                    <div class="stat-line">
+                      <div class="stat-player">
+                        <img src="../images/Teams-logos/Premier-league/liverpool.svg" alt="Liverpool" />
+                        <span>Alisson</span>
+                      </div>
+                      <span class="stat-value">7.9</span>
+                    </div>
+                    <div class="stat-line">
+                      <div class="stat-player">
+                        <img src="../images/Teams-logos/Premier-league/Manu.svg" alt="Man United" />
+                        <span>Bruno Fernandes</span>
+                      </div>
+                      <span class="stat-value">7.7</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="stats-card">
+                  <div class="stats-card-title">Minutes played</div>
+                  <div class="stats-card-body">
+                    <div class="stat-line">
+                      <div class="stat-player">
+                        <img src="../images/Teams-logos/Premier-league/liverpool.svg" alt="Liverpool" />
+                        <span>Virgil Van Dijk</span>
+                      </div>
+                      <span class="stat-value">3210</span>
+                    </div>
+                    <div class="stat-line">
+                      <div class="stat-player">
+                        <img src="../images/Teams-logos/Premier-league/arsenal.svg" alt="Arsenal" />
+                        <span>Declan Rice</span>
+                      </div>
+                      <span class="stat-value">3180</span>
+                    </div>
+                    <div class="stat-line">
+                      <div class="stat-player">
+                        <img src="../images/Teams-logos/Premier-league/mancity.svg" alt="Man City" />
+                        <span>Rodri</span>
+                      </div>
+                      <span class="stat-value">3150</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="stats-card">
+                  <div class="stats-card-title">Goals per 90</div>
+                  <div class="stats-card-body">
+                    <div class="stat-line">
+                      <div class="stat-player">
+                        <img src="../images/Teams-logos/Premier-league/mancity.svg" alt="Man City" />
+                        <span>Erling Haaland</span>
+                      </div>
+                      <span class="stat-value">0.92</span>
+                    </div>
+                    <div class="stat-line">
+                      <div class="stat-player">
+                        <img src="../images/Teams-logos/Premier-league/liverpool.svg" alt="Liverpool" />
+                        <span>Mohamed Salah</span>
+                      </div>
+                      <span class="stat-value">0.71</span>
+                    </div>
+                    <div class="stat-line">
+                      <div class="stat-player">
+                        <img src="../images/Teams-logos/Premier-league/astonvilla.svg" alt="Aston Villa" />
+                        <span>Ollie Watkins</span>
+                      </div>
+                      <span class="stat-value">0.66</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="stats-card blank"></div>
+                <div class="stats-card blank"></div>
+                <div class="stats-card blank"></div>
+              </div>
+            </div>
+          </section>
+
+          <section class="quiz-view is-hidden" id="quiz-view">
+            <div class="quiz-toolbar">
+              <div class="quiz-select">
+                <label for="quiz-league">Select competition</label>
+                <select id="quiz-league" name="quiz-league">
+                  <option value="" selected disabled>Select competition</option>
+                  <option value="premier">Premier League</option>
+                  <option value="championship">EFL Championship</option>
+                  <option value="seriea">Serie A</option>
+                  <option value="laliga">LaLiga</option>
+                  <option value="bundesliga">Bundesliga</option>
+                  <option value="ligue1">Ligue 1</option>
+                  <option value="ucl">Champions League</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="quiz-grid">
+              <article class="quiz-card" data-quiz-mode="single" data-quiz-difficulty="easy">
+                <span class="quiz-mode">Singlemode</span>
+                <div class="quiz-head">
+                  <span>Quiz</span>
+                  <span>Level</span>
+                  <span>Easy</span>
+                  <span class="quiz-dice" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                      <rect x="3" y="3" width="18" height="18" rx="4" ry="4"></rect>
+                      <circle cx="9" cy="9" r="1.4"></circle>
+                      <circle cx="15" cy="15" r="1.4"></circle>
+                      <circle cx="15" cy="9" r="1.4"></circle>
+                    </svg>
+                  </span>
+                </div>
+                <div class="quiz-body"></div>
+              </article>
+              <article class="quiz-card" data-quiz-mode="single" data-quiz-difficulty="medium">
+                <span class="quiz-mode">Singlemode</span>
+                <div class="quiz-head">
+                  <span>Quiz</span>
+                  <span>Level</span>
+                  <span>Medium</span>
+                  <span class="quiz-dice" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                      <rect x="3" y="3" width="18" height="18" rx="4" ry="4"></rect>
+                      <circle cx="9" cy="9" r="1.4"></circle>
+                      <circle cx="12" cy="12" r="1.4"></circle>
+                      <circle cx="15" cy="15" r="1.4"></circle>
+                      <circle cx="15" cy="9" r="1.4"></circle>
+                    </svg>
+                  </span>
+                </div>
+                <div class="quiz-body"></div>
+              </article>
+              <article class="quiz-card" data-quiz-mode="single" data-quiz-difficulty="hard">
+                <span class="quiz-mode">Singlemode</span>
+                <div class="quiz-head">
+                  <span>Quiz</span>
+                  <span>Level</span>
+                  <span>Hard</span>
+                  <span class="quiz-dice" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                      <rect x="3" y="3" width="18" height="18" rx="4" ry="4"></rect>
+                      <circle cx="9" cy="9" r="1.4"></circle>
+                      <circle cx="12" cy="12" r="1.4"></circle>
+                      <circle cx="15" cy="15" r="1.4"></circle>
+                      <circle cx="9" cy="15" r="1.4"></circle>
+                    </svg>
+                  </span>
+                </div>
+                <div class="quiz-body"></div>
+              </article>
+              <article class="quiz-card" data-quiz-mode="online" data-quiz-difficulty="easy">
+                <span class="quiz-mode online">Onlinemode</span>
+                <div class="quiz-head">
+                  <span>Quiz</span>
+                  <span>Level</span>
+                  <span>Easy</span>
+                  <span class="quiz-dice" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                      <rect x="3" y="3" width="18" height="18" rx="4" ry="4"></rect>
+                      <circle cx="9" cy="9" r="1.4"></circle>
+                      <circle cx="15" cy="15" r="1.4"></circle>
+                      <circle cx="15" cy="9" r="1.4"></circle>
+                    </svg>
+                  </span>
+                </div>
+                <div class="quiz-body"></div>
+              </article>
+              <article class="quiz-card" data-quiz-mode="online" data-quiz-difficulty="easy">
+                <span class="quiz-mode online">Onlinemode</span>
+                <div class="quiz-head">
+                  <span>Quiz</span>
+                  <span>Level</span>
+                  <span>Easy</span>
+                  <span class="quiz-dice" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                      <rect x="3" y="3" width="18" height="18" rx="4" ry="4"></rect>
+                      <circle cx="9" cy="9" r="1.4"></circle>
+                      <circle cx="15" cy="15" r="1.4"></circle>
+                      <circle cx="15" cy="9" r="1.4"></circle>
+                    </svg>
+                  </span>
+                </div>
+                <div class="quiz-body"></div>
+              </article>
+              <article class="quiz-card" data-quiz-mode="online" data-quiz-difficulty="easy">
+                <span class="quiz-mode online">Onlinemode</span>
+                <div class="quiz-head">
+                  <span>Quiz</span>
+                  <span>Level</span>
+                  <span>Easy</span>
+                  <span class="quiz-dice" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                      <rect x="3" y="3" width="18" height="18" rx="4" ry="4"></rect>
+                      <circle cx="9" cy="9" r="1.4"></circle>
+                      <circle cx="15" cy="15" r="1.4"></circle>
+                      <circle cx="15" cy="9" r="1.4"></circle>
+                    </svg>
+                  </span>
+                </div>
+                <div class="quiz-body"></div>
+              </article>
+            </div>
+          </section>
+
+          <section class="news-view is-hidden" id="news-view">
+            <div class="news-header">
+              <div class="news-title">News</div>
+            </div>
+
+            <div class="news-frame">
+              <div class="news-grid" id="news-grid"></div>
+            </div>
+          </section>
+
+          <section class="cardgame-view is-hidden" id="cardgame-view">
+            <div class="cardgame-toolbar">
+              <div class="cardgame-tabs">
+                <button class="cardgame-tab" type="button">Play</button>
+                <button class="cardgame-tab is-active" type="button">PACKS</button>
+                <button class="cardgame-tab" type="button">Quests</button>
+                <button class="cardgame-tab" type="button" id="cardgame-inventory-btn">Inventory</button>
+                <button class="cardgame-tab" type="button">Shop</button>
+              </div>
+              <div class="cardgame-balance">
+                <span id="cardgame-balance-value">12500000000</span>
+                <span class="coin">F</span>
+              </div>
+            </div>
+
+            <div class="inventory-stage is-hidden" id="inventory-stage">
+              <button class="inventory-back" type="button" id="inventory-back">Back</button>
+              <div class="inventory-panel">
+                <div class="inventory-header">
+                  <h2>Inventory</h2>
+                  <p>Your saved cards</p>
+                </div>
+                <div class="inventory-layout">
+                  <div class="inventory-list">
+                    <div class="inventory-grid" id="inventory-list"></div>
+                    <div class="inventory-empty is-hidden" id="inventory-empty">
+                      No saved cards yet.
+                    </div>
+                  </div>
+                  <aside class="shop-filters inventory-filters">
+                    <div class="shop-filters-head">
+                      <h3>Filters</h3>
+                      <span>Refine inventory</span>
+                    </div>
+                    <div class="shop-filter-section">
+                      <div class="shop-filter-title">Search Player</div>
+                      <input class="shop-input" id="inventory-filter-search" type="text" placeholder="Type name" />
+                    </div>
+                    <div class="shop-filter-section">
+                      <div class="shop-filter-title">Price Range</div>
+                      <div class="shop-filter-row">
+                        <input class="shop-input" id="inventory-filter-min" type="number" placeholder="Min" />
+                        <input class="shop-input" id="inventory-filter-max" type="number" placeholder="Max" />
+                      </div>
+                    </div>
+                    <div class="shop-filter-section">
+                      <div class="shop-filter-title">Position</div>
+                      <select class="shop-select" id="inventory-filter-position">
+                        <option value="all">All Positions</option>
+                        <option value="ST">ST</option>
+                        <option value="RW">RW</option>
+                        <option value="LW">LW</option>
+                        <option value="CM">CM</option>
+                        <option value="CB">CB</option>
+                        <option value="GK">GK</option>
+                      </select>
+                    </div>
+                    <div class="shop-filter-section">
+                      <div class="shop-filter-title">Club</div>
+                      <select class="shop-select" id="inventory-filter-club">
+                        <option value="any">Any Club</option>
+                        <option value="liverpool">Liverpool</option>
+                        <option value="brazil">Brazil</option>
+                        <option value="manchester city">Manchester City</option>
+                        <option value="arsenal">Arsenal</option>
+                      </select>
+                    </div>
+                    <div class="shop-filter-section">
+                      <div class="shop-filter-title">Sort</div>
+                      <select class="shop-select" id="inventory-filter-sort">
+                        <option value="latest">Latest Added</option>
+                        <option value="value-desc">Value: High to Low</option>
+                        <option value="value-asc">Value: Low to High</option>
+                        <option value="name">Name A-Z</option>
+                      </select>
+                    </div>
+                    <div class="shop-filter-actions">
+                      <button type="button" class="shop-apply" id="inventory-filter-apply">Apply Filters</button>
+                      <button type="button" class="shop-reset" id="inventory-filter-reset">Reset</button>
+                    </div>
+                  </aside>
+                </div>
+              </div>
+            </div>
+
+            <div class="inventory-detail-stage is-hidden" id="inventory-detail-stage">
+              <button class="inventory-detail-back" type="button" id="inventory-detail-back">Back</button>
+              <div class="inventory-detail-main">
+                <div class="inventory-detail-card">
+                  <img id="inventory-detail-card-img" alt="Player card" />
+                </div>
+                <div class="inventory-detail-panel">
+                  <div class="detail-sidebar">
+                    <div class="detail-side-btn is-active"><span class="detail-side-text detail-side-text--info">INFO</span></div>
+                    <div class="detail-side-btn"><span class="detail-side-text detail-side-text--dashboard">DASHBOARD</span></div>
+                    <div class="detail-side-btn"><span class="detail-side-text detail-side-text--desc">DESCRIPTION</span></div>
+                    <div class="detail-side-btn"><span class="detail-side-text detail-side-text--coll">COLLECTIONS</span></div>
+                    <div class="detail-side-btn"><span class="detail-side-text detail-side-text--event">EVENT</span></div>
+                  </div>
+                  <div class="detail-body">
+                    <div class="detail-top-row">
+                      <div class="detail-name" id="detail-name">ALEXANDER ISAK</div>
+                      <div class="detail-price">
+                        <span class="detail-label">PRICE</span>
+                        <strong id="detail-price">4.000.000 $</strong>
+                      </div>
+                    </div>
+                    <div class="detail-mid-row">
+                      <div class="detail-info-grid">
+                        <div class="detail-info-box">
+                          <span class="detail-label">Team</span>
+                          <div class="detail-info-row">
+                            <img id="detail-team-logo" alt="Team logo" />
+                            <strong id="detail-team-short">LFC</strong>
+                          </div>
+                        </div>
+                        <div class="detail-info-box">
+                          <span class="detail-label">Country</span>
+                          <div class="detail-info-row">
+                            <span class="detail-flag" id="detail-flag" aria-hidden="true"></span>
+                            <strong id="detail-country">SWEDEN</strong>
+                          </div>
+                        </div>
+                        <div class="detail-info-box">
+                          <span class="detail-label">Age</span>
+                          <strong id="detail-age">26</strong>
+                        </div>
+                        <div class="detail-info-box">
+                          <span class="detail-label">Position</span>
+                          <strong id="detail-position">ST</strong>
+                        </div>
+                      </div>
+                      <div class="detail-rarity">
+                        <span class="detail-label">RARITY</span>
+                        <strong id="detail-rarity">1/100</strong>
+                      </div>
+                    </div>
+                    <div class="detail-mid-row detail-verify-row">
+                      <div class="detail-verify">
+                        <span class="detail-label">VERIFICATION CODE</span>
+                        <div class="detail-verify-grid">
+                          <div class="detail-ticket">
+                            <span class="detail-ticket-label">Card ID</span>
+                            <div class="detail-ticket-body">
+                              <span id="detail-card-id-1">XZ</span>
+                              <span id="detail-card-id-2">001</span>
+                              <span id="detail-card-id-3">A</span>
+                            </div>
+                          </div>
+                          <div class="detail-ticket">
+                            <span class="detail-ticket-label">Trade Key</span>
+                            <div class="detail-ticket-body">
+                              <span id="detail-trade-1">0</span>
+                              <span id="detail-trade-2">9</span>
+                              <span id="detail-trade-3">1</span>
+                            </div>
+                          </div>
+                          <div class="detail-ticket">
+                            <span class="detail-ticket-label">Pack Code</span>
+                            <div class="detail-ticket-body">
+                              <span id="detail-pack-1">WQ</span>
+                              <span id="detail-pack-2">4R</span>
+                              <span id="detail-pack-3">T5</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="detail-date">
+                        <span class="detail-label">DATE OF OWNERSHIP</span>
+                        <div class="detail-date-pill" id="detail-date">3/14/2026</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="detail-dashboard is-hidden" id="detail-dashboard">
+                    <div class="dash-grid">
+                      <section class="dash-card dash-transactions">
+                        <div class="dash-card-head">
+                          <div class="dash-title">
+                            <span>Transactions</span>
+                            <span class="dash-pill" id="dash-transactions-pill">+15</span>
+                          </div>
+                          <div class="dash-actions">
+                            <span>•••</span>
+                            <span>↗</span>
+                          </div>
+                        </div>
+                        <div class="dash-metric" id="dash-transactions-count">168</div>
+                        <div class="dash-sub" id="dash-transactions-sub">Listed for 12 days</div>
+                        <div class="dash-year" id="dash-transactions-year">2026</div>
+                        <div class="dash-bars" id="dash-transactions-bars"></div>
+                        <div class="dash-months" id="dash-transactions-months"></div>
+                        <div class="dash-divider"></div>
+                        <div class="dash-kpis">
+                          <div>
+                            <strong id="dash-success">125</strong>
+                            <span>Succeeded</span>
+                          </div>
+                          <div>
+                            <strong id="dash-failed">13</strong>
+                            <span>Failed</span>
+                          </div>
+                          <div>
+                            <strong id="dash-refunded">30</strong>
+                            <span>Refunded</span>
+                          </div>
+                        </div>
+                      </section>
+
+                      <section class="dash-card dash-gross">
+                        <div class="dash-card-head">
+                          <div class="dash-title">
+                            <span>Card Value</span>
+                            <span class="dash-pill positive" id="dash-gross-pill">+3.2%</span>
+                          </div>
+                          <div class="dash-actions">
+                            <span>•••</span>
+                            <span>↗</span>
+                          </div>
+                        </div>
+                        <div class="dash-metric" id="dash-gross-value">12,594.00 <span>USD</span></div>
+                        <div class="dash-sub" id="dash-gross-prev">11,594.00 USD previous period</div>
+                        <div class="dash-line-chart">
+                          <div class="dash-line-labels">
+                            <span id="dash-gross-max">3,867.00</span>
+                            <span id="dash-gross-avg">Avg 1,543.00</span>
+                            <span id="dash-gross-min">0.00</span>
+                          </div>
+                          <svg viewBox="0 0 300 120" aria-hidden="true">
+                            <path id="dash-gross-path" d="" />
+                          </svg>
+                          <div class="dash-tooltip" id="dash-gross-tooltip">0.00</div>
+                          <div class="dash-line-axis">
+                            <span>Nov 1</span>
+                            <span>Today</span>
+                          </div>
+                        </div>
+                      </section>
+
+                      <section class="dash-card dash-net">
+                        <div class="dash-card-head">
+                          <div>
+                            <span class="dash-caption">Net Volume (24H)</span>
+                            <div class="dash-metric small" id="dash-net-value">2,594.00 <span>USD</span></div>
+                            <div class="dash-net-now" id="dash-net-now">Now: 0 USD</div>
+                          </div>
+                          <div>
+                            <span class="dash-caption">Start of Day</span>
+                            <div class="dash-metric small muted" id="dash-net-last">4,965.00</div>
+                          </div>
+                        </div>
+                        <div class="dash-line-chart compact">
+                          <svg viewBox="0 0 300 120" aria-hidden="true">
+                            <path id="dash-net-path" d="" />
+                          </svg>
+                          <div class="dash-today-pill">Today</div>
+                          <div class="dash-line-axis">
+                            <span>00:00</span>
+                            <span>Now</span>
+                          </div>
+                        </div>
+                      </section>
+
+                      <section class="dash-card dash-distribution">
+                        <div class="dash-card-head">
+                          <div class="dash-title">
+                            <span>Sales Distribution</span>
+                          </div>
+                          <div class="dash-actions">
+                            <span>•••</span>
+                          </div>
+                        </div>
+                        <div class="dash-sale-list" id="dash-sale-list"></div>
+                      </section>
+                    </div>
+                  </div>
+                  <div class="detail-description is-hidden" id="detail-description">
+                    <div class="desc-banner">CARD DESCRIPTION</div>
+                    <div class="desc-subtitle" id="desc-subtitle">Ultimate Edition Card Description</div>
+                    <h3 class="desc-title" id="desc-title">Alexander Isak – Elite Striker Edition</h3>
+                    <p class="desc-lead" id="desc-lead">Fast, clinical, and deadly in the box.</p>
+                    <p class="desc-text" id="desc-text">A striker built for explosive counter attacks.</p>
+                    <div class="desc-facts-title" id="desc-facts-title">Card Facts</div>
+                    <div class="desc-facts" id="desc-facts"></div>
+                    <div class="desc-meta">
+                      <div>
+                        <span>Series</span>
+                        <strong id="desc-series">Premier League Stars</strong>
+                      </div>
+                      <div>
+                        <span>Release</span>
+                        <strong id="desc-release">2025 Collection</strong>
+                      </div>
+                      <div>
+                        <span>Playstyle</span>
+                        <strong id="desc-playstyle">Speed Striker</strong>
+                      </div>
+                    </div>
+                    <div class="desc-motto" id="desc-motto">Card Motto: Speed. Skill. Phenomenon.</div>
+                    <div class="desc-tag" id="desc-nickname">Nickname: The Swedish Sniper</div>
+                    <div class="desc-note" id="desc-special">Limited run. Scarce pulls. Elite collector tier.</div>
+                  </div>
+                  <div class="detail-collections is-hidden" id="detail-collections">
+                    <div class="collections-title">Collections</div>
+                    <div class="collections-grid">
+                      <div class="collection-card owned">
+                        <div class="collection-name">Common Edition</div>
+                        <div class="collection-status"><span class="status-dot">✓</span> Owned</div>
+                      </div>
+                      <div class="collection-card owned">
+                        <div class="collection-name">Elite Edition</div>
+                        <div class="collection-status"><span class="status-dot">✓</span> Owned</div>
+                      </div>
+                      <div class="collection-card owned">
+                        <div class="collection-name">Gold Edition</div>
+                        <div class="collection-status"><span class="status-dot">✓</span> Owned</div>
+                      </div>
+                      <div class="collection-card">
+                        <div class="collection-name">New Cattle</div>
+                        <div class="collection-status"><span class="status-dot">✕</span> Not owned</div>
+                      </div>
+                      <div class="collection-card">
+                        <div class="collection-name">Gold Rookie</div>
+                        <div class="collection-status"><span class="status-dot">✕</span> Not owned</div>
+                      </div>
+                      <div class="collection-card owned">
+                        <div class="collection-name">Liverpool Edition</div>
+                        <div class="collection-status"><span class="status-dot">✓</span> Owned</div>
+                      </div>
+                      <div class="collection-card">
+                        <div class="collection-name">Dortmund Edition</div>
+                        <div class="collection-status"><span class="status-dot">✕</span> Not owned</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="detail-event is-hidden" id="detail-event">
+                    <div class="event-card">
+                      <div class="event-art">
+                        <img id="event-pack-img" src="../images/cards/liverpool-special/backpage-card/backpage.png" alt="Event pack back" />
+                      </div>
+                      <div class="event-info">
+                        <div class="event-title" id="event-title">Event Pack: Liverpool Special</div>
+                        <div class="event-meta" id="event-created">Created: March 2025</div>
+                        <p id="event-desc">
+                          A limited run pack celebrating elite Liverpool stars and iconic moments.
+                          Pull chances are reduced, making every card a premium collectible.
+                        </p>
+                        <div class="event-list">
+                          <span id="event-includes">Includes: Salah, Van Dijk, Alexander-Arnold, Alisson, Szoboszlai</span>
+                          <span id="event-theme">Theme: Legends &amp; Modern Icons</span>
+                          <span id="event-drop">Drop Rate: 1 in 250 for Elite</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="detail-edition">
+                    <div class="detail-edition-label">EDITION</div>
+                    <div class="detail-edition-body">
+                      <div class="detail-edition-vertical" id="detail-edition-text">
+                        LIVERPOOL EDITION
+                      </div>
+                      <img id="detail-edition-logo" alt="Edition logo" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="shop-stage is-hidden" id="shop-stage">
+              <div class="shop-panel">
+                <div class="shop-header">
+                  <h2>Marketplace</h2>
+                  <p>Live listings from collectors</p>
+                </div>
+                <div class="shop-layout">
+                  <div class="shop-list">
+                    <div class="shop-grid" id="shop-grid"></div>
+                  </div>
+                  <aside class="shop-filters">
+                    <div class="shop-filters-head">
+                      <h3>Filters</h3>
+                      <span>Refine search</span>
+                    </div>
+                    <div class="shop-filter-section">
+                      <div class="shop-filter-title">Price Range</div>
+                      <div class="shop-filter-row">
+                      <input class="shop-input" id="shop-filter-min" type="number" placeholder="Min" />
+                      <input class="shop-input" id="shop-filter-max" type="number" placeholder="Max" />
+                      </div>
+                    </div>
+                    <div class="shop-filter-section">
+                      <div class="shop-filter-title">Edition</div>
+                      <select class="shop-select" id="shop-filter-edition">
+                        <option value="all">All Editions</option>
+                        <option value="liverpool">Liverpool Edition</option>
+                        <option value="ultimate">Ultimate Edition</option>
+                        <option value="elite">Elite Edition</option>
+                        <option value="gold">Gold Edition</option>
+                      </select>
+                    </div>
+                    <div class="shop-filter-section">
+                      <div class="shop-filter-title">Position</div>
+                      <select class="shop-select" id="shop-filter-position">
+                        <option value="all">All Positions</option>
+                        <option value="ST">ST</option>
+                        <option value="RW">RW</option>
+                        <option value="LW">LW</option>
+                        <option value="CM">CM</option>
+                        <option value="CB">CB</option>
+                        <option value="GK">GK</option>
+                      </select>
+                    </div>
+                    <div class="shop-filter-section">
+                      <div class="shop-filter-title">Rarity</div>
+                      <label class="shop-check"><input type="checkbox" id="shop-filter-rarity-common" /> Common</label>
+                      <label class="shop-check"><input type="checkbox" id="shop-filter-rarity-elite" /> Elite</label>
+                      <label class="shop-check"><input type="checkbox" id="shop-filter-rarity-ultimate" /> Ultimate</label>
+                    </div>
+                    <div class="shop-filter-section">
+                      <div class="shop-filter-title">Club</div>
+                      <select class="shop-select" id="shop-filter-club">
+                        <option value="any">Any Club</option>
+                        <option value="liverpool">Liverpool</option>
+                        <option value="brazil">Brazil</option>
+                        <option value="manchester city">Manchester City</option>
+                        <option value="arsenal">Arsenal</option>
+                      </select>
+                    </div>
+                    <div class="shop-filter-section">
+                      <div class="shop-filter-title">Country</div>
+                      <select class="shop-select" id="shop-filter-country">
+                        <option value="any">Any Country</option>
+                        <option value="brazil">Brazil</option>
+                        <option value="egypt">Egypt</option>
+                        <option value="england">England</option>
+                        <option value="sweden">Sweden</option>
+                      </select>
+                    </div>
+                    <div class="shop-filter-section">
+                      <div class="shop-filter-title">Seller</div>
+                    <input class="shop-input" id="shop-filter-seller" type="text" placeholder="Search seller" />
+                    </div>
+                    <div class="shop-filter-section">
+                      <div class="shop-filter-title">Sort</div>
+                    <select class="shop-select" id="shop-filter-sort">
+                      <option value="latest">Latest Listings</option>
+                      <option value="price-asc">Price: Low to High</option>
+                      <option value="price-desc">Price: High to Low</option>
+                      <option value="rating">Overall Rating</option>
+                    </select>
+                    </div>
+                    <div class="shop-filter-section">
+                      <label class="shop-toggle">
+                      <input type="checkbox" id="shop-filter-buy-now" />
+                      <span>Only Buy Now</span>
+                    </label>
+                    <label class="shop-toggle">
+                      <input type="checkbox" id="shop-filter-verified" />
+                      <span>Verified Sellers</span>
+                    </label>
+                    <label class="shop-toggle">
+                      <input type="checkbox" id="shop-filter-new" />
+                      <span>New Today</span>
+                    </label>
+                    </div>
+                    <div class="shop-filter-actions">
+                      <button type="button" class="shop-apply" id="shop-filter-apply">Apply Filters</button>
+                      <button type="button" class="shop-reset" id="shop-filter-reset">Reset</button>
+                    </div>
+                  </aside>
+                </div>
+              </div>
+            </div>
+
+            <div class="shop-detail-stage is-hidden" id="shop-detail-stage">
+              <button class="shop-detail-back" type="button" id="shop-detail-back">Back</button>
+              <div class="shop-detail-main">
+                <div class="shop-detail-card">
+                  <img id="shop-detail-card-img" alt="Card preview" />
+                </div>
+                <div class="shop-detail-panel">
+                  <div class="shop-detail-top">
+                    <div class="shop-seller">
+                      <span class="shop-seller-dot"></span>
+                      <span class="shop-seller-name" id="shop-detail-seller">AnfieldVault</span>
+                    </div>
+                    <div class="shop-seller-actions">
+                      <button type="button" class="shop-seller-btn">View Profile</button>
+                      <button type="button" class="shop-seller-btn">Save</button>
+                    </div>
+                  </div>
+                  <div class="shop-detail-info">
+                    <div class="shop-detail-name-row">
+                      <span class="shop-detail-club" id="shop-detail-club">LFC</span>
+                      <span class="shop-detail-name" id="shop-detail-name">ALEXANDER ISAK</span>
+                      <span class="shop-detail-jersey" id="shop-detail-jersey">9</span>
+                    </div>
+                    <div class="shop-detail-box" id="shop-detail-edition">LIVERPOOL EDITION</div>
+                    <div class="shop-detail-box" id="shop-detail-position">STRIKER</div>
+                    <div class="shop-detail-price-row">
+                      <span>Highest Price</span>
+                      <strong id="shop-detail-highest">14,452,098 F</strong>
+                    </div>
+                  </div>
+                  <div class="shop-detail-chat">
+                    <div class="shop-detail-chat-title">Sent Message</div>
+                    <div class="shop-detail-chat-body">
+                      <div class="shop-chat-row">Hey, Wanna Trade</div>
+                      <div class="shop-chat-row right">Hey, Yes which card?</div>
+                      <div class="shop-chat-row">Ronaldo Nazario Elite Edition</div>
+                      <div class="shop-chat-row right">Oh!! yeah, Sent the trade</div>
+                    </div>
+                    <div class="shop-detail-chat-input">
+                      <input type="text" placeholder="TYPE" aria-label="Type a message" />
+                    </div>
+                  </div>
+                  <div class="shop-detail-actions">
+                    <button type="button" class="shop-detail-buy">
+                      <span>BUY</span>
+                      <span id="shop-detail-buy-price">5,560,000 F</span>
+                    </button>
+                    <button type="button" class="shop-detail-trade">TRADE</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="shop-detail-confirm is-hidden" id="shop-detail-confirm">
+              <div class="shop-detail-confirm-dialog">
+                <h3>Confirm Purchase</h3>
+                <p>Do you want to buy this card now?</p>
+                <div class="shop-detail-confirm-actions">
+                  <button type="button" id="shop-detail-confirm-yes">Confirm</button>
+                  <button type="button" id="shop-detail-confirm-no">Cancel</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="pack-open-stage is-hidden" id="pack-open-stage">
+              <button class="pack-open-back" type="button" id="pack-open-back">Back</button>
+              <div class="pack-open-main">
+                <div class="pack-open-left">
+                  <div class="pack-open-cards">
+                    <div
+                      class="pack-open-card card"
+                      id="pack-open-card-1"
+                      role="button"
+                      tabindex="0"
+                      aria-pressed="false"
+                    >
+                      <div class="pack-open-front first-content">
+                        <img id="pack-open-front-img-1" alt="Pack card back" />
+                      </div>
+                      <div class="pack-open-back second-content">
+                        <img id="pack-open-back-img-1" alt="Player card" />
+                      </div>
+                    </div>
+                    <div
+                      class="pack-open-card card is-hidden"
+                      id="pack-open-card-2"
+                      role="button"
+                      tabindex="0"
+                      aria-pressed="false"
+                    >
+                      <div class="pack-open-front first-content">
+                        <img id="pack-open-front-img-2" alt="Pack card back" />
+                      </div>
+                      <div class="pack-open-back second-content">
+                        <img id="pack-open-back-img-2" alt="Player card" />
+                      </div>
+                    </div>
+                  </div>
+                  <button class="pack-buy-confirm" type="button" id="pack-buy-confirm">
+                    Buy Pack
+                  </button>
+                  <div class="pack-buy-actions is-hidden" id="pack-buy-actions">
+                    <button class="pack-buy-action confirm" type="button" id="pack-buy-yes">
+                      Confirm Purchase
+                    </button>
+                    <button class="pack-buy-action confirm" type="button" id="pack-buy-yes-2">
+                      Confirm x2
+                    </button>
+                    <button class="pack-buy-action cancel" type="button" id="pack-buy-no">
+                      Cancel
+                    </button>
+                  </div>
+                </div>
+                <div class="pack-open-info" id="pack-open-info">
+                  <div class="pack-info-titlebar">
+                    <div class="pack-info-name" id="pack-info-name">MOHAMED SALAH</div>
+                    <div class="pack-info-number" id="pack-info-number">11</div>
+                  </div>
+                  <div class="pack-info-grid">
+                    <div class="pack-info-box">
+                      <span class="pack-info-label">MARKET VALUE</span>
+                      <strong class="pack-info-value" id="pack-info-market">140.000.000$</strong>
+                    </div>
+                    <div class="pack-info-box">
+                      <span class="pack-info-label">CLUB</span>
+                      <div class="pack-info-club">
+                        <img class="pack-info-club-logo" id="pack-info-club-logo" alt="Club logo" />
+                        <strong class="pack-info-value" id="pack-info-club">LFC</strong>
+                      </div>
+                    </div>
+                    <div class="pack-info-box">
+                      <span class="pack-info-label">GOALS</span>
+                      <strong class="pack-info-value" id="pack-info-goals">34</strong>
+                    </div>
+                    <div class="pack-info-box">
+                      <span class="pack-info-label">ASSISTS</span>
+                      <strong class="pack-info-value" id="pack-info-assists">18</strong>
+                    </div>
+                  </div>
+                  <div class="pack-info-row pack-info-row-country">
+                    <div class="pack-info-row-left">
+                      <span class="pack-info-label">COUNTRY</span>
+                      <div class="pack-info-country">
+                        <span class="pack-info-flag" id="pack-info-flag" aria-hidden="true"></span>
+                        <strong class="pack-info-value" id="pack-info-country">EGYPT</strong>
+                      </div>
+                    </div>
+                    <div class="pack-info-row-right">
+                      <span class="pack-info-label">AGE</span>
+                      <strong class="pack-info-value" id="pack-info-age">34</strong>
+                    </div>
+                  </div>
+                  <div class="pack-info-row pack-info-row-wide">
+                    <span class="pack-info-label">CARD MARKET VALUE</span>
+                    <strong class="pack-info-value" id="pack-info-card-value">450.000 F</strong>
+                  </div>
+                  <div class="pack-info-row pack-info-row-wide">
+                    <span class="pack-info-label">SEASON</span>
+                    <strong class="pack-info-value" id="pack-info-season">17/18</strong>
+                  </div>
+                  <div class="pack-info-note-box">
+                    <p class="pack-info-note" id="pack-info-note"></p>
+                  </div>
+                  <div class="pack-info-status" id="pack-info-status"></div>
+                  <div class="pack-info-actions">
+                    <button class="pack-info-btn sell" type="button" id="pack-sell">QUICKSELL</button>
+                    <button class="pack-info-btn discard" type="button" id="pack-discard">
+                      SHOW IN SHOP
+                    </button>
+                    <button class="pack-info-btn save" type="button" id="pack-save">
+                      SAVE IN INVENTORY
+                    </button>
+                  </div>
+                  <div class="pack-info-sellbox">
+                    <span class="pack-info-label">QUICKSELL VALUE</span>
+                    <strong class="pack-info-value" id="pack-info-sell-value">0 F</strong>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="cardgame-body">
+              <div class="cardgame-left">
+                <div class="cardgame-badge badge-pl">
+                  <img
+                    src="../images/comp-logos/Competition=Men_%20Premier%20League,%20Color=Color.webp"
+                    alt="Premier League"
+                  />
+                  <span class="badge-label">Premier</span>
+                </div>
+                <div class="cardgame-badge badge-laliga">
+                  <img
+                    src="../images/comp-logos/Screenshot%202026-03-02%20155633.png"
+                    alt="LaLiga"
+                  />
+                  <span class="badge-label">LaLiga</span>
+                </div>
+                <div class="pack-row">
+                  <div class="pack-card">
+                    <img
+                      src="../images/cards/Gold/backpage-card/Gold.png"
+                      alt="Gold pack"
+                    />
+                    <div class="pack-price">
+                      <span>1000</span>
+                      <span class="coin">F</span>
+                    </div>
+                  </div>
+                  <div class="pack-card">
+                    <img
+                      src="../images/cards/elite/backpage-card/elite.png"
+                      alt="Elite pack"
+                    />
+                    <button
+                      class="pack-price purple pack-buy"
+                      data-pack="elite"
+                      data-cost="500"
+                      type="button"
+                    >
+                      <span>500</span>
+                      <span class="coin">F</span>
+                    </button>
+                  </div>
+                  <div class="pack-card">
+                    <img
+                      src="../images/cards/common/backpage-card/common.png"
+                      alt="Common pack"
+                    />
+                    <div class="pack-price green">
+                      <span>250</span>
+                      <span class="coin">F</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="cardgame-divider"></div>
+
+              <div class="cardgame-right">
+                <div class="special-label">Special Edition</div>
+                <div class="special-pack-grid">
+                  <div class="special-card">
+                    <img
+                      src="../images/cards/liverpool-special/special-box/box.png"
+                      alt="Liverpool special box"
+                    />
+                    <button
+                      class="pack-price dark pack-buy"
+                      data-pack="liverpool"
+                      data-cost="500000"
+                      type="button"
+                    >
+                      <span>500,000</span>
+                      <span class="coin">F</span>
+                    </button>
+                  </div>
+                  <div class="special-card">
+                    <img
+                      src="../images/cards/ultimate/special-box/Copy of User.png"
+                      alt="Ultimate box"
+                    />
+                    <button
+                      class="pack-price purple pack-buy"
+                      data-pack="ultimate"
+                      data-cost="1000000"
+                      type="button"
+                    >
+                      <span>1,000,000</span>
+                      <span class="coin">F</span>
+                    </button>
+                  </div>
+                  <div class="special-card special-card--soon">
+                    <img
+                      src="../images/cards/acmilan-special/special-box/Box.png"
+                      alt="AC Milan special box"
+                    />
+                    <button class="pack-price dark" type="button" disabled>
+                      <span>500,000</span>
+                      <span class="coin">F</span>
+                    </button>
+                  </div>
+                  <div class="special-card special-card--soon">
+                    <img
+                      src="../images/cards/argentina-special/special-box/Box.png"
+                      alt="Argentina special box"
+                    />
+                    <button class="pack-price dark" type="button" disabled>
+                      <span>500,000</span>
+                      <span class="coin">F</span>
+                    </button>
+                  </div>
+                  <div class="special-card special-card--soon">
+                    <img
+                      src="../images/cards/barcelona-special/special-box/Box.png"
+                      alt="Barcelona special box"
+                    />
+                    <button class="pack-price dark" type="button" disabled>
+                      <span>500,000</span>
+                      <span class="coin">F</span>
+                    </button>
+                  </div>
+                  <div class="special-card">
+                    <img
+                      src="../images/cards/brazil-special/special-box/Box.png"
+                      alt="Brazil special box"
+                    />
+                    <button
+                      class="pack-price dark pack-buy"
+                      data-pack="brazil"
+                      data-cost="500000"
+                      type="button"
+                    >
+                      <span>500,000</span>
+                      <span class="coin">F</span>
+                    </button>
+                  </div>
+                  <div class="special-card special-card--soon">
+                    <img
+                      src="../images/cards/germany-special/special-box/Box.png"
+                      alt="Germany special box"
+                    />
+                    <button class="pack-price dark" type="button" disabled>
+                      <span>500,000</span>
+                      <span class="coin">F</span>
+                    </button>
+                  </div>
+                  <div class="special-card special-card--soon">
+                    <img
+                      src="../images/cards/italy-special/special-box/Box.png"
+                      alt="Italy special box"
+                    />
+                    <button class="pack-price dark" type="button" disabled>
+                      <span>500,000</span>
+                      <span class="coin">F</span>
+                    </button>
+                  </div>
+                  <div class="special-card">
+                    <img
+                      src="../images/cards/mancity-special/special-box/box.png"
+                      alt="Manchester City special box"
+                    />
+                    <button
+                      class="pack-price dark pack-buy"
+                      data-pack="mancity"
+                      data-cost="500000"
+                      type="button"
+                    >
+                      <span>500,000</span>
+                      <span class="coin">F</span>
+                    </button>
+                  </div>
+                  <div class="special-card special-card--soon">
+                    <img
+                      src="../images/cards/realmadrid-special/special-box/Box.png"
+                      alt="Real Madrid special box"
+                    />
+                    <button class="pack-price dark" type="button" disabled>
+                      <span>500,000</span>
+                      <span class="coin">F</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+
+          <section class="match-view is-hidden" id="match-view">
+            <div class="match-board">
+              <button class="back-button" type="button" id="match-back" aria-label="Back to fixtures">
+                Back
+              </button>
+              <div class="detail-top">
+                <div class="stat-strip left">
+                  <div class="stat-box red scorer-box">
+                    <span class="scorer-name">Isak</span>
+                    <span class="goal-text">Goal</span>
+                  </div>
+                  <div class="stat-box red scorer-box">
+                    <span class="scorer-name">Isak</span>
+                    <span class="goal-text">Goal</span>
+                  </div>
+                  <div class="stat-box red scorer-box">
+                    <span class="scorer-name">Isak</span>
+                    <span class="goal-text">Goal</span>
+                  </div>
+                  <div class="stat-box red scorer-box">
+                    <span class="scorer-name">Wirtz</span>
+                    <span class="goal-text">Goal</span>
+                  </div>
+                  <div class="stat-box red scorer-box">
+                    <span class="scorer-name">Wirtz</span>
+                    <span class="goal-text">Goal</span>
+                  </div>
+                </div>
+
+                <div class="score-card">
+                  <div class="score-top">
+                    <img
+                      id="match-comp-logo"
+                      class="comp-logo"
+                      src="../images/comp-logos/Competition=Men_%20Premier%20League,%20Color=Color.webp"
+                      alt="Premier League"
+                    />
+                  </div>
+                  <div class="score-body">
+                    <div class="team-badge">
+                      <img
+                        id="match-home-logo"
+                        src="../images/Teams-logos/Premier-league/liverpool.svg"
+                        alt="Liverpool"
+                      />
+                      <span id="match-home-name">L.F.C</span>
+                    </div>
+                    <div class="score-center">
+                      <div class="score" id="match-score">5 - 2</div>
+                      <div class="score-meta" id="match-score-meta">90:00</div>
+                    </div>
+                    <div class="team-badge">
+                      <img
+                        id="match-away-logo"
+                        src="../images/Teams-logos/Premier-league/westham.svg"
+                        alt="West Ham"
+                      />
+                      <span id="match-away-name">WEST HAM</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="stat-strip right">
+                  <div class="stat-box maroon"></div>
+                  <div class="stat-box maroon"></div>
+                </div>
+              </div>
+
+              <div class="match-generic-panel" id="match-generic-panel">
+                <div class="match-schedule" id="match-schedule">
+                  <span class="match-schedule-label">Kick-off</span>
+                  <span class="match-schedule-date" id="match-schedule-date">Mar 21, 2026</span>
+                  <span class="match-schedule-time" id="match-schedule-time">20:00</span>
+                </div>
+
+                <div class="match-scoresheet" id="match-scoresheet">
+                  <div class="scoresheet-team">
+                    <div class="scoresheet-head">
+                      <img
+                        id="scoresheet-home-logo"
+                        src="../images/Teams-logos/Premier-league/liverpool.svg"
+                        alt="Liverpool"
+                      />
+                      <span id="scoresheet-home-name">Liverpool</span>
+                    </div>
+                    <div class="scoresheet-list" id="scoresheet-home-list">
+                      <div class="scoresheet-item">Scorer TBD · 12'</div>
+                      <div class="scoresheet-item">Scorer TBD · 56'</div>
+                    </div>
+                  </div>
+                  <div class="scoresheet-team">
+                    <div class="scoresheet-head">
+                      <img
+                        id="scoresheet-away-logo"
+                        src="../images/Teams-logos/Premier-league/westham.svg"
+                        alt="West Ham"
+                      />
+                      <span id="scoresheet-away-name">West Ham</span>
+                    </div>
+                    <div class="scoresheet-list" id="scoresheet-away-list">
+                      <div class="scoresheet-item">Scorer TBD · 33'</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="detail-body" id="match-detail-body">
+                <aside class="bench bench-left">
+                  <div class="bench-slot"></div>
+                  <div class="bench-slot"></div>
+                  <div class="bench-slot"></div>
+                  <div class="bench-slot"></div>
+                  <div class="bench-slot"></div>
+                  <div class="bench-slot"></div>
+                  <div class="bench-slot"></div>
+                </aside>
+
+                <div class="field-wrap">
+                  <div class="field">
+                    <div class="player" style="left: 8%; top: 50%;">
+                      <div class="number">1</div>
+                      <div class="name">Alisson</div>
+                      <div class="player-stats">
+                        <span class="stat-rating">7.4★</span>
+                        <span class="stat-ga assist">A0</span>
+                      </div>
+                    </div>
+                    <div class="player" style="left: 22%; top: 22%;">
+                      <div class="number">6</div>
+                      <div class="name">Kerkez</div>
+                      <div class="player-stats">
+                        <span class="stat-rating">7.8★</span>
+                        <span class="stat-ga assist">A1</span>
+                      </div>
+                    </div>
+                    <div class="player" style="left: 18%; top: 40%;">
+                      <div class="number">4</div>
+                      <div class="name">Van Dijk</div>
+                      <div class="player-stats">
+                        <span class="stat-rating">8.2★</span>
+                        <span class="stat-ga assist">A0</span>
+                      </div>
+                    </div>
+                    <div class="player" style="left: 18%; top: 60%;">
+                      <div class="number">5</div>
+                      <div class="name">Konate</div>
+                      <div class="player-stats">
+                        <span class="stat-rating">7.9★</span>
+                        <span class="stat-ga assist">A0</span>
+                      </div>
+                    </div>
+                    <div class="player" style="left: 22%; top: 80%;">
+                      <div class="number">25</div>
+                      <div class="name">Frimpong</div>
+                      <div class="player-stats">
+                        <span class="stat-rating">7.6★</span>
+                        <span class="stat-ga assist">A1</span>
+                      </div>
+                    </div>
+                    <div class="player" style="left: 34%; top: 32%;">
+                      <div class="number">8</div>
+                      <div class="name">Szoboszlai</div>
+                      <div class="player-stats">
+                        <span class="stat-rating">8.0★</span>
+                        <span class="stat-ga assist">A2</span>
+                      </div>
+                    </div>
+                    <div class="player" style="left: 34%; top: 50%;">
+                      <div class="number">7</div>
+                      <div class="name">Wirtz</div>
+                      <div class="player-stats">
+                        <span class="stat-rating">8.3★</span>
+                        <span class="stat-ga goal">G2</span>
+                        <span class="stat-ga assist">A1</span>
+                      </div>
+                    </div>
+                    <div class="player" style="left: 34%; top: 68%;">
+                      <div class="number">10</div>
+                      <div class="name">Mc Allister</div>
+                      <div class="player-stats">
+                        <span class="stat-rating">7.7★</span>
+                        <span class="stat-ga assist">A1</span>
+                      </div>
+                    </div>
+                    <div class="player" style="left: 46%; top: 26%;">
+                      <div class="number">22</div>
+                      <div class="name">Ekitike</div>
+                      <div class="player-stats">
+                        <span class="stat-rating">8.5★</span>
+                        <span class="stat-ga assist">A0</span>
+                      </div>
+                    </div>
+                    <div class="player" style="left: 46%; top: 52%;">
+                      <div class="number">9</div>
+                      <div class="name">Isak</div>
+                      <div class="player-stats">
+                        <span class="stat-rating">8.6★</span>
+                        <span class="stat-ga goal">G2</span>
+                        <span class="stat-ga assist">A0</span>
+                      </div>
+                    </div>
+                    <div class="player" style="left: 46%; top: 78%;">
+                      <div class="number">11</div>
+                      <div class="name">Salah</div>
+                      <div class="player-stats">
+                        <span class="stat-rating">8.1★</span>
+                        <span class="stat-ga assist">A1</span>
+                      </div>
+                    </div>
+
+                    <div class="player ghost" style="left: 92%; top: 50%;"></div>
+                    <div class="player ghost" style="left: 78%; top: 22%;"></div>
+                    <div class="player ghost" style="left: 82%; top: 40%;"></div>
+                    <div class="player ghost" style="left: 82%; top: 60%;"></div>
+                    <div class="player ghost" style="left: 78%; top: 80%;"></div>
+                    <div class="player ghost" style="left: 66%; top: 32%;"></div>
+                    <div class="player ghost" style="left: 66%; top: 50%;"></div>
+                    <div class="player ghost" style="left: 66%; top: 68%;"></div>
+                    <div class="player ghost" style="left: 54%; top: 26%;"></div>
+                    <div class="player ghost" style="left: 54%; top: 52%;"></div>
+                    <div class="player ghost" style="left: 54%; top: 78%;"></div>
+                  </div>
+                </div>
+
+                <aside class="bench bench-right">
+                  <div class="bench-slot"></div>
+                  <div class="bench-slot"></div>
+                  <div class="bench-slot"></div>
+                  <div class="bench-slot"></div>
+                  <div class="bench-slot"></div>
+                  <div class="bench-slot"></div>
+                  <div class="bench-slot"></div>
+                </aside>
+              </div>
+
+              <div class="match-stats-panel" id="match-stats-panel">
+                <div class="match-stats-team-card match-stats-team-card--home">
+                  <div class="match-stats-team-head">
+                    <img
+                      id="match-stats-home-logo"
+                      src="../images/Teams-logos/Premier-league/liverpool.svg"
+                      alt="Liverpool"
+                    />
+                    <div class="match-stats-team-copy">
+                      <span class="match-stats-team-name" id="match-stats-home-name">LIV</span>
+                      <span class="match-stats-team-sub">Pass map</span>
+                    </div>
+                  </div>
+                  <div class="match-stats-team-controls" id="match-stats-home-controls"></div>
+                  <div class="match-pass-map" id="match-stats-home-map"></div>
+                  <div class="match-pass-caption">
+                    <span class="match-pass-caption-value" id="match-stats-home-pass-count">0</span>
+                    <span class="match-pass-caption-text" id="match-stats-home-pass-text">completed passes</span>
+                  </div>
+                  <div class="match-pass-breakdown" id="match-stats-home-pass-breakdown"></div>
+                </div>
+
+                <div class="match-stats-compare" id="match-stats-compare"></div>
+
+                <div class="match-stats-team-card match-stats-team-card--away">
+                  <div class="match-stats-team-head">
+                    <img
+                      id="match-stats-away-logo"
+                      src="../images/Teams-logos/Premier-league/westham.svg"
+                      alt="West Ham"
+                    />
+                    <div class="match-stats-team-copy">
+                      <span class="match-stats-team-name" id="match-stats-away-name">WHU</span>
+                      <span class="match-stats-team-sub">Pass map</span>
+                    </div>
+                  </div>
+                  <div class="match-stats-team-controls" id="match-stats-away-controls"></div>
+                  <div class="match-pass-map" id="match-stats-away-map"></div>
+                  <div class="match-pass-caption">
+                    <span class="match-pass-caption-value" id="match-stats-away-pass-count">0</span>
+                    <span class="match-pass-caption-text" id="match-stats-away-pass-text">completed passes</span>
+                  </div>
+                  <div class="match-pass-breakdown" id="match-stats-away-pass-breakdown"></div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="profile-view is-hidden" id="profile-view">
+            <div class="profile-header">
+              <div>
+                <h2>Profile</h2>
+                <p>Show your football identity</p>
+              </div>
+              <button class="back-button profile-back" type="button" id="profile-back">Back</button>
+            </div>
+
+            <div class="profile-card">
+              <div class="profile-hero">
+                <div class="profile-avatar-wrap">
+                  <img
+                    class="profile-avatar"
+                    id="profile-avatar"
+                    src="../images/icons/Copy_of_User-removebg-preview.png"
+                    alt="Profile avatar"
+                  />
+                  <input class="profile-avatar-input" type="file" id="profile-avatar-input" accept="image/*" />
+                  <button class="profile-avatar-btn" type="button" id="profile-avatar-btn">Change photo</button>
+                </div>
+                <div class="profile-name" id="profile-name">USER</div>
+                <div class="profile-handle" id="profile-handle">@user</div>
+                <div class="profile-stats">
+                  <div class="profile-stat">
+                    <span class="count" id="profile-posts">24</span>
+                    <span class="label">Posts</span>
+                  </div>
+                  <div class="profile-stat">
+                    <span class="count" id="profile-followers">12.4k</span>
+                    <span class="label">Followers</span>
+                  </div>
+                  <div class="profile-stat">
+                    <span class="count" id="profile-following">312</span>
+                    <span class="label">Following</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="profile-actions">
+                <button class="profile-action primary" type="button">Edit Profile</button>
+                <button class="profile-action" type="button">Share</button>
+              </div>
+            </div>
+          </section>
+
+          <section class="settings-view is-hidden" id="settings-view">
+            <div class="settings-header">
+              <div>
+                <h2>Settings</h2>
+                <p>Manage your FODR experience</p>
+              </div>
+              <button class="back-button settings-back" type="button" id="settings-back">Back</button>
+            </div>
+
+            <div class="settings-grid">
+              <div class="settings-card">
+                <h3>Account</h3>
+                <div class="setting-item">
+                  <span>Change username</span>
+                  <button class="setting-btn" type="button">Edit</button>
+                </div>
+                <div class="setting-item">
+                  <span>Change email</span>
+                  <button class="setting-btn" type="button">Edit</button>
+                </div>
+                <div class="setting-item">
+                  <span>Change password</span>
+                  <button class="setting-btn" type="button">Update</button>
+                </div>
+                <div class="setting-item">
+                  <span>Upload / change profile picture</span>
+                  <input class="file-input" type="file" />
+                </div>
+                <div class="setting-item danger">
+                  <span>Delete account</span>
+                  <button class="setting-btn danger" type="button">Delete</button>
+                </div>
+                <div class="setting-item">
+                  <span>Log out</span>
+                  <button class="setting-btn" type="button" id="logout-btn">Log out</button>
+                </div>
+              </div>
+
+              <div class="settings-card">
+                <h3>Notifications</h3>
+                <div class="setting-item">
+                  <span>Match notifications</span>
+                  <label class="toggle">
+                    <input type="checkbox" checked />
+                    <span class="toggle-slider"></span>
+                  </label>
+                </div>
+                <div class="setting-item">
+                  <span>Goal alerts for favorite teams</span>
+                  <label class="toggle">
+                    <input type="checkbox" checked />
+                    <span class="toggle-slider"></span>
+                  </label>
+                </div>
+                <div class="setting-item">
+                  <span>Likes, comments, and new followers</span>
+                  <label class="toggle">
+                    <input type="checkbox" checked />
+                    <span class="toggle-slider"></span>
+                  </label>
+                </div>
+                <div class="setting-item">
+                  <span>Direct message notifications</span>
+                  <label class="toggle">
+                    <input type="checkbox" checked />
+                    <span class="toggle-slider"></span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="settings-card">
+                <h3>Social Preferences</h3>
+                <div class="setting-item">
+                  <span>Manage blocked users</span>
+                  <button class="setting-btn" type="button">View</button>
+                </div>
+                <div class="setting-item">
+                  <span>Who can send direct messages</span>
+                  <select class="select">
+                    <option>Everyone</option>
+                    <option>Followers only</option>
+                  </select>
+                </div>
+                <div class="setting-item">
+                  <span>Show follower count</span>
+                  <label class="toggle">
+                    <input type="checkbox" checked />
+                    <span class="toggle-slider"></span>
+                  </label>
+                </div>
+                <div class="setting-item">
+                  <span>Show online status</span>
+                  <label class="toggle">
+                    <input type="checkbox" />
+                    <span class="toggle-slider"></span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="settings-card">
+                <h3>Appearance</h3>
+                <div class="setting-item">
+                  <span>Dark mode / Light mode</span>
+                  <label class="toggle">
+                    <input type="checkbox" />
+                    <span class="toggle-slider"></span>
+                  </label>
+                </div>
+                <div class="setting-item">
+                  <span>Accent color</span>
+                  <div class="accent-options">
+                    <label class="accent-swatch" style="--swatch:#e7c84b;">
+                      <input type="radio" name="accent" value="#e7c84b" checked />
+                      <span></span>
+                    </label>
+                    <label class="accent-swatch" style="--swatch:#1aa356;">
+                      <input type="radio" name="accent" value="#1aa356" />
+                      <span></span>
+                    </label>
+                    <label class="accent-swatch" style="--swatch:#d60b16;">
+                      <input type="radio" name="accent" value="#d60b16" />
+                      <span></span>
+                    </label>
+                    <label class="accent-swatch" style="--swatch:#2e2fbf;">
+                      <input type="radio" name="accent" value="#2e2fbf" />
+                      <span></span>
+                    </label>
+                  </div>
+                </div>
+                <div class="setting-item">
+                  <span>Animations</span>
+                  <label class="toggle">
+                    <input type="checkbox" checked />
+                    <span class="toggle-slider"></span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="settings-card">
+                <h3>Favorites</h3>
+                <div class="setting-item">
+                  <span>Select favorite team</span>
+                  <select class="select">
+                    <option>Liverpool</option>
+                    <option>Manchester City</option>
+                    <option>Arsenal</option>
+                    <option>Barcelona</option>
+                  </select>
+                </div>
+                <div class="setting-item">
+                  <span>Select favorite leagues</span>
+                  <div class="checklist">
+                    <label><input type="checkbox" checked /> Premier League</label>
+                    <label><input type="checkbox" /> Serie A</label>
+                    <label><input type="checkbox" /> LaLiga</label>
+                    <label><input type="checkbox" /> Champions League</label>
+                  </div>
+                </div>
+                <div class="setting-item">
+                  <span>Prioritize favorite teams in feed</span>
+                  <label class="toggle">
+                    <input type="checkbox" checked />
+                    <span class="toggle-slider"></span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="settings-card">
+                <h3>Privacy</h3>
+                <div class="setting-item">
+                  <span>Public / Private profile</span>
+                  <label class="toggle">
+                    <input type="checkbox" />
+                    <span class="toggle-slider"></span>
+                  </label>
+                </div>
+                <div class="setting-item">
+                  <span>Hide posts from non-followers</span>
+                  <label class="toggle">
+                    <input type="checkbox" />
+                    <span class="toggle-slider"></span>
+                  </label>
+                </div>
+                <div class="setting-item">
+                  <span>Who can comment on posts</span>
+                  <select class="select">
+                    <option>Everyone</option>
+                    <option>Followers only</option>
+                    <option>No one</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="settings-card">
+                <h3>About</h3>
+                <div class="setting-item">
+                  <span>App version</span>
+                  <span class="meta">v1.0.0</span>
+                </div>
+                <div class="setting-item">
+                  <button class="link-btn" type="button">Terms of service</button>
+                </div>
+                <div class="setting-item">
+                  <button class="link-btn" type="button">Privacy policy</button>
+                </div>
+                <div class="setting-item">
+                  <button class="link-btn" type="button">Contact / report issue</button>
+                </div>
+              </div>
+            </div>
+          </section>
+        </main>
+      </div>
+
+    </div>
+
+    <div class="quiz-overlay is-hidden" id="quiz-overlay" aria-hidden="true">
+      <button class="quiz-overlay-exit" type="button" id="quiz-exit" aria-label="Exit quiz">
+        <span aria-hidden="true">&larr;</span>
+        <span>Exit</span>
+      </button>
+
+      <div class="quiz-stage" role="dialog" aria-modal="true" aria-label="Quiz">
+        <div class="quiz-stage-top">
+          <div class="quiz-stage-pills">
+            <span class="quiz-pill" id="quiz-stage-competition">Competition</span>
+            <span class="quiz-pill" id="quiz-stage-difficulty">Difficulty</span>
+            <span class="quiz-pill quiz-pill-score" id="quiz-stage-score">0</span>
+          </div>
+
+          <div class="quiz-progress" aria-label="Quiz progress">
+            <div class="quiz-progress-bar" id="quiz-progress-bar"></div>
+          </div>
+        </div>
+
+        <div class="quiz-stage-body" id="quiz-stage-body">
+          <div class="quiz-question" id="quiz-question"></div>
+          <div class="quiz-options" id="quiz-options"></div>
+          <div class="quiz-stage-actions" id="quiz-actions"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="global-search is-hidden" id="global-search" aria-hidden="true">
+      <div class="global-search-panel">
+        <div class="global-search-bar">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="11" cy="11" r="6"></circle>
+            <line x1="16.5" y1="16.5" x2="21" y2="21"></line>
+          </svg>
+          <input
+            class="global-search-input"
+            id="global-search-input"
+            type="text"
+            placeholder="Search teams, players, competitions..."
+          />
+          <button class="global-search-close" type="button" id="global-search-close">Close</button>
+        </div>
+        <div class="global-search-results" id="global-search-results">
+          <div class="search-empty">Start typing to search...</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="auth-modal is-hidden" id="auth-modal" aria-hidden="true">
+      <div class="auth-window" role="dialog" aria-modal="true" aria-label="Authentication">
+        <button class="auth-close" type="button" id="auth-close">X</button>
+        <div class="auth-tabs">
+          <button class="auth-tab is-active" type="button" data-auth-tab="login">Login</button>
+          <button class="auth-tab" type="button" data-auth-tab="signup">Sign Up</button>
+        </div>
+
+        <div class="auth-message" id="auth-message"></div>
+
+        <div class="auth-panel" data-auth-panel="login">
+          <div class="form-container">
+            <p class="title">Login</p>
+            <form class="form" id="login-form">
+              <input placeholder="Email" class="input" type="email" name="email" required />
+              <input placeholder="Password" class="input" type="password" name="password" required />
+              <p class="page-link"><span class="page-link-label">Forgot Password?</span></p>
+              <button class="form-btn" type="submit">Log in</button>
+            </form>
+            <p class="sign-up-label">
+              Don't have an account?
+              <span class="sign-up-link" data-auth-switch="signup">Sign up</span>
+            </p>
+            <div class="buttons-container">
+              <button class="apple-login-button" type="button">
+                <span class="apple-icon">A</span>Login with Apple
+              </button>
+              <button class="google-login-button" type="button">
+                <span class="google-icon">G</span>Login with Google
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="auth-panel is-hidden" data-auth-panel="signup">
+          <div class="form-container signup">
+            <p class="title">Sign Up</p>
+            <form class="form" id="signup-form">
+              <input placeholder="Username" class="input" type="text" name="username" required />
+              <input placeholder="First Name" class="input" type="text" name="first_name" />
+              <input placeholder="Last Name" class="input" type="text" name="last_name" />
+              <input placeholder="Email" class="input" type="email" name="email" required />
+              <input placeholder="Confirm Email" class="input" type="email" name="confirm_email" required />
+              <input placeholder="Password" class="input" type="password" name="password" required />
+              <input placeholder="Confirm Password" class="input" type="password" name="confirm_password" required />
+              <label class="form-label" for="gender">Gender</label>
+              <select class="select" id="gender" name="gender">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+              </select>
+              <label class="form-label" for="age">Age</label>
+              <input class="input" id="age" name="dob" type="date" />
+              <p class="signup-footer">
+                Already have an account?
+                <span class="sign-up-link" data-auth-switch="login">Login</span>
+              </p>
+              <button class="form-btn" type="submit">Sign Up</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dashboard-overlay is-hidden" id="dashboard-overlay" aria-hidden="true">
+      <button class="dashboard-close" type="button" id="dashboard-close">Close</button>
+      <iframe
+        class="dashboard-iframe"
+        id="dashboard-iframe"
+        src="./dashboard/index.html?v=20260320-profileview"
+        title="FODR Card Dashboard"
+        loading="eager"
+      ></iframe>
+    </div>
+
+    <script type="module" src="./js/app.js?v=20260327-2"></script>
+  </body>
+</html>

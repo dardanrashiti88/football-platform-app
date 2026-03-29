@@ -1,0 +1,13 @@
+{
+  "id": "la-liga-2025-2026",
+  "slug": "la-liga",
+  "name": "La Liga",
+  "type": "league",
+  "country": "Spain",
+  "season": "2025-2026",
+  "format": {
+    "standings": true,
+    "groups": false,
+    "knockout": false
+  }
+}

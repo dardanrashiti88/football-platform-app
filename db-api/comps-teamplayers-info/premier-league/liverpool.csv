@@ -1,0 +1,30 @@
+Player Name,Position,Squad Number,Nationality,Age,Appearances,Goals,Assists,Minutes Played,Goals Plus Assists,Clean Sheets,Yellow Cards,Red Cards,Home Grown,Notes
+Alisson Becker,GK,1,Brazil,33,34,1,2,3060,3,12,1,0,Yes,First-choice goalkeeper, 3rd captain
+Giorgi Mamardashvili,GK,25,Georgia,25,13,0,0,1170,0,4,0,0,No,Backup goalkeeper
+Freddie Woodman,GK,28,England,29,1,0,0,90,0,0,0,0,Yes,Third-choice goalkeeper
+Joe Gomez,DEF,2,England,28,40,0,3,3120,3,2,4,0,Yes,Versatile defender, 5th captain
+Virgil van Dijk,DEF,4,Netherlands,34,45,5,1,4050,6,14,3,0,No,Captain
+Ibrahima Konaté,DEF,5,France,26,42,2,1,3780,3,11,5,1,No,Centre-back
+Milos Kerkez,DEF,6,Hungary,22,47,1,4,4230,5,9,6,0,No,Left-back
+Conor Bradley,DEF,12,Northern Ireland,22,22,1,2,1650,3,1,2,0,Yes,Right-back / versatile
+Jeremie Frimpong,DEF,30,Netherlands,25,28,2,5,2310,7,0,3,0,No,Right-back (new signing)
+Andy Robertson,DEF,26,Scotland,32,19,0,2,1440,2,0,1,0,No,Left-back, Vice-captain
+Ryan Gravenberch,MID,38,Netherlands,23,40,4,3,3120,7,0,5,0,No,Central midfielder
+Alexis Mac Allister,MID,10,Argentina,27,45,2,8,3780,10,0,4,0,No,Central/attacking midfielder
+Dominik Szoboszlai,MID,8,Hungary,25,29,5,3,1980,8,0,2,0,No,Attacking midfielder
+Wataru Endo,MID,3,Japan,32,20,0,1,1260,1,0,3,0,No,Defensive midfielder
+Curtis Jones,MID,17,England,24,27,3,2,1890,5,0,3,0,Yes,Central midfielder
+Florian Wirtz,MID,7,Germany,22,20,2,6,1440,8,0,1,0,No,Attacking midfielder (new signing)
+Mohamed Salah,FWD,11,Egypt,33,34,10,9,2970,19,0,2,0,No,Right winger / star player, 4th captain
+Cody Gakpo,FWD,18,Netherlands,26,42,8,4,3150,12,0,3,0,No,Forward
+Hugo Ekitiké,FWD,22,France,23,28,11,4,1890,15,0,2,0,No,Striker (new signing)
+Alex Isak,FWD,9,Sweden,27,30,3,1,2700,10,0,1,0,No,Striker (new signing) 
+Federico Chiesa,FWD,14,Italy,27,32,3,3,1980,6,0,1,0,No,Winger
+Rio Ngumoha,FWD,,England,18,8,1,0,360,1,0,0,0,Yes,U21 forward
+Trey Nyoni,MID,42,England,17,10,0,1,450,1,0,1,0,Yes,U21 midfielder
+Giovanni Leoni,DEF,,Italy,19,5,0,0,270,0,0,0,0,No,Young defender (new signing)
+Rhys Williams,DEF,,England,24,3,0,0,180,0,0,0,0,Yes,U21 defender
+Kornel Misciur,GK,74,England,18,0,0,0,0,0,0,0,0,Yes,U21 goalkeeper
+Calvin Ramsay,DEF,,Scotland,21,2,0,0,90,0,0,0,0,Yes,Right-back
+Isaac Mabaya,DEF,,England,20,1,0,0,45,0,0,0,0,Yes,U21 defender
+Lewis Koumas,FWD,,Wales,19,6,1,0,270,1,0,0,0,Yes,U21 forward

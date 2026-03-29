@@ -1,0 +1,290 @@
+.stats-view {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.stats-search {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.stats-body {
+  display: grid;
+  grid-template-columns: 320px 12px 1fr;
+  gap: 18px;
+  align-items: start;
+}
+
+.stats-divider {
+  width: 2px;
+  background: rgba(255, 255, 255, 0.35);
+  border-radius: 999px;
+  height: 100%;
+  margin-top: 6px;
+}
+
+.stats-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-top: 6px;
+}
+
+.stats-league {
+  --accent: var(--premier);
+  background: var(--accent);
+  color: #ffffff;
+  border-radius: 14px;
+  border: 2px solid #0f0f0f;
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  box-shadow: 0 3px 0 #0f0f0f;
+  position: relative;
+  min-height: 62px;
+}
+
+.stats-league.seriea {
+  --accent: var(--seriea);
+}
+
+.stats-league.laliga {
+  --accent: var(--laliga);
+}
+
+.stats-league.bundesliga {
+  --accent: var(--bundesliga);
+}
+
+.stats-league.ligue1 {
+  --accent: var(--ligue1);
+}
+
+.stats-league.ucl {
+  --accent: var(--ucl);
+}
+
+.stats-league.active::after {
+  content: "";
+  position: absolute;
+  right: -18px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-left: 14px solid var(--accent);
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+}
+
+.stats-league-logo {
+  width: 38px;
+  height: 32px;
+  background: #ffffff;
+  border-radius: 10px;
+  border: 2px solid #0f0f0f;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.stats-league-logo img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+}
+
+.stats-toggle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.stats-toggle-btn {
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.65);
+  color: #ffffff;
+  padding: 8px 18px;
+  border-radius: 999px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.stats-toggle-btn.active {
+  background: var(--stats-accent);
+  border-color: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+  transform: translateY(-1px);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.stats-card {
+  background: var(--stats-accent);
+  border-radius: 18px;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  padding: 12px 14px 16px;
+  min-height: 290px;
+  position: relative;
+  box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.35);
+}
+
+.stats-grid.teams {
+  grid-template-columns: repeat(2, minmax(280px, 1fr));
+}
+
+.stats-grid.teams .stats-card {
+  min-height: 330px;
+}
+
+.stats-card::before {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  border-radius: 14px;
+  pointer-events: none;
+}
+
+.stats-card-title {
+  text-align: center;
+  font-weight: 700;
+  font-size: 13px;
+  text-transform: capitalize;
+  letter-spacing: 0.3px;
+  flex: 1;
+}
+
+.stats-card-body {
+  margin-top: 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.stats-card-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.stats-card-toggle {
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  color: #ffffff;
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+}
+
+.stats-card-toggle:hover {
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.stat-line {
+  height: 36px;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 0 6px 2px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.stat-line::after {
+  content: "";
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  bottom: 2px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.stat-line.empty {
+  color: transparent;
+}
+
+.stat-player {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+  padding-left: 8px;
+}
+
+.stat-player img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+.stat-player span {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.stat-value {
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1;
+  padding-right: 8px;
+}
+
+.stats-card.blank {
+  min-height: 240px;
+}
+
+.stats-card.blank::before {
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.stats-card.blank .stats-card-title,
+.stats-card.blank .stats-card-body {
+  display: none;
+}
+
+@media (max-width: 1200px) {
+  .stats-body {
+    grid-template-columns: 280px 10px 1fr;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, minmax(220px, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .stats-search {
+    justify-content: center;
+  }
+
+  .stats-body {
+    grid-template-columns: 1fr;
+  }
+
+  .stats-divider {
+    display: none;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+}

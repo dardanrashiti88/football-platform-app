@@ -1,0 +1,2752 @@
+[
+  {
+    "id": "yann-sommer-inter-milan",
+    "name": "Yann Sommer",
+    "teamId": "inter-milan",
+    "teamName": "Inter Milan",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Switzerland"
+  },
+  {
+    "id": "josep-martinez-inter-milan",
+    "name": "Josep Martinez",
+    "teamId": "inter-milan",
+    "teamName": "Inter Milan",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Spain"
+  },
+  {
+    "id": "raffaele-di-gennaro-inter-milan",
+    "name": "Raffaele Di Gennaro",
+    "teamId": "inter-milan",
+    "teamName": "Inter Milan",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Italy"
+  },
+  {
+    "id": "alessandro-bastoni-inter-milan",
+    "name": "Alessandro Bastoni",
+    "teamId": "inter-milan",
+    "teamName": "Inter Milan",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Italy"
+  },
+  {
+    "id": "yann-bisseck-inter-milan",
+    "name": "Yann Bisseck",
+    "teamId": "inter-milan",
+    "teamName": "Inter Milan",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Germany"
+  },
+  {
+    "id": "manuel-akanji-inter-milan",
+    "name": "Manuel Akanji",
+    "teamId": "inter-milan",
+    "teamName": "Inter Milan",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Switzerland"
+  },
+  {
+    "id": "stefan-de-vrij-inter-milan",
+    "name": "Stefan de Vrij",
+    "teamId": "inter-milan",
+    "teamName": "Inter Milan",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Netherlands"
+  },
+  {
+    "id": "francesco-acerbi-inter-milan",
+    "name": "Francesco Acerbi",
+    "teamId": "inter-milan",
+    "teamName": "Inter Milan",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Italy"
+  },
+  {
+    "id": "federico-dimarco-inter-milan",
+    "name": "Federico Dimarco",
+    "teamId": "inter-milan",
+    "teamName": "Inter Milan",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Italy"
+  },
+  {
+    "id": "carlos-augusto-inter-milan",
+    "name": "Carlos Augusto",
+    "teamId": "inter-milan",
+    "teamName": "Inter Milan",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Brazil"
+  },
+  {
+    "id": "denzel-dumfries-inter-milan",
+    "name": "Denzel Dumfries",
+    "teamId": "inter-milan",
+    "teamName": "Inter Milan",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Netherlands"
+  },
+  {
+    "id": "matteo-darmian-inter-milan",
+    "name": "Matteo Darmian",
+    "teamId": "inter-milan",
+    "teamName": "Inter Milan",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Italy"
+  },
+  {
+    "id": "nicolo-barella-inter-milan",
+    "name": "Nicolo Barella",
+    "teamId": "inter-milan",
+    "teamName": "Inter Milan",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Italy"
+  },
+  {
+    "id": "hakan-calhanoglu-inter-milan",
+    "name": "Hakan Calhanoglu",
+    "teamId": "inter-milan",
+    "teamName": "Inter Milan",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Turkey"
+  },
+  {
+    "id": "petar-sucic-inter-milan",
+    "name": "Petar Sucic",
+    "teamId": "inter-milan",
+    "teamName": "Inter Milan",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Croatia"
+  },
+  {
+    "id": "davide-frattesi-inter-milan",
+    "name": "Davide Frattesi",
+    "teamId": "inter-milan",
+    "teamName": "Inter Milan",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Italy"
+  },
+  {
+    "id": "andy-diouf-inter-milan",
+    "name": "Andy Diouf",
+    "teamId": "inter-milan",
+    "teamName": "Inter Milan",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "France"
+  },
+  {
+    "id": "piotr-zielinski-inter-milan",
+    "name": "Piotr Zielinski",
+    "teamId": "inter-milan",
+    "teamName": "Inter Milan",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Poland"
+  },
+  {
+    "id": "henrikh-mkhitaryan-inter-milan",
+    "name": "Henrikh Mkhitaryan",
+    "teamId": "inter-milan",
+    "teamName": "Inter Milan",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Armenia"
+  },
+  {
+    "id": "luis-henrique-inter-milan",
+    "name": "Luis Henrique",
+    "teamId": "inter-milan",
+    "teamName": "Inter Milan",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Brazil"
+  },
+  {
+    "id": "lautaro-martinez-inter-milan",
+    "name": "Lautaro Martinez",
+    "teamId": "inter-milan",
+    "teamName": "Inter Milan",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Argentina"
+  },
+  {
+    "id": "marcus-thuram-inter-milan",
+    "name": "Marcus Thuram",
+    "teamId": "inter-milan",
+    "teamName": "Inter Milan",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "France"
+  },
+  {
+    "id": "ange-yoan-bonny-inter-milan",
+    "name": "Ange-Yoan Bonny",
+    "teamId": "inter-milan",
+    "teamName": "Inter Milan",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "France"
+  },
+  {
+    "id": "pio-esposito-inter-milan",
+    "name": "Pio Esposito",
+    "teamId": "inter-milan",
+    "teamName": "Inter Milan",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Italy"
+  },
+  {
+    "id": "alex-meret-napoli",
+    "name": "Alex Meret",
+    "teamId": "ssc-napoli",
+    "teamName": "SSC Napoli",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Italy"
+  },
+  {
+    "id": "vanja-milinkovic-savic-napoli",
+    "name": "Vanja Milinkovic-Savic",
+    "teamId": "ssc-napoli",
+    "teamName": "SSC Napoli",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Serbia"
+  },
+  {
+    "id": "giovanni-di-lorenzo-napoli",
+    "name": "Giovanni Di Lorenzo",
+    "teamId": "ssc-napoli",
+    "teamName": "SSC Napoli",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Italy"
+  },
+  {
+    "id": "amir-rrahmani-napoli",
+    "name": "Amir Rrahmani",
+    "teamId": "ssc-napoli",
+    "teamName": "SSC Napoli",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Kosovo"
+  },
+  {
+    "id": "alessandro-buongiorno-napoli",
+    "name": "Alessandro Buongiorno",
+    "teamId": "ssc-napoli",
+    "teamName": "SSC Napoli",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Italy"
+  },
+  {
+    "id": "sam-beukema-napoli",
+    "name": "Sam Beukema",
+    "teamId": "ssc-napoli",
+    "teamName": "SSC Napoli",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Netherlands"
+  },
+  {
+    "id": "mathias-olivera-napoli",
+    "name": "Mathias Olivera",
+    "teamId": "ssc-napoli",
+    "teamName": "SSC Napoli",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Uruguay"
+  },
+  {
+    "id": "miguel-gutierrez-napoli",
+    "name": "Miguel Gutierrez",
+    "teamId": "ssc-napoli",
+    "teamName": "SSC Napoli",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Spain"
+  },
+  {
+    "id": "leonardo-spinazzola-napoli",
+    "name": "Leonardo Spinazzola",
+    "teamId": "ssc-napoli",
+    "teamName": "SSC Napoli",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Italy"
+  },
+  {
+    "id": "juan-jesus-napoli",
+    "name": "Juan Jesus",
+    "teamId": "ssc-napoli",
+    "teamName": "SSC Napoli",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Brazil"
+  },
+  {
+    "id": "stanislav-lobotka-napoli",
+    "name": "Stanislav Lobotka",
+    "teamId": "ssc-napoli",
+    "teamName": "SSC Napoli",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Slovakia"
+  },
+  {
+    "id": "scott-mctominay-napoli",
+    "name": "Scott McTominay",
+    "teamId": "ssc-napoli",
+    "teamName": "SSC Napoli",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Scotland"
+  },
+  {
+    "id": "frank-anguissa-napoli",
+    "name": "Frank Anguissa",
+    "teamId": "ssc-napoli",
+    "teamName": "SSC Napoli",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Cameroon"
+  },
+  {
+    "id": "kevin-de-bruyne-napoli",
+    "name": "Kevin De Bruyne",
+    "teamId": "ssc-napoli",
+    "teamName": "SSC Napoli",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Belgium"
+  },
+  {
+    "id": "eljif-elmas-napoli",
+    "name": "Eljif Elmas",
+    "teamId": "ssc-napoli",
+    "teamName": "SSC Napoli",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "North Macedonia"
+  },
+  {
+    "id": "billy-gilmour-napoli",
+    "name": "Billy Gilmour",
+    "teamId": "ssc-napoli",
+    "teamName": "SSC Napoli",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Scotland"
+  },
+  {
+    "id": "pasquale-mazzocchi-napoli",
+    "name": "Pasquale Mazzocchi",
+    "teamId": "ssc-napoli",
+    "teamName": "SSC Napoli",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Italy"
+  },
+  {
+    "id": "matteo-politano-napoli",
+    "name": "Matteo Politano",
+    "teamId": "ssc-napoli",
+    "teamName": "SSC Napoli",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Italy"
+  },
+  {
+    "id": "rasmus-hojlund-napoli",
+    "name": "Rasmus Hojlund",
+    "teamId": "ssc-napoli",
+    "teamName": "SSC Napoli",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Denmark"
+  },
+  {
+    "id": "romelu-lukaku-napoli",
+    "name": "Romelu Lukaku",
+    "teamId": "ssc-napoli",
+    "teamName": "SSC Napoli",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Belgium"
+  },
+  {
+    "id": "david-neres-napoli",
+    "name": "David Neres",
+    "teamId": "ssc-napoli",
+    "teamName": "SSC Napoli",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Brazil"
+  },
+  {
+    "id": "giovane-napoli",
+    "name": "Giovane",
+    "teamId": "ssc-napoli",
+    "teamName": "SSC Napoli",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Brazil"
+  },
+  {
+    "id": "mike-maignan-ac-milan",
+    "name": "Mike Maignan",
+    "teamId": "ac-milan",
+    "teamName": "AC Milan",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "France"
+  },
+  {
+    "id": "marco-sportiello-ac-milan",
+    "name": "Marco Sportiello",
+    "teamId": "ac-milan",
+    "teamName": "AC Milan",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Italy"
+  },
+  {
+    "id": "emerson-royal-ac-milan",
+    "name": "Emerson Royal",
+    "teamId": "ac-milan",
+    "teamName": "AC Milan",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Brazil"
+  },
+  {
+    "id": "theo-hernandez-ac-milan",
+    "name": "Theo Hernandez",
+    "teamId": "ac-milan",
+    "teamName": "AC Milan",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "France"
+  },
+  {
+    "id": "fikayo-tomori-ac-milan",
+    "name": "Fikayo Tomori",
+    "teamId": "ac-milan",
+    "teamName": "AC Milan",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "England"
+  },
+  {
+    "id": "malick-thiaw-ac-milan",
+    "name": "Malick Thiaw",
+    "teamId": "ac-milan",
+    "teamName": "AC Milan",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Germany"
+  },
+  {
+    "id": "strahinja-pavlovic-ac-milan",
+    "name": "Strahinja Pavlovic",
+    "teamId": "ac-milan",
+    "teamName": "AC Milan",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Serbia"
+  },
+  {
+    "id": "kyle-walker-ac-milan",
+    "name": "Kyle Walker",
+    "teamId": "ac-milan",
+    "teamName": "AC Milan",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "England"
+  },
+  {
+    "id": "tijjani-reijnders-ac-milan",
+    "name": "Tijjani Reijnders",
+    "teamId": "ac-milan",
+    "teamName": "AC Milan",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Netherlands"
+  },
+  {
+    "id": "youssouf-fofana-ac-milan",
+    "name": "Youssouf Fofana",
+    "teamId": "ac-milan",
+    "teamName": "AC Milan",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "France"
+  },
+  {
+    "id": "adrien-rabiot-ac-milan",
+    "name": "Adrien Rabiot",
+    "teamId": "ac-milan",
+    "teamName": "AC Milan",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "France"
+  },
+  {
+    "id": "luka-modric-ac-milan",
+    "name": "Luka Modric",
+    "teamId": "ac-milan",
+    "teamName": "AC Milan",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Croatia"
+  },
+  {
+    "id": "alexis-saelemaekers-ac-milan",
+    "name": "Alexis Saelemaekers",
+    "teamId": "ac-milan",
+    "teamName": "AC Milan",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Belgium"
+  },
+  {
+    "id": "ruben-loftus-cheek-ac-milan",
+    "name": "Ruben Loftus-Cheek",
+    "teamId": "ac-milan",
+    "teamName": "AC Milan",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "England"
+  },
+  {
+    "id": "rafael-leao-ac-milan",
+    "name": "Rafael Leao",
+    "teamId": "ac-milan",
+    "teamName": "AC Milan",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Portugal"
+  },
+  {
+    "id": "christian-pulisic-ac-milan",
+    "name": "Christian Pulisic",
+    "teamId": "ac-milan",
+    "teamName": "AC Milan",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "United States"
+  },
+  {
+    "id": "christopher-nkunku-ac-milan",
+    "name": "Christopher Nkunku",
+    "teamId": "ac-milan",
+    "teamName": "AC Milan",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "France"
+  },
+  {
+    "id": "tammy-abraham-ac-milan",
+    "name": "Tammy Abraham",
+    "teamId": "ac-milan",
+    "teamName": "AC Milan",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "England"
+  },
+  {
+    "id": "pepe-reina-como",
+    "name": "Pepe Reina",
+    "teamId": "como-1907",
+    "teamName": "Como 1907",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Spain"
+  },
+  {
+    "id": "emil-audero-como",
+    "name": "Emil Audero",
+    "teamId": "como-1907",
+    "teamName": "Como 1907",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Italy"
+  },
+  {
+    "id": "rafael-romo-como",
+    "name": "Rafael Romo",
+    "teamId": "como-1907",
+    "teamName": "Como 1907",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Venezuela"
+  },
+  {
+    "id": "marco-kempf-como",
+    "name": "Marc-Oliver Kempf",
+    "teamId": "como-1907",
+    "teamName": "Como 1907",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Germany"
+  },
+  {
+    "id": "yannik-hanfstingl-como",
+    "name": "Yannik Hanfstingl",
+    "teamId": "como-1907",
+    "teamName": "Como 1907",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Germany"
+  },
+  {
+    "id": "fabregas-como",
+    "name": "Cesc Fabregas",
+    "teamId": "como-1907",
+    "teamName": "Como 1907",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Spain"
+  },
+  {
+    "id": "nico-paz-como",
+    "name": "Nico Paz",
+    "teamId": "como-1907",
+    "teamName": "Como 1907",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Argentina"
+  },
+  {
+    "id": "maxence-caqueret-como",
+    "name": "Maxence Caqueret",
+    "teamId": "como-1907",
+    "teamName": "Como 1907",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "France"
+  },
+  {
+    "id": "maximo-perrone-como",
+    "name": "Maximo Perrone",
+    "teamId": "como-1907",
+    "teamName": "Como 1907",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Argentina"
+  },
+  {
+    "id": "gabriel-strefezza-como",
+    "name": "Gabriel Strefezza",
+    "teamId": "como-1907",
+    "teamName": "Como 1907",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Italy"
+  },
+  {
+    "id": "martin-baturina-como",
+    "name": "Martin Baturina",
+    "teamId": "como-1907",
+    "teamName": "Como 1907",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Croatia"
+  },
+  {
+    "id": "lucas-da-cunha-como",
+    "name": "Lucas Da Cunha",
+    "teamId": "como-1907",
+    "teamName": "Como 1907",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "France"
+  },
+  {
+    "id": "jesus-rodriguez-como",
+    "name": "Jesus Rodriguez",
+    "teamId": "como-1907",
+    "teamName": "Como 1907",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Spain"
+  },
+  {
+    "id": "anastasios-douvikas-como",
+    "name": "Anastasios Douvikas",
+    "teamId": "como-1907",
+    "teamName": "Como 1907",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Greece"
+  },
+  {
+    "id": "patrick-cutrone-como",
+    "name": "Patrick Cutrone",
+    "teamId": "como-1907",
+    "teamName": "Como 1907",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Italy"
+  },
+  {
+    "id": "michele-di-gregorio-juventus",
+    "name": "Michele Di Gregorio",
+    "teamId": "juventus",
+    "teamName": "Juventus",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Italy"
+  },
+  {
+    "id": "carlo-pinsoglio-juventus",
+    "name": "Carlo Pinsoglio",
+    "teamId": "juventus",
+    "teamName": "Juventus",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Italy"
+  },
+  {
+    "id": "andrea-cambiaso-juventus",
+    "name": "Andrea Cambiaso",
+    "teamId": "juventus",
+    "teamName": "Juventus",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Italy"
+  },
+  {
+    "id": "pierre-kalulu-juventus",
+    "name": "Pierre Kalulu",
+    "teamId": "juventus",
+    "teamName": "Juventus",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "France"
+  },
+  {
+    "id": "gleison-bremer-juventus",
+    "name": "Gleison Bremer",
+    "teamId": "juventus",
+    "teamName": "Juventus",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Brazil"
+  },
+  {
+    "id": "juan-cabal-juventus",
+    "name": "Juan Cabal",
+    "teamId": "juventus",
+    "teamName": "Juventus",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Colombia"
+  },
+  {
+    "id": "danilo-juventus",
+    "name": "Danilo",
+    "teamId": "juventus",
+    "teamName": "Juventus",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Brazil"
+  },
+  {
+    "id": "lloyd-kelly-juventus",
+    "name": "Lloyd Kelly",
+    "teamId": "juventus",
+    "teamName": "Juventus",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "England"
+  },
+  {
+    "id": "nicolas-gonzalez-juventus",
+    "name": "Nicolas Gonzalez",
+    "teamId": "juventus",
+    "teamName": "Juventus",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Argentina"
+  },
+  {
+    "id": "manuel-locatelli-juventus",
+    "name": "Manuel Locatelli",
+    "teamId": "juventus",
+    "teamName": "Juventus",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Italy"
+  },
+  {
+    "id": "weston-mckennie-juventus",
+    "name": "Weston McKennie",
+    "teamId": "juventus",
+    "teamName": "Juventus",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "United States"
+  },
+  {
+    "id": "kenan-yildiz-juventus",
+    "name": "Kenan Yildiz",
+    "teamId": "juventus",
+    "teamName": "Juventus",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Turkey"
+  },
+  {
+    "id": "nicolo-fagioli-juventus",
+    "name": "Nicolo Fagioli",
+    "teamId": "juventus",
+    "teamName": "Juventus",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Italy"
+  },
+  {
+    "id": "thiago-motta-juventus",
+    "name": "Douglas Luiz",
+    "teamId": "juventus",
+    "teamName": "Juventus",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Brazil"
+  },
+  {
+    "id": "emil-holm-juventus",
+    "name": "Emil Holm",
+    "teamId": "juventus",
+    "teamName": "Juventus",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Sweden"
+  },
+  {
+    "id": "jonathan-david-juventus",
+    "name": "Jonathan David",
+    "teamId": "juventus",
+    "teamName": "Juventus",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Canada"
+  },
+  {
+    "id": "dusan-vlahovic-juventus",
+    "name": "Dusan Vlahovic",
+    "teamId": "juventus",
+    "teamName": "Juventus",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Serbia"
+  },
+  {
+    "id": "timothy-weah-juventus",
+    "name": "Timothy Weah",
+    "teamId": "juventus",
+    "teamName": "Juventus",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "United States"
+  },
+  {
+    "id": "mile-svilar-roma",
+    "name": "Mile Svilar",
+    "teamId": "as-roma",
+    "teamName": "AS Roma",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Serbia"
+  },
+  {
+    "id": "ryan-moolman-roma",
+    "name": "Pierluigi Gollini",
+    "teamId": "as-roma",
+    "teamName": "AS Roma",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Italy"
+  },
+  {
+    "id": "zeki-celik-roma",
+    "name": "Zeki Celik",
+    "teamId": "as-roma",
+    "teamName": "AS Roma",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Turkey"
+  },
+  {
+    "id": "gianluca-mancini-roma",
+    "name": "Gianluca Mancini",
+    "teamId": "as-roma",
+    "teamName": "AS Roma",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Italy"
+  },
+  {
+    "id": "mats-hummels-roma",
+    "name": "Mats Hummels",
+    "teamId": "as-roma",
+    "teamName": "AS Roma",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Germany"
+  },
+  {
+    "id": "mario-hermoso-roma",
+    "name": "Mario Hermoso",
+    "teamId": "as-roma",
+    "teamName": "AS Roma",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Spain"
+  },
+  {
+    "id": "angelino-roma",
+    "name": "Angelino",
+    "teamId": "as-roma",
+    "teamName": "AS Roma",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Spain"
+  },
+  {
+    "id": "nicola-zalewski-roma",
+    "name": "Nicola Zalewski",
+    "teamId": "as-roma",
+    "teamName": "AS Roma",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Poland"
+  },
+  {
+    "id": "bryan-cristante-roma",
+    "name": "Bryan Cristante",
+    "teamId": "as-roma",
+    "teamName": "AS Roma",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Italy"
+  },
+  {
+    "id": "leandro-paredes-roma",
+    "name": "Leandro Paredes",
+    "teamId": "as-roma",
+    "teamName": "AS Roma",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Argentina"
+  },
+  {
+    "id": "radja-nainggolan-roma",
+    "name": "Enzo Le Fee",
+    "teamId": "as-roma",
+    "teamName": "AS Roma",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "France"
+  },
+  {
+    "id": "manu-kone-roma",
+    "name": "Manu Kone",
+    "teamId": "as-roma",
+    "teamName": "AS Roma",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "France"
+  },
+  {
+    "id": "matias-soule-roma",
+    "name": "Matias Soule",
+    "teamId": "as-roma",
+    "teamName": "AS Roma",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Argentina"
+  },
+  {
+    "id": "donyell-malen-roma",
+    "name": "Donyell Malen",
+    "teamId": "as-roma",
+    "teamName": "AS Roma",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Netherlands"
+  },
+  {
+    "id": "artem-dovbyk-roma",
+    "name": "Artem Dovbyk",
+    "teamId": "as-roma",
+    "teamName": "AS Roma",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Ukraine"
+  },
+  {
+    "id": "wesley-franca-roma",
+    "name": "Wesley Franca",
+    "teamId": "as-roma",
+    "teamName": "AS Roma",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Brazil"
+  },
+  {
+    "id": "marco-carnesecchi-atalanta",
+    "name": "Marco Carnesecchi",
+    "teamId": "atalanta-bc",
+    "teamName": "Atalanta BC",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Italy"
+  },
+  {
+    "id": "juan-musso-atalanta",
+    "name": "Juan Musso",
+    "teamId": "atalanta-bc",
+    "teamName": "Atalanta BC",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Argentina"
+  },
+  {
+    "id": "giorgio-scalvini-atalanta",
+    "name": "Giorgio Scalvini",
+    "teamId": "atalanta-bc",
+    "teamName": "Atalanta BC",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Italy"
+  },
+  {
+    "id": "isak-hien-atalanta",
+    "name": "Isak Hien",
+    "teamId": "atalanta-bc",
+    "teamName": "Atalanta BC",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Sweden"
+  },
+  {
+    "id": "jose-palomino-atalanta",
+    "name": "Matteo Ruggeri",
+    "teamId": "atalanta-bc",
+    "teamName": "Atalanta BC",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Italy"
+  },
+  {
+    "id": "berat-djimsiti-atalanta",
+    "name": "Berat Djimsiti",
+    "teamId": "atalanta-bc",
+    "teamName": "Atalanta BC",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Albania"
+  },
+  {
+    "id": "davide-zappacosta-atalanta",
+    "name": "Davide Zappacosta",
+    "teamId": "atalanta-bc",
+    "teamName": "Atalanta BC",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Italy"
+  },
+  {
+    "id": "raoul-bellanova-atalanta",
+    "name": "Raoul Bellanova",
+    "teamId": "atalanta-bc",
+    "teamName": "Atalanta BC",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Italy"
+  },
+  {
+    "id": "mario-pasalic-atalanta",
+    "name": "Mario Pasalic",
+    "teamId": "atalanta-bc",
+    "teamName": "Atalanta BC",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Croatia"
+  },
+  {
+    "id": "marten-de-roon-atalanta",
+    "name": "Marten de Roon",
+    "teamId": "atalanta-bc",
+    "teamName": "Atalanta BC",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Netherlands"
+  },
+  {
+    "id": "ederson-atalanta",
+    "name": "Ederson",
+    "teamId": "atalanta-bc",
+    "teamName": "Atalanta BC",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Brazil"
+  },
+  {
+    "id": "charles-de-ketelaere-atalanta",
+    "name": "Charles De Ketelaere",
+    "teamId": "atalanta-bc",
+    "teamName": "Atalanta BC",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Belgium"
+  },
+  {
+    "id": "lazar-samardzic-atalanta",
+    "name": "Lazar Samardzic",
+    "teamId": "atalanta-bc",
+    "teamName": "Atalanta BC",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Serbia"
+  },
+  {
+    "id": "nicola-zalewski-atalanta",
+    "name": "Nicola Zalewski",
+    "teamId": "atalanta-bc",
+    "teamName": "Atalanta BC",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Poland"
+  },
+  {
+    "id": "ademola-lookman-atalanta",
+    "name": "Ademola Lookman",
+    "teamId": "atalanta-bc",
+    "teamName": "Atalanta BC",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Nigeria"
+  },
+  {
+    "id": "gianluca-scamacca-atalanta",
+    "name": "Gianluca Scamacca",
+    "teamId": "atalanta-bc",
+    "teamName": "Atalanta BC",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Italy"
+  },
+  {
+    "id": "nikola-krstovic-atalanta",
+    "name": "Nikola Krstovic",
+    "teamId": "atalanta-bc",
+    "teamName": "Atalanta BC",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Montenegro"
+  },
+  {
+    "id": "lukasz-skorupski-bologna",
+    "name": "Lukasz Skorupski",
+    "teamId": "bologna-fc",
+    "teamName": "Bologna FC",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Poland"
+  },
+  {
+    "id": "bram-nuytinck-bologna",
+    "name": "Elia Caprile",
+    "teamId": "bologna-fc",
+    "teamName": "Bologna FC",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Italy"
+  },
+  {
+    "id": "sam-beukema-bologna",
+    "name": "Jhon Lucumi",
+    "teamId": "bologna-fc",
+    "teamName": "Bologna FC",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Colombia"
+  },
+  {
+    "id": "charalampos-lykogiannis-bologna",
+    "name": "Charalampos Lykogiannis",
+    "teamId": "bologna-fc",
+    "teamName": "Bologna FC",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Greece"
+  },
+  {
+    "id": "michel-aebischer-bologna",
+    "name": "Alexis Saelemaekers",
+    "teamId": "bologna-fc",
+    "teamName": "Bologna FC",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Belgium"
+  },
+  {
+    "id": "stefan-posch-bologna",
+    "name": "Stefan Posch",
+    "teamId": "bologna-fc",
+    "teamName": "Bologna FC",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Austria"
+  },
+  {
+    "id": "nicolo-cambiaghi-bologna",
+    "name": "Nicolo Cambiaghi",
+    "teamId": "bologna-fc",
+    "teamName": "Bologna FC",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Italy"
+  },
+  {
+    "id": "remo-freuler-bologna",
+    "name": "Remo Freuler",
+    "teamId": "bologna-fc",
+    "teamName": "Bologna FC",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Switzerland"
+  },
+  {
+    "id": "lewis-ferguson-bologna",
+    "name": "Lewis Ferguson",
+    "teamId": "bologna-fc",
+    "teamName": "Bologna FC",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Scotland"
+  },
+  {
+    "id": "dan-ndoye-bologna",
+    "name": "Dan Ndoye",
+    "teamId": "bologna-fc",
+    "teamName": "Bologna FC",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Switzerland"
+  },
+  {
+    "id": "riccardo-orsolini-bologna",
+    "name": "Riccardo Orsolini",
+    "teamId": "bologna-fc",
+    "teamName": "Bologna FC",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Italy"
+  },
+  {
+    "id": "santiago-castro-bologna",
+    "name": "Santiago Castro",
+    "teamId": "bologna-fc",
+    "teamName": "Bologna FC",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Argentina"
+  },
+  {
+    "id": "jens-odgaard-bologna",
+    "name": "Jens Odgaard",
+    "teamId": "bologna-fc",
+    "teamName": "Bologna FC",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Denmark"
+  },
+  {
+    "id": "ivan-provedel-lazio",
+    "name": "Ivan Provedel",
+    "teamId": "lazio-rome",
+    "teamName": "Lazio Rome",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Italy"
+  },
+  {
+    "id": "christos-mandas-lazio",
+    "name": "Christos Mandas",
+    "teamId": "lazio-rome",
+    "teamName": "Lazio Rome",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Greece"
+  },
+  {
+    "id": "luca-pellegrini-lazio",
+    "name": "Luca Pellegrini",
+    "teamId": "lazio-rome",
+    "teamName": "Lazio Rome",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Italy"
+  },
+  {
+    "id": "patric-lazio",
+    "name": "Patric",
+    "teamId": "lazio-rome",
+    "teamName": "Lazio Rome",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Spain"
+  },
+  {
+    "id": "alessio-romagnoli-lazio",
+    "name": "Alessio Romagnoli",
+    "teamId": "lazio-rome",
+    "teamName": "Lazio Rome",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Italy"
+  },
+  {
+    "id": "matias-vecino-lazio",
+    "name": "Mario Gila",
+    "teamId": "lazio-rome",
+    "teamName": "Lazio Rome",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Spain"
+  },
+  {
+    "id": "nuno-tavares-lazio",
+    "name": "Nuno Tavares",
+    "teamId": "lazio-rome",
+    "teamName": "Lazio Rome",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Portugal"
+  },
+  {
+    "id": "danilo-cataldi-lazio",
+    "name": "Danilo Cataldi",
+    "teamId": "lazio-rome",
+    "teamName": "Lazio Rome",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Italy"
+  },
+  {
+    "id": "nicolo-rovella-lazio",
+    "name": "Nicolo Rovella",
+    "teamId": "lazio-rome",
+    "teamName": "Lazio Rome",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Italy"
+  },
+  {
+    "id": "matteo-guendouzi-lazio",
+    "name": "Matteo Guendouzi",
+    "teamId": "lazio-rome",
+    "teamName": "Lazio Rome",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "France"
+  },
+  {
+    "id": "marco-bertini-lazio",
+    "name": "Manuel Lazzari",
+    "teamId": "lazio-rome",
+    "teamName": "Lazio Rome",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Italy"
+  },
+  {
+    "id": "taty-castellanos-lazio",
+    "name": "Taty Castellanos",
+    "teamId": "lazio-rome",
+    "teamName": "Lazio Rome",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Argentina"
+  },
+  {
+    "id": "pedro-lazio",
+    "name": "Pedro",
+    "teamId": "lazio-rome",
+    "teamName": "Lazio Rome",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Spain"
+  },
+  {
+    "id": "valentin-castellanos-lazio",
+    "name": "Gustav Isaksen",
+    "teamId": "lazio-rome",
+    "teamName": "Lazio Rome",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Denmark"
+  },
+  {
+    "id": "boulaye-dia-lazio",
+    "name": "Boulaye Dia",
+    "teamId": "lazio-rome",
+    "teamName": "Lazio Rome",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Senegal"
+  },
+  {
+    "id": "okoye-udinese",
+    "name": "Maduka Okoye",
+    "teamId": "udinese-calcio",
+    "teamName": "Udinese Calcio",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Nigeria"
+  },
+  {
+    "id": "marco-silvestri-udinese",
+    "name": "Marco Silvestri",
+    "teamId": "udinese-calcio",
+    "teamName": "Udinese Calcio",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Italy"
+  },
+  {
+    "id": "nehuen-perez-udinese",
+    "name": "Nehuen Perez",
+    "teamId": "udinese-calcio",
+    "teamName": "Udinese Calcio",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Argentina"
+  },
+  {
+    "id": "jaka-bijol-udinese",
+    "name": "Jaka Bijol",
+    "teamId": "udinese-calcio",
+    "teamName": "Udinese Calcio",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Slovenia"
+  },
+  {
+    "id": "adam-masina-udinese",
+    "name": "Adam Masina",
+    "teamId": "udinese-calcio",
+    "teamName": "Udinese Calcio",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Morocco"
+  },
+  {
+    "id": "kingsley-ehizibue-udinese",
+    "name": "Kingsley Ehizibue",
+    "teamId": "udinese-calcio",
+    "teamName": "Udinese Calcio",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Nigeria"
+  },
+  {
+    "id": "thomas-kristensen-udinese",
+    "name": "Thomas Kristensen",
+    "teamId": "udinese-calcio",
+    "teamName": "Udinese Calcio",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Denmark"
+  },
+  {
+    "id": "sandi-lovric-udinese",
+    "name": "Sandi Lovric",
+    "teamId": "udinese-calcio",
+    "teamName": "Udinese Calcio",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Slovenia"
+  },
+  {
+    "id": "enzo-ebosse-udinese",
+    "name": "Florian-Thauvin-udinese",
+    "teamId": "udinese-calcio",
+    "teamName": "Udinese Calcio",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "France"
+  },
+  {
+    "id": "lazar-samardzic-udinese",
+    "name": "Martin Payero",
+    "teamId": "udinese-calcio",
+    "teamName": "Udinese Calcio",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Argentina"
+  },
+  {
+    "id": "nicolozaniolo-udinese",
+    "name": "Nicolo Zaniolo",
+    "teamId": "udinese-calcio",
+    "teamName": "Udinese Calcio",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Italy"
+  },
+  {
+    "id": "keinan-davis-udinese",
+    "name": "Keinan Davis",
+    "teamId": "udinese-calcio",
+    "teamName": "Udinese Calcio",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "England"
+  },
+  {
+    "id": "success-udinese",
+    "name": "Isaac Success",
+    "teamId": "udinese-calcio",
+    "teamName": "Udinese Calcio",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Nigeria"
+  },
+  {
+    "id": "alexis-sanchez-udinese",
+    "name": "Alexis Sanchez",
+    "teamId": "udinese-calcio",
+    "teamName": "Udinese Calcio",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Chile"
+  },
+  {
+    "id": "andrea-consigli-sassuolo",
+    "name": "Andrea Consigli",
+    "teamId": "sassuolo-calcio",
+    "teamName": "Sassuolo Calcio",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Italy"
+  },
+  {
+    "id": "martin-erlic-sassuolo",
+    "name": "Martin Erlic",
+    "teamId": "sassuolo-calcio",
+    "teamName": "Sassuolo Calcio",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Croatia"
+  },
+  {
+    "id": "filippo-romagna-sassuolo",
+    "name": "Filippo Romagna",
+    "teamId": "sassuolo-calcio",
+    "teamName": "Sassuolo Calcio",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Italy"
+  },
+  {
+    "id": "matias-vina-sassuolo",
+    "name": "Matias Vina",
+    "teamId": "sassuolo-calcio",
+    "teamName": "Sassuolo Calcio",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Uruguay"
+  },
+  {
+    "id": "jeremy-toljan-sassuolo",
+    "name": "Jeremy Toljan",
+    "teamId": "sassuolo-calcio",
+    "teamName": "Sassuolo Calcio",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Germany"
+  },
+  {
+    "id": "henrique-sassuolo",
+    "name": "Henrique",
+    "teamId": "sassuolo-calcio",
+    "teamName": "Sassuolo Calcio",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Brazil"
+  },
+  {
+    "id": "kristian-thorstvedt-sassuolo",
+    "name": "Kristian Thorstvedt",
+    "teamId": "sassuolo-calcio",
+    "teamName": "Sassuolo Calcio",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Norway"
+  },
+  {
+    "id": "ismael-kone-sassuolo",
+    "name": "Ismael Kone",
+    "teamId": "sassuolo-calcio",
+    "teamName": "Sassuolo Calcio",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Canada"
+  },
+  {
+    "id": "cristian-volpato-sassuolo",
+    "name": "Cristian Volpato",
+    "teamId": "sassuolo-calcio",
+    "teamName": "Sassuolo Calcio",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Australia"
+  },
+  {
+    "id": "armand-lauriente-sassuolo",
+    "name": "Armand Lauriente",
+    "teamId": "sassuolo-calcio",
+    "teamName": "Sassuolo Calcio",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "France"
+  },
+  {
+    "id": "domenico-berardi-sassuolo",
+    "name": "Domenico Berardi",
+    "teamId": "sassuolo-calcio",
+    "teamName": "Sassuolo Calcio",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Italy"
+  },
+  {
+    "id": "andrea-pinamonti-sassuolo",
+    "name": "Andrea Pinamonti",
+    "teamId": "sassuolo-calcio",
+    "teamName": "Sassuolo Calcio",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Italy"
+  },
+  {
+    "id": "zion-suzuki-parma",
+    "name": "Zion Suzuki",
+    "teamId": "parma-calcio",
+    "teamName": "Parma Calcio",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Japan"
+  },
+  {
+    "id": "luca-leali-parma",
+    "name": "Luca Leali",
+    "teamId": "parma-calcio",
+    "teamName": "Parma Calcio",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Italy"
+  },
+  {
+    "id": "botond-balogh-parma",
+    "name": "Botond Balogh",
+    "teamId": "parma-calcio",
+    "teamName": "Parma Calcio",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Hungary"
+  },
+  {
+    "id": "simon-sohm-parma",
+    "name": "Simon Sohm",
+    "teamId": "parma-calcio",
+    "teamName": "Parma Calcio",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Switzerland"
+  },
+  {
+    "id": "woyo-coulibaly-parma",
+    "name": "Woyo Coulibaly",
+    "teamId": "parma-calcio",
+    "teamName": "Parma Calcio",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Guinea-Bissau"
+  },
+  {
+    "id": "enrico-delprato-parma",
+    "name": "Enrico Delprato",
+    "teamId": "parma-calcio",
+    "teamName": "Parma Calcio",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Italy"
+  },
+  {
+    "id": "gabriel-charpentier-parma",
+    "name": "Gabriel Charpentier",
+    "teamId": "parma-calcio",
+    "teamName": "Parma Calcio",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "France"
+  },
+  {
+    "id": "mateo-pellegrino-parma",
+    "name": "Mateo Pellegrino",
+    "teamId": "parma-calcio",
+    "teamName": "Parma Calcio",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Argentina"
+  },
+  {
+    "id": "dennis-man-parma",
+    "name": "Dennis Man",
+    "teamId": "parma-calcio",
+    "teamName": "Parma Calcio",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Romania"
+  },
+  {
+    "id": "valentin-mihailay-parma",
+    "name": "Valentin Mihaila",
+    "teamId": "parma-calcio",
+    "teamName": "Parma Calcio",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Romania"
+  },
+  {
+    "id": "joseph-martinez-genoa",
+    "name": "Joseph Martinez",
+    "teamId": "genoa-cfc",
+    "teamName": "Genoa CFC",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Venezuela"
+  },
+  {
+    "id": "ethan-rincon-genoa",
+    "name": "Stefano Sabelli",
+    "teamId": "genoa-cfc",
+    "teamName": "Genoa CFC",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Italy"
+  },
+  {
+    "id": "milan-badelj-genoa",
+    "name": "Alessandro Vogliacco",
+    "teamId": "genoa-cfc",
+    "teamName": "Genoa CFC",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Italy"
+  },
+  {
+    "id": "david-biraschi-genoa",
+    "name": "Johan Vasquez",
+    "teamId": "genoa-cfc",
+    "teamName": "Genoa CFC",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Mexico"
+  },
+  {
+    "id": "aaron-martin-genoa",
+    "name": "Aaron Martin",
+    "teamId": "genoa-cfc",
+    "teamName": "Genoa CFC",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Spain"
+  },
+  {
+    "id": "ruslan-malinovskyi-genoa",
+    "name": "Ruslan Malinovskyi",
+    "teamId": "genoa-cfc",
+    "teamName": "Genoa CFC",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Ukraine"
+  },
+  {
+    "id": "morten-frendrup-genoa",
+    "name": "Morten Frendrup",
+    "teamId": "genoa-cfc",
+    "teamName": "Genoa CFC",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Denmark"
+  },
+  {
+    "id": "vitinha-genoa",
+    "name": "Vitinha",
+    "teamId": "genoa-cfc",
+    "teamName": "Genoa CFC",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Portugal"
+  },
+  {
+    "id": "andrea-pinamonti-genoa",
+    "name": "Lorenzo Colombo",
+    "teamId": "genoa-cfc",
+    "teamName": "Genoa CFC",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Italy"
+  },
+  {
+    "id": "leo-ostigard-genoa",
+    "name": "Leo Ostigard",
+    "teamId": "genoa-cfc",
+    "teamName": "Genoa CFC",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Norway"
+  },
+  {
+    "id": "vanja-milinkovic-torino",
+    "name": "Vanja Milinkovic-Savic",
+    "teamId": "torino-fc",
+    "teamName": "Torino FC",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Serbia"
+  },
+  {
+    "id": "perr-schuurs-torino",
+    "name": "Perr Schuurs",
+    "teamId": "torino-fc",
+    "teamName": "Torino FC",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Netherlands"
+  },
+  {
+    "id": "walukiewicz-torino",
+    "name": "Sebastian Walukiewicz",
+    "teamId": "torino-fc",
+    "teamName": "Torino FC",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Poland"
+  },
+  {
+    "id": "koffi-djidji-torino",
+    "name": "Koffi Djidji",
+    "teamId": "torino-fc",
+    "teamName": "Torino FC",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Ivory Coast"
+  },
+  {
+    "id": "adam-masina-torino",
+    "name": "Adam Masina",
+    "teamId": "torino-fc",
+    "teamName": "Torino FC",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Morocco"
+  },
+  {
+    "id": "nikola-vlasic-torino",
+    "name": "Nikola Vlasic",
+    "teamId": "torino-fc",
+    "teamName": "Torino FC",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Croatia"
+  },
+  {
+    "id": "samuele-ricci-torino",
+    "name": "Samuele Ricci",
+    "teamId": "torino-fc",
+    "teamName": "Torino FC",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Italy"
+  },
+  {
+    "id": "cesare-casadei-torino",
+    "name": "Cesare Casadei",
+    "teamId": "torino-fc",
+    "teamName": "Torino FC",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Italy"
+  },
+  {
+    "id": "karol-linetty-torino",
+    "name": "Karol Linetty",
+    "teamId": "torino-fc",
+    "teamName": "Torino FC",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Poland"
+  },
+  {
+    "id": "che-adams-torino",
+    "name": "Che Adams",
+    "teamId": "torino-fc",
+    "teamName": "Torino FC",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Scotland"
+  },
+  {
+    "id": "giovanni-simeone-torino",
+    "name": "Giovanni Simeone",
+    "teamId": "torino-fc",
+    "teamName": "Torino FC",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Argentina"
+  },
+  {
+    "id": "boris-radunovic-cagliari",
+    "name": "Boris Radunovic",
+    "teamId": "cagliari-calcio",
+    "teamName": "Cagliari Calcio",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Serbia"
+  },
+  {
+    "id": "simone-scuffet-cagliari",
+    "name": "Simone Scuffet",
+    "teamId": "cagliari-calcio",
+    "teamName": "Cagliari Calcio",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Italy"
+  },
+  {
+    "id": "gabriele-zappa-cagliari",
+    "name": "Gabriele Zappa",
+    "teamId": "cagliari-calcio",
+    "teamName": "Cagliari Calcio",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Italy"
+  },
+  {
+    "id": "yerry-mina-cagliari",
+    "name": "Yerry Mina",
+    "teamId": "cagliari-calcio",
+    "teamName": "Cagliari Calcio",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Colombia"
+  },
+  {
+    "id": "adam-obert-cagliari",
+    "name": "Adam Obert",
+    "teamId": "cagliari-calcio",
+    "teamName": "Cagliari Calcio",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Slovakia"
+  },
+  {
+    "id": "marco-palestra-cagliari",
+    "name": "Marco Palestra",
+    "teamId": "cagliari-calcio",
+    "teamName": "Cagliari Calcio",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Italy"
+  },
+  {
+    "id": "razvan-marin-cagliari",
+    "name": "Razvan Marin",
+    "teamId": "cagliari-calcio",
+    "teamName": "Cagliari Calcio",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Romania"
+  },
+  {
+    "id": "sebastiano-esposito-cagliari",
+    "name": "Sebastiano Esposito",
+    "teamId": "cagliari-calcio",
+    "teamName": "Cagliari Calcio",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Italy"
+  },
+  {
+    "id": "roberto-piccoli-cagliari",
+    "name": "Roberto Piccoli",
+    "teamId": "cagliari-calcio",
+    "teamName": "Cagliari Calcio",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Italy"
+  },
+  {
+    "id": "gianluca-lapadula-cagliari",
+    "name": "Gianluca Lapadula",
+    "teamId": "cagliari-calcio",
+    "teamName": "Cagliari Calcio",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Italy"
+  },
+  {
+    "id": "david-de-gea-fiorentina",
+    "name": "David De Gea",
+    "teamId": "acf-fiorentina",
+    "teamName": "ACF Fiorentina",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Spain"
+  },
+  {
+    "id": "pietro-terracciano-fiorentina",
+    "name": "Pietro Terracciano",
+    "teamId": "acf-fiorentina",
+    "teamName": "ACF Fiorentina",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Italy"
+  },
+  {
+    "id": "dodo-fiorentina",
+    "name": "Dodo",
+    "teamId": "acf-fiorentina",
+    "teamName": "ACF Fiorentina",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Brazil"
+  },
+  {
+    "id": "lucas-martinez-quarta-fiorentina",
+    "name": "Lucas Martinez Quarta",
+    "teamId": "acf-fiorentina",
+    "teamName": "ACF Fiorentina",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Argentina"
+  },
+  {
+    "id": "cristiano-biraghi-fiorentina",
+    "name": "Cristiano Biraghi",
+    "teamId": "acf-fiorentina",
+    "teamName": "ACF Fiorentina",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Italy"
+  },
+  {
+    "id": "pablo-mari-fiorentina",
+    "name": "Pablo Mari",
+    "teamId": "acf-fiorentina",
+    "teamName": "ACF Fiorentina",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Spain"
+  },
+  {
+    "id": "nicolo-fagioli-fiorentina",
+    "name": "Nicolo Fagioli",
+    "teamId": "acf-fiorentina",
+    "teamName": "ACF Fiorentina",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Italy"
+  },
+  {
+    "id": "yacine-adli-fiorentina",
+    "name": "Yacine Adli",
+    "teamId": "acf-fiorentina",
+    "teamName": "ACF Fiorentina",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "France"
+  },
+  {
+    "id": "rolando-mandragora-fiorentina",
+    "name": "Rolando Mandragora",
+    "teamId": "acf-fiorentina",
+    "teamName": "ACF Fiorentina",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Italy"
+  },
+  {
+    "id": "michael-kayode-fiorentina",
+    "name": "Michael Kayode",
+    "teamId": "acf-fiorentina",
+    "teamName": "ACF Fiorentina",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Italy"
+  },
+  {
+    "id": "albert-gudmundsson-fiorentina",
+    "name": "Albert Gudmundsson",
+    "teamId": "acf-fiorentina",
+    "teamName": "ACF Fiorentina",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Iceland"
+  },
+  {
+    "id": "moise-kean-fiorentina",
+    "name": "Moise Kean",
+    "teamId": "acf-fiorentina",
+    "teamName": "ACF Fiorentina",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Italy"
+  },
+  {
+    "id": "nico-gonzalez-fiorentina",
+    "name": "Nico Gonzalez",
+    "teamId": "acf-fiorentina",
+    "teamName": "ACF Fiorentina",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Argentina"
+  },
+  {
+    "id": "christos-zafeiris-cremonese",
+    "name": "Ionut Radu",
+    "teamId": "us-cremonese",
+    "teamName": "US Cremonese",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Romania"
+  },
+  {
+    "id": "marco-carnesecchi-cremonese",
+    "name": "Stefano Sarr",
+    "teamId": "us-cremonese",
+    "teamName": "US Cremonese",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Italy"
+  },
+  {
+    "id": "luka-lochoshvili-cremonese",
+    "name": "Luka Lochoshvili",
+    "teamId": "us-cremonese",
+    "teamName": "US Cremonese",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Georgia"
+  },
+  {
+    "id": "milan-bianconi-cremonese",
+    "name": "Matteo Bianchetti",
+    "teamId": "us-cremonese",
+    "teamName": "US Cremonese",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Italy"
+  },
+  {
+    "id": "emanuele-valeri-cremonese",
+    "name": "Emanuele Valeri",
+    "teamId": "us-cremonese",
+    "teamName": "US Cremonese",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Italy"
+  },
+  {
+    "id": "jari-vandeputte-cremonese",
+    "name": "Jari Vandeputte",
+    "teamId": "us-cremonese",
+    "teamName": "US Cremonese",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Belgium"
+  },
+  {
+    "id": "patrick-colak-cremonese",
+    "name": "Lassana Coulibaly",
+    "teamId": "us-cremonese",
+    "teamName": "US Cremonese",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Mali"
+  },
+  {
+    "id": "charles-pickel-cremonese",
+    "name": "Charles Pickel",
+    "teamId": "us-cremonese",
+    "teamName": "US Cremonese",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Switzerland"
+  },
+  {
+    "id": "daniel-ciofani-cremonese",
+    "name": "Jamie Vardy",
+    "teamId": "us-cremonese",
+    "teamName": "US Cremonese",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "England"
+  },
+  {
+    "id": "federico-bonazzoli-cremonese",
+    "name": "Federico Bonazzoli",
+    "teamId": "us-cremonese",
+    "teamName": "US Cremonese",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Italy"
+  },
+  {
+    "id": "wladimiro-falcone-lecce",
+    "name": "Wladimiro Falcone",
+    "teamId": "us-lecce",
+    "teamName": "US Lecce",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Italy"
+  },
+  {
+    "id": "kialonda-gaspar-lecce",
+    "name": "Kialonda Gaspar",
+    "teamId": "us-lecce",
+    "teamName": "US Lecce",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Congo"
+  },
+  {
+    "id": "frederic-guilbert-lecce",
+    "name": "Frederic Guilbert",
+    "teamId": "us-lecce",
+    "teamName": "US Lecce",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "France"
+  },
+  {
+    "id": "luca-pongracic-lecce",
+    "name": "Luca Pongracic",
+    "teamId": "us-lecce",
+    "teamName": "US Lecce",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Croatia"
+  },
+  {
+    "id": "valentin-gendrey-lecce",
+    "name": "Valentin Gendrey",
+    "teamId": "us-lecce",
+    "teamName": "US Lecce",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "France"
+  },
+  {
+    "id": "suat-serdar-lecce",
+    "name": "Suat Serdar",
+    "teamId": "us-lecce",
+    "teamName": "US Lecce",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Germany"
+  },
+  {
+    "id": "thorir-helgason-lecce",
+    "name": "Thorir Helgason",
+    "teamId": "us-lecce",
+    "teamName": "US Lecce",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Iceland"
+  },
+  {
+    "id": "ylber-ramadani-lecce",
+    "name": "Ylber Ramadani",
+    "teamId": "us-lecce",
+    "teamName": "US Lecce",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Albania"
+  },
+  {
+    "id": "nikola-krstovic-lecce",
+    "name": "Nikola Krstovic",
+    "teamId": "us-lecce",
+    "teamName": "US Lecce",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Montenegro"
+  },
+  {
+    "id": "lameck-banda-lecce",
+    "name": "Lameck Banda",
+    "teamId": "us-lecce",
+    "teamName": "US Lecce",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Zambia"
+  },
+  {
+    "id": "nicholas-andrade-pisa",
+    "name": "Nicholas Andrade",
+    "teamId": "pisa-sc",
+    "teamName": "Pisa SC",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Italy"
+  },
+  {
+    "id": "gabriel-charpentier-pisa",
+    "name": "Alexander Lind",
+    "teamId": "pisa-sc",
+    "teamName": "Pisa SC",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Denmark"
+  },
+  {
+    "id": "pedro-pereira-pisa",
+    "name": "Pedro Pereira",
+    "teamId": "pisa-sc",
+    "teamName": "Pisa SC",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Portugal"
+  },
+  {
+    "id": "simone-romagnoli-pisa",
+    "name": "Simone Romagnoli",
+    "teamId": "pisa-sc",
+    "teamName": "Pisa SC",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Italy"
+  },
+  {
+    "id": "filippo-rinaldi-pisa",
+    "name": "Filippo Rinaldi",
+    "teamId": "pisa-sc",
+    "teamName": "Pisa SC",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Italy"
+  },
+  {
+    "id": "mehdi-leris-pisa",
+    "name": "Mehdi Leris",
+    "teamId": "pisa-sc",
+    "teamName": "Pisa SC",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "France"
+  },
+  {
+    "id": "gabor-varga-pisa",
+    "name": "Nicolas Pepe",
+    "teamId": "pisa-sc",
+    "teamName": "Pisa SC",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Ivory Coast"
+  },
+  {
+    "id": "stefano-moreo-pisa",
+    "name": "Stefano Moreo",
+    "teamId": "pisa-sc",
+    "teamName": "Pisa SC",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Italy"
+  },
+  {
+    "id": "lorenzo-montipo-verona",
+    "name": "Lorenzo Montipo",
+    "teamId": "hellas-verona",
+    "teamName": "Hellas Verona",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Goalkeeper",
+    "nationality": "Italy"
+  },
+  {
+    "id": "filippo-terracciano-verona",
+    "name": "Filippo Terracciano",
+    "teamId": "hellas-verona",
+    "teamName": "Hellas Verona",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Italy"
+  },
+  {
+    "id": "davide-faraoni-verona",
+    "name": "Davide Faraoni",
+    "teamId": "hellas-verona",
+    "teamName": "Hellas Verona",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Italy"
+  },
+  {
+    "id": "pawel-dawidowicz-verona",
+    "name": "Pawel Dawidowicz",
+    "teamId": "hellas-verona",
+    "teamName": "Hellas Verona",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Poland"
+  },
+  {
+    "id": "Santiago-Coppola-verona",
+    "name": "Diego Coppola",
+    "teamId": "hellas-verona",
+    "teamName": "Hellas Verona",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Defender",
+    "nationality": "Italy"
+  },
+  {
+    "id": "khaled-narey-verona",
+    "name": "Khaled Narey",
+    "teamId": "hellas-verona",
+    "teamName": "Hellas Verona",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Ghana"
+  },
+  {
+    "id": "hong-seungho-verona",
+    "name": "Tomas Suslov",
+    "teamId": "hellas-verona",
+    "teamName": "Hellas Verona",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Midfielder",
+    "nationality": "Slovakia"
+  },
+  {
+    "id": "casper-tengstedt-verona",
+    "name": "Casper Tengstedt",
+    "teamId": "hellas-verona",
+    "teamName": "Hellas Verona",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Denmark"
+  },
+  {
+    "id": "gift-orban-verona",
+    "name": "Gift Orban",
+    "teamId": "hellas-verona",
+    "teamName": "Hellas Verona",
+    "competitionId": "serie-a-2025-2026",
+    "season": "2025-2026",
+    "position": "Forward",
+    "nationality": "Nigeria"
+  }
+]

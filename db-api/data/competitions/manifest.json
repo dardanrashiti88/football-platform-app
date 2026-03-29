@@ -1,0 +1,34 @@
+{
+  "competitions": [
+    {
+      "slug": "premier-league",
+      "folder": "premier-league",
+      "seedStatus": "awaiting-data"
+    },
+    {
+      "slug": "la-liga",
+      "folder": "la-liga",
+      "seedStatus": "awaiting-data"
+    },
+    {
+      "slug": "bundesliga",
+      "folder": "bundesliga",
+      "seedStatus": "awaiting-data"
+    },
+    {
+      "slug": "serie-a",
+      "folder": "serie-a",
+      "seedStatus": "awaiting-data"
+    },
+    {
+      "slug": "ligue-1",
+      "folder": "ligue-1",
+      "seedStatus": "awaiting-data"
+    },
+    {
+      "slug": "champions-league",
+      "folder": "champions-league",
+      "seedStatus": "awaiting-data"
+    }
+  ]
+}

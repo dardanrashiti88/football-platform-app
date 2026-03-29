@@ -1,0 +1,22 @@
+Player Name,Position,Squad Number,Nationality,Age,Appearances,Goals,Assists,Minutes Played,Goals Plus Assists,Clean Sheets,Yellow Cards,Red Cards,Home Grown,Notes
+Marvin Schwäbe,GK,1,Germany,30,24,0,0,2160,0,6,3,0,Yes,First‑choice keeper with most league starts :contentReference[oaicite:1]{index=1}
+Ron‑Robert Zieler,GK,20,Germany,37,0,0,0,0,0,0,1,0,Yes,Backup keeper with few apps :contentReference[oaicite:2]{index=2}
+Matthias Köbbing,GK,44,Germany,28,0,0,0,0,0,0,0,0,No,Third keeper, limited minutes :contentReference[oaicite:3]{index=3}
+Dominique Heintz,DEF,3,Germany,32,25,2,1,?,3,0,4,0,No,Center‑back starter :contentReference[oaicite:4]{index=4}
+Joel Schmied,DEF,2,Switzerland,26,23,0,0,?,0,0,4,0,No,Defender with minutes :contentReference[oaicite:5]{index=5}
+Luca Kilian,DEF,15,Germany,26,20,1,0,?,1,0,3,0,Yes,Defender starter :contentReference[oaicite:6]{index=6}
+Jusuf Gazibegović,DEF,25,Bosnia & Herzegovina,25,22,1,0,?,1,0,3,0,No,Defender rotation :contentReference[oaicite:7]{index=7}
+Sebastian Sebulonsen,DEF,28,Norway,25,24,4,0,?,4,0,4,0,No,Assisting defender :contentReference[oaicite:8]{index=8}
+Kristoffer Lund,DEF,32,Denmark,23,18,0,2,?,2,0,3,0,No,Full‑back with assists :contentReference[oaicite:9]{index=9}
+Ísak Jóhannesson,MID,18,Iceland,22,25,3,2,?,5,0,3,0,No,Central midfield with output :contentReference[oaicite:10]{index=10}
+Eric Martel,MID,6,Germany,24,25,2,1,?,3,0,7,0,Yes,Box‑to‑box mid, yellow card leader :contentReference[oaicite:11]{index=11}
+Tom Krauß,MID,5,Germany,24,23,1,2,?,3,0,4,0,Yes,Midfield starter :contentReference[oaicite:12]{index=12}
+Alessio Castro‑Montes,MID,17,Belgium,28,24,4,3,?,7,0,2,0,No,Creative midfielder/assist leader :contentReference[oaicite:13]{index=13}
+Linton Maina,MID,37,Germany,26,22,2,1,?,3,0,3,0,No,Winger with goals & assists :contentReference[oaicite:14]{index=14}
+Florian Kainz,MID,11,Austria,33,20,2,1,?,3,0,1,0,No,Wing rotation :contentReference[oaicite:15]{index=15}
+Luca Waldschmidt,FWD,7,Germany,29,24,3,3,?,6,0,2,0,No,Forward, goal + assist output :contentReference[oaicite:16]{index=16}
+Said El Mala,FWD,13,Germany,19,25,9,1,?,10,0,1,0,No,Team’s top scorer this season :contentReference[oaicite:17]{index=17}
+Ragnar Ache,FWD,9,Germany,27,22,5,0,?,5,0,2,0,No,Goal contributor :contentReference[oaicite:18]{index=18}
+Jakub Kamiński,FWD,16,Poland,23,23,5,2,?,7,0,2,0,No,Forward with goals & assists :contentReference[oaicite:19]{index=19}
+Marius Bülter,FWD,30,Germany,33,23,3,3,?,6,0,3,0,No,Attack rotation with scoring & assisting :contentReference[oaicite:20]{index=20}
+Other Squad Players,Various,0,Various,0,0,0,0,0,0,0,0,Yes,Youth/rotation players w/o senior apps :contentReference[oaicite:21]{index=21}

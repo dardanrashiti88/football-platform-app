@@ -1,0 +1,25 @@
+Player Name,Position,Squad Number,Nationality,Age,Appearances,Goals,Assists,Minutes Played,Goals Plus Assists,Clean Sheets,Yellow Cards,Red Cards,Home Grown,Notes
+Caoimhín Kelleher,GK,1,Ireland,27,26,0,2,2430,2,8,1,0,No,First‑choice keeper :contentReference[oaicite:1]{index=1}
+Hákon Valdimarsson,GK,12,Iceland,24,0,0,0,0,0,0,0,0,No,Backup GK :contentReference[oaicite:2]{index=2}
+Ellery Balcombe,GK,31,England,26,0,0,0,0,0,0,0,0,Yes,Third goalkeeper :contentReference[oaicite:3]{index=3}
+Julian Eyestone,GK,41,USA,19,0,0,0,0,0,0,0,0,No,Youth keeper :contentReference[oaicite:4]{index=4}
+Aaron Hickey,DEF,2,Scotland,23,17,0,0,1530,0,0,1,0,No,Full‑back :contentReference[oaicite:5]{index=5}
+Rico Henry,DEF,3,England,28,22,0,0,1980,0,0,2,0,Yes,Defender :contentReference[oaicite:6]{index=6}
+Sepp van den Berg,DEF,4,Netherlands,24,21,0,1,1890,1,0,1,0,No,Center‑back :contentReference[oaicite:7]{index=7}
+Ethan Pinnock,DEF,5,Jamaica,32,3,0,0,270,0,0,1,0,Yes,Center‑back :contentReference[oaicite:8]{index=8}
+Kristoffer Ajer,DEF,20,Norway,27,20,0,1,1800,1,0,2,0,No,Defender :contentReference[oaicite:9]{index=9}
+Nathan Collins,DEF,22,Ireland,24,24,1,2,2160,3,0,4,0,Yes,Defender & captain :contentReference[oaicite:10]{index=10}
+Michael Kayode,DEF,33,Italy,21,26,0,0,2340,0,0,6,0,No,CB rotation :contentReference[oaicite:11]{index=11}
+Jordan Henderson,MID,6,England,35,24,1,3,2160,4,0,4,0,Yes,Midfielder :contentReference[oaicite:12]{index=12}
+Kevin Schade,MID/FWD,7,Germany,24,23,6,3,2070,9,0,6,1,No,Attacking threat :contentReference[oaicite:13]{index=13}
+Mathias Jensen,MID,8,Denmark,30,24,2,1,1800,3,0,2,0,No,Midfield :contentReference[oaicite:14]{index=14}
+Reiss Nelson,MID/FWD,11,England,26,6,0,0,540,0,0,0,0,Yes,Loan signing :contentReference[oaicite:15]{index=15}
+Fábio Carvalho,MID,14,Portugal,23,6,1,0,540,1,0,0,0,No,Midfielder/Winger :contentReference[oaicite:16]{index=16}
+Antoni Milambo,MID,17,Netherlands,20,1,0,0,90,0,0,0,0,No,Young prospect :contentReference[oaicite:17]{index=17}
+Yehor Yarmoliuk,MID,18,Ukraine,21,26,2,1,1800,3,0,5,0,No,Midfielder :contentReference[oaicite:18]{index=18}
+Mikkel Damsgaard,MID,24,Denmark,25,22,1,3,1980,4,0,0,0,No,Creative midfielder :contentReference[oaicite:19]{index=19}
+Vitaly Janelt,MID,27,Germany,27,21,1,4,1890,5,0,7,0,No,Box‑to‑box mid :contentReference[oaicite:20]{index=20}
+Romelle Donovan,MID,45,England,19,2,0,0,180,0,0,0,0,Yes,Squad player :contentReference[oaicite:21]{index=21}
+Igor Thiago,FWD,9,Brazil,24,26,17,1,2070,18,0,5,0,No,Lead scorer & star :contentReference[oaicite:22]{index=22}
+Dango Ouattara,FWD,19,Burkina Faso,24,20,5,5,1800,10,0,4,0,No,Forward :contentReference[oaicite:23]{index=23}
+Keane Lewis‑Potter,FWD,23,England,24,24,3,1,1980,4,0,1,0,Yes,Attacker :contentReference[oaicite:24]{index=24}

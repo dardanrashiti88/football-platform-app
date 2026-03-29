@@ -1,0 +1,202 @@
+[
+  {
+    "id": "alaves",
+    "slug": "alaves",
+    "name": "Alaves",
+    "shortName": "Alaves",
+    "country": "Spain",
+    "aliases": [
+      "Alaves"
+    ]
+  },
+  {
+    "id": "ath-bilbao",
+    "slug": "ath-bilbao",
+    "name": "Ath Bilbao",
+    "shortName": "Ath Bilbao",
+    "country": "Spain",
+    "aliases": [
+      "Ath Bilbao"
+    ]
+  },
+  {
+    "id": "atl-madrid",
+    "slug": "atl-madrid",
+    "name": "Atl. Madrid",
+    "shortName": "Atl. Madrid",
+    "country": "Spain",
+    "aliases": [
+      "Atl. Madrid"
+    ]
+  },
+  {
+    "id": "barcelona",
+    "slug": "barcelona",
+    "name": "Barcelona",
+    "shortName": "Barcelona",
+    "country": "Spain",
+    "aliases": [
+      "Barcelona"
+    ]
+  },
+  {
+    "id": "betis",
+    "slug": "betis",
+    "name": "Betis",
+    "shortName": "Betis",
+    "country": "Spain",
+    "aliases": [
+      "Betis"
+    ]
+  },
+  {
+    "id": "celta-vigo",
+    "slug": "celta-vigo",
+    "name": "Celta Vigo",
+    "shortName": "Celta Vigo",
+    "country": "Spain",
+    "aliases": [
+      "Celta Vigo"
+    ]
+  },
+  {
+    "id": "elche",
+    "slug": "elche",
+    "name": "Elche",
+    "shortName": "Elche",
+    "country": "Spain",
+    "aliases": [
+      "Elche"
+    ]
+  },
+  {
+    "id": "espanyol",
+    "slug": "espanyol",
+    "name": "Espanyol",
+    "shortName": "Espanyol",
+    "country": "Spain",
+    "aliases": [
+      "Espanyol"
+    ]
+  },
+  {
+    "id": "getafe",
+    "slug": "getafe",
+    "name": "Getafe",
+    "shortName": "Getafe",
+    "country": "Spain",
+    "aliases": [
+      "Getafe"
+    ]
+  },
+  {
+    "id": "girona",
+    "slug": "girona",
+    "name": "Girona",
+    "shortName": "Girona",
+    "country": "Spain",
+    "aliases": [
+      "Girona"
+    ]
+  },
+  {
+    "id": "levante",
+    "slug": "levante",
+    "name": "Levante",
+    "shortName": "Levante",
+    "country": "Spain",
+    "aliases": [
+      "Levante"
+    ]
+  },
+  {
+    "id": "mallorca",
+    "slug": "mallorca",
+    "name": "Mallorca",
+    "shortName": "Mallorca",
+    "country": "Spain",
+    "aliases": [
+      "Mallorca"
+    ]
+  },
+  {
+    "id": "osasuna",
+    "slug": "osasuna",
+    "name": "Osasuna",
+    "shortName": "Osasuna",
+    "country": "Spain",
+    "aliases": [
+      "Osasuna"
+    ]
+  },
+  {
+    "id": "oviedo",
+    "slug": "oviedo",
+    "name": "Oviedo",
+    "shortName": "Oviedo",
+    "country": "Spain",
+    "aliases": [
+      "Oviedo"
+    ]
+  },
+  {
+    "id": "rayo-vallecano",
+    "slug": "rayo-vallecano",
+    "name": "Rayo Vallecano",
+    "shortName": "Rayo Vallecano",
+    "country": "Spain",
+    "aliases": [
+      "Rayo Vallecano"
+    ]
+  },
+  {
+    "id": "real-madrid",
+    "slug": "real-madrid",
+    "name": "Real Madrid",
+    "shortName": "Real Madrid",
+    "country": "Spain",
+    "aliases": [
+      "Real Madrid"
+    ]
+  },
+  {
+    "id": "real-sociedad",
+    "slug": "real-sociedad",
+    "name": "Real Sociedad",
+    "shortName": "Real Sociedad",
+    "country": "Spain",
+    "aliases": [
+      "Real Sociedad"
+    ]
+  },
+  {
+    "id": "sevilla",
+    "slug": "sevilla",
+    "name": "Sevilla",
+    "shortName": "Sevilla",
+    "country": "Spain",
+    "aliases": [
+      "Sevilla"
+    ]
+  },
+  {
+    "id": "valencia",
+    "slug": "valencia",
+    "name": "Valencia",
+    "shortName": "Valencia",
+    "country": "Spain",
+    "aliases": [
+      "Valencia"
+    ]
+  },
+  {
+    "id": "villarreal",
+    "slug": "villarreal",
+    "name": "Villarreal",
+    "shortName": "Villarreal",
+    "country": "Spain",
+    "aliases": [
+      "Villarreal"
+    ]
+  }
+]

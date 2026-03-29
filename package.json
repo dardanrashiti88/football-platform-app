@@ -1,0 +1,13 @@
+{
+  "name": "fodr-root",
+  "private": true,
+  "scripts": {
+    "dev": "node scripts/dev.js",
+    "dev:backend": "npm --prefix backend start",
+    "dev:dashboard": "npm --prefix Dashboard-view run dev",
+    "build:dashboard": "npm --prefix Dashboard-view run build",
+    "dev:db-api": "npm --prefix db-api start",
+    "healthcheck": "node scripts/healthcheck.js",
+    "healthcheck:live": "node scripts/healthcheck.js --live"
+  }
+}

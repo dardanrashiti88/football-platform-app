@@ -1,0 +1,362 @@
+[
+  {
+    "id": "ajax",
+    "slug": "ajax",
+    "name": "Ajax",
+    "shortName": "Ajax",
+    "country": null,
+    "aliases": [
+      "Ajax"
+    ]
+  },
+  {
+    "id": "arsenal",
+    "slug": "arsenal",
+    "name": "Arsenal",
+    "shortName": "Arsenal",
+    "country": null,
+    "aliases": [
+      "Arsenal"
+    ]
+  },
+  {
+    "id": "atalanta",
+    "slug": "atalanta",
+    "name": "Atalanta",
+    "shortName": "Atalanta",
+    "country": null,
+    "aliases": [
+      "Atalanta"
+    ]
+  },
+  {
+    "id": "athletic-bilbao",
+    "slug": "athletic-bilbao",
+    "name": "Athletic Bilbao",
+    "shortName": "Ath Bilbao",
+    "country": null,
+    "aliases": [
+      "Ath Bilbao"
+    ]
+  },
+  {
+    "id": "atletico-madrid",
+    "slug": "atletico-madrid",
+    "name": "Atletico Madrid",
+    "shortName": "Atl. Madrid",
+    "country": null,
+    "aliases": [
+      "Atl. Madrid"
+    ]
+  },
+  {
+    "id": "barcelona",
+    "slug": "barcelona",
+    "name": "Barcelona",
+    "shortName": "Barcelona",
+    "country": null,
+    "aliases": [
+      "Barcelona"
+    ]
+  },
+  {
+    "id": "bayer-leverkusen",
+    "slug": "bayer-leverkusen",
+    "name": "Bayer Leverkusen",
+    "shortName": "Leverkusen",
+    "country": null,
+    "aliases": [
+      "Bayer Leverkusen"
+    ]
+  },
+  {
+    "id": "bayern-munich",
+    "slug": "bayern-munich",
+    "name": "Bayern Munich",
+    "shortName": "Bayern",
+    "country": null,
+    "aliases": [
+      "Bayern Munich"
+    ]
+  },
+  {
+    "id": "benfica",
+    "slug": "benfica",
+    "name": "Benfica",
+    "shortName": "Benfica",
+    "country": null,
+    "aliases": [
+      "Benfica"
+    ]
+  },
+  {
+    "id": "bodo-glimt",
+    "slug": "bodo-glimt",
+    "name": "Bodo/Glimt",
+    "shortName": "Bodo/Glimt",
+    "country": null,
+    "aliases": [
+      "Bodo/Glimt"
+    ]
+  },
+  {
+    "id": "borussia-dortmund",
+    "slug": "borussia-dortmund",
+    "name": "Borussia Dortmund",
+    "shortName": "Dortmund",
+    "country": null,
+    "aliases": [
+      "Dortmund"
+    ]
+  },
+  {
+    "id": "chelsea",
+    "slug": "chelsea",
+    "name": "Chelsea",
+    "shortName": "Chelsea",
+    "country": null,
+    "aliases": [
+      "Chelsea"
+    ]
+  },
+  {
+    "id": "club-brugge",
+    "slug": "club-brugge",
+    "name": "Club Brugge",
+    "shortName": "Club Brugge",
+    "country": null,
+    "aliases": [
+      "Club Brugge KV"
+    ]
+  },
+  {
+    "id": "eintracht-frankfurt",
+    "slug": "eintracht-frankfurt",
+    "name": "Eintracht Frankfurt",
+    "shortName": "Eintracht",
+    "country": null,
+    "aliases": [
+      "Eintracht Frankfurt"
+    ]
+  },
+  {
+    "id": "fc-copenhagen",
+    "slug": "fc-copenhagen",
+    "name": "FC Copenhagen",
+    "shortName": "Copenhagen",
+    "country": null,
+    "aliases": [
+      "FC Copenhagen"
+    ]
+  },
+  {
+    "id": "galatasaray",
+    "slug": "galatasaray",
+    "name": "Galatasaray",
+    "shortName": "Galatasaray",
+    "country": null,
+    "aliases": [
+      "Galatasaray"
+    ]
+  },
+  {
+    "id": "inter",
+    "slug": "inter",
+    "name": "Inter",
+    "shortName": "Inter",
+    "country": null,
+    "aliases": [
+      "Inter"
+    ]
+  },
+  {
+    "id": "juventus",
+    "slug": "juventus",
+    "name": "Juventus",
+    "shortName": "Juventus",
+    "country": null,
+    "aliases": [
+      "Juventus"
+    ]
+  },
+  {
+    "id": "kairat-almaty",
+    "slug": "kairat-almaty",
+    "name": "Kairat Almaty",
+    "shortName": "Kairat",
+    "country": null,
+    "aliases": [
+      "Kairat Almaty"
+    ]
+  },
+  {
+    "id": "liverpool",
+    "slug": "liverpool",
+    "name": "Liverpool",
+    "shortName": "Liverpool",
+    "country": null,
+    "aliases": [
+      "Liverpool"
+    ]
+  },
+  {
+    "id": "manchester-city",
+    "slug": "manchester-city",
+    "name": "Manchester City",
+    "shortName": "Man City",
+    "country": null,
+    "aliases": [
+      "Manchester City"
+    ]
+  },
+  {
+    "id": "marseille",
+    "slug": "marseille",
+    "name": "Marseille",
+    "shortName": "Marseille",
+    "country": null,
+    "aliases": [
+      "Marseille"
+    ]
+  },
+  {
+    "id": "monaco",
+    "slug": "monaco",
+    "name": "Monaco",
+    "shortName": "Monaco",
+    "country": null,
+    "aliases": [
+      "Monaco"
+    ]
+  },
+  {
+    "id": "napoli",
+    "slug": "napoli",
+    "name": "Napoli",
+    "shortName": "Napoli",
+    "country": null,
+    "aliases": [
+      "Napoli"
+    ]
+  },
+  {
+    "id": "newcastle-united",
+    "slug": "newcastle-united",
+    "name": "Newcastle United",
+    "shortName": "Newcastle",
+    "country": null,
+    "aliases": [
+      "Newcastle"
+    ]
+  },
+  {
+    "id": "olympiacos",
+    "slug": "olympiacos",
+    "name": "Olympiacos",
+    "shortName": "Olympiacos",
+    "country": null,
+    "aliases": [
+      "Olympiacos Piraeus"
+    ]
+  },
+  {
+    "id": "pafos",
+    "slug": "pafos",
+    "name": "Pafos",
+    "shortName": "Pafos",
+    "country": null,
+    "aliases": [
+      "Pafos"
+    ]
+  },
+  {
+    "id": "psg",
+    "slug": "psg",
+    "name": "Paris Saint-Germain",
+    "shortName": "PSG",
+    "country": null,
+    "aliases": [
+      "PSG"
+    ]
+  },
+  {
+    "id": "psv",
+    "slug": "psv",
+    "name": "PSV",
+    "shortName": "PSV",
+    "country": null,
+    "aliases": [
+      "PSV"
+    ]
+  },
+  {
+    "id": "qarabag",
+    "slug": "qarabag",
+    "name": "Qarabag",
+    "shortName": "Qarabag",
+    "country": null,
+    "aliases": [
+      "Qarabag"
+    ]
+  },
+  {
+    "id": "real-madrid",
+    "slug": "real-madrid",
+    "name": "Real Madrid",
+    "shortName": "Real Madrid",
+    "country": null,
+    "aliases": [
+      "Real Madrid"
+    ]
+  },
+  {
+    "id": "slavia-prague",
+    "slug": "slavia-prague",
+    "name": "Slavia Prague",
+    "shortName": "Slavia",
+    "country": null,
+    "aliases": [
+      "Slavia Prague"
+    ]
+  },
+  {
+    "id": "sporting-cp",
+    "slug": "sporting-cp",
+    "name": "Sporting CP",
+    "shortName": "Sporting",
+    "country": null,
+    "aliases": [
+      "Sporting CP"
+    ]
+  },
+  {
+    "id": "tottenham-hotspur",
+    "slug": "tottenham-hotspur",
+    "name": "Tottenham Hotspur",
+    "shortName": "Tottenham",
+    "country": null,
+    "aliases": [
+      "Tottenham"
+    ]
+  },
+  {
+    "id": "union-sg",
+    "slug": "union-sg",
+    "name": "Union SG",
+    "shortName": "Union SG",
+    "country": null,
+    "aliases": [
+      "Royale Union SG"
+    ]
+  },
+  {
+    "id": "villarreal",
+    "slug": "villarreal",
+    "name": "Villarreal",
+    "shortName": "Villarreal",
+    "country": null,
+    "aliases": [
+      "Villarreal"
+    ]
+  }
+]

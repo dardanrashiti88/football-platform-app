@@ -1,0 +1,24 @@
+Player Name,Position,Squad Number,Nationality,Age,Appearances,Goals,Assists,Minutes Played,Goals Plus Assists,Clean Sheets,Yellow Cards,Red Cards,Home Grown,Notes
+Ivan Provedel,GK,94,Italy,31,28,0,0,2520,0,8,2,0,No,Main keeper with good clean sheets in Serie A:contentReference[oaicite:1]{index=1}
+Alessio Furlanetto,GK,55,Italy,24,3,0,0,270,0,0,0,0,Yes,Backup keeper (few apps):contentReference[oaicite:2]{index=2}
+Edoardo Motta,GK,40,Italy,20,0,0,0,0,0,0,0,0,Yes,Youth keeper (no apps):contentReference[oaicite:3]{index=3}
+Samuel Gigot,DEF,2,France,31,27,1,1,2430,2,0,5,0,No,Center‑back contributor:contentReference[oaicite:4]{index=4}
+Luca Pellegrini,DEF,3,Italy,26,26,0,1,2340,1,0,3,0,Yes,Left‑back with minutes:contentReference[oaicite:5]{index=5}
+Patric Gabarrón,DEF,4,Spain,31,25,0,0,2250,0,0,4,0,No,Versatile defender:contentReference[oaicite:6]{index=6}
+Alessio Romagnoli,DEF,13,Italy,31,27,1,0,2430,1,0,5,0,Yes,Experienced center‑back:contentReference[oaicite:7]{index=7}
+Nuno Tavares,DEF,17,Portugal,25,25,2,1,2250,3,0,3,0,No,Left‑back with attacking runs:contentReference[oaicite:8]{index=8}
+Elseid Hysaj,DEF,23,Albania,31,24,0,1,2160,1,0,4,0,No,Right‑back depth:contentReference[oaicite:9]{index=9}
+Mario Gila,DEF,34,Spain,25,24,1,0,2160,1,0,3,0,No,Defense rotation:contentReference[oaicite:10]{index=10}
+Nicolò Rovella,MID,6,Italy,24,25,1,1,2250,2,0,3,0,Yes,Creative midfield starter:contentReference[oaicite:11]{index=11}
+Mattéo Guendouzi,MID,8,France,26,24,2,1,2160,3,0,4,0,No,Midfield goals/assists:contentReference[oaicite:12]{index=12}
+Danilo Cataldi,MID,32,Italy,31,25,3,3,2250,6,0,5,0,Yes,Top assist provider:contentReference[oaicite:13]{index=13}
+Toma Bašić,MID,26,Croatia,29,20,1,2,1800,3,0,2,0,No,Box‑to‑box mid:contentReference[oaicite:14]{index=14}
+Gustav Isaksen,FWD,18,Denmark,24,24,4,1,2160,5,0,3,0,No,Club top scorer (4):contentReference[oaicite:15]{index=15}
+Mattia Zaccagni,FWD,10,Italy,27,23,3,0,2070,3,0,4,0,No,Winger scorer:contentReference[oaicite:16]{index=16}
+Matteo Cancellieri,FWD,22,Italy,23,22,3,1,1980,4,0,3,0,No,Forward contribution:contentReference[oaicite:17]{index=17}
+Valentín Castellanos,FWD,11,Argentina,27,21,2,3,1890,5,0,2,0,No,Assist leader:contentReference[oaicite:18]{index=18}
+Tijjani Noslin,FWD,14,Netherlands,26,21,2,0,1890,2,0,2,0,No,Rotation forward:contentReference[oaicite:19]{index=19}
+Boulaye Dia,FWD,19,Senegal,29,19,1,1,1710,2,0,2,0,No,Forward role:contentReference[oaicite:20]{index=20}
+Pedro,FWD,9,Brazil,32,22,3,1,1980,4,0,3,0,No,Experienced striker:contentReference[oaicite:21]{index=21}
+Adam Marušić,DEF/MID,77,Montenegro,32,28,0,2,2520,2,0,3,0,No,Full‑back/wing option:contentReference[oaicite:22]{index=22}
+Reda Belahyane,MID,21,Morocco/France,21,12,0,1,1080,1,0,1,0,No,Young midfielder:contentReference[oaicite:23]{index=23}

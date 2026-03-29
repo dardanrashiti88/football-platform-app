@@ -1,0 +1,427 @@
+.mobile-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.flag {
+  width: 30px;
+  height: 20px;
+  border-radius: 4px;
+  border: 2px solid var(--ink);
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.flag-eng {
+  background: #ffffff;
+}
+
+.flag-eng::before,
+.flag-eng::after {
+  content: '';
+  position: absolute;
+  background: #c8102e;
+}
+
+.flag-eng::before {
+  width: 100%;
+  height: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.flag-eng::after {
+  width: 4px;
+  height: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.flag-ita {
+  background: linear-gradient(90deg, #009246 0 33%, #ffffff 33% 66%, #ce2b37 66%);
+}
+
+.flag-esp {
+  background: linear-gradient(#aa151b 0 33%, #f1bf00 33% 66%, #aa151b 66%);
+}
+
+.flag-ger {
+  background: linear-gradient(#000000 0 33%, #dd0000 33% 66%, #ffce00 66%);
+}
+
+.flag-fra {
+  background: linear-gradient(90deg, #0055a4 0 33%, #ffffff 33% 66%, #ef4135 66%);
+}
+
+.flag-eur {
+  background: #103a8f url('../../images/Flags/Flag_of_Europe.svg.webp') center/cover no-repeat;
+}
+
+.flag-world {
+  background: linear-gradient(135deg, #0b8f3f, #103a8f);
+}
+
+.league-card {
+  --accent: var(--premier);
+  background: var(--ui-accent);
+  border-radius: var(--radius-xl);
+  border: 3px solid var(--panel-border);
+  padding: 14px 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: 0 6px 0 var(--shadow);
+  animation: rise-in 0.45s ease both;
+}
+
+.league-card:nth-child(2) { animation-delay: 0.04s; }
+.league-card:nth-child(3) { animation-delay: 0.08s; }
+.league-card:nth-child(4) { animation-delay: 0.12s; }
+
+.league-card.premier {
+  background: url('../../images/leagues-boxes-background/prem/prem-background.jpg') center/100% 100% no-repeat;
+}
+
+.league-card.championship {
+  --accent: var(--championship);
+  background: url('../../images/leagues-boxes-background/EFLchampionship/a792577857b308b9f35c9f9bd507d5d6.jpg') center/100% 100% no-repeat;
+}
+
+.league-card.facup {
+  --accent: var(--facup);
+  background: url('../../images/leagues-boxes-background/facup/81e1554c165cce79a586f406d3b6702d.jpg') center/100% 100% no-repeat;
+}
+
+.league-card.carabaocup {
+  --accent: var(--carabaocup);
+  background: url('../../images/leagues-boxes-background/carabaocup/a9d84c90f814a541ea9a2d3951972999.jpg') center/100% 100% no-repeat;
+}
+
+.league-card.seriea {
+  --accent: var(--seriea);
+  background: url('../../images/leagues-boxes-background/serieA/serie-italian-football-soccer-league-600nw-2478138263.webp') center/100% 100% no-repeat;
+}
+
+.league-card.laliga {
+  --accent: var(--laliga);
+  background: url('../../images/leagues-boxes-background/laliga/8d6c303d3c3323bc160f7406fa42f8fc.jpg') center/100% 100% no-repeat;
+}
+
+.league-card.bundesliga {
+  --accent: var(--bundesliga);
+  background: url('../../images/leagues-boxes-background/bundesliga/744bad24725deae1be63a7b4b73a5811.jpg') center/100% 100% no-repeat;
+}
+
+.league-card.ligue1 {
+  --accent: var(--ligue1);
+  background: url('../../images/leagues-boxes-background/ligue1/abstract-arrow-pattern-background-futuristic-technology-interface-with-blue-color-and-light-lines-eps10-vector.jpg') center/100% 100% no-repeat;
+}
+
+.league-card.ucl {
+  --accent: var(--ucl);
+  background: url('../../images/leagues-boxes-background/champions-league/champions league.jpg') center/100% 100% no-repeat;
+}
+
+.league-card.europa {
+  --accent: var(--europa);
+  background: url('../../images/leagues-boxes-background/europa-league/3b8f0643f16bce04ce98efeaf44f1efc.jpg') center/100% 100% no-repeat;
+}
+
+.league-card.conference {
+  --accent: var(--conference);
+  background: url('../../images/leagues-boxes-background/conference-league/6272c0846a768ec42da2616c02b8f7a0.jpg') center/100% 100% no-repeat;
+}
+
+.league-card.worldcup {
+  --accent: var(--worldcup);
+  background: url('../../images/leagues-boxes-background/worldcup2026/Untitled design.png') center/100% 100% no-repeat;
+}
+
+.league-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.league-logo {
+  width: 60px;
+  height: 60px;
+  border-radius: 14px;
+  background: var(--white);
+  border: 2px solid var(--ink);
+  display: grid;
+  place-items: center;
+  padding: 6px;
+  flex: 0 0 60px;
+}
+
+.league-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.league-card.seriea .league-logo img {
+  width: 70%;
+  height: 82%;
+}
+
+.league-card.premier .league-logo img {
+  transform: translateY(-5px);
+}
+
+.league-card.championship .league-logo img {
+  width: 72%;
+  height: 72%;
+}
+
+.league-card.facup .league-logo img,
+.league-card.carabaocup .league-logo img {
+  width: 76%;
+  height: 76%;
+}
+
+.league-card.worldcup .league-logo img {
+  width: 86%;
+  height: 86%;
+  transform: translateY(-4px);
+}
+
+.league-title {
+  flex: 1;
+  min-width: 0;
+  background: var(--accent);
+  color: var(--white);
+  padding: 8px 12px;
+  border-radius: var(--radius-pill);
+  border: 2px solid var(--ink);
+  text-align: center;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  font-size: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.matchday-row {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.matchday-row::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+.mw-pill {
+  background: var(--accent);
+  color: var(--white);
+  border-radius: var(--radius-pill);
+  padding: 6px 12px;
+  border: 2px solid var(--ink);
+  font-weight: 600;
+  min-width: 56px;
+  text-align: center;
+  font-size: 10px;
+  box-shadow: 0 2px 0 transparent;
+  flex: 0 0 auto;
+}
+
+.mw-pill.active {
+  box-shadow: 0 2px 0 var(--ink);
+}
+
+.fixtures-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 0 2px;
+  margin-top: 4px;
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+.fixtures-head span {
+  position: relative;
+  flex: 1;
+  padding: 6px 12px 6px 28px;
+  border-radius: 999px;
+  border: 2px solid var(--ink);
+  text-transform: uppercase;
+  background: var(--accent);
+  box-shadow: 0 2px 0 var(--ink);
+  overflow: hidden;
+}
+
+.fixtures-head span::before {
+  content: '';
+  position: absolute;
+  left: 8px;
+  top: 50%;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  transform: translateY(-50%);
+  background: #ffffff;
+  box-shadow: 0 0 0 2px var(--ink);
+}
+
+.fixtures-head span:last-child::before {
+  background: #f7d83b;
+}
+
+.match-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.match-card {
+  background: var(--accent);
+  border-radius: var(--radius-md);
+  border: 2px solid var(--ink);
+  min-height: 48px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  gap: 4px;
+  padding: 6px 8px;
+  color: var(--white);
+  font-weight: 600;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.28);
+}
+
+.match-card.is-clickable {
+  cursor: pointer;
+}
+
+.match-card.ghost {
+  min-height: 48px;
+  background: rgba(20, 20, 20, 0.26);
+  border-style: solid;
+  opacity: 0.9;
+}
+
+.league-card.championship .match-card:nth-child(2n) {
+  background: linear-gradient(125deg, var(--accent) 0 42%, #f7d83b 42% 100%);
+}
+
+.league-card.championship .match-card:nth-child(2n) .team-name,
+.league-card.championship .match-card:nth-child(2n) .score {
+  color: #ffffff;
+}
+
+.league-card.worldcup .match-card {
+  background: linear-gradient(135deg, var(--wc-a, #0b8f3f), var(--wc-b, #103a8f));
+}
+
+.league-card.worldcup .match-card:nth-child(4n + 1) {
+  --wc-a: #0b8f3f;
+  --wc-b: #0b4f6c;
+}
+
+.league-card.worldcup .match-card:nth-child(4n + 2) {
+  --wc-a: #1aa356;
+  --wc-b: #103a8f;
+}
+
+.league-card.worldcup .match-card:nth-child(4n + 3) {
+  --wc-a: #d1121c;
+  --wc-b: #103a8f;
+}
+
+.league-card.worldcup .match-card:nth-child(4n) {
+  --wc-a: #e7c84b;
+  --wc-b: #0b8f3f;
+}
+
+.team-side {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  min-width: 0;
+  max-width: none;
+  flex: 1 1 0;
+}
+
+.team-side.right {
+  flex-direction: row-reverse;
+  justify-self: end;
+}
+
+.team-name {
+  font-family: 'Teko', 'Bebas Neue', 'Space Grotesk', system-ui, sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.3px;
+  font-weight: 700;
+  line-height: 1;
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.6);
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+.team-side.right .team-name {
+  text-align: right;
+}
+
+.team-logo {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  flex: 0 0 24px;
+}
+
+.team-logo-fallback {
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 2px solid var(--ink);
+  background: rgba(0, 0, 0, 0.28);
+  color: var(--white);
+  font-size: 7px;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+  flex: 0 0 24px;
+  width: 24px;
+  height: 24px;
+}
+
+.score {
+  font-size: 13px;
+  letter-spacing: 0.4px;
+  background: rgba(0, 0, 0, 0.25);
+  border: 2px solid var(--ink);
+  padding: 2px 6px;
+  border-radius: 10px;
+  min-width: 46px;
+  text-align: center;
+  line-height: 1.1;
+}
+
+.upcoming-score {
+  background: rgba(247, 216, 59, 0.18);
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

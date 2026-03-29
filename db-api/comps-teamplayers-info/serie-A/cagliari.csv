@@ -1,0 +1,22 @@
+Player Name,Position,Squad Number,Nationality,Age,Appearances,Goals,Assists,Minutes Played,Goals Plus Assists,Clean Sheets,Yellow Cards,Red Cards,Home Grown,Notes
+Elia Caprile,GK,1,Italy,24,28,0,0,2520,0,6,2,0,No,Main keeper with most minutes and clean sheets for Cagliari :contentReference[oaicite:1]{index=1}
+Giuseppe Ciocci,GK,24,Italy,24,1,0,0,90,0,0,0,0,Yes,Backup keeper with one league appearance :contentReference[oaicite:2]{index=2}
+Alen Sherri,GK,12,Albania,28,0,0,0,0,0,0,0,0,No,Third keeper (no league apps) :contentReference[oaicite:3]{index=3}
+Marco Palestra,DEF,2,Italy,29,27,1,4,?,5,0,?,0,No,Defender with several assists (leader) :contentReference[oaicite:4]{index=4}
+Riyad Idrissi,DEF,3,Italy,20,?,2,0,?,2,0,?,0,Yes,Young left‑back and homegrown defender :contentReference[oaicite:5]{index=5}
+Alberto Dossena,DEF,22,Italy,26,?,0,1,?,1,0,?,0,Yes,Experienced center‑back for rotation :contentReference[oaicite:6]{index=6}
+Yerry Mina,DEF,26,Colombia,31,?,1,0,?,1,0,?,0,No,Center‑back contributor :contentReference[oaicite:7]{index=7}
+Adam Obert,DEF,33,Slovakia,23,?,0,3,?,3,0,?,0,No,Defender with multiple assists :contentReference[oaicite:8]{index=8}
+Gabriele Zappa,DEF,28,Italy,26,?,0,3,?,3,0,?,0,No,Right‑back creating chances :contentReference[oaicite:9]{index=9}
+Alessandro Deiola,MID,14,Italy,?,?,0,2,?,2,0,?,0,Yes,Central midfielder with contributions :contentReference[oaicite:10]{index=10}
+Gianluca Gaetano,MID,6,Italy,25,?,2,3,?,5,0,?,0,No,Creative midfielder with goals & assists :contentReference[oaicite:11]{index=11}
+Marco Felici,MID,11,Italy,?,?,2,1,?,3,0,?,0,Yes,Young midfielder contributing occasionally :contentReference[oaicite:12]{index=12}
+Michel Adopo,MID,8,Italy,30,?,1,1,?,2,0,?,0,No,Box‑to‑box midfielder :contentReference[oaicite:13]{index=13}
+Luca Mazzitelli,MID,4,Italy,30,?,2,2,?,4,0,?,0,No,Senior midfield with contributions :contentReference[oaicite:14]{index=14}
+Michael Folorunsho,MID,?,Italy,?,20,2,0,?,2,0,?,0,No,Midfield depth option :contentReference[oaicite:15]{index=15}
+Sebastiano Kılıçsoy,FWD,9,Turkey,21,?,4,0,?,4,0,?,0,No,One of the club’s top scorers (~4) :contentReference[oaicite:16]{index=16}
+Sebastiano Esposito,FWD,94,Italy,28,28,4,5,?,9,0,?,0,No,Club attacking leader in goals & assists :contentReference[oaicite:17]{index=17}
+Gennaro Borrelli,FWD,29,Italy,22,?,3,1,?,4,0,?,0,No,Forward with goal contributions :contentReference[oaicite:18]{index=18}
+Leonardo Pavoletti,FWD,30,Italy,33,?,1,1,?,2,0,?,0,No,Experienced striker with minutes :contentReference[oaicite:19]{index=19}
+Yael Trepy,FWD,77,France,19,?,1,0,?,1,0,?,0,Yes,Young forward scored on debut :contentReference[oaicite:20]{index=20}
+Youth & No Apps,Various Youth Players,0,Various,0,0,0,0,0,0,0,0,0,Yes,Various youth/academy players (no senior apps) :contentReference[oaicite:21]{index=21}

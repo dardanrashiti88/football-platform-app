@@ -1,0 +1,29 @@
+.mobile-shell--player {
+  min-height: 100vh;
+}
+
+.mobile-main--player {
+  padding: 6px 10px 118px;
+}
+
+.mobile-player-page {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.mobile-player-frame-wrap {
+  background: #060606;
+  border: 2px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  overflow: hidden;
+  min-height: calc(100vh - 198px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.28);
+}
+
+.mobile-player-frame {
+  width: 100%;
+  height: calc(100vh - 198px);
+  border: 0;
+  background: #050505;
+}

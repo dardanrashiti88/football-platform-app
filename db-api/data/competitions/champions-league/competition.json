@@ -1,0 +1,13 @@
+{
+  "id": "champions-league-2025-2026",
+  "slug": "champions-league",
+  "name": "UEFA Champions League",
+  "type": "cup",
+  "country": null,
+  "season": "2025-2026",
+  "format": {
+    "standings": true,
+    "groups": true,
+    "knockout": true
+  }
+}
