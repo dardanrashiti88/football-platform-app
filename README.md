@@ -242,6 +242,7 @@ The repo now keeps CI/CD separated in two places:
 - `workflows/`
   - grouped helper scripts and notes for:
     - `testing/`
+    - `security/`
     - `staging/`
     - `production/`
 
@@ -253,13 +254,20 @@ Current flow:
    - runs `npm run healthcheck`
    - builds the dashboard
 
-2. `Staging`
+2. `Security`
+   - runs on pushes to `main`, manual trigger, and a daily schedule
+   - reruns baseline testing checks
+   - runs dependency audits for backend, db-api, and dashboard
+   - runs CodeQL analysis
+   - scheduled to execute at `06:00 Europe/Tirane` using a DST-safe gate
+
+3. `Staging`
    - runs on pushes to `main`
    - starts backend + DB API
    - runs `npm run healthcheck:live`
    - checks register/login smoke flow
 
-3. `Production`
+4. `Production`
    - manual only
    - reruns testing + staging checks
    - validates and builds Docker images before release
