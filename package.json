@@ -20,6 +20,7 @@
     "infra:destroy": "terraform -chdir=infra/terraform destroy",
     "k8s:apply": "bash scripts/k8s-apply.sh",
     "k8s:healthcheck": "bash scripts/healthcheck-k8s.sh",
-    "argocd:bootstrap": "bash scripts/argocd-bootstrap.sh"
+    "argocd:bootstrap": "bash scripts/argocd-bootstrap.sh",
+    "k8s:build-images": "bash scripts/k8s-build-images.sh"
   }
 }

@@ -11,6 +11,10 @@ if [[ ! -d "${TARGET}" ]]; then
   exit 1
 fi
 
+if [[ "${OVERLAY}" == "local" && "${SKIP_IMAGE_BUILD:-0}" != "1" ]]; then
+  bash "${ROOT_DIR}/scripts/k8s-build-images.sh"
+fi
+
 echo "Applying Kubernetes overlay: ${OVERLAY}"
 kubectl apply -k "${TARGET}"
 

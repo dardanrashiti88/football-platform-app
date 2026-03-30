@@ -1,12 +1,18 @@
 # syntax=docker/dockerfile:1.7
 
-FROM node:20-bookworm-slim AS deps
+FROM node:20-trixie-slim AS deps
 WORKDIR /app/backend
 
-COPY backend/package*.json ./
-RUN npm ci --omit=dev && npm cache clean --force
+RUN apt-get update \
+  && apt-get install -y --no-install-recommends python3 make g++ \
+  && rm -rf /var/lib/apt/lists/*
 
-FROM node:20-bookworm-slim AS runner
+COPY backend/package*.json ./
+RUN npm ci --omit=dev --ignore-scripts \
+  && npm rebuild sqlite3 --build-from-source \
+  && npm cache clean --force
+
+FROM node:20-trixie-slim AS runner
 ENV NODE_ENV=production \
     PORT=3002 \
     FODR_DB_PATH=/data/fodr.sqlite

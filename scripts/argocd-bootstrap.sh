@@ -19,6 +19,10 @@ if ! command -v kubectl >/dev/null 2>&1; then
   exit 1
 fi
 
+if [[ "${ARGO_OVERLAY}" == "local" && "${SKIP_IMAGE_BUILD:-0}" != "1" ]]; then
+  bash "${ROOT_DIR}/scripts/k8s-build-images.sh"
+fi
+
 echo "Creating namespaces if needed..."
 kubectl create namespace "${ARGO_NAMESPACE}" --dry-run=client -o yaml | kubectl apply -f -
 kubectl create namespace "${APP_NAMESPACE}" --dry-run=client -o yaml | kubectl apply -f -

@@ -244,6 +244,7 @@ kubectl apply -k k8s/overlays/local
 Useful scripts:
 
 ```bash
+npm run k8s:build-images
 npm run k8s:apply -- local
 npm run k8s:healthcheck
 npm run argocd:bootstrap -- local
