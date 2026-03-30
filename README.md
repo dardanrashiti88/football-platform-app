@@ -193,6 +193,25 @@ Stop everything:
 npm run docker:down
 ```
 
+**Terraform Infra**
+
+A Terraform infrastructure layer now lives in `infra/terraform/` for managing the current Docker-based stack as code.
+
+Quick start:
+
+```bash
+cp infra/terraform/terraform.tfvars.example infra/terraform/terraform.tfvars
+npm run infra:init
+npm run infra:plan
+npm run infra:apply
+```
+
+Important:
+
+- this Terraform setup manages the local Docker stack you already use
+- for HCP Terraform, use CLI-driven runs or an HCP agent on the Docker host
+- standard HCP remote runners cannot manage your local Docker daemon
+
 **Project Structure**
 
 ```text

@@ -13,6 +13,10 @@
     "healthcheck": "node scripts/healthcheck.js",
     "healthcheck:live": "node scripts/healthcheck.js --live",
     "scan:project": "bash scripts/scan-project.sh",
-    "scan:project:live": "bash scripts/scan-project.sh --live"
+    "scan:project:live": "bash scripts/scan-project.sh --live",
+    "infra:init": "terraform -chdir=infra/terraform init",
+    "infra:plan": "terraform -chdir=infra/terraform plan",
+    "infra:apply": "terraform -chdir=infra/terraform apply",
+    "infra:destroy": "terraform -chdir=infra/terraform destroy"
   }
 }

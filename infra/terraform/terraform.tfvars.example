@@ -1,0 +1,16 @@
+project_name           = "football-platform-app"
+image_tag              = "latest"
+frontend_port          = 8080
+backend_port           = 3002
+db_api_port            = 3010
+prometheus_port        = 9090
+grafana_port           = 3001
+alertmanager_port      = 9093
+blackbox_port          = 9115
+grafana_admin_user     = "fod-monitor"
+grafana_admin_password = "change-me"
+smtp_smarthost         = "smtp.example.com:587"
+smtp_from              = "alerts@example.com"
+smtp_auth_username     = "alerts@example.com"
+smtp_auth_password     = "change-me"
+alert_email_to         = "alerts@example.com"
