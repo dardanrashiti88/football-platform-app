@@ -933,7 +933,7 @@ const loadCompetitionTeamsForPlayers = async (competition) => {
       teams = buildTeamsFromFixtureFallback(competition);
     }
   } catch (error) {
-    console.warn(`Unable to load mobile player teams for ${competition.id}.`, error);
+    console.warn('Unable to load mobile player teams.', { competitionId: competition.id }, error);
     teams = buildTeamsFromFixtureFallback(competition);
   }
 
@@ -1636,7 +1636,7 @@ export const renderLeaguesView = async (root, competitions = [], { preferredLeag
 
       panelRoot.innerHTML = renderMessagePanel(competition, config, resolvedSeasonValue);
     } catch (error) {
-      console.warn(`Unable to load mobile league table for ${leagueId}.`, error);
+      console.warn('Unable to load mobile league table.', { leagueId }, error);
       if (selectedLeagueId === leagueId && activeRequestKey === requestKey) {
         panelRoot.innerHTML = renderErrorPanel(competition, config, resolvedSeasonValue);
       }
@@ -1809,7 +1809,7 @@ export const renderStatsView = (root, competitions = []) => {
       try {
         mobileStatsCache.set(cacheKey, await fetchJsonArray(statsUrl));
       } catch (error) {
-        console.warn(`Unable to load mobile stats for ${selectedLeagueId} (${selectedScope}).`, error);
+        console.warn('Unable to load mobile stats.', { leagueId: selectedLeagueId, scope: selectedScope }, error);
         mobileStatsCache.set(cacheKey, []);
       }
     }
