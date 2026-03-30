@@ -13,6 +13,78 @@ services:
         condition: service_healthy
     restart: unless-stopped
 
+  blackbox-exporter:
+    image: prom/blackbox-exporter:v0.25.0
+    container_name: fod-blackbox-exporter
+    command:
+      - "--config.file=/etc/blackbox_exporter/config.yml"
+    ports:
+      - "9115:9115"
+    volumes:
+      - ./monitoring/blackbox/blackbox.yml:/etc/blackbox_exporter/config.yml:ro
+    restart: unless-stopped
+
+  prometheus:
+    image: prom/prometheus:v2.53.1
+    container_name: fod-prometheus
+    command:
+      - "--config.file=/etc/prometheus/prometheus.yml"
+      - "--storage.tsdb.path=/prometheus"
+      - "--web.enable-lifecycle"
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./monitoring/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - ./monitoring/prometheus/alerts.yml:/etc/prometheus/alerts.yml:ro
+      - prometheus-data:/prometheus
+    depends_on:
+      frontend:
+        condition: service_started
+      backend:
+        condition: service_healthy
+      db-api:
+        condition: service_healthy
+      blackbox-exporter:
+        condition: service_started
+    restart: unless-stopped
+
+  alertmanager:
+    image: prom/alertmanager:v0.27.0
+    container_name: fod-alertmanager
+    entrypoint:
+      - /bin/sh
+      - /etc/alertmanager/bootstrap.sh
+    environment:
+      SMTP_SMARTHOST: ${SMTP_SMARTHOST:-smtp.example.com:587}
+      SMTP_FROM: ${SMTP_FROM:-alerts@example.com}
+      SMTP_AUTH_USERNAME: ${SMTP_AUTH_USERNAME:-alerts@example.com}
+      SMTP_AUTH_PASSWORD: ${SMTP_AUTH_PASSWORD:-change-me}
+      ALERT_EMAIL_TO: ${ALERT_EMAIL_TO:-alerts@example.com}
+    ports:
+      - "9093:9093"
+    volumes:
+      - ./monitoring/alertmanager/bootstrap.sh:/etc/alertmanager/bootstrap.sh:ro
+      - ./monitoring/alertmanager/alertmanager.yml.template:/etc/alertmanager/alertmanager.yml.template:ro
+      - alertmanager-data:/alertmanager
+    restart: unless-stopped
+
+  grafana:
+    image: grafana/grafana:11.1.4
+    container_name: fod-grafana
+    environment:
+      GF_SECURITY_ADMIN_USER: ${GRAFANA_USER:-fod-monitor}
+      GF_SECURITY_ADMIN_PASSWORD: ${GRAFANA_PASSWORD:-FodMonitor2026!}
+      GF_USERS_ALLOW_SIGN_UP: "false"
+    ports:
+      - "3001:3000"
+    volumes:
+      - ./monitoring/grafana/provisioning/datasources:/etc/grafana/provisioning/datasources:ro
+      - ./monitoring/grafana/provisioning/dashboards:/etc/grafana/provisioning/dashboards:ro
+      - grafana-data:/var/lib/grafana
+    depends_on:
+      - prometheus
+    restart: unless-stopped
+
   db-api:
     build:
       context: .
@@ -46,3 +118,6 @@ services:
 
 volumes:
   fod-backend-data:
+  prometheus-data:
+  grafana-data:
+  alertmanager-data:

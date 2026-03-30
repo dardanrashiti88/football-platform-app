@@ -105,6 +105,88 @@ Open:
 
 The frontend container proxies `/api` to the backend container, so the browser can use the app from the frontend server cleanly.
 
+**Monitoring**
+
+Prometheus and Grafana are included for local monitoring.
+
+Open:
+
+- Prometheus: `http://localhost:9090`
+- Grafana: `http://localhost:3001`
+- Alertmanager: `http://localhost:9093`
+- Blackbox exporter: `http://localhost:9115`
+
+Grafana default login:
+
+- user: `fod-monitor`
+- password: `FodMonitor2026!`
+
+You can override Grafana credentials with a root `.env` file:
+
+```bash
+cp .env.example .env
+```
+
+Then change:
+
+```text
+GRAFANA_USER=your-user
+GRAFANA_PASSWORD=your-password
+```
+
+Metrics endpoints:
+
+- backend: `http://localhost:3002/metrics`
+- db-api: `http://localhost:3010/metrics`
+
+A starter Grafana dashboard is provisioned automatically:
+
+- `FOD Overview`
+
+Crash / availability alerts are also wired now:
+
+- frontend down
+- backend down
+- db-api down
+- backend high memory
+
+Email / secret values should **not** live in Git.
+
+Keep them in a local `.env`, server env vars, or secret manager.
+
+To make email alerts actually send, create a root `.env` file:
+
+```bash
+cp .env.example .env
+```
+
+Then update at least:
+
+```text
+SMTP_SMARTHOST=smtp.your-provider.com:587
+SMTP_FROM=alerts@your-domain.com
+SMTP_AUTH_USERNAME=alerts@your-domain.com
+SMTP_AUTH_PASSWORD=your-real-smtp-password
+ALERT_EMAIL_TO=you@example.com
+```
+
+Alerting code/config belongs in the repo here:
+
+- `monitoring/prometheus/`
+- `monitoring/alertmanager/`
+- `monitoring/grafana/`
+- `monitoring/blackbox/`
+
+Secrets do not belong in Git.
+
+If Grafana was already started before changing credentials, recreate the Grafana container and volume so the new login applies:
+
+```bash
+docker compose down
+docker volume rm football-project_grafana-data
+docker compose up -d --build
+```
+
 Stop everything:
 
 ```bash

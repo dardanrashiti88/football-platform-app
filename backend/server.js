@@ -5,14 +5,17 @@ const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
 const { db, init, run, get, all } = require('./database/db');
+const { createMetricsMiddleware, renderMetrics } = require('./monitoring/metrics');
 
 const PORT = process.env.PORT || 3002;
 const DEFAULT_COINS = 12500000000;
 const SHARED_PRICES_PATH = path.join(__dirname, '..', 'shared', 'card-prices.json');
+const SERVICE_NAME = 'fod-backend';
 
 const app = express();
 app.use(cors());
 app.use(express.json());
+app.use(createMetricsMiddleware(SERVICE_NAME));
 
 const setNoCacheHeaders = (res) => {
   res.set('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
@@ -47,6 +50,10 @@ app.use(
 );
 app.use('/shared', express.static(path.join(__dirname, '..', 'shared')));
 app.use('/db-api', express.static(path.join(__dirname, '..', 'db-api')));
+app.get('/metrics', (req, res) => {
+  res.set('Content-Type', 'text/plain; version=0.0.4; charset=utf-8');
+  res.send(renderMetrics(SERVICE_NAME));
+});
 app.get('/', (req, res) => res.redirect('/frontend/index.html'));
 app.get('/mobile', (req, res) => {
   setNoCacheHeaders(res);
