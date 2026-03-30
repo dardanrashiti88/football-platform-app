@@ -2032,7 +2032,14 @@ const getFlagUrl = (nationality) => {
   return null;
 };
 
-const buildSquadCardMarkup = (player) => {
+const createTextElement = (tagName, className, text) => {
+  const element = document.createElement(tagName);
+  if (className) element.className = className;
+  if (text !== undefined && text !== null) element.textContent = text;
+  return element;
+};
+
+const buildSquadCardElement = (player) => {
   const number = player.number ? String(player.number) : '';
   const stats = [
     player.appearances ? `APP ${player.appearances}` : null,
@@ -2040,38 +2047,61 @@ const buildSquadCardMarkup = (player) => {
     player.assists ? `A ${player.assists}` : null
   ].filter(Boolean);
   const flagUrl = getFlagUrl(player.nationality);
+  const card = createTextElement('article', 'squad-card');
+  const photo = createTextElement('div', 'squad-photo');
+  if (player.photo) {
+    const image = document.createElement('img');
+    image.src = player.photo;
+    image.alt = player.name || '';
+    image.loading = 'lazy';
+    image.decoding = 'async';
+    photo.appendChild(image);
+  } else {
+    photo.appendChild(createTextElement('span', 'squad-photo-fallback', getInitials(player.name)));
+  }
 
-  const photoMarkup = player.photo
-    ? `<img src="${player.photo}" alt="${player.name}" loading="lazy" decoding="async" />`
-    : `<span class="squad-photo-fallback">${getInitials(player.name)}</span>`;
+  const info = createTextElement('div', 'squad-info');
+  info.appendChild(createTextElement('div', 'squad-name', player.name || '-'));
 
-  return `
-    <article class="squad-card">
-      <div class="squad-photo">${photoMarkup}</div>
-      <div class="squad-info">
-        <div class="squad-name">${player.name}</div>
-        <div class="squad-meta">
-          ${flagUrl ? `<img class="squad-flag" src="${flagUrl}" alt="${player.nationality || ''}" />` : ''}
-          <span>${player.nationality || '-'}</span>
-          <span>${player.position || '-'}</span>
-        </div>
-        ${stats.length ? `<div class="squad-stats">${stats.map((stat) => `<span>${stat}</span>`).join('')}</div>` : ''}
-      </div>
-      ${number ? `<div class="squad-number">${number}</div>` : ''}
-    </article>
-  `;
+  const meta = createTextElement('div', 'squad-meta');
+  if (flagUrl) {
+    const flag = document.createElement('img');
+    flag.className = 'squad-flag';
+    flag.src = flagUrl;
+    flag.alt = player.nationality || '';
+    meta.appendChild(flag);
+  }
+  meta.appendChild(createTextElement('span', '', player.nationality || '-'));
+  meta.appendChild(createTextElement('span', '', player.position || '-'));
+  info.appendChild(meta);
+
+  if (stats.length) {
+    const statsWrap = createTextElement('div', 'squad-stats');
+    stats.forEach((stat) => statsWrap.appendChild(createTextElement('span', '', stat)));
+    info.appendChild(statsWrap);
+  }
+
+  card.append(photo, info);
+  if (number) {
+    card.appendChild(createTextElement('div', 'squad-number', number));
+  }
+  return card;
 };
 
-const buildSquadColumnMarkup = (title, players) => `
-  <div class="squad-column">
-    <div class="squad-column-title">${title}</div>
-    <div class="squad-list">
-      ${players.length ? players.map(buildSquadCardMarkup).join('') : '<div class="squad-empty">No players</div>'}
-    </div>
-  </div>
-`;
+const buildSquadColumnElement = (title, players) => {
+  const column = createTextElement('div', 'squad-column');
+  column.appendChild(createTextElement('div', 'squad-column-title', title));
+  const list = createTextElement('div', 'squad-list');
+  if (players.length) {
+    players.forEach((player) => list.appendChild(buildSquadCardElement(player)));
+  } else {
+    list.appendChild(createTextElement('div', 'squad-empty', 'No players'));
+  }
+  column.appendChild(list);
+  return column;
+};
 
-const buildFixtureCardMarkup = (fixture, team, index = 0) => {
+const buildFixtureCardElement = (fixture, team, index = 0) => {
   const dateObj = fixture.dateObj || toDateSafe(fixture.matchDate);
   const timeText = formatFixtureTime(dateObj);
   const dateText = formatFixtureDate(dateObj);
@@ -2104,85 +2134,147 @@ const buildFixtureCardMarkup = (fixture, team, index = 0) => {
     : compKey.includes('fa cup') || compKey.includes('fa-cup')
       ? 'fa'
       : 'league';
-  return `
-    <div class="team-fixture-card">
-      ${fixture.competitionLogo ? `<img class="fixture-comp-logo" src="${fixture.competitionLogo}" alt="${fixture.competition}" />` : ''}
-      <div class="fixture-team">
-        ${opponentLogo ? `<img class="${isOpponentTottenham ? 'fixture-logo--dark' : ''}" src="${opponentLogo}" alt="${opponent}" />` : `<span class="fixture-logo-fallback">${getInitials(opponent)}</span>`}
-        <span>${opponentLabel}</span>
-      </div>
-      <div class="fixture-vs">
-        ${hasScore
-          ? `<div class="fixture-score"><span>${fixture.opponentScore}</span><span class="score-dash">-</span><span>${fixture.teamScore}</span></div>`
-          : `<img src="${VS_DESIGN_URL}" alt="VS" />`}
-      </div>
-      <div class="fixture-team right">
-        ${teamLogo ? `<img class="${isTeamTottenham ? 'fixture-logo--dark' : ''}" src="${teamLogo}" alt="${teamName}" />` : `<span class="fixture-logo-fallback">${getInitials(teamName)}</span>`}
-        <span>${teamLabel}</span>
-      </div>
-      <div class="fixture-time fixture-time--${fixtureTone}">
-        <span class="fixture-clock">${timeText}</span>
-        <span class="fixture-date">${dateText}</span>
-      </div>
-    </div>
-  `;
+  const card = createTextElement('div', 'team-fixture-card');
+
+  if (fixture.competitionLogo) {
+    const compLogo = document.createElement('img');
+    compLogo.className = 'fixture-comp-logo';
+    compLogo.src = fixture.competitionLogo;
+    compLogo.alt = fixture.competition || '';
+    card.appendChild(compLogo);
+  }
+
+  const buildFixtureTeam = ({ logoSrc, darkLogo, altText, label, right = false }) => {
+    const teamEl = createTextElement('div', `fixture-team${right ? ' right' : ''}`);
+    if (logoSrc) {
+      const img = document.createElement('img');
+      img.src = logoSrc;
+      img.alt = altText || '';
+      if (darkLogo) img.classList.add('fixture-logo--dark');
+      teamEl.appendChild(img);
+    } else {
+      teamEl.appendChild(createTextElement('span', 'fixture-logo-fallback', getInitials(altText)));
+    }
+    teamEl.appendChild(createTextElement('span', '', label));
+    return teamEl;
+  };
+
+  card.appendChild(
+    buildFixtureTeam({
+      logoSrc: opponentLogo,
+      darkLogo: isOpponentTottenham,
+      altText: opponent,
+      label: opponentLabel
+    })
+  );
+
+  const vs = createTextElement('div', 'fixture-vs');
+  if (hasScore) {
+    const score = createTextElement('div', 'fixture-score');
+    score.appendChild(createTextElement('span', '', String(fixture.opponentScore)));
+    score.appendChild(createTextElement('span', 'score-dash', '-'));
+    score.appendChild(createTextElement('span', '', String(fixture.teamScore)));
+    vs.appendChild(score);
+  } else {
+    const vsImg = document.createElement('img');
+    vsImg.src = VS_DESIGN_URL;
+    vsImg.alt = 'VS';
+    vs.appendChild(vsImg);
+  }
+  card.appendChild(vs);
+
+  card.appendChild(
+    buildFixtureTeam({
+      logoSrc: teamLogo,
+      darkLogo: isTeamTottenham,
+      altText: teamName,
+      label: teamLabel,
+      right: true
+    })
+  );
+
+  const time = createTextElement('div', `fixture-time fixture-time--${fixtureTone}`);
+  time.appendChild(createTextElement('span', 'fixture-clock', timeText));
+  time.appendChild(createTextElement('span', 'fixture-date', dateText));
+  card.appendChild(time);
+
+  return card;
 };
 
-const buildStandingsTableMarkup = (leagueKey, title, standings, teamsList, highlightId) => {
+const buildStandingsTableElement = (leagueKey, title, standings, teamsList, highlightId) => {
   if (!standings?.length) {
-    return '<div class="team-table-empty">Table data unavailable.</div>';
+    return createTextElement('div', 'team-table-empty', 'Table data unavailable.');
   }
   const teamsById = new Map((teamsList || []).map((team) => [team.id, team]));
   const config = getLeagueConfig(leagueKey);
   const compLogo = COMPETITION_LOGOS[leagueKey];
-  const rowsMarkup = standings
-    .map((row) => {
-      const team = teamsById.get(row.teamId);
-      const name = team?.shortName || team?.name || row.teamId;
-      const logo = team ? getLogoForTeam(team, leagueKey) : config?.teamLogos?.[row.teamId];
-      const isTeam = row.teamId === highlightId;
-      return `
-        <div class="team-table-row${isTeam ? ' is-team' : ''}">
-          <div class="team-table-cell rank">${row.rank ?? '-'}</div>
-          <div class="team-table-cell team">
-            ${logo ? `<img src="${logo}" alt="${name}" />` : '<span class="team-logo-fallback"></span>'}
-            <span>${name}</span>
-          </div>
-          <div class="team-table-cell">${row.matchesPlayed ?? '-'}</div>
-          <div class="team-table-cell">${row.wins ?? '-'}</div>
-          <div class="team-table-cell">${row.draws ?? '-'}</div>
-          <div class="team-table-cell">${row.losses ?? '-'}</div>
-          <div class="team-table-cell">${row.goalsFor ?? '-'}</div>
-          <div class="team-table-cell">${row.goalsAgainst ?? '-'}</div>
-          <div class="team-table-cell">${row.goalDifference ?? '-'}</div>
-          <div class="team-table-cell pts">${row.points ?? '-'}</div>
-        </div>
-      `;
-    })
-    .join('');
-  return `
-    <div class="team-table-card league-${leagueKey}">
-      <div class="team-table-title">
-        ${compLogo ? `<img src="${compLogo}" alt="${title}" />` : ''}
-        <span>${title}</span>
-      </div>
-      <div class="team-table">
-        <div class="team-table-row header">
-          <div class="team-table-cell rank">#</div>
-          <div class="team-table-cell team">Team</div>
-          <div class="team-table-cell">P</div>
-          <div class="team-table-cell">W</div>
-          <div class="team-table-cell">D</div>
-          <div class="team-table-cell">L</div>
-          <div class="team-table-cell">GF</div>
-          <div class="team-table-cell">GA</div>
-          <div class="team-table-cell">GD</div>
-          <div class="team-table-cell pts">Pts</div>
-        </div>
-        ${rowsMarkup}
-      </div>
-    </div>
-  `;
+  const card = createTextElement('div', 'team-table-card');
+  const leagueClass = normalizeKey(leagueKey);
+  if (leagueClass) card.classList.add(`league-${leagueClass}`);
+
+  const titleEl = createTextElement('div', 'team-table-title');
+  if (compLogo) {
+    const img = document.createElement('img');
+    img.src = compLogo;
+    img.alt = title;
+    titleEl.appendChild(img);
+  }
+  titleEl.appendChild(createTextElement('span', '', title));
+  card.appendChild(titleEl);
+
+  const table = createTextElement('div', 'team-table');
+  const header = createTextElement('div', 'team-table-row header');
+  [
+    ['rank', '#'],
+    ['team', 'Team'],
+    ['', 'P'],
+    ['', 'W'],
+    ['', 'D'],
+    ['', 'L'],
+    ['', 'GF'],
+    ['', 'GA'],
+    ['', 'GD'],
+    ['pts', 'Pts']
+  ].forEach(([className, label]) => {
+    header.appendChild(createTextElement('div', `team-table-cell${className ? ` ${className}` : ''}`, label));
+  });
+  table.appendChild(header);
+
+  standings.forEach((row) => {
+    const team = teamsById.get(row.teamId);
+    const name = team?.shortName || team?.name || row.teamId;
+    const logo = team ? getLogoForTeam(team, leagueKey) : config?.teamLogos?.[row.teamId];
+    const isTeam = row.teamId === highlightId;
+    const rowEl = createTextElement('div', `team-table-row${isTeam ? ' is-team' : ''}`);
+    rowEl.appendChild(createTextElement('div', 'team-table-cell rank', row.rank ?? '-'));
+
+    const teamCell = createTextElement('div', 'team-table-cell team');
+    if (logo) {
+      const img = document.createElement('img');
+      img.src = logo;
+      img.alt = name || '';
+      teamCell.appendChild(img);
+    } else {
+      teamCell.appendChild(createTextElement('span', 'team-logo-fallback'));
+    }
+    teamCell.appendChild(createTextElement('span', '', name));
+    rowEl.appendChild(teamCell);
+
+    [
+      row.matchesPlayed ?? '-',
+      row.wins ?? '-',
+      row.draws ?? '-',
+      row.losses ?? '-',
+      row.goalsFor ?? '-',
+      row.goalsAgainst ?? '-',
+      row.goalDifference ?? '-'
+    ].forEach((value) => rowEl.appendChild(createTextElement('div', 'team-table-cell', value)));
+    rowEl.appendChild(createTextElement('div', 'team-table-cell pts', row.points ?? '-'));
+    table.appendChild(rowEl);
+  });
+
+  card.appendChild(table);
+  return card;
 };
 
 const getCupRoundLabel = (fixtures, competitionLabel) => {
@@ -2215,8 +2307,6 @@ const renderTeamProfile = (playersGrid) => {
   const { left, right } = splitTeamName(fullName);
   const isLongName = fullName.length >= 15 || fullName.split(' ').length >= 3;
   const logo = buildLogo(team);
-  const logoMarkup = logo ? `<img src="${logo.src}" alt="${logo.alt}" />` : '';
-  const inlineLogoMarkup = logoMarkup ? `<span class="team-hero-logo">${logoMarkup}</span>` : '';
 
   const roster = state.roster || [];
   const filteredRoster = roster.filter((player) =>
@@ -2236,10 +2326,10 @@ const renderTeamProfile = (playersGrid) => {
   });
 
   const squadColumns = [
-    buildSquadColumnMarkup('Forwards', groups.Forwards),
-    buildSquadColumnMarkup('Midfield', groups.Midfielders),
-    buildSquadColumnMarkup('Defense', groups.Defenders),
-    buildSquadColumnMarkup('Goalkeepers', groups.Goalkeepers)
+    buildSquadColumnElement('Forwards', groups.Forwards),
+    buildSquadColumnElement('Midfield', groups.Midfielders),
+    buildSquadColumnElement('Defense', groups.Defenders),
+    buildSquadColumnElement('Goalkeepers', groups.Goalkeepers)
   ];
 
   const cutoff = getFixtureCutoffDate();
@@ -2250,176 +2340,196 @@ const renderTeamProfile = (playersGrid) => {
   const fixturesToShow = state.activeTab === 'fixtures'
     ? state.fixtures || []
     : upcomingFixtures.slice(0, fixtureLimit);
-  const fixturesMarkup = fixturesToShow.length
-    ? fixturesToShow.map((fixture, index) => buildFixtureCardMarkup(fixture, team, index)).join('')
-    : '<div class="squad-empty">Fixtures loading...</div>';
-  const showMoreMarkup =
-    state.activeTab !== 'fixtures' && upcomingFixtures.length > fixtureLimit
-      ? `<button class="fixtures-show-more" type="button" data-action="fixtures-show-more">Show More</button>`
-      : '';
+  const fixtureNodes = fixturesToShow.length
+    ? fixturesToShow.map((fixture, index) => buildFixtureCardElement(fixture, team, index))
+    : [createTextElement('div', 'squad-empty', 'Fixtures loading...')];
 
-  const tabButtons = [
+  const tabConfig = [
     { key: 'squad', label: 'Squad' },
     { key: 'fixtures', label: 'Fixtures' },
     { key: 'history', label: 'History' },
     { key: 'news', label: 'News' },
     { key: 'table', label: 'Table' }
-  ]
-    .map(
-      (tab) =>
-        `<button class="team-tab${state.activeTab === tab.key ? ' active' : ''}" type="button" data-tab="${tab.key}">${tab.label}</button>`
-    )
-    .join('');
+  ];
 
-  const trophyCabinetMarkup =
-    team.id === 'liverpool'
-      ? `
-        <div class="trophy-cabinet">
-          <div class="trophy-card">
-            <div class="trophy-title">FA CUP</div>
-            <img src="${TROPHY_IMAGES.faCup}" alt="FA Cup" />
-            <div class="trophy-count">8</div>
-          </div>
-          <div class="trophy-card">
-            <div class="trophy-title">COMMUNITY SHIELD</div>
-            <img src="${TROPHY_IMAGES.communityShield}" alt="Community Shield" />
-            <div class="trophy-count">16</div>
-          </div>
-          <div class="trophy-card">
-            <div class="trophy-title">UEFA SUPERCUP</div>
-            <img src="${TROPHY_IMAGES.uefaSupercup}" alt="UEFA Supercup" />
-            <div class="trophy-count">4</div>
-          </div>
-          <div class="trophy-card">
-            <div class="trophy-title">PREMIER LEAGUE</div>
-            <div class="trophy-duo">
-              <img src="${TROPHY_IMAGES.premierLeague}" alt="Premier League" />
-              <img src="${TROPHY_IMAGES.premierLeagueOld}" alt="Premier League (Old)" />
-            </div>
-            <div class="trophy-count trophy-count-premier">20</div>
-          </div>
-          <div class="trophy-card">
-            <div class="trophy-title">CARABAO CUP</div>
-            <img src="${TROPHY_IMAGES.carabaoCup}" alt="Carabao Cup" />
-            <div class="trophy-count">10</div>
-          </div>
-          <div class="trophy-card">
-            <div class="trophy-title">CHAMPIONS LEAGUE</div>
-            <img src="${TROPHY_IMAGES.championsLeague}" alt="Champions League" />
-            <div class="trophy-count">6</div>
-          </div>
-          <div class="trophy-card">
-            <div class="trophy-title">CLUB WORLD CUP</div>
-            <img src="${TROPHY_IMAGES.clubWorldCup}" alt="Club World Cup" />
-            <div class="trophy-count">1</div>
-          </div>
-          <div class="trophy-card">
-            <div class="trophy-title">CONFERENCE LEAGUE</div>
-            <img src="${TROPHY_IMAGES.conferenceLeague}" alt="Conference League" />
-            <div class="trophy-count">4</div>
-          </div>
-        </div>
-      `
-      : '<div class="trophy-empty">Trophy cabinet coming soon.</div>';
+  const buildTrophyCabinetElement = () => {
+    if (team.id !== 'liverpool') {
+      return createTextElement('div', 'trophy-empty', 'Trophy cabinet coming soon.');
+    }
+    const cabinet = createTextElement('div', 'trophy-cabinet');
+    const trophyCards = [
+      { title: 'FA CUP', image: TROPHY_IMAGES.faCup, alt: 'FA Cup', count: '8' },
+      {
+        title: 'COMMUNITY SHIELD',
+        image: TROPHY_IMAGES.communityShield,
+        alt: 'Community Shield',
+        count: '16'
+      },
+      { title: 'UEFA SUPERCUP', image: TROPHY_IMAGES.uefaSupercup, alt: 'UEFA Supercup', count: '4' },
+      { title: 'CARABAO CUP', image: TROPHY_IMAGES.carabaoCup, alt: 'Carabao Cup', count: '10' },
+      {
+        title: 'CHAMPIONS LEAGUE',
+        image: TROPHY_IMAGES.championsLeague,
+        alt: 'Champions League',
+        count: '6'
+      },
+      { title: 'CLUB WORLD CUP', image: TROPHY_IMAGES.clubWorldCup, alt: 'Club World Cup', count: '1' },
+      {
+        title: 'CONFERENCE LEAGUE',
+        image: TROPHY_IMAGES.conferenceLeague,
+        alt: 'Conference League',
+        count: '4'
+      }
+    ];
 
-  const bodyMarkup =
-    state.activeTab === 'fixtures'
-      ? `
-        <div class="team-body fixtures-only">
-          <div class="team-fixtures">
-            <div class="team-fixtures-title">Fixtures 25/26</div>
-            <div class="team-fixtures-list">
-              ${fixturesMarkup}
-            </div>
-          </div>
-        </div>
-      `
-      : state.activeTab === 'history'
-        ? `
-        <div class="team-body history-only">
-          ${trophyCabinetMarkup}
-        </div>
-      `
-        : state.activeTab === 'table'
-        ? (() => {
-            const leagueStandings = state.standings?.[state.activeLeague] || [];
-            const leagueTable = buildStandingsTableMarkup(
-              state.activeLeague,
-              getLeagueConfig(state.activeLeague)?.competitionLabel || 'League Table',
-              leagueStandings,
-              state.teams,
-              team.id
-            );
-            const uclInFixtures = (state.fixtures || []).some((fixture) =>
-              normalizeString(fixture.competition).includes('champions')
-            );
-            const uclStandings = state.standings?.ucl || [];
-            const uclTable = uclInFixtures
-              ? buildStandingsTableMarkup(
-                  'ucl',
-                  'Champions League',
-                  uclStandings,
-                  state.leagueTeams?.ucl || [],
-                  team.id
-                )
-              : '';
-            const faRound = getCupRoundLabel(state.fixtures, 'FA Cup');
-            const cupBox = faRound
-              ? `
-                <div class="cup-round-card">
-                  <div class="cup-round-title">FA Cup</div>
-                  <div class="cup-round-value">${faRound}</div>
-                </div>
-              `
-              : '';
-            const leftColumn = [leagueTable, cupBox].filter(Boolean).join('');
-            const hasUcl = Boolean(uclTable);
-            return `
-              <div class="team-body table-only">
-                <div class="team-tables${hasUcl ? '' : ' single'}">
-                  <div class="team-table-col">
-                    ${leftColumn}
-                  </div>
-                  ${hasUcl ? `<div class="team-table-col">${uclTable}</div>` : ''}
-                </div>
-              </div>
-            `;
-          })()
-        : `
-        <div class="team-body">
-          <div class="team-squad">
-            ${squadColumns.join('')}
-          </div>
-          <aside class="team-fixtures">
-            <div class="team-fixtures-title">Fixtures</div>
-            <div class="team-fixtures-list">
-              ${fixturesMarkup}
-              ${showMoreMarkup}
-            </div>
-          </aside>
-        </div>
-      `;
+    trophyCards.forEach((entry) => {
+      const card = createTextElement('div', 'trophy-card');
+      card.appendChild(createTextElement('div', 'trophy-title', entry.title));
+      const img = document.createElement('img');
+      img.src = entry.image;
+      img.alt = entry.alt;
+      card.appendChild(img);
+      card.appendChild(createTextElement('div', 'trophy-count', entry.count));
+      cabinet.appendChild(card);
+    });
 
-  playersGrid.innerHTML = `
-    <div class="team-profile${isLongName ? ' long-name' : ''}${state.activeTab === 'fixtures' ? ' fixtures-view' : ''}${state.activeTab === 'history' ? ' history-view' : ''}${state.activeTab === 'table' ? ' table-view' : ''}" data-team-id="${team.id}" data-active-tab="${state.activeTab}">
-      <div class="team-hero">
-        <button class="team-exit" type="button" data-action="exit-team-profile">Exit</button>
-        <div class="team-hero-inner">
-          <div class="team-hero-title">
-            <span class="team-hero-word">${left}</span>
-            ${inlineLogoMarkup}
-            <span class="team-hero-word">${right}</span>
-          </div>
-        </div>
-      </div>
+    const premier = createTextElement('div', 'trophy-card');
+    premier.appendChild(createTextElement('div', 'trophy-title', 'PREMIER LEAGUE'));
+    const duo = createTextElement('div', 'trophy-duo');
+    [
+      [TROPHY_IMAGES.premierLeague, 'Premier League'],
+      [TROPHY_IMAGES.premierLeagueOld, 'Premier League (Old)']
+    ].forEach(([src, alt]) => {
+      const img = document.createElement('img');
+      img.src = src;
+      img.alt = alt;
+      duo.appendChild(img);
+    });
+    premier.appendChild(duo);
+    premier.appendChild(createTextElement('div', 'trophy-count trophy-count-premier', '20'));
+    cabinet.insertBefore(premier, cabinet.children[3] || null);
 
-      <div class="team-tabs">
-        ${tabButtons}
-      </div>
+    return cabinet;
+  };
 
-      ${bodyMarkup}
-    </div>
-  `;
+  const teamProfile = createTextElement('div', 'team-profile');
+  if (isLongName) teamProfile.classList.add('long-name');
+  if (state.activeTab === 'fixtures') teamProfile.classList.add('fixtures-view');
+  if (state.activeTab === 'history') teamProfile.classList.add('history-view');
+  if (state.activeTab === 'table') teamProfile.classList.add('table-view');
+  teamProfile.dataset.teamId = team.id;
+  teamProfile.dataset.activeTab = state.activeTab;
+
+  const hero = createTextElement('div', 'team-hero');
+  const exitButton = createTextElement('button', 'team-exit', 'Exit');
+  exitButton.type = 'button';
+  exitButton.dataset.action = 'exit-team-profile';
+  hero.appendChild(exitButton);
+
+  const heroInner = createTextElement('div', 'team-hero-inner');
+  const heroTitle = createTextElement('div', 'team-hero-title');
+  heroTitle.appendChild(createTextElement('span', 'team-hero-word', left));
+  if (logo) {
+    const logoWrap = createTextElement('span', 'team-hero-logo');
+    logoWrap.appendChild(logo);
+    heroTitle.appendChild(logoWrap);
+  }
+  heroTitle.appendChild(createTextElement('span', 'team-hero-word', right));
+  heroInner.appendChild(heroTitle);
+  hero.appendChild(heroInner);
+  teamProfile.appendChild(hero);
+
+  const tabs = createTextElement('div', 'team-tabs');
+  tabConfig.forEach((tab) => {
+    const button = createTextElement('button', `team-tab${state.activeTab === tab.key ? ' active' : ''}`, tab.label);
+    button.type = 'button';
+    button.dataset.tab = tab.key;
+    tabs.appendChild(button);
+  });
+  teamProfile.appendChild(tabs);
+
+  const appendFixtureList = (container) => {
+    fixtureNodes.forEach((node) => container.appendChild(node));
+  };
+
+  if (state.activeTab === 'fixtures') {
+    const body = createTextElement('div', 'team-body fixtures-only');
+    const fixtures = createTextElement('div', 'team-fixtures');
+    fixtures.appendChild(createTextElement('div', 'team-fixtures-title', 'Fixtures 25/26'));
+    const list = createTextElement('div', 'team-fixtures-list');
+    appendFixtureList(list);
+    fixtures.appendChild(list);
+    body.appendChild(fixtures);
+    teamProfile.appendChild(body);
+  } else if (state.activeTab === 'history') {
+    const body = createTextElement('div', 'team-body history-only');
+    body.appendChild(buildTrophyCabinetElement());
+    teamProfile.appendChild(body);
+  } else if (state.activeTab === 'table') {
+    const leagueStandings = state.standings?.[state.activeLeague] || [];
+    const leagueTable = buildStandingsTableElement(
+      state.activeLeague,
+      getLeagueConfig(state.activeLeague)?.competitionLabel || 'League Table',
+      leagueStandings,
+      state.teams,
+      team.id
+    );
+    const uclInFixtures = (state.fixtures || []).some((fixture) =>
+      normalizeString(fixture.competition).includes('champions')
+    );
+    const uclStandings = state.standings?.ucl || [];
+    const uclTable = uclInFixtures
+      ? buildStandingsTableElement(
+          'ucl',
+          'Champions League',
+          uclStandings,
+          state.leagueTeams?.ucl || [],
+          team.id
+        )
+      : null;
+    const faRound = getCupRoundLabel(state.fixtures, 'FA Cup');
+
+    const body = createTextElement('div', 'team-body table-only');
+    const tables = createTextElement('div', `team-tables${uclTable ? '' : ' single'}`);
+    const leftColumn = createTextElement('div', 'team-table-col');
+    leftColumn.appendChild(leagueTable);
+    if (faRound) {
+      const cupCard = createTextElement('div', 'cup-round-card');
+      cupCard.appendChild(createTextElement('div', 'cup-round-title', 'FA Cup'));
+      cupCard.appendChild(createTextElement('div', 'cup-round-value', faRound));
+      leftColumn.appendChild(cupCard);
+    }
+    tables.appendChild(leftColumn);
+    if (uclTable) {
+      const rightColumn = createTextElement('div', 'team-table-col');
+      rightColumn.appendChild(uclTable);
+      tables.appendChild(rightColumn);
+    }
+    body.appendChild(tables);
+    teamProfile.appendChild(body);
+  } else {
+    const body = createTextElement('div', 'team-body');
+    const squad = createTextElement('div', 'team-squad');
+    squadColumns.forEach((column) => squad.appendChild(column));
+    body.appendChild(squad);
+
+    const fixtures = document.createElement('aside');
+    fixtures.className = 'team-fixtures';
+    fixtures.appendChild(createTextElement('div', 'team-fixtures-title', 'Fixtures'));
+    const list = createTextElement('div', 'team-fixtures-list');
+    appendFixtureList(list);
+    if (state.activeTab !== 'fixtures' && upcomingFixtures.length > fixtureLimit) {
+      const showMore = createTextElement('button', 'fixtures-show-more', 'Show More');
+      showMore.type = 'button';
+      showMore.dataset.action = 'fixtures-show-more';
+      list.appendChild(showMore);
+    }
+    fixtures.appendChild(list);
+    body.appendChild(fixtures);
+    teamProfile.appendChild(body);
+  }
+
+  playersGrid.replaceChildren(teamProfile);
 };
 
 const buildTeamPill = (team, onSelect) => {
