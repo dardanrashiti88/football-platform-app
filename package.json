@@ -11,6 +11,8 @@
     "docker:down": "docker compose down",
     "docker:logs": "docker compose logs -f",
     "healthcheck": "node scripts/healthcheck.js",
-    "healthcheck:live": "node scripts/healthcheck.js --live"
+    "healthcheck:live": "node scripts/healthcheck.js --live",
+    "scan:project": "bash scripts/scan-project.sh",
+    "scan:project:live": "bash scripts/scan-project.sh --live"
   }
 }
