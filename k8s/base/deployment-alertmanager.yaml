@@ -1,0 +1,67 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: alertmanager
+  labels:
+    app.kubernetes.io/component: alertmanager
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app.kubernetes.io/component: alertmanager
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/component: alertmanager
+    spec:
+      containers:
+        - name: alertmanager
+          image: prom/alertmanager:v0.27.0
+          imagePullPolicy: IfNotPresent
+          command:
+            - /bin/sh
+            - /etc/alertmanager/bootstrap.sh
+          envFrom:
+            - secretRef:
+                name: alertmanager-smtp
+          ports:
+            - containerPort: 9093
+              name: http
+          volumeMounts:
+            - name: alertmanager-config
+              mountPath: /etc/alertmanager/bootstrap.sh
+              subPath: bootstrap.sh
+            - name: alertmanager-config
+              mountPath: /etc/alertmanager/alertmanager.yml.template
+              subPath: alertmanager.yml.template
+            - name: alertmanager-data
+              mountPath: /alertmanager
+          readinessProbe:
+            httpGet:
+              path: /-/ready
+              port: http
+            initialDelaySeconds: 10
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /-/healthy
+              port: http
+            initialDelaySeconds: 20
+            periodSeconds: 20
+          resources:
+            requests:
+              cpu: 50m
+              memory: 64Mi
+            limits:
+              cpu: 250m
+              memory: 256Mi
+      volumes:
+        - name: alertmanager-config
+          configMap:
+            name: alertmanager-config
+            defaultMode: 0555
+        - name: alertmanager-data
+          persistentVolumeClaim:
+            claimName: alertmanager-data

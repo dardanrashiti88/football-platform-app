@@ -1,0 +1,16 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - ../../base
+
+images:
+  - name: football-platform-app-frontend:latest
+    newName: football-platform-app-frontend
+    newTag: latest
+  - name: football-platform-app-backend:latest
+    newName: football-platform-app-backend
+    newTag: latest
+  - name: football-platform-app-db-api:latest
+    newName: football-platform-app-db-api
+    newTag: latest

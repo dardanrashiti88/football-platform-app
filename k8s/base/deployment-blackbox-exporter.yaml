@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blackbox-exporter
+  labels:
+    app.kubernetes.io/component: blackbox-exporter
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/component: blackbox-exporter
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/component: blackbox-exporter
+    spec:
+      containers:
+        - name: blackbox-exporter
+          image: prom/blackbox-exporter:v0.25.0
+          imagePullPolicy: IfNotPresent
+          args:
+            - --config.file=/etc/blackbox_exporter/config.yml
+          ports:
+            - containerPort: 9115
+              name: http
+          volumeMounts:
+            - name: blackbox-config
+              mountPath: /etc/blackbox_exporter/config.yml
+              subPath: config.yml
+          readinessProbe:
+            httpGet:
+              path: /-/healthy
+              port: http
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /-/healthy
+              port: http
+            initialDelaySeconds: 15
+            periodSeconds: 20
+          resources:
+            requests:
+              cpu: 50m
+              memory: 64Mi
+            limits:
+              cpu: 250m
+              memory: 128Mi
+      volumes:
+        - name: blackbox-config
+          configMap:
+            name: blackbox-config

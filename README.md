@@ -212,6 +212,49 @@ Important:
 - for HCP Terraform, use CLI-driven runs or an HCP agent on the Docker host
 - standard HCP remote runners cannot manage your local Docker daemon
 
+**Kubernetes**
+
+Kubernetes manifests now live in `k8s/` with a full `kustomize` layout:
+
+- `k8s/base/`
+- `k8s/overlays/local/`
+- `k8s/overlays/production/`
+
+The Kubernetes setup includes:
+
+- app Deployments and Services for `frontend`, `backend`, and `db-api`
+- monitoring Deployments and Services for `Prometheus`, `Grafana`, `Alertmanager`, and `blackbox-exporter`
+- PVCs for backend SQLite, Prometheus, Grafana, and Alertmanager
+- Ingress resources
+- HPAs for stateless services
+- PodDisruptionBudgets
+
+Render the manifests:
+
+```bash
+kubectl kustomize k8s/base
+```
+
+Apply the local overlay:
+
+```bash
+kubectl apply -k k8s/overlays/local
+```
+
+Useful scripts:
+
+```bash
+npm run k8s:apply -- local
+npm run k8s:healthcheck
+npm run argocd:bootstrap -- local
+```
+
+Argo CD manifests live in:
+
+- `k8s/argocd/base/`
+- `k8s/argocd/overlays/local/`
+- `k8s/argocd/overlays/production/`
+
 **Project Structure**
 
 ```text

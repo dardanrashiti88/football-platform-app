@@ -1,0 +1,42 @@
+groups:
+  - name: fod-availability
+    rules:
+      - alert: FodFrontendDown
+        expr: probe_success{job="blackbox-http", target="http://frontend"} == 0
+        for: 2m
+        labels:
+          severity: critical
+          service: frontend
+        annotations:
+          summary: "FOD frontend is down"
+          description: "The frontend probe has been failing for more than 2 minutes."
+
+      - alert: FodBackendDown
+        expr: up{job="fod-backend"} == 0
+        for: 2m
+        labels:
+          severity: critical
+          service: backend
+        annotations:
+          summary: "FOD backend is down"
+          description: "Prometheus cannot scrape backend metrics for more than 2 minutes."
+
+      - alert: FodDbApiDown
+        expr: up{job="fod-db-api"} == 0
+        for: 2m
+        labels:
+          severity: critical
+          service: db-api
+        annotations:
+          summary: "FOD DB API is down"
+          description: "Prometheus cannot scrape db-api metrics for more than 2 minutes."
+
+      - alert: FodBackendHighMemory
+        expr: fod_process_resident_memory_bytes{service="fod-backend"} > 800000000
+        for: 10m
+        labels:
+          severity: warning
+          service: backend
+        annotations:
+          summary: "FOD backend memory is high"
+          description: "Backend resident memory has been above 800 MB for 10 minutes."

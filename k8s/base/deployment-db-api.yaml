@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: db-api
+  labels:
+    app.kubernetes.io/component: db-api
+spec:
+  replicas: 2
+  revisionHistoryLimit: 5
+  selector:
+    matchLabels:
+      app.kubernetes.io/component: db-api
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/component: db-api
+    spec:
+      containers:
+        - name: db-api
+          image: football-platform-app-db-api:latest
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: NODE_ENV
+              value: production
+            - name: PORT
+              value: "3010"
+            - name: API_BASE_PATH
+              value: /api/v1
+          ports:
+            - containerPort: 3010
+              name: http
+          readinessProbe:
+            httpGet:
+              path: /api/v1/health
+              port: http
+            initialDelaySeconds: 10
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /api/v1/health
+              port: http
+            initialDelaySeconds: 20
+            periodSeconds: 20
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: 750m
+              memory: 384Mi

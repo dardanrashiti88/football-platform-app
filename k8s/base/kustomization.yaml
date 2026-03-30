@@ -1,0 +1,66 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: football-platform
+
+commonLabels:
+  app.kubernetes.io/name: football-platform
+  app.kubernetes.io/part-of: football-platform
+
+resources:
+  - namespace.yaml
+  - secrets-grafana.yaml
+  - secrets-alertmanager.yaml
+  - pvc-backend.yaml
+  - pvc-prometheus.yaml
+  - pvc-grafana.yaml
+  - pvc-alertmanager.yaml
+  - deployment-frontend.yaml
+  - service-frontend.yaml
+  - deployment-backend.yaml
+  - service-backend.yaml
+  - deployment-db-api.yaml
+  - service-db-api.yaml
+  - deployment-blackbox-exporter.yaml
+  - service-blackbox-exporter.yaml
+  - deployment-prometheus.yaml
+  - service-prometheus.yaml
+  - deployment-alertmanager.yaml
+  - service-alertmanager.yaml
+  - deployment-grafana.yaml
+  - service-grafana.yaml
+  - ingress-app.yaml
+  - ingress-monitoring.yaml
+  - hpa-frontend.yaml
+  - hpa-db-api.yaml
+  - pdb-frontend.yaml
+  - pdb-backend.yaml
+  - pdb-db-api.yaml
+
+configMapGenerator:
+  - name: frontend-nginx-config
+    files:
+      - default.conf=config/frontend/default.conf
+  - name: blackbox-config
+    files:
+      - config.yml=config/blackbox/config.yml
+  - name: prometheus-config
+    files:
+      - prometheus.yml=config/prometheus/prometheus.yml
+      - alerts.yml=config/prometheus/alerts.yml
+  - name: alertmanager-config
+    files:
+      - bootstrap.sh=config/alertmanager/bootstrap.sh
+      - alertmanager.yml.template=config/alertmanager/alertmanager.yml.template
+  - name: grafana-datasources
+    files:
+      - prometheus.yml=config/grafana/datasources/prometheus.yml
+  - name: grafana-dashboards-config
+    files:
+      - dashboards.yml=config/grafana/dashboards/dashboards.yml
+  - name: grafana-dashboard-fod-overview
+    files:
+      - fod-overview.json=config/grafana/dashboards/json/fod-overview.json
+
+generatorOptions:
+  disableNameSuffixHash: true

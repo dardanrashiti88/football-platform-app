@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: db-api
+  labels:
+    app.kubernetes.io/component: db-api
+spec:
+  selector:
+    app.kubernetes.io/component: db-api
+  ports:
+    - name: http
+      port: 3010
+      targetPort: http
