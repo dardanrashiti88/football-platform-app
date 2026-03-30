@@ -101,16 +101,19 @@ else
 fi
 
 print_section "Security spot-check"
+secret_pattern='(SMTP_AUTH_PASSWORD=|ghp_[A-Za-z0-9]{20,}|AIza[0-9A-Za-z_-]{20,}|sk-[A-Za-z0-9]{20,})'
+secret_hits=''
 if command -v rg >/dev/null 2>&1; then
-  secret_hits="$(rg -n --hidden --glob '!**/.git/**' --glob '!**/node_modules/**' --glob '!package-lock.json' --glob '!.env.example' --glob '!README.md' --glob '!scripts/scan-project.sh' '(SMTP_AUTH_PASSWORD=|ghp_[A-Za-z0-9]{20,}|AIza[0-9A-Za-z_-]{20,}|sk-[A-Za-z0-9]{20,})' . || true)"
-  if [ -n "$secret_hits" ]; then
-    warn "potential secret-like strings found; review them carefully"
-    echo "$secret_hits"
-  else
-    pass "no obvious secret-like strings found in tracked project files"
-  fi
+  secret_hits="$(rg -n --hidden --glob '!**/.git/**' --glob '!**/node_modules/**' --glob '!package-lock.json' --glob '!.env.example' --glob '!README.md' --glob '!scripts/scan-project.sh' "$secret_pattern" . || true)"
+elif command -v grep >/dev/null 2>&1; then
+  secret_hits="$(grep -RInE --exclude-dir=.git --exclude-dir=node_modules --exclude=package-lock.json --exclude=.env.example --exclude=README.md --exclude=scan-project.sh "$secret_pattern" . 2>/dev/null || true)"
+fi
+
+if [ -n "$secret_hits" ]; then
+  warn "potential secret-like strings found; review them carefully"
+  echo "$secret_hits"
 else
-  warn "ripgrep is not installed; skipping secret spot-check"
+  pass "no obvious secret-like strings found in tracked project files"
 fi
 
 print_section "Healthcheck"
