@@ -4,7 +4,7 @@
  */
 
 import React, { useEffect, useRef, useState } from 'react';
-import sharedCardPricesData from '../../shared/card-prices.json';
+import sharedCardPricesData from '@shared/card-prices.json';
 import { 
   Search, Bell, Globe, LayoutGrid, BarChart3, Megaphone, 
   Share2, Database, FileText, Settings, ChevronDown, 
