@@ -220,6 +220,35 @@ Kubernetes manifests now live in `k8s/` with a full `kustomize` layout:
 - `k8s/overlays/local/`
 - `k8s/overlays/production/`
 
+Kubernetes secrets are now handled outside Git.
+
+Start with:
+
+```bash
+npm run k8s:init-secrets -- local
+```
+
+Fill in:
+
+- `k8s/secrets/local/grafana.env`
+- `k8s/secrets/local/alertmanager.env`
+
+Then apply them:
+
+```bash
+npm run k8s:apply-secrets -- local
+```
+
+For CI/CD later, keep deployment credentials in GitHub Actions secrets, not in workflow files.
+
+If you do not want email alerts locally yet, keep this in `k8s/secrets/local/alertmanager.env`:
+
+```text
+ENABLE_EMAIL_ALERTS=false
+```
+
+That lets Alertmanager run without requiring SMTP values.
+
 The Kubernetes setup includes:
 
 - app Deployments and Services for `frontend`, `backend`, and `db-api`

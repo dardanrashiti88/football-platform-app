@@ -9,8 +9,6 @@ commonLabels:
 
 resources:
   - namespace.yaml
-  - secrets-grafana.yaml
-  - secrets-alertmanager.yaml
   - pvc-backend.yaml
   - pvc-prometheus.yaml
   - pvc-grafana.yaml

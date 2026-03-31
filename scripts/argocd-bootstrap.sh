@@ -19,6 +19,8 @@ if ! command -v kubectl >/dev/null 2>&1; then
   exit 1
 fi
 
+bash "${ROOT_DIR}/scripts/k8s-apply-secrets.sh" "${ARGO_OVERLAY}"
+
 if [[ "${ARGO_OVERLAY}" == "local" && "${SKIP_IMAGE_BUILD:-0}" != "1" ]]; then
   bash "${ROOT_DIR}/scripts/k8s-build-images.sh"
 fi

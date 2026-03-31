@@ -11,6 +11,8 @@ if [[ ! -d "${TARGET}" ]]; then
   exit 1
 fi
 
+bash "${ROOT_DIR}/scripts/k8s-apply-secrets.sh" "${OVERLAY}"
+
 if [[ "${OVERLAY}" == "local" && "${SKIP_IMAGE_BUILD:-0}" != "1" ]]; then
   bash "${ROOT_DIR}/scripts/k8s-build-images.sh"
 fi

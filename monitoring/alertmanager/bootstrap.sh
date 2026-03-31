@@ -3,6 +3,9 @@ set -eu
 
 mkdir -p /tmp/alertmanager
 
+ENABLE_EMAIL_ALERTS="${ENABLE_EMAIL_ALERTS:-false}"
+
+if [ "${ENABLE_EMAIL_ALERTS}" = "true" ]; then
 cat >/tmp/alertmanager/alertmanager.yml <<EOF
 global:
   resolve_timeout: 5m
@@ -25,5 +28,21 @@ receivers:
       - to: '${ALERT_EMAIL_TO}'
         send_resolved: true
 EOF
+else
+cat >/tmp/alertmanager/alertmanager.yml <<EOF
+global:
+  resolve_timeout: 5m
+
+route:
+  receiver: noop
+  group_by: ['alertname', 'service']
+  group_wait: 30s
+  group_interval: 5m
+  repeat_interval: 4h
+
+receivers:
+  - name: noop
+EOF
+fi
 
 exec /bin/alertmanager --config.file=/tmp/alertmanager/alertmanager.yml --storage.path=/alertmanager

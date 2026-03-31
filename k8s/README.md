@@ -24,10 +24,17 @@ The manifests keep `backend` at `1` replica on purpose.
    - `football-platform-app-frontend:latest`
    - `football-platform-app-backend:latest`
    - `football-platform-app-db-api:latest`
-2. Edit:
-   - `k8s/base/secrets-grafana.yaml`
-   - `k8s/base/secrets-alertmanager.yaml`
-3. Make sure your cluster has:
+2. Create secret env files:
+   - `npm run k8s:init-secrets -- local`
+3. Fill in the real values in:
+   - `k8s/secrets/local/grafana.env`
+   - `k8s/secrets/local/alertmanager.env`
+   - if you do not want SMTP yet for local dev, set `ENABLE_EMAIL_ALERTS=false`
+4. Apply the secrets to the cluster:
+   - `npm run k8s:apply-secrets -- local`
+5. Validate them any time with:
+   - `npm run k8s:check-secrets -- local`
+6. Make sure your cluster has:
    - an Ingress controller such as `ingress-nginx`
    - a StorageClass for the PVCs
    - metrics-server if you want the HPAs to work
