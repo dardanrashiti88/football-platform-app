@@ -2820,7 +2820,8 @@ export const initPlayers = () => {
   }
 
   leagueTabs.forEach((tab) => {
-    tab.addEventListener('click', () => {
+    tab.addEventListener('click', (event) => {
+      if (event.target instanceof Element && event.target.closest('.sidebar-slot-edit')) return;
       const leagueKey = tab.dataset.league;
       if (!leagueKey || !LEAGUE_CONFIGS[leagueKey]) return;
       loadLeagueData({ leagueKey, teamRow, playersGrid, panel, searchInput });

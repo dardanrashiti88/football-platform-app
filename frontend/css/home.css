@@ -8,6 +8,82 @@
   box-shadow: 0 2px 0 var(--sidebar-border);
 }
 
+
+.league-card.is-layout-hidden {
+  display: none !important;
+}
+
+.home-card-placeholder {
+  appearance: none;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(242, 244, 247, 0.94));
+  border: 3px dashed rgba(28, 34, 52, 0.2);
+  color: var(--ink);
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+  gap: 12px;
+  box-shadow: 0 6px 0 rgba(28, 34, 52, 0.14);
+}
+
+.home-card-placeholder:hover,
+.home-card-placeholder:focus-visible {
+  border-color: rgba(28, 34, 52, 0.42);
+  box-shadow: 0 8px 0 rgba(28, 34, 52, 0.18);
+  transform: translateY(-2px);
+}
+
+.home-card-placeholder-plus {
+  width: 92px;
+  height: 92px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 56px;
+  font-weight: 700;
+  line-height: 1;
+  background: rgba(29, 57, 122, 0.08);
+  color: #1d397a;
+  box-shadow: inset 0 0 0 2px rgba(29, 57, 122, 0.12);
+}
+
+.home-card-placeholder-label {
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+}
+
+.league-card {
+  position: relative;
+}
+
+.home-card-edit {
+  position: absolute;
+  left: 14px;
+  top: 14px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.72);
+  background: rgba(14, 19, 33, 0.72);
+  color: var(--white);
+  font-size: 20px;
+  font-weight: 700;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.35);
+  z-index: 3;
+}
+
+.home-card-edit:hover,
+.home-card-edit:focus-visible {
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--ink);
+}
+
 .league-card {
   --accent: var(--premier);
   background: var(--ui-accent);
@@ -353,65 +429,36 @@
   background: var(--accent);
 }
 
+.league-card.championship .match-card:nth-child(odd) {
+  background: var(--accent);
+}
+
 .league-card.championship .match-card:nth-child(odd) .team-name,
 .league-card.championship .match-card:nth-child(odd) .score {
   color: #ffffff;
 }
 
 .league-card.championship .match-card:nth-child(2n) {
-  background: linear-gradient(125deg, var(--accent) 0 48%, #f7d83b 48% 100%);
-  color: #ffffff;
+  background: #f7d83b;
+  color: var(--ink);
 }
-
-.league-card.championship .match-card:nth-child(4) {
-  background: linear-gradient(125deg, var(--accent) 0 35%, #f7d83b 35% 100%);
-}
-
-.league-card.championship .match-card:nth-child(6) {
-  background: linear-gradient(125deg, var(--accent) 0 24%, #f7d83b 24% 100%);
-}
-
-.league-card.championship .match-card:nth-child(8) {
-  background: linear-gradient(125deg, var(--accent) 0 10%, #f7d83b 10% 100%);
-}
-
 
 .league-card.championship .match-card:nth-child(2n) .team-name {
-  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.6);
+  color: var(--ink);
 }
 
 .league-card.championship .match-card:nth-child(2n) .score {
-  color: #ffffff;
-  background: rgba(0, 0, 0, 0.25);
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.35);
 }
 
 .league-card.championship .match-card:nth-child(2n) .team-logo-fallback {
-  background: rgba(0, 0, 0, 0.28);
-  color: #ffffff;
+  background: rgba(0, 0, 0, 0.14);
+  color: var(--ink);
 }
 
 .league-card.championship .match-card.ghost:nth-child(2n) {
   background: #f7d83b;
-}
-
-.league-card.championship .match-card.ghost:nth-child(9) {
-  background: linear-gradient(125deg, var(--accent) 0 91%, #f7d83b 91% 100%);
-}
-
-.league-card.championship .match-card.ghost:nth-child(11) {
-  background: linear-gradient(125deg, var(--accent) 0 79%, #f7d83b 79% 100%);
-}
-
-.league-card.championship .match-card.ghost:nth-child(13) {
-  background: linear-gradient(125deg, var(--accent) 0 66%, #f7d83b 66% 100%);
-}
-
-.league-card.championship .match-card.ghost:nth-child(15) {
-  background: linear-gradient(125deg, var(--accent) 0 52%, #f7d83b 52% 100%);
-}
-
-.league-card.championship .match-card.ghost:nth-child(17) {
-  background: linear-gradient(125deg, var(--accent) 0 39%, #f7d83b 39% 100%);
 }
 
 .league-card.worldcup .match-grid .match-card {

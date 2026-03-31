@@ -20,6 +20,8 @@ import { initSettings } from './modules/settings.js';
 import { initProfile } from './modules/profile.js';
 import { initGlobalSearch } from './modules/global-search.js';
 import { initAuth } from './modules/auth.js';
+import { initSidebar } from './modules/sidebar.js';
+import { initHomeCards } from './modules/home-cards.js';
 import { initCardgame, openInventoryStage, restorePackState } from './modules/cardgame.js';
 import { initMatch } from './modules/match.js';
 
@@ -92,6 +94,8 @@ document.addEventListener('dragstart', (event) => {
 });
 
 initViews();
+initSidebar();
+initHomeCards();
 initHome();
 initLeagues();
 initPlayers();

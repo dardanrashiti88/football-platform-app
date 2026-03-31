@@ -1,4 +1,5 @@
 import { showLeagues, showPlayers } from '../core/views.js';
+import { activateSidebarLeague } from './sidebar.js';
 import { getLogoByName } from './players.js';
 
 const searchOpenBtn = document.querySelector('#global-search-open');
@@ -315,7 +316,9 @@ const searchIndex = async (query) => {
 
 const openTeamProfile = (leagueKey, teamId, playerName) => {
   showPlayers();
-  const leagueTab = document.querySelector(`.sidebar-item[data-league="${leagueKey}"]`);
+  const leagueTab =
+    activateSidebarLeague(leagueKey, { ensureVisible: true })
+    || document.querySelector(`.sidebar-item[data-league="${leagueKey}"]`);
   if (leagueTab) {
     leagueTab.click();
   }
@@ -351,7 +354,9 @@ const handleResultClick = (event) => {
 
   if (type === 'competition' && leagueKey) {
     showLeagues();
-    const leagueTab = document.querySelector(`.sidebar-item[data-league="${leagueKey}"]`);
+    const leagueTab =
+      activateSidebarLeague(leagueKey, { ensureVisible: true })
+      || document.querySelector(`.sidebar-item[data-league="${leagueKey}"]`);
     if (leagueTab) leagueTab.click();
     closeOverlay();
     return;

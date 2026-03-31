@@ -1157,8 +1157,10 @@ export const initLeagues = () => {
   };
 
   leagueTabs.forEach((tab) => {
-    tab.addEventListener('click', () => {
+    tab.addEventListener('click', (event) => {
+      if (event.target instanceof Element && event.target.closest('.sidebar-slot-edit')) return;
       const leagueId = tab.dataset.league;
+      if (!leagueId) return;
       leagueTabs.forEach((item) => item.classList.remove('active'));
       tab.classList.add('active');
 

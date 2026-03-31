@@ -2883,6 +2883,13 @@ const renderPremierMatchdayPills = () => {
     .join('');
 };
 
+const setChampionshipFixtureLabels = (leftLabel = 'Fixtures', rightLabel = 'More Fixtures') => {
+  const labels = document.querySelectorAll('.league-card.championship .fixtures-head span');
+  if (labels.length < 2) return;
+  labels[0].textContent = leftLabel;
+  labels[1].textContent = rightLabel;
+};
+
 const renderBundesligaMatchdayPills = () => {
   const matchdayRow = document.querySelector('.league-card.bundesliga .matchday-row');
   if (!matchdayRow) return;
@@ -2978,6 +2985,30 @@ const renderPremierFixtures = (matchday = premierFixturesState.activeMatchday) =
 
   matchGrid.innerHTML = cells.join('');
   renderPremierMatchdayPills();
+};
+
+const renderChampionshipFixtures = (matchday = championshipFixturesState.activeMatchday) => {
+  const matchGrid = document.querySelector('.league-card.championship .match-grid');
+  if (!matchGrid) return;
+
+  const selectedMatchday = Number(matchday);
+  const fixtures = [...(championshipFixturesState.matchesByMatchday.get(selectedMatchday) || [])].sort(
+    (left, right) => new Date(left.matchDate).getTime() - new Date(right.matchDate).getTime()
+  );
+  const visibleFixtures = fixtures.slice(0, 18);
+  const leftFixtures = visibleFixtures.slice(0, 9);
+  const rightFixtures = visibleFixtures.slice(9, 18);
+  const cells = [];
+
+  championshipFixturesState.activeMatchday = selectedMatchday;
+  setChampionshipFixtureLabels();
+
+  for (let index = 0; index < 9; index += 1) {
+    cells.push(leftFixtures[index] ? buildFixtureCardMarkup(leftFixtures[index]) : buildGhostCardMarkup());
+    cells.push(rightFixtures[index] ? buildFixtureCardMarkup(rightFixtures[index]) : buildGhostCardMarkup());
+  }
+
+  matchGrid.innerHTML = cells.join('');
 };
 
 const renderBundesligaFixtures = (matchday = bundesligaFixturesState.activeMatchday) => {
@@ -4533,7 +4564,7 @@ const hydrateChampionshipFixtures = async () => {
     const matches = [];
     championshipFixturesState.teamsById.clear();
 
-    lines.slice(1, 9).forEach((line, index) => {
+    lines.slice(1).forEach((line, index) => {
       const cols = line.split(',');
       const homeTeamName = String(cols[idxHome] || '').trim();
       const awayTeamName = String(cols[idxAway] || '').trim();
@@ -4560,7 +4591,9 @@ const hydrateChampionshipFixtures = async () => {
     });
 
     bucket.set(1, matches);
+    championshipFixturesState.activeMatchday = 1;
     championshipFixturesState.matchesByMatchday = bucket;
+    renderChampionshipFixtures(1);
     tryOpenMatchFromQuery();
   } catch (error) {
     console.warn('Unable to hydrate Championship fixtures from history CSV.', error);

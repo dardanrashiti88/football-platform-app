@@ -230,9 +230,19 @@
   gap: 12px;
 }
 
+.team-profile[data-team-id='crystal-palace'] .team-hero-title {
+  font-size: clamp(64px, 10vw, 170px);
+  gap: 14px;
+}
+
 .team-profile[data-team-id='afc-bournemouth'] .team-hero-logo {
   width: 180px;
   height: 180px;
+}
+
+.team-profile[data-team-id='crystal-palace'] .team-hero-logo {
+  width: 220px;
+  height: 220px;
 }
 
 .team-hero-inner {
@@ -333,7 +343,7 @@
 
 .team-body {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 520px;
+  grid-template-columns: minmax(0, 1fr) minmax(340px, 420px);
   gap: 18px;
 }
 
@@ -341,6 +351,7 @@
   display: grid;
   grid-template-columns: minmax(230px, 1fr) minmax(230px, 1fr) minmax(180px, 0.85fr);
   gap: 14px;
+  min-width: 0;
 }
 
 .squad-column {
@@ -350,6 +361,7 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+  min-width: 0;
 }
 
 .squad-column-title {
@@ -384,6 +396,7 @@
       color-mix(in srgb, var(--team-primary) 35%, #000000 65%) 100%
     );
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
+  min-width: 0;
 }
 
 .squad-photo {
@@ -411,6 +424,7 @@
   display: flex;
   flex-direction: column;
   gap: 4px;
+  min-width: 0;
 }
 
 .squad-name {
@@ -419,6 +433,9 @@
   color: #fff;
   text-transform: uppercase;
   letter-spacing: 0.3px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .squad-meta {
@@ -428,6 +445,8 @@
   display: flex;
   align-items: center;
   gap: 6px;
+  min-width: 0;
+  flex-wrap: wrap;
 }
 
 .squad-flag {
@@ -441,6 +460,7 @@
   display: flex;
   gap: 6px;
   flex-wrap: wrap;
+  min-width: 0;
 }
 
 .squad-stats span {
@@ -478,6 +498,9 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
+  min-width: 0;
+  width: 100%;
+  max-width: 420px;
 }
 
 .team-fixtures-title {
@@ -831,10 +854,10 @@
 
 .team-fixture-card {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 70px minmax(0, 1fr) 96px;
-  gap: 10px;
+  grid-template-columns: minmax(0, 1fr) 60px minmax(0, 1fr) 86px;
+  gap: 8px;
   align-items: center;
-  padding: 8px 0 8px 16px;
+  padding: 8px 0 8px 12px;
   border-radius: 18px;
   background: #ffffff;
   border: 2px solid rgba(0, 0, 0, 0.08);
@@ -897,8 +920,8 @@
 }
 
 .fixture-team img {
-  width: 56px;
-  height: 56px;
+  width: 48px;
+  height: 48px;
   object-fit: contain;
 }
 
@@ -918,7 +941,7 @@
 }
 
 .fixture-vs {
-  width: 70px;
+  width: 60px;
   align-self: stretch;
   display: flex;
   align-items: center;
@@ -936,7 +959,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 6px;
   font-family: 'Bebas Neue', 'Teko', 'Space Grotesk', sans-serif;
   font-size: 32px;
   font-weight: 700;
