@@ -212,6 +212,45 @@ Important:
 - for HCP Terraform, use CLI-driven runs or an HCP agent on the Docker host
 - standard HCP remote runners cannot manage your local Docker daemon
 
+**Backups**
+
+This project now includes backup and restore scripts for the data that actually matters:
+
+- backend SQLite database
+- root `.env` if you use one
+- local Kubernetes secret env files
+- Docker volumes for:
+  - `fod-backend-data`
+  - `prometheus-data`
+  - `grafana-data`
+  - `alertmanager-data`
+
+Create a backup:
+
+```bash
+npm run backup:create
+```
+
+Modes:
+
+```bash
+npm run backup:create -- local
+npm run backup:create -- docker
+```
+
+Restore from a backup folder:
+
+```bash
+npm run backup:restore -- backups/20260331-160000
+```
+
+Use these before:
+
+- wiping Docker volumes
+- resetting local data
+- risky infra changes
+- cluster rebuilds where you want to keep monitoring/app data
+
 **Kubernetes**
 
 Kubernetes manifests now live in `k8s/` with a full `kustomize` layout:

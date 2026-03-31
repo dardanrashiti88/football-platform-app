@@ -29,3 +29,7 @@ crash.log
 crash.*.log
 terraform.tfvars
 *.auto.tfvars
+
+# Backups
+backups/*
+!backups/README.md

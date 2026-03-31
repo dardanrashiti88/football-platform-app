@@ -12,6 +12,8 @@
     "docker:logs": "docker compose logs -f",
     "healthcheck": "node scripts/healthcheck.js",
     "healthcheck:live": "node scripts/healthcheck.js --live",
+    "backup:create": "bash scripts/backup-data.sh",
+    "backup:restore": "bash scripts/restore-data.sh",
     "scan:project": "bash scripts/scan-project.sh",
     "scan:project:live": "bash scripts/scan-project.sh --live",
     "infra:init": "terraform -chdir=infra/terraform init",
