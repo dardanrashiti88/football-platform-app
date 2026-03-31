@@ -417,6 +417,7 @@ The repo now keeps CI/CD separated in two places:
   - grouped helper scripts and notes for:
     - `testing/`
     - `security/`
+    - `kubernetes/`
     - `staging/`
     - `production/`
 
@@ -441,7 +442,15 @@ Current flow:
    - runs `npm run healthcheck:live`
    - checks register/login smoke flow
 
-4. `Production`
+4. `Kubernetes`
+   - runs on manual trigger and a daily schedule
+   - validates rendered Kubernetes manifests
+   - creates a throwaway `kind` cluster
+   - builds and loads the app images
+   - applies the local overlay and runs `npm run k8s:healthcheck`
+   - scheduled to execute at `06:00 Europe/Tirane` using a DST-safe gate
+
+5. `Production`
    - manual only
    - reruns testing + staging checks
    - validates and builds Docker images before release

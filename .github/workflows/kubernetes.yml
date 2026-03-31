@@ -1,0 +1,79 @@
+name: Kubernetes
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 4,5 * * *'
+
+permissions:
+  contents: read
+
+jobs:
+  schedule-gate:
+    runs-on: ubuntu-latest
+    outputs:
+      should_run: ${{ steps.gate.outputs.should_run }}
+    steps:
+      - name: Decide whether this scheduled run should execute
+        id: gate
+        run: |
+          if [ "${{ github.event_name }}" != "schedule" ]; then
+            echo "should_run=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          LOCAL_HOUR="$(TZ=Europe/Tirane date +%H)"
+          if [ "$LOCAL_HOUR" = "06" ]; then
+            echo "should_run=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "should_run=false" >> "$GITHUB_OUTPUT"
+          fi
+
+  kubernetes-checks:
+    name: Validate manifests and smoke-test cluster
+    runs-on: ubuntu-latest
+    needs: schedule-gate
+    if: needs.schedule-gate.outputs.should_run == 'true'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup kubectl
+        uses: azure/setup-kubectl@v4
+        with:
+          version: v1.33.1
+
+      - name: Create kind cluster
+        uses: helm/kind-action@v1.12.0
+        with:
+          cluster_name: football-platform-ci
+
+      - name: Build application images
+        run: |
+          docker build -t football-platform-app-frontend:latest -f frontend/Dockerfile .
+          docker build -t football-platform-app-backend:latest -f backend/Dockerfile .
+          docker build -t football-platform-app-db-api:latest -f db-api/Dockerfile .
+
+      - name: Load images into kind
+        run: |
+          kind load docker-image football-platform-app-frontend:latest --name football-platform-ci
+          kind load docker-image football-platform-app-backend:latest --name football-platform-ci
+          kind load docker-image football-platform-app-db-api:latest --name football-platform-ci
+
+      - name: Run Kubernetes workflow checks
+        run: bash workflows/kubernetes/run-k8s-ci.sh
+
+      - name: Dump Kubernetes diagnostics on failure
+        if: failure()
+        run: |
+          echo "=== Nodes ==="
+          kubectl get nodes -o wide || true
+          echo
+          echo "=== All pods ==="
+          kubectl get pods -A -o wide || true
+          echo
+          echo "=== Football platform events ==="
+          kubectl get events -n football-platform --sort-by=.metadata.creationTimestamp || true
+          echo
+          echo "=== Football platform pod descriptions ==="
+          kubectl describe pods -n football-platform || true
