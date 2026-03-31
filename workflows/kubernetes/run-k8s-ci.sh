@@ -10,6 +10,10 @@ kubectl kustomize k8s/overlays/local >/tmp/k8s-local.yaml
 kubectl kustomize k8s/overlays/production >/tmp/k8s-production.yaml
 
 echo
+echo "Creating target namespace for server-side validation..."
+kubectl apply -f k8s/base/namespace.yaml >/dev/null
+
+echo
 echo "Validating rendered manifests against the cluster..."
 kubectl apply --dry-run=server -f /tmp/k8s-base.yaml >/dev/null
 kubectl apply --dry-run=server -f /tmp/k8s-local.yaml >/dev/null

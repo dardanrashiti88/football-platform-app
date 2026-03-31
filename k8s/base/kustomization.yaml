@@ -3,9 +3,12 @@ kind: Kustomization
 
 namespace: football-platform
 
-commonLabels:
-  app.kubernetes.io/name: football-platform
-  app.kubernetes.io/part-of: football-platform
+labels:
+  - pairs:
+      app.kubernetes.io/name: football-platform
+      app.kubernetes.io/part-of: football-platform
+    includeSelectors: true
+    includeTemplates: true
 
 resources:
   - namespace.yaml
