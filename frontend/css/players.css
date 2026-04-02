@@ -245,6 +245,52 @@
   height: 220px;
 }
 
+.team-profile[data-team-id='bayern-munich'] .team-hero {
+  min-height: 248px;
+  padding: 42px 22px 52px;
+  background: linear-gradient(180deg, #c4122f 0%, #8f0d26 46%, #090909 100%);
+}
+
+.team-profile[data-team-id='bayern-munich'] .team-hero-title {
+  font-size: clamp(58px, 9vw, 150px);
+  gap: 12px;
+}
+
+.team-profile[data-team-id='bayern-munich'] .team-hero-logo {
+  width: 172px;
+  height: 172px;
+}
+
+.team-profile[data-team-id='werder-bremen'] .team-hero {
+  min-height: 248px;
+  padding: 42px 22px 52px;
+}
+
+.team-profile[data-team-id='werder-bremen'] .team-hero-title {
+  font-size: clamp(56px, 8.6vw, 144px);
+  gap: 12px;
+}
+
+.team-profile[data-team-id='werder-bremen'] .team-hero-logo {
+  width: 172px;
+  height: 172px;
+}
+
+.team-profile[data-team-id='rayo-vallecano'] .team-hero {
+  min-height: 248px;
+  padding: 42px 22px 52px;
+}
+
+.team-profile[data-team-id='rayo-vallecano'] .team-hero-title {
+  font-size: clamp(54px, 8.4vw, 138px);
+  gap: 12px;
+}
+
+.team-profile[data-team-id='rayo-vallecano'] .team-hero-logo {
+  width: 168px;
+  height: 168px;
+}
+
 .team-hero-inner {
   display: flex;
   flex-direction: column;

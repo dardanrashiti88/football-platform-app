@@ -90,20 +90,6 @@ const getCardConfig = (leagueId) => {
   };
 };
 
-const ensureEditButton = (card, slotIndex, label) => {
-  let editButton = card.querySelector('.home-card-edit');
-  if (!editButton) {
-    editButton = document.createElement('button');
-    editButton.type = 'button';
-    editButton.className = 'home-card-edit';
-    editButton.textContent = '+';
-    card.appendChild(editButton);
-  }
-
-  editButton.dataset.slot = String(slotIndex);
-  editButton.setAttribute('aria-label', `Change ${label}`);
-};
-
 const buildPlaceholderCard = (slotIndex) => {
   const placeholder = document.createElement('button');
   placeholder.type = 'button';
@@ -125,7 +111,6 @@ const renderLayout = () => {
   cardMap.forEach((card) => {
     card.classList.add('is-layout-hidden');
     card.removeAttribute('data-layout-slot');
-    card.querySelector('.home-card-edit')?.remove();
   });
 
   const fragment = document.createDocumentFragment();
@@ -140,7 +125,6 @@ const renderLayout = () => {
 
       card.classList.remove('is-layout-hidden');
       card.dataset.layoutSlot = String(slotIndex);
-      ensureEditButton(card, slotIndex, getCardConfig(leagueId).label);
       fragment.appendChild(card);
       return;
     }
@@ -293,11 +277,13 @@ export const initHomeCards = () => {
     const target = event.target;
     if (!(target instanceof Element)) return;
 
-    const editButton = target.closest('.home-card-edit');
-    if (editButton) {
+    const header = target.closest('.league-card[data-layout-slot] .league-header');
+    if (header) {
       event.preventDefault();
       event.stopImmediatePropagation();
-      openPicker(Number(editButton.dataset.slot));
+      const card = header.closest('.league-card[data-layout-slot]');
+      if (!card) return;
+      openPicker(Number(card.dataset.layoutSlot));
       return;
     }
 

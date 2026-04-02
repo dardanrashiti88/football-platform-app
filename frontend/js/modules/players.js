@@ -600,6 +600,10 @@ const TEAM_COLOR_PAIRS = {
   'wolverhampton-wanderers': ['#b47b1f', '#111111']
 };
 
+const BUNDESLIGA_TEAM_COLORS = {
+  'bayern-munich': '#c4122f'
+};
+
 const LEAGUE_CONFIGS = {
   premier: {
     competitionId: 'premier-league-2025-2026',
@@ -657,7 +661,8 @@ const LEAGUE_CONFIGS = {
     playersUrl: BUNDESLIGA_PLAYERS_URL,
     matchesUrl: BUNDESLIGA_MATCHES_URL,
     competitionLabel: 'Bundesliga',
-    teamLogos: BUNDESLIGA_TEAM_LOGOS
+    teamLogos: BUNDESLIGA_TEAM_LOGOS,
+    primaryColors: BUNDESLIGA_TEAM_COLORS
   },
   ligue1: {
     competitionId: 'ligue-1-2025-2026',

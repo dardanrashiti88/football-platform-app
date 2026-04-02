@@ -59,29 +59,8 @@
   position: relative;
 }
 
-.home-card-edit {
-  position: absolute;
-  left: 14px;
-  top: 14px;
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
-  border: 2px solid rgba(255, 255, 255, 0.72);
-  background: rgba(14, 19, 33, 0.72);
-  color: var(--white);
-  font-size: 20px;
-  font-weight: 700;
-  display: grid;
-  place-items: center;
+.league-card[data-layout-slot] .league-header {
   cursor: pointer;
-  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.35);
-  z-index: 3;
-}
-
-.home-card-edit:hover,
-.home-card-edit:focus-visible {
-  background: rgba(255, 255, 255, 0.92);
-  color: var(--ink);
 }
 
 .league-card {
