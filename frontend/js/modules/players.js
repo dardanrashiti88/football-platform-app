@@ -1,3 +1,5 @@
+import { showPlayers } from '../core/views.js';
+
 const PREMIER_TEAMS_URL = new URL(
   '../../../db-api/data/competitions/premier-league/teams.json',
   import.meta.url
@@ -779,6 +781,24 @@ const LEAGUE_DEFAULT_COLORS = {
   worldcup: '#007a5a'
 };
 
+const PLAYER_PROFILE_LIBRARY = {
+  alexanderisak: {
+    animationTeamId: 'liverpool',
+    currentSeasonOverrides: {
+      appearances: '16',
+      rating: 'N/A'
+    },
+    seasons: [
+      { season: '20/21', club: 'Real Sociedad' },
+      { season: '21/22', club: 'Real Sociedad' },
+      { season: '22/23', club: 'Newcastle United' },
+      { season: '23/24', club: 'Newcastle United' },
+      { season: '24/25', club: 'Newcastle United' },
+      { season: '25/26', club: 'Liverpool' }
+    ]
+  }
+};
+
 const state = {
   teams: [],
   players: [],
@@ -789,6 +809,7 @@ const state = {
   standings: {},
   leagueTeams: {},
   activeTeamId: null,
+  activePlayerProfile: null,
   activeLeague: 'premier',
   searchTerm: '',
   profileKey: null
@@ -808,11 +829,23 @@ const pendingColorPromises = new Map();
 const normalizeString = (value = '') =>
   String(value).toLowerCase().trim().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 const normalizeKey = (value = '') => normalizeString(value).replace(/[^a-z0-9]/g, '');
+const PLAYER_NAME_DISPLAY_OVERRIDES = {
+  alexisak: 'Alexander Isak'
+};
+const PLAYER_NAME_MATCH_ALIASES = {
+  alexanderisak: ['alexisak'],
+  alexisak: ['alexanderisak']
+};
 const pageParams = new URLSearchParams(window.location.search);
 const requestedLeagueFromPage = pageParams.get('playersLeague');
 const requestedTeamFromPage = pageParams.get('playersTeam');
 const requestedTeamNameFromPage = pageParams.get('playersTeamName');
 const requestedPlayerFromPage = pageParams.get('playersPlayer');
+
+const getPlayerDisplayNameOverride = (name = '') => {
+  const key = normalizeKey(name);
+  return PLAYER_NAME_DISPLAY_OVERRIDES[key] || String(name || '').trim();
+};
 
 const GLOBAL_TEAM_LOGOS = {
   ...PREMIER_TEAM_LOGOS,
@@ -1901,7 +1934,7 @@ const buildRosterFromCsv = (rows, entry, leagueKey, teamId) => {
   const nameHints = { firstCounts, lastCounts, photoLookup };
   const roster = [];
   rows.forEach((row, index) => {
-    const name = row['Player Name'] || row.Player || row.Name || '';
+    const name = getPlayerDisplayNameOverride(row['Player Name'] || row.Player || row.Name || '');
     if (!name) return;
     roster.push({
       name,
@@ -1912,6 +1945,7 @@ const buildRosterFromCsv = (rows, entry, leagueKey, teamId) => {
       appearances: row.Appearances || '',
       goals: row.Goals || '',
       assists: row.Assists || '',
+      goalContributions: row['Goals Plus Assists'] || '',
       minutes: row['Minutes Played'] || row.Minutes || '',
       cleanSheets: row['Clean Sheets'] || '',
       yellow: row['Yellow Cards'] || '',
@@ -1944,7 +1978,7 @@ const buildRosterFromPlayerList = (players, entry, leagueKey, teamId) => {
   const nameHints = { firstCounts, lastCounts, photoLookup };
 
   return players.map((player, index) => ({
-    name: player.name,
+    name: getPlayerDisplayNameOverride(player.name),
     position: player.position,
     number: '',
     nationality: player.nationality || '',
@@ -1952,6 +1986,7 @@ const buildRosterFromPlayerList = (players, entry, leagueKey, teamId) => {
     appearances: '',
     goals: '',
     assists: '',
+    goalContributions: '',
     minutes: '',
     cleanSheets: '',
     yellow: '',
@@ -2044,6 +2079,123 @@ const createTextElement = (tagName, className, text) => {
   return element;
 };
 
+const playerProfileKey = (name = '') => normalizeKey(name);
+
+const findRosterPlayer = (roster = [], playerName = '') => {
+  const wanted = normalizeString(playerName);
+  if (!wanted) return null;
+  const wantedKey = normalizeKey(playerName);
+  const acceptedKeys = new Set([wantedKey, ...(PLAYER_NAME_MATCH_ALIASES[wantedKey] || [])]);
+  return (
+    roster.find((player) => {
+      const playerKey = normalizeKey(player.name);
+      return acceptedKeys.has(playerKey);
+    }) || null
+  );
+};
+
+const getPlayerCurrentTeam = () =>
+  state.teams.find((team) => team.id === state.activeTeamId) || null;
+
+const formatStatValue = (value, fallback = '—') => {
+  const text = String(value ?? '').trim();
+  if (!text || text === '?') return fallback;
+  return text;
+};
+
+const computeGoalContributions = (player, fallback = '—') => {
+  const direct = String(player?.goalContributions || '').trim();
+  if (direct && direct !== '?') return direct;
+  const goals = Number.parseInt(player?.goals, 10);
+  const assists = Number.parseInt(player?.assists, 10);
+  if (Number.isFinite(goals) || Number.isFinite(assists)) {
+    return String((Number.isFinite(goals) ? goals : 0) + (Number.isFinite(assists) ? assists : 0));
+  }
+  return fallback;
+};
+
+const buildPlayerSeasonEntries = (player, team) => {
+  const profile = PLAYER_PROFILE_LIBRARY[playerProfileKey(player?.name)] || null;
+  const currentClub = team?.name || profile?.seasons?.at(-1)?.club || 'Current Club';
+  const currentSeasonSource = {
+    ...player,
+    ...(profile?.currentSeasonOverrides || {})
+  };
+  const currentSeason = {
+    season: '25/26',
+    club: currentClub,
+    appearances: formatStatValue(currentSeasonSource?.appearances, 'N/A'),
+    goals: formatStatValue(currentSeasonSource?.goals, 'N/A'),
+    assists: formatStatValue(currentSeasonSource?.assists, 'N/A'),
+    minutes: formatStatValue(currentSeasonSource?.minutes, 'N/A'),
+    goalContributions: formatStatValue(
+      profile?.currentSeasonOverrides?.goalContributions ?? computeGoalContributions(currentSeasonSource, 'N/A'),
+      'N/A'
+    ),
+    rating: formatStatValue(currentSeasonSource?.rating, 'N/A')
+  };
+
+  if (!profile?.seasons?.length) return [currentSeason];
+
+  return profile.seasons.map((entry) => {
+    if (entry.season === currentSeason.season) {
+      return {
+        ...entry,
+        club: entry.club || currentSeason.club,
+        appearances: currentSeason.appearances,
+        goals: currentSeason.goals,
+        assists: currentSeason.assists,
+        minutes: currentSeason.minutes,
+        goalContributions: currentSeason.goalContributions,
+        rating: currentSeason.rating
+      };
+    }
+    return {
+      appearances: 'N/A',
+      goals: 'N/A',
+      assists: 'N/A',
+      minutes: 'N/A',
+      goalContributions: 'N/A',
+      rating: 'N/A',
+      ...entry
+    };
+  });
+};
+
+const buildPlayerProfileData = (player, team) => {
+  const profile = PLAYER_PROFILE_LIBRARY[playerProfileKey(player?.name)] || null;
+  const flagUrl = getFlagUrl(player?.nationality);
+  const seasons = buildPlayerSeasonEntries(player, team);
+  const currentSeason = seasons.at(-1) || seasons[0] || null;
+  const logoTeamId = profile?.animationTeamId || team?.id || '';
+  const logoTeam = state.teams.find((entry) => entry.id === logoTeamId) || team || null;
+
+  return {
+    key: playerProfileKey(player?.name),
+    name: player?.name || 'Player',
+    position: player?.position || '—',
+    nationality: player?.nationality || '—',
+    age: formatStatValue(player?.age),
+    flagUrl,
+    teamId: team?.id || '',
+    teamName: team?.name || team?.shortName || '',
+    teamLogo: getLogoForTeam(logoTeam, state.activeLeague),
+    photo: player?.photo || '',
+    notes: player?.notes || '',
+    seasons,
+    currentSeason: currentSeason || {
+      season: '25/26',
+      club: team?.name || 'Current Club',
+      appearances: 'N/A',
+      goals: 'N/A',
+      assists: 'N/A',
+      minutes: 'N/A',
+      goalContributions: 'N/A',
+      rating: 'N/A'
+    }
+  };
+};
+
 const buildSquadCardElement = (player) => {
   const number = player.number ? String(player.number) : '';
   const stats = [
@@ -2053,6 +2205,10 @@ const buildSquadCardElement = (player) => {
   ].filter(Boolean);
   const flagUrl = getFlagUrl(player.nationality);
   const card = createTextElement('article', 'squad-card');
+  card.dataset.action = 'open-player-profile';
+  card.dataset.playerName = player.name || '';
+  card.dataset.teamId = state.activeTeamId || '';
+  card.tabIndex = 0;
   const photo = createTextElement('div', 'squad-photo');
   if (player.photo) {
     const image = document.createElement('img');
@@ -2537,6 +2693,204 @@ const renderTeamProfile = (playersGrid) => {
   playersGrid.replaceChildren(teamProfile);
 };
 
+const buildPlayerStatChip = (label, value) => {
+  const chip = createTextElement('div', 'player-profile-stat');
+  chip.appendChild(createTextElement('span', 'player-profile-stat-label', label));
+  chip.appendChild(createTextElement('span', 'player-profile-stat-value', formatStatValue(value)));
+  return chip;
+};
+
+const renderPlayerProfile = (playersGrid) => {
+  playersGrid.innerHTML = '';
+  const profile = state.activePlayerProfile;
+  const team = getPlayerCurrentTeam();
+
+  if (!profile || !team) {
+    renderTeamProfile(playersGrid);
+    return;
+  }
+
+  const wrapper = createTextElement('div', 'player-profile-shell');
+  wrapper.dataset.playerKey = profile.key;
+
+  const hero = createTextElement('div', 'player-profile-hero');
+  const exitButton = createTextElement('button', 'team-exit', 'Back');
+  exitButton.type = 'button';
+  exitButton.dataset.action = 'exit-player-profile';
+  hero.appendChild(exitButton);
+
+  const logoTrack = createTextElement('div', 'player-profile-logo-track');
+  if (profile.teamLogo) {
+    const logo = document.createElement('img');
+    logo.className = 'player-profile-club-logo';
+    logo.src = profile.teamLogo;
+    logo.alt = profile.teamName || 'Club';
+    logoTrack.appendChild(logo);
+  }
+  hero.appendChild(logoTrack);
+
+  const heroLayout = createTextElement('div', 'player-profile-hero-layout');
+  const photoWrap = createTextElement('div', 'player-profile-photo');
+  if (profile.photo) {
+    const image = document.createElement('img');
+    image.src = profile.photo;
+    image.alt = profile.name;
+    image.loading = 'lazy';
+    image.decoding = 'async';
+    photoWrap.appendChild(image);
+  } else {
+    photoWrap.appendChild(createTextElement('span', 'player-profile-photo-fallback', getInitials(profile.name)));
+  }
+
+  const summary = createTextElement('div', 'player-profile-summary');
+  summary.appendChild(createTextElement('span', 'player-profile-kicker', profile.position || 'Player'));
+  summary.appendChild(createTextElement('h2', 'player-profile-name', profile.name));
+
+  const meta = createTextElement('div', 'player-profile-meta');
+  if (profile.flagUrl) {
+    const flag = document.createElement('img');
+    flag.className = 'player-profile-flag';
+    flag.src = profile.flagUrl;
+    flag.alt = profile.nationality || '';
+    meta.appendChild(flag);
+  }
+  meta.appendChild(createTextElement('span', '', profile.nationality || '—'));
+  meta.appendChild(createTextElement('span', '', `Age ${profile.age || '—'}`));
+  if (profile.teamName) {
+    meta.appendChild(createTextElement('span', '', profile.teamName));
+  }
+  summary.appendChild(meta);
+
+  if (profile.notes) {
+    summary.appendChild(createTextElement('p', 'player-profile-note', profile.notes));
+  }
+
+  heroLayout.append(photoWrap, summary);
+  hero.appendChild(heroLayout);
+  wrapper.appendChild(hero);
+
+  const currentSeasonCard = createTextElement('section', 'player-profile-season-card');
+  const currentSeasonHeader = createTextElement('div', 'player-profile-section-header');
+  currentSeasonHeader.appendChild(createTextElement('span', 'player-profile-section-kicker', 'Season Snapshot'));
+  currentSeasonHeader.appendChild(
+    createTextElement(
+      'h3',
+      'player-profile-section-title',
+      `${profile.currentSeason.season} · ${profile.currentSeason.club}`
+    )
+  );
+  currentSeasonCard.appendChild(currentSeasonHeader);
+
+  const currentSeasonGrid = createTextElement('div', 'player-profile-stats-grid');
+  currentSeasonGrid.appendChild(buildPlayerStatChip('Appearances', profile.currentSeason.appearances));
+  currentSeasonGrid.appendChild(buildPlayerStatChip('Goals', profile.currentSeason.goals));
+  currentSeasonGrid.appendChild(buildPlayerStatChip('Assists', profile.currentSeason.assists));
+  currentSeasonGrid.appendChild(buildPlayerStatChip('Minutes', profile.currentSeason.minutes));
+  currentSeasonGrid.appendChild(buildPlayerStatChip('G+A', profile.currentSeason.goalContributions));
+  currentSeasonGrid.appendChild(buildPlayerStatChip('Rating', profile.currentSeason.rating));
+  currentSeasonCard.appendChild(currentSeasonGrid);
+  wrapper.appendChild(currentSeasonCard);
+
+  const seasonsSection = createTextElement('section', 'player-profile-seasons');
+  const seasonsHeader = createTextElement('div', 'player-profile-section-header');
+  seasonsHeader.appendChild(createTextElement('span', 'player-profile-section-kicker', 'Season Journey'));
+  seasonsHeader.appendChild(createTextElement('h3', 'player-profile-section-title', '20/21 to 25/26'));
+  seasonsSection.appendChild(seasonsHeader);
+
+  const seasonsList = createTextElement('div', 'player-profile-season-list');
+  const seasonsHead = createTextElement('div', 'player-profile-season-row player-profile-season-row--head');
+  [
+    'Season',
+    'Club',
+    'Apps',
+    'Goals',
+    'Assists',
+    'Minutes',
+    'G+A',
+    'Rating'
+  ].forEach((label, index) => {
+    const cell = createTextElement('div', 'player-profile-season-cell player-profile-season-cell--head', label);
+    if (index === 0) cell.classList.add('player-profile-season-cell--season');
+    if (index === 1) cell.classList.add('player-profile-season-cell--club');
+    seasonsHead.appendChild(cell);
+  });
+  seasonsList.appendChild(seasonsHead);
+
+  profile.seasons.forEach((season) => {
+    const row = createTextElement('article', 'player-profile-season-row');
+    if (season.season === profile.currentSeason.season) {
+      row.classList.add('is-current');
+    }
+
+    const seasonCell = createTextElement('div', 'player-profile-season-cell player-profile-season-cell--season', season.season);
+    const clubCell = createTextElement('div', 'player-profile-season-cell player-profile-season-cell--club', season.club || 'Club');
+    row.appendChild(seasonCell);
+    row.appendChild(clubCell);
+
+    [
+      season.appearances,
+      season.goals,
+      season.assists,
+      season.minutes,
+      season.goalContributions,
+      season.rating
+    ].forEach((value) => {
+      row.appendChild(createTextElement('div', 'player-profile-season-cell', formatStatValue(value, 'N/A')));
+    });
+
+    seasonsList.appendChild(row);
+  });
+  seasonsSection.appendChild(seasonsList);
+  wrapper.appendChild(seasonsSection);
+
+  playersGrid.replaceChildren(wrapper);
+};
+
+const openPlayerProfileInTeam = (playerName, playersGrid) => {
+  if (!state.activeTeamId) return;
+  const team = getPlayerCurrentTeam();
+  if (!team) return;
+  const player = findRosterPlayer(state.roster, playerName);
+  if (!player) return;
+  state.activePlayerProfile = buildPlayerProfileData(player, team);
+  renderPlayerProfile(playersGrid);
+};
+
+const closePlayerProfile = (playersGrid) => {
+  state.activePlayerProfile = null;
+  renderTeamProfile(playersGrid);
+};
+
+export const openPlayerProfile = async ({ leagueKey, teamId, playerName, teamName = null } = {}) => {
+  if (!leagueKey || !playerName) return;
+
+  const teamRow = document.querySelector('#players-team-row');
+  const playersGrid = document.querySelector('#players-grid');
+  const panel = document.querySelector('.players-panel');
+  const searchInput = document.querySelector('#players-search-input');
+  if (!teamRow || !playersGrid) return;
+
+  showPlayers();
+
+  await loadLeagueData({
+    leagueKey,
+    teamRow,
+    playersGrid,
+    panel,
+    searchInput,
+    requestedTeamId: teamId || null,
+    requestedTeamName: teamName || null
+  });
+
+  const resolvedTeamId = resolveRequestedTeamId(state.teams, teamId, teamName) || state.activeTeamId;
+  if (!resolvedTeamId) return;
+  if (state.activeTeamId !== resolvedTeamId) {
+    await loadTeamProfile(resolvedTeamId, teamRow, playersGrid, panel);
+  }
+
+  openPlayerProfileInTeam(playerName, playersGrid);
+};
+
 const buildTeamPill = (team, onSelect) => {
   const pill = document.createElement('button');
   pill.type = 'button';
@@ -2620,6 +2974,10 @@ const sortPlayers = (a, b) => {
 };
 
 const renderPlayers = (playersGrid) => {
+  if (state.activePlayerProfile) {
+    renderPlayerProfile(playersGrid);
+    return;
+  }
   renderTeamProfile(playersGrid);
 };
 
@@ -2650,6 +3008,7 @@ const resolveRequestedTeamId = (teams = [], ...requestedValues) => {
 const loadTeamProfile = async (teamId, teamRow, playersGrid, panel) => {
   if (!teamId) return;
   state.activeTeamId = teamId;
+  state.activePlayerProfile = null;
   updateActivePill(teamRow);
   applyTeamTheme(panel, teamId);
   const team = state.teams.find((item) => item.id === teamId);
@@ -2675,14 +3034,19 @@ const loadTeamProfile = async (teamId, teamRow, playersGrid, panel) => {
     state.leagueTeams = { ...state.leagueTeams, ucl: uclTeams };
     state.fixtureVisibleCount = 10;
     state.activeTab = 'squad';
+    let requestedPlayerToOpen = null;
     if (
       requestedPlayerFromPage &&
       requestedLeagueFromPage === state.activeLeague &&
       String(requestedTeamFromPage || '') === String(teamId)
     ) {
-      state.searchTerm = normalizeString(requestedPlayerFromPage);
+      requestedPlayerToOpen = requestedPlayerFromPage;
+      state.searchTerm = '';
     }
     renderPlayers(playersGrid);
+    if (requestedPlayerToOpen) {
+      openPlayerProfileInTeam(requestedPlayerToOpen, playersGrid);
+    }
   } catch (error) {
     console.warn('Unable to load team profile', error);
     playersGrid.innerHTML = '<div class="players-empty">Team data unavailable</div>';
@@ -2691,6 +3055,7 @@ const loadTeamProfile = async (teamId, teamRow, playersGrid, panel) => {
 
 const exitTeamProfile = (teamRow, playersGrid) => {
   state.activeTeamId = null;
+  state.activePlayerProfile = null;
   state.roster = [];
   state.fixtures = [];
   state.fixtureVisibleCount = 10;
@@ -2717,15 +3082,15 @@ const renderTeams = (teamRow, playersGrid, panel) => {
   updateActivePill(teamRow);
 };
 
-const hydratePlayers = (teamRow, playersGrid, panel, requestedTeamId = null, requestedTeamName = null) => {
+const hydratePlayers = async (teamRow, playersGrid, panel, requestedTeamId = null, requestedTeamName = null) => {
   renderTeams(teamRow, playersGrid, panel);
   const teamIdToOpen =
     resolveRequestedTeamId(state.teams, requestedTeamId, requestedTeamName) || state.activeTeamId;
   if (teamIdToOpen) {
-    loadTeamProfile(teamIdToOpen, teamRow, playersGrid, panel);
-  } else {
-    showTeamLanding(playersGrid);
+    return loadTeamProfile(teamIdToOpen, teamRow, playersGrid, panel);
   }
+  showTeamLanding(playersGrid);
+  return null;
 };
 
 const loadLeagueData = async ({
@@ -2742,6 +3107,7 @@ const loadLeagueData = async ({
 
   state.activeLeague = leagueKey;
   state.activeTeamId = null;
+  state.activePlayerProfile = null;
   state.searchTerm = '';
   state.roster = [];
   state.fixtures = [];
@@ -2756,8 +3122,7 @@ const loadLeagueData = async ({
     state.players = cached.players;
     state.activeTeamId = null;
     document.querySelector('#players-view')?.classList.remove('is-profile');
-    hydratePlayers(teamRow, playersGrid, panel, requestedTeamId, requestedTeamName);
-    return;
+    return hydratePlayers(teamRow, playersGrid, panel, requestedTeamId, requestedTeamName);
   }
 
   try {
@@ -2791,7 +3156,7 @@ const loadLeagueData = async ({
 
     state.activeTeamId = null;
     document.querySelector('#players-view')?.classList.remove('is-profile');
-    hydratePlayers(teamRow, playersGrid, panel, requestedTeamId, requestedTeamName);
+    return hydratePlayers(teamRow, playersGrid, panel, requestedTeamId, requestedTeamName);
   } catch (error) {
     console.warn('Unable to hydrate players for', leagueKey, error);
     playersGrid.innerHTML = '';
@@ -2816,6 +3181,7 @@ export const initPlayers = () => {
   const handleSearch = (event) => {
     state.searchTerm = normalizeString(event.target.value);
     if (state.activeTeamId) {
+      state.activePlayerProfile = null;
       renderPlayers(playersGrid);
     }
   };
@@ -2829,7 +3195,7 @@ export const initPlayers = () => {
       if (event.target instanceof Element && event.target.closest('.sidebar-slot-edit')) return;
       const leagueKey = tab.dataset.league;
       if (!leagueKey || !LEAGUE_CONFIGS[leagueKey]) return;
-      loadLeagueData({ leagueKey, teamRow, playersGrid, panel, searchInput });
+      void loadLeagueData({ leagueKey, teamRow, playersGrid, panel, searchInput });
     });
   });
 
@@ -2841,10 +3207,21 @@ export const initPlayers = () => {
       exitTeamProfile(teamRow, playersGrid);
       return;
     }
+    const playerExitBtn = target.closest('[data-action="exit-player-profile"]');
+    if (playerExitBtn) {
+      closePlayerProfile(playersGrid);
+      return;
+    }
     const tabBtn = target.closest('.team-tab');
     if (tabBtn && tabBtn.dataset.tab) {
       state.activeTab = tabBtn.dataset.tab;
+      state.activePlayerProfile = null;
       renderPlayers(playersGrid);
+      return;
+    }
+    const playerCard = target.closest('[data-action="open-player-profile"]');
+    if (playerCard && playerCard.dataset.playerName) {
+      openPlayerProfileInTeam(playerCard.dataset.playerName, playersGrid);
       return;
     }
     const showMore = target.closest('[data-action="fixtures-show-more"]');
@@ -2853,15 +3230,26 @@ export const initPlayers = () => {
         (state.fixtureVisibleCount || 10) + 10,
         state.fixtures?.length || 0
       );
+      state.activePlayerProfile = null;
       renderPlayers(playersGrid);
     }
+  });
+
+  playersGrid.addEventListener('keydown', (event) => {
+    const target = event.target;
+    if (!(target instanceof Element)) return;
+    if (event.key !== 'Enter' && event.key !== ' ') return;
+    const playerCard = target.closest('[data-action="open-player-profile"]');
+    if (!playerCard || !playerCard.dataset.playerName) return;
+    event.preventDefault();
+    openPlayerProfileInTeam(playerCard.dataset.playerName, playersGrid);
   });
 
   const initialLeague =
     (requestedLeagueFromPage && LEAGUE_CONFIGS[requestedLeagueFromPage] && requestedLeagueFromPage) ||
     document.querySelector('.sidebar-item.active')?.dataset.league ||
     'premier';
-  loadLeagueData({
+  void loadLeagueData({
     leagueKey: initialLeague,
     teamRow,
     playersGrid,

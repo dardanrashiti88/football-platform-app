@@ -1,5 +1,5 @@
 import { showHome, showMatch } from '../core/views.js';
-import { loadRosterForTeam } from './players.js';
+import { loadRosterForTeam, openPlayerProfile } from './players.js';
 
 const PREMIER_TEAMS_URL = new URL('../../../db-api/data/competitions/premier-league/teams.json', import.meta.url);
 const PREMIER_MATCHES_URL = new URL('../../../db-api/data/competitions/premier-league/matches.json', import.meta.url);
@@ -2489,7 +2489,7 @@ const buildMatchStatsPackage = (match, homeLineup, awayLineup) => {
   };
 };
 
-const buildScoresheetMarkup = (events = []) => {
+const buildScoresheetMarkup = (events = [], team = null, leagueKey = '') => {
   if (!events.length) {
     return '<div class="scoresheet-item scoresheet-item--empty">No scorers</div>';
   }
@@ -2502,7 +2502,7 @@ const buildScoresheetMarkup = (events = []) => {
         <div class="scoresheet-item">
           <div class="scoresheet-item-main">
             <span class="scoresheet-bullet"></span>
-            <span class="scoresheet-item-player">${getPlayerDisplayName(event.scorer)}</span>
+            <span class="scoresheet-item-player"${buildPlayerProfileAttrs({ name: event.scorer }, team, leagueKey)}>${getPlayerDisplayName(event.scorer)}</span>
           </div>
           <div class="scoresheet-item-meta">
             ${assistMarkup}
@@ -2514,26 +2514,26 @@ const buildScoresheetMarkup = (events = []) => {
     .join('');
 };
 
-const buildScorerBoxesMarkup = (events = [], side = 'home') =>
+const buildScorerBoxesMarkup = (events = [], side = 'home', team = null, leagueKey = '') =>
   events
     .map(
       (event) => `
-        <div class="stat-box scorer-box scorer-box--${side}">
-          <span class="scorer-name">${getPlayerDisplayName(event.scorer)}</span>
+        <div class="stat-box scorer-box scorer-box--${side}"${buildPlayerProfileAttrs({ name: event.scorer }, team, leagueKey)}>
+          <span class="scorer-name"${buildPlayerProfileAttrs({ name: event.scorer }, team, leagueKey)}>${getPlayerDisplayName(event.scorer)}</span>
           <span class="goal-text">Goal</span>
         </div>
       `
     )
     .join('');
 
-const renderScorerStrips = (homeEvents = [], awayEvents = []) => {
+const renderScorerStrips = (homeEvents = [], awayEvents = [], homeTeam = null, awayTeam = null, leagueKey = '') => {
   const homeStrip = document.querySelector('.stat-strip.left');
   const awayStrip = document.querySelector('.stat-strip.right');
   if (homeStrip) {
-    homeStrip.innerHTML = buildScorerBoxesMarkup(homeEvents, 'home');
+    homeStrip.innerHTML = buildScorerBoxesMarkup(homeEvents, 'home', homeTeam, leagueKey);
   }
   if (awayStrip) {
-    awayStrip.innerHTML = buildScorerBoxesMarkup(awayEvents, 'away');
+    awayStrip.innerHTML = buildScorerBoxesMarkup(awayEvents, 'away', awayTeam, leagueKey);
   }
 };
 
@@ -2553,7 +2553,19 @@ const buildPlayerPhotoMarkup = (player) => {
   return `<span class="player-photo-fallback">${getPlayerInitials(player?.name)}</span>`;
 };
 
-const buildFieldPlayerMarkup = (player, slot, side, matchStats = null) => {
+const escapeAttribute = (value = '') =>
+  String(value)
+    .replace(/&/g, '&amp;')
+    .replace(/"/g, '&quot;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+
+const buildPlayerProfileAttrs = (player, team, leagueKey) => {
+  if (!player?.name || !team?.id || !leagueKey) return '';
+  return ` data-player-profile="1" data-player-name="${escapeAttribute(player.name)}" data-team-id="${escapeAttribute(team.id)}" data-league-key="${escapeAttribute(leagueKey)}" `;
+};
+
+const buildFieldPlayerMarkup = (player, slot, side, team, leagueKey, matchStats = null) => {
   if (!player) {
     return `
       <div class="player player--ghost" style="left:${slot.left}%; top:${slot.top}%;">
@@ -2578,11 +2590,11 @@ const buildFieldPlayerMarkup = (player, slot, side, matchStats = null) => {
       : '';
 
   return `
-    <div class="player player--${side}" style="left:${slot.left}%; top:${slot.top}%;">
-      <div class="player-photo">
+    <div class="player player--${side}"${buildPlayerProfileAttrs(player, team, leagueKey)} style="left:${slot.left}%; top:${slot.top}%;">
+      <div class="player-photo"${buildPlayerProfileAttrs(player, team, leagueKey)}>
         ${buildPlayerPhotoMarkup(player)}
       </div>
-      <div class="player-chip">
+      <div class="player-chip"${buildPlayerProfileAttrs(player, team, leagueKey)}>
         <span class="player-chip-number">${parsePlayerNumber(player.number)}</span>
         <span class="player-chip-name">${getPlayerDisplayName(player.name)}</span>
       </div>
@@ -2591,18 +2603,18 @@ const buildFieldPlayerMarkup = (player, slot, side, matchStats = null) => {
   `;
 };
 
-const buildBenchSlotMarkup = (player, side) => {
+const buildBenchSlotMarkup = (player, side, team, leagueKey) => {
   if (!player) {
     return `<div class="bench-slot bench-slot--${side} bench-slot--empty"></div>`;
   }
 
   return `
     <div class="bench-slot bench-slot--${side}">
-      <div class="bench-player">
-        <div class="bench-player-photo">
+      <div class="bench-player"${buildPlayerProfileAttrs(player, team, leagueKey)}>
+        <div class="bench-player-photo"${buildPlayerProfileAttrs(player, team, leagueKey)}>
           ${buildPlayerPhotoMarkup(player)}
         </div>
-        <div class="bench-player-copy">
+        <div class="bench-player-copy"${buildPlayerProfileAttrs(player, team, leagueKey)}>
           <span class="bench-player-name">${getPlayerDisplayName(player.name)}</span>
         </div>
       </div>
@@ -2659,7 +2671,7 @@ const renderMatchLineups = async (match, homeTeam, awayTeam) => {
   awayBench.innerHTML = Array.from({ length: MATCH_BENCH_SIZE }, () =>
     '<div class="bench-slot bench-slot--away bench-slot--empty"></div>'
   ).join('');
-  renderScorerStrips([], []);
+  renderScorerStrips([], [], homeTeam, awayTeam, leagueKey);
   renderMatchStatsPlaceholder(homeTeam, awayTeam, homeLogoUrl, awayLogoUrl, 'Loading stats...');
   if (scoresheetHomeList) scoresheetHomeList.innerHTML = '<div class="scoresheet-item">Loading scorers...</div>';
   if (scoresheetAwayList) scoresheetAwayList.innerHTML = '<div class="scoresheet-item">Loading scorers...</div>';
@@ -2688,23 +2700,37 @@ const renderMatchLineups = async (match, homeTeam, awayTeam) => {
 
     field.innerHTML = [
       ...fieldLayout.home.map((slot, index) =>
-        buildFieldPlayerMarkup(homeLineup.starters[index], slot, 'home', matchStats.home[homeLineup.starters[index]?.name])
+        buildFieldPlayerMarkup(
+          homeLineup.starters[index],
+          slot,
+          'home',
+          homeTeam,
+          leagueKey,
+          matchStats.home[homeLineup.starters[index]?.name]
+        )
       ),
       ...fieldLayout.away.map((slot, index) =>
-        buildFieldPlayerMarkup(awayLineup.starters[index], slot, 'away', matchStats.away[awayLineup.starters[index]?.name])
+        buildFieldPlayerMarkup(
+          awayLineup.starters[index],
+          slot,
+          'away',
+          awayTeam,
+          leagueKey,
+          matchStats.away[awayLineup.starters[index]?.name]
+        )
       )
     ].join('');
 
     homeBench.innerHTML = Array.from({ length: MATCH_BENCH_SIZE }, (_, index) =>
-      buildBenchSlotMarkup(homeLineup.bench[index], 'home')
+      buildBenchSlotMarkup(homeLineup.bench[index], 'home', homeTeam, leagueKey)
     ).join('');
     awayBench.innerHTML = Array.from({ length: MATCH_BENCH_SIZE }, (_, index) =>
-      buildBenchSlotMarkup(awayLineup.bench[index], 'away')
+      buildBenchSlotMarkup(awayLineup.bench[index], 'away', awayTeam, leagueKey)
     ).join('');
-    renderScorerStrips(matchStats.homeEvents, matchStats.awayEvents);
+    renderScorerStrips(matchStats.homeEvents, matchStats.awayEvents, homeTeam, awayTeam, leagueKey);
     renderMatchStatsPanel(homeTeam, awayTeam, homeLogoUrl, awayLogoUrl, matchStats.summary);
-    if (scoresheetHomeList) scoresheetHomeList.innerHTML = buildScoresheetMarkup(matchStats.homeEvents);
-    if (scoresheetAwayList) scoresheetAwayList.innerHTML = buildScoresheetMarkup(matchStats.awayEvents);
+    if (scoresheetHomeList) scoresheetHomeList.innerHTML = buildScoresheetMarkup(matchStats.homeEvents, homeTeam, leagueKey);
+    if (scoresheetAwayList) scoresheetAwayList.innerHTML = buildScoresheetMarkup(matchStats.awayEvents, awayTeam, leagueKey);
   } catch (error) {
     console.warn('Unable to render match lineups.', error);
     if (requestId === activeMatchLineupRequest) {
@@ -2804,7 +2830,7 @@ const updateMatchView = (match) => {
   matchBoard.classList.remove('match-board--detailed');
   matchBoard.classList.toggle('match-board--completed', isCompleted);
   matchBoard.classList.toggle('match-board--upcoming', !isCompleted);
-  renderScorerStrips([], []);
+  renderScorerStrips([], [], homeTeam, awayTeam, getLineupLeagueKey(match.competitionId));
   renderMatchStatsShell(homeTeam, awayTeam, homeLogoUrl, awayLogoUrl);
   normalizeFieldStats();
   renderMatchLineups(match, homeTeam, awayTeam);
@@ -5293,6 +5319,18 @@ export const initHome = () => {
       }
     });
   }
+
+  matchView?.addEventListener('click', (event) => {
+    const target = event.target;
+    if (!(target instanceof Element)) return;
+    const trigger = target.closest('[data-player-profile="1"]');
+    if (!trigger) return;
+    const leagueKey = trigger.getAttribute('data-league-key') || '';
+    const teamId = trigger.getAttribute('data-team-id') || '';
+    const playerName = trigger.getAttribute('data-player-name') || '';
+    if (!leagueKey || !teamId || !playerName) return;
+    void openPlayerProfile({ leagueKey, teamId, playerName });
+  });
 
   document.addEventListener('keydown', (event) => {
     if (event.key !== 'Escape') return;

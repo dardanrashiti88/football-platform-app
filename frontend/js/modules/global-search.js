@@ -1,6 +1,6 @@
 import { showHome, showLeagues, showNews, showPlayers } from '../core/views.js';
 import { activateSidebarLeague } from './sidebar.js';
-import { getLogoByName } from './players.js';
+import { getLogoByName, openPlayerProfile } from './players.js';
 import { COMPETITION_ORDER, getCompetitionConfig } from './competition-catalog.js';
 import {
   loadFixturesIndex,
@@ -276,8 +276,14 @@ const handleResultClick = (event) => {
     return;
   }
 
-  if ((type === 'team' || type === 'player') && leagueKey && teamId) {
-    openTeamProfile(leagueKey, teamId, type === 'player' ? label : '');
+  if (type === 'team' && leagueKey && teamId) {
+    openTeamProfile(leagueKey, teamId, '');
+    closeOverlay();
+    return;
+  }
+
+  if (type === 'player' && leagueKey) {
+    void openPlayerProfile({ leagueKey, teamId, playerName: label });
     closeOverlay();
     return;
   }

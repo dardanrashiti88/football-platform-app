@@ -403,6 +403,10 @@
   margin-bottom: 3px;
 }
 
+[data-player-profile='1'] {
+  cursor: pointer;
+}
+
 .goal-text {
   position: absolute;
   z-index: 3;
