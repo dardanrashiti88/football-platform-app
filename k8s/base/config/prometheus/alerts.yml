@@ -31,6 +31,8 @@ groups:
           summary: "FOD DB API is down"
           description: "Prometheus cannot scrape db-api metrics for more than 2 minutes."
 
+  - name: fod-performance
+    rules:
       - alert: FodBackendHighMemory
         expr: fod_process_resident_memory_bytes{service="fod-backend"} > 800000000
         for: 10m
@@ -40,3 +42,55 @@ groups:
         annotations:
           summary: "FOD backend memory is high"
           description: "Backend resident memory has been above 800 MB for 10 minutes."
+
+      - alert: FodServiceHighCpu
+        expr: sum by (service) (rate(fod_process_cpu_seconds_total{service=~"fod-backend|fod-db-api"}[5m])) > 0.8
+        for: 10m
+        labels:
+          severity: warning
+        annotations:
+          summary: "FOD service CPU is high"
+          description: "{{ $labels.service }} has been using more than 0.8 CPU cores for 10 minutes."
+
+      - alert: FodHigh5xxRate
+        expr: |
+          (
+            sum by (service) (rate(fod_http_requests_total{service=~"fod-backend|fod-db-api",status_code=~"5.."}[5m]))
+            /
+            clamp_min(sum by (service) (rate(fod_http_requests_total{service=~"fod-backend|fod-db-api"}[5m])), 0.001)
+          ) > 0.05
+          and
+          sum by (service) (rate(fod_http_requests_total{service=~"fod-backend|fod-db-api"}[5m])) > 0.1
+        for: 10m
+        labels:
+          severity: critical
+        annotations:
+          summary: "FOD service 5xx rate is high"
+          description: "{{ $labels.service }} is returning 5xx responses on more than 5% of requests over 10 minutes."
+
+      - alert: FodSlowRequests
+        expr: |
+          histogram_quantile(
+            0.95,
+            sum by (le, service) (
+              rate(fod_http_request_duration_seconds_bucket{service=~"fod-backend|fod-db-api"}[5m])
+            )
+          ) > 1.5
+        for: 10m
+        labels:
+          severity: warning
+        annotations:
+          summary: "FOD service latency is high"
+          description: "{{ $labels.service }} p95 request latency has been above 1.5 seconds for 10 minutes."
+
+  - name: fod-kubernetes
+    rules:
+      - alert: FodPodCrashLooping
+        expr: max by (namespace, pod, container) (kube_pod_container_status_waiting_reason{namespace="football-platform",reason="CrashLoopBackOff"}) > 0
+        for: 5m
+        labels:
+          severity: critical
+          service: kubernetes
+        annotations:
+          summary: "FOD pod is crash looping"
+          description: "Pod {{ $labels.pod }} (container {{ $labels.container }}) has been in CrashLoopBackOff for more than 5 minutes."

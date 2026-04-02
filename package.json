@@ -4,10 +4,12 @@
   "scripts": {
     "dev": "node scripts/dev.js",
     "dev:backend": "npm --prefix backend start",
+    "db:migrate:postgres": "npm --prefix backend run migrate:postgres",
     "dev:dashboard": "npm --prefix Dashboard-view run dev",
     "build:dashboard": "npm --prefix Dashboard-view run build",
     "dev:db-api": "npm --prefix db-api start",
     "docker:up": "docker compose up --build",
+    "docker:up:postgres": "docker compose --profile postgres up --build",
     "docker:down": "docker compose down",
     "docker:logs": "docker compose logs -f",
     "healthcheck": "node scripts/healthcheck.js",

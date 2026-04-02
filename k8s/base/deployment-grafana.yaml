@@ -39,6 +39,9 @@ spec:
             - name: grafana-dashboard-fod-overview
               mountPath: /etc/grafana/provisioning/dashboards/json/fod-overview.json
               subPath: fod-overview.json
+            - name: grafana-dashboard-fod-logs
+              mountPath: /etc/grafana/provisioning/dashboards/json/fod-logs.json
+              subPath: fod-logs.json
             - name: grafana-data
               mountPath: /var/lib/grafana
           readinessProbe:
@@ -70,6 +73,9 @@ spec:
         - name: grafana-dashboard-fod-overview
           configMap:
             name: grafana-dashboard-fod-overview
+        - name: grafana-dashboard-fod-logs
+          configMap:
+            name: grafana-dashboard-fod-logs
         - name: grafana-data
           persistentVolumeClaim:
             claimName: grafana-data

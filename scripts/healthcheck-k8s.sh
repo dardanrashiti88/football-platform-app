@@ -87,6 +87,8 @@ check_applications
 
 print_section "Application Rollouts"
 check_rollouts "$APP_NAMESPACE" deployment
+check_rollouts "$APP_NAMESPACE" statefulset
+check_rollouts "$APP_NAMESPACE" daemonset
 
 print_section "Pod Status"
 check_pods "$ARGO_NAMESPACE"

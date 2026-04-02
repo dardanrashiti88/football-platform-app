@@ -1,91 +1,15 @@
 import { onEvent } from '../core/events.js';
 import { storage } from '../core/storage.js';
+import {
+  COMPETITIONS,
+  COMPETITION_ORDER,
+  getDefaultCompetitionLayout,
+  normalizeCompetitionLayout
+} from './competition-catalog.js';
+import { getPreferences, saveSidebarLayout } from './preferences.js';
 
 const USER_KEY = 'fodrUser';
-const SIDEBAR_LAYOUT_KEY = 'fodrSidebarLayout';
 const SIDEBAR_ACTIVE_KEY = 'fodrSidebarActiveLeague';
-const SLOT_COUNT = 12;
-const DEFAULT_LAYOUT = ['premier', 'ucl', 'laliga', 'bundesliga', 'seriea', 'championship'];
-
-const COMPETITIONS = {
-  premier: {
-    label: 'Premier League',
-    className: 'pl',
-    logo: new URL('../../../images/comp-logos/Competition=Men_%20Premier%20League,%20Color=Color.webp', import.meta.url)
-      .href
-  },
-  championship: {
-    label: 'EFL Championship',
-    className: 'championship',
-    logo: new URL('../../../images/comp-logos/EFLchampionship.svg', import.meta.url).href
-  },
-  facup: {
-    label: 'FA Cup',
-    className: 'facup',
-    logo: new URL('../../../images/comp-logos/facup.png', import.meta.url).href
-  },
-  carabaocup: {
-    label: 'Carabao Cup',
-    className: 'carabaocup',
-    logo: new URL('../../../images/comp-logos/carabao-cup-crest.svg', import.meta.url).href
-  },
-  seriea: {
-    label: 'Serie A',
-    className: 'seriea',
-    logo: new URL('../../../images/comp-logos/seriea-enilive-logo_jssflz.png', import.meta.url).href
-  },
-  laliga: {
-    label: 'LaLiga',
-    className: '',
-    logo: new URL('../../../images/comp-logos/Screenshot%202026-03-02%20155633.png', import.meta.url).href
-  },
-  bundesliga: {
-    label: 'Bundesliga',
-    className: '',
-    logo: new URL('../../../images/comp-logos/bundesliga-app.svg', import.meta.url).href
-  },
-  ligue1: {
-    label: 'Ligue 1',
-    className: '',
-    logo: new URL('../../../images/comp-logos/ligue-1.png', import.meta.url).href
-  },
-  ucl: {
-    label: 'UEFA Champions League',
-    className: '',
-    logo: new URL('../../../images/comp-logos/Competition=Men_%20Champions%20League,%20Color=Color.webp', import.meta.url)
-      .href
-  },
-  europa: {
-    label: 'UEFA Europa League',
-    className: 'europa',
-    logo: new URL('../../../images/comp-logos/europa-league.png', import.meta.url).href
-  },
-  conference: {
-    label: 'UEFA Europa Conference League',
-    className: 'conference',
-    logo: new URL('../../../images/comp-logos/conference-league.svg', import.meta.url).href
-  },
-  worldcup: {
-    label: 'FIFA World Cup 2026',
-    className: 'worldcup',
-    logo: new URL('../../../images/comp-logos/2026-World-Cup.webp', import.meta.url).href
-  }
-};
-
-const COMPETITION_ORDER = [
-  'premier',
-  'ucl',
-  'laliga',
-  'bundesliga',
-  'seriea',
-  'championship',
-  'ligue1',
-  'facup',
-  'carabaocup',
-  'europa',
-  'conference',
-  'worldcup'
-];
 
 const state = {
   layout: [],
@@ -116,39 +40,7 @@ const getSubjectKey = () => {
   if (user?.username) return `user-name:${String(user.username).toLowerCase()}`;
   return 'guest';
 };
-
-const getLayoutStorageKey = () => `${SIDEBAR_LAYOUT_KEY}:${getSubjectKey()}`;
 const getActiveStorageKey = () => `${SIDEBAR_ACTIVE_KEY}:${getSubjectKey()}`;
-
-const normalizeLayout = (layout) => {
-  const seen = new Set();
-  const normalized = Array.from({ length: SLOT_COUNT }, (_, index) => {
-    const raw = Array.isArray(layout) ? layout[index] : null;
-    const leagueId = typeof raw === 'string' ? raw.trim() : '';
-    if (!leagueId || !COMPETITIONS[leagueId] || seen.has(leagueId)) return null;
-    seen.add(leagueId);
-    return leagueId;
-  });
-  return normalized;
-};
-
-const getDefaultLayout = () => normalizeLayout([...DEFAULT_LAYOUT, ...Array.from({ length: SLOT_COUNT - DEFAULT_LAYOUT.length }, () => null)]);
-
-const readStoredLayout = () => {
-  try {
-    const raw = storage.get(getLayoutStorageKey());
-    if (!raw) return getDefaultLayout();
-    const parsed = JSON.parse(raw);
-    const normalized = normalizeLayout(parsed);
-    return normalized.some(Boolean) ? normalized : getDefaultLayout();
-  } catch {
-    return getDefaultLayout();
-  }
-};
-
-const writeStoredLayout = () => {
-  storage.set(getLayoutStorageKey(), JSON.stringify(normalizeLayout(state.layout)));
-};
 
 const readStoredActiveLeague = () => {
   const stored = storage.get(getActiveStorageKey());
@@ -221,9 +113,9 @@ const closePicker = () => {
 };
 
 const saveAndRender = () => {
-  state.layout = normalizeLayout(state.layout);
+  state.layout = normalizeCompetitionLayout(state.layout);
   ensureActiveLeague();
-  writeStoredLayout();
+  void saveSidebarLayout(state.layout);
   writeStoredActiveLeague();
   renderSidebar();
 };
@@ -338,7 +230,7 @@ const buildPicker = () => {
     }
 
     if (target.closest('.sidebar-picker-reset')) {
-      state.layout = getDefaultLayout();
+      state.layout = getDefaultCompetitionLayout();
       state.activeLeague = state.layout.find(Boolean) || 'premier';
       saveAndRender();
       closePicker();
@@ -355,7 +247,7 @@ const buildPicker = () => {
 };
 
 const hydrateStateFromStorage = () => {
-  state.layout = readStoredLayout();
+  state.layout = normalizeCompetitionLayout(getPreferences().sidebarLayout || getDefaultCompetitionLayout());
   state.activeLeague = readStoredActiveLeague() || state.layout.find(Boolean) || 'premier';
   ensureActiveLeague();
 };
@@ -431,6 +323,17 @@ export const initSidebar = () => {
 
   onEvent('fodr:logout', () => {
     hydrateStateFromStorage();
+    renderSidebar();
+  });
+
+  onEvent('fodr:preferences', () => {
+    const nextLayout = normalizeCompetitionLayout(getPreferences().sidebarLayout || getDefaultCompetitionLayout());
+    const previousActive = state.activeLeague;
+    state.layout = nextLayout;
+    if (!state.layout.includes(previousActive)) {
+      state.activeLeague = state.layout.find(Boolean) || 'premier';
+      writeStoredActiveLeague();
+    }
     renderSidebar();
   });
 };

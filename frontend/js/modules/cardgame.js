@@ -1,4 +1,4 @@
-import { API_BASE, postJson } from '../core/api.js';
+import { API_BASE, getJson, postJson, putJson } from '../core/api.js';
 import { storage } from '../core/storage.js';
 import { onEvent } from '../core/events.js';
 import { registerBeforeViewChange, setStoredView, showCardgame } from '../core/views.js';
@@ -960,6 +960,7 @@ let pendingPackCost = 0;
 let packPurchaseReady = false;
 let packOpensRemaining = 0;
 let currentPackId = null;
+let restoringPackState = false;
 
 const syncCatalogCardPrices = () => {
   cardCatalog.forEach((card) => {
@@ -1029,6 +1030,41 @@ const setPackState = ({ open, packId, ready }) => {
   }
   if (!open) {
     storage.remove(PACK_COUNT_KEY);
+  }
+};
+
+const buildPackStatePayload = (override = {}) => ({
+  open: typeof override.open === 'boolean' ? override.open : storage.get(PACK_OPEN_KEY) === 'true',
+  packId: typeof override.packId === 'string' ? override.packId : storage.get(PACK_ID_KEY) || '',
+  ready: typeof override.ready === 'boolean' ? override.ready : storage.get(PACK_READY_KEY) === 'true',
+  count: Number.isFinite(Number(override.count))
+    ? Number(override.count)
+    : Number(storage.get(PACK_COUNT_KEY) || 0)
+});
+
+const syncPackStateToAccount = async (override = {}) => {
+  if (restoringPackState) return;
+  const user = loadUser();
+  if (!user?.id) return;
+  try {
+    await putJson(`/cardgame/state/${user.id}`, {
+      packState: buildPackStatePayload(override)
+    });
+  } catch (error) {
+    console.warn('Unable to sync the current pack state yet.', error);
+  }
+};
+
+const clearPackStateFromAccount = async () => {
+  if (restoringPackState) return;
+  const user = loadUser();
+  if (!user?.id) return;
+  try {
+    await putJson(`/cardgame/state/${user.id}`, {
+      packState: null
+    });
+  } catch (error) {
+    console.warn('Unable to clear the remote pack state yet.', error);
   }
 };
 
@@ -1106,6 +1142,7 @@ export const openPackStage = (packId) => {
     packBuyActions.classList.add('is-hidden');
   }
   setPackState({ open: true, packId, ready: false });
+  void syncPackStateToAccount({ open: true, packId, ready: false, count: 0 });
   if (packInfoStatus) packInfoStatus.textContent = 'Confirm purchase to open this pack.';
 };
 
@@ -1120,6 +1157,7 @@ const exitPackStage = () => {
   setPackDisplayCount(1);
   cardgameView.classList.remove('is-pack-open');
   setPackState({ open: false, ready: false });
+  void clearPackStateFromAccount();
   pendingPackCost = 0;
 };
 
@@ -2173,6 +2211,7 @@ const resolvePackAfterOpen = (resolvedIndex = activeSlotIndex) => {
   }
   if (packOpensRemaining > 0) {
     storage.set(PACK_COUNT_KEY, String(packOpensRemaining));
+    void syncPackStateToAccount({ count: packOpensRemaining });
     resetPackInfo();
     if (packInfoStatus) {
       packInfoStatus.textContent = `${packOpensRemaining} open${packOpensRemaining === 1 ? '' : 's'} left.`;
@@ -2188,6 +2227,7 @@ const finalizePurchase = (quantity) => {
   storage.set(PACK_COUNT_KEY, String(quantity));
   setPackDisplayCount(quantity);
   setPackState({ open: true, packId: currentPackId, ready: true });
+  void syncPackStateToAccount({ open: true, packId: currentPackId, ready: true, count: quantity });
   if (packInfoStatus) {
     packInfoStatus.textContent = quantity > 1 ? 'Pack ready. 2 opens available.' : 'Pack ready. Tap the card to open.';
   }
@@ -2229,13 +2269,39 @@ const openPackCard = (slotIndex) => {
   }
 };
 
-export const restorePackState = () => {
+export const restorePackState = async () => {
+  let remotePackState = null;
+  const currentUser = loadUser();
+  if (currentUser?.id) {
+    try {
+      const remote = await getJson(`/cardgame/state/${currentUser.id}`);
+      remotePackState = remote?.packState || null;
+      if (remotePackState) {
+        storage.set(PACK_OPEN_KEY, remotePackState.open ? 'true' : 'false');
+        if (remotePackState.packId) {
+          storage.set(PACK_ID_KEY, remotePackState.packId);
+        } else {
+          storage.remove(PACK_ID_KEY);
+        }
+        storage.set(PACK_READY_KEY, remotePackState.ready ? 'true' : 'false');
+        if (Number.isFinite(Number(remotePackState.count)) && Number(remotePackState.count) > 0) {
+          storage.set(PACK_COUNT_KEY, String(remotePackState.count));
+        } else {
+          storage.remove(PACK_COUNT_KEY);
+        }
+      }
+    } catch (error) {
+      console.warn('Unable to restore the pack state from the account.', error);
+    }
+  }
+
   const restorePackOpen = storage.get(PACK_OPEN_KEY) === 'true';
   const restorePackId = storage.get(PACK_ID_KEY);
   const restorePackReady = storage.get(PACK_READY_KEY) === 'true';
   const restoreCountRaw = Number(storage.get(PACK_COUNT_KEY) || 1);
   if (restorePackOpen && restorePackId) {
     showCardgame();
+    restoringPackState = true;
     openPackStage(restorePackId);
     if (restorePackReady) {
       packPurchaseReady = true;
@@ -2253,6 +2319,7 @@ export const restorePackState = () => {
         packBuyActions.classList.add('is-hidden');
       }
     }
+    restoringPackState = false;
   }
 };
 

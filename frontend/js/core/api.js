@@ -18,13 +18,18 @@ const getApiBase = () => {
 
 export const API_BASE = getApiBase();
 
-export const postJson = async (path, payload) => {
+const requestJson = async (path, { method = 'GET', payload } = {}) => {
   const res = await fetch(`${API_BASE}${path}`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(payload)
+    method,
+    headers: payload ? { 'Content-Type': 'application/json' } : undefined,
+    body: typeof payload === 'undefined' ? undefined : JSON.stringify(payload)
   });
   const data = await res.json().catch(() => ({}));
   if (!res.ok) throw new Error(data.error || 'Request failed');
   return data;
 };
+
+export const getJson = (path) => requestJson(path);
+export const postJson = (path, payload) => requestJson(path, { method: 'POST', payload });
+export const putJson = (path, payload) => requestJson(path, { method: 'PUT', payload });
+export const deleteJson = (path, payload) => requestJson(path, { method: 'DELETE', payload });

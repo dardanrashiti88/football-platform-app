@@ -44,3 +44,15 @@ scrape_configs:
     static_configs:
       - targets:
           - db-api:3010
+
+  - job_name: fod-loki
+    metrics_path: /metrics
+    static_configs:
+      - targets:
+          - loki:3100
+
+  - job_name: fod-promtail
+    metrics_path: /metrics
+    static_configs:
+      - targets:
+          - promtail:9080

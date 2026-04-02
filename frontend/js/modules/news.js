@@ -1,3 +1,6 @@
+import { getJson } from '../core/api.js';
+import { onEvent } from '../core/events.js';
+
 const NEWS_ITEMS = [
   {
     id: 'florian',
@@ -131,7 +134,7 @@ const renderArticle = (article, index) => {
     : createPlaceholder(article.title);
 
   return `
-    <article class="news-article${featuredClass}">
+    <article class="news-article${featuredClass}" data-article-id="${escapeHtml(article.slug || article.id || '')}">
       <div class="news-article-media">
         ${media}
       </div>
@@ -157,6 +160,16 @@ const renderNews = async (root) => {
   root.innerHTML = '<div class="news-loading">Loading news...</div>';
 
   try {
+    const apiData = await getJson('/news');
+    if (Array.isArray(apiData?.articles) && apiData.articles.length) {
+      root.innerHTML = apiData.articles.map(renderArticle).join('');
+      return;
+    }
+  } catch (error) {
+    console.warn('Unable to load API-backed news feed, falling back to file news.', error);
+  }
+
+  try {
     const articles = await Promise.all(
       NEWS_ITEMS.map(async (item) => {
         const response = await fetch(item.textUrl);
@@ -179,4 +192,7 @@ export const initNews = () => {
   const grid = document.querySelector('#news-grid');
   if (!grid) return;
   void renderNews(grid);
+  onEvent('fodr:news-updated', () => {
+    void renderNews(grid);
+  });
 };

@@ -2981,28 +2981,28 @@
                 <div class="setting-item">
                   <span>Match notifications</span>
                   <label class="toggle">
-                    <input type="checkbox" checked />
+                    <input type="checkbox" id="settings-notify-matches" checked />
                     <span class="toggle-slider"></span>
                   </label>
                 </div>
                 <div class="setting-item">
                   <span>Goal alerts for favorite teams</span>
                   <label class="toggle">
-                    <input type="checkbox" checked />
+                    <input type="checkbox" id="settings-notify-goals" checked />
                     <span class="toggle-slider"></span>
                   </label>
                 </div>
                 <div class="setting-item">
                   <span>Likes, comments, and new followers</span>
                   <label class="toggle">
-                    <input type="checkbox" checked />
+                    <input type="checkbox" id="settings-notify-social" checked />
                     <span class="toggle-slider"></span>
                   </label>
                 </div>
                 <div class="setting-item">
                   <span>Direct message notifications</span>
                   <label class="toggle">
-                    <input type="checkbox" checked />
+                    <input type="checkbox" id="settings-notify-direct" checked />
                     <span class="toggle-slider"></span>
                   </label>
                 </div>
@@ -3042,7 +3042,7 @@
                 <div class="setting-item">
                   <span>Dark mode / Light mode</span>
                   <label class="toggle">
-                    <input type="checkbox" />
+                    <input type="checkbox" id="settings-dark-mode" />
                     <span class="toggle-slider"></span>
                   </label>
                 </div>
@@ -3080,28 +3080,32 @@
                 <h3>Favorites</h3>
                 <div class="setting-item">
                   <span>Select favorite team</span>
-                  <select class="select">
-                    <option>Liverpool</option>
-                    <option>Manchester City</option>
-                    <option>Arsenal</option>
-                    <option>Barcelona</option>
+                  <select class="select" id="settings-favorite-team">
+                    <option value="">No favorite team</option>
                   </select>
                 </div>
                 <div class="setting-item">
                   <span>Select favorite leagues</span>
-                  <div class="checklist">
-                    <label><input type="checkbox" checked /> Premier League</label>
-                    <label><input type="checkbox" /> Serie A</label>
-                    <label><input type="checkbox" /> LaLiga</label>
-                    <label><input type="checkbox" /> Champions League</label>
-                  </div>
+                  <div class="checklist" id="settings-favorite-leagues"></div>
                 </div>
                 <div class="setting-item">
                   <span>Prioritize favorite teams in feed</span>
                   <label class="toggle">
-                    <input type="checkbox" checked />
+                    <input type="checkbox" id="settings-prioritize-favorites" checked />
                     <span class="toggle-slider"></span>
                   </label>
+                </div>
+                <div class="setting-item">
+                  <span>Save preferences to this device/account</span>
+                  <button class="setting-btn" type="button" id="settings-save-preferences">Save</button>
+                </div>
+                <div class="setting-item">
+                  <span>Run onboarding again</span>
+                  <button class="setting-btn" type="button" id="settings-open-onboarding">Open</button>
+                </div>
+                <div class="setting-item">
+                  <span>Preferences status</span>
+                  <span class="meta" id="settings-preferences-status">Ready</span>
                 </div>
               </div>
 

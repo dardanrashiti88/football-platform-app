@@ -1,130 +1,358 @@
 const path = require('path');
 const fs = require('fs');
-const sqlite3 = require('sqlite3').verbose();
+const usePostgres =
+  String(process.env.DB_CLIENT || '').toLowerCase() === 'postgres'
+  || Boolean(process.env.DATABASE_URL || process.env.FODR_DATABASE_URL);
 
-const defaultDbPath = path.join(__dirname, 'fodr.sqlite');
-const envDbPath = process.env.FODR_DB_PATH;
-const envIsTmp = envDbPath && envDbPath.includes('/tmp');
-const hasDefaultDb = fs.existsSync(defaultDbPath) && fs.statSync(defaultDbPath).size > 0;
-
-const resolveDbPath = () => {
-  if (!envDbPath) return defaultDbPath;
-  if (!envIsTmp) return envDbPath;
-  if (fs.existsSync(envDbPath)) return envDbPath;
-
-  fs.mkdirSync(path.dirname(envDbPath), { recursive: true });
-  if (hasDefaultDb) {
-    fs.copyFileSync(defaultDbPath, envDbPath);
-  }
-  return envDbPath;
+const normalizeSqlForPg = (sql) => {
+  let index = 0;
+  return String(sql).replace(/\?/g, () => {
+    index += 1;
+    return `$${index}`;
+  });
 };
 
-const dbPath = resolveDbPath();
+const adaptInsertSqlForPg = (sql) => {
+  const trimmed = String(sql).trim().replace(/;$/, '');
+  if (/^insert\s+/i.test(trimmed) && !/\breturning\b/i.test(trimmed)) {
+    return `${trimmed} RETURNING *`;
+  }
+  return trimmed;
+};
 
-const db = new sqlite3.Database(dbPath);
+const toSqliteTimestampExpression = "datetime('now')";
+const toPostgresTimestampExpression = 'NOW()';
+const currentTimestampExpression = usePostgres
+  ? toPostgresTimestampExpression
+  : toSqliteTimestampExpression;
 
-const run = (sql, params = []) =>
-  new Promise((resolve, reject) => {
+let db = null;
+let dbPath = null;
+
+if (usePostgres) {
+  // Load pg only when Postgres is enabled so SQLite-only installs keep working.
+  const { Pool } = require('pg');
+  db = new Pool({
+    connectionString: process.env.DATABASE_URL || process.env.FODR_DATABASE_URL
+  });
+} else {
+  const sqlite3 = require('sqlite3').verbose();
+  const defaultDbPath = path.join(__dirname, 'fodr.sqlite');
+  const envDbPath = process.env.FODR_DB_PATH;
+  const envIsTmp = envDbPath && envDbPath.includes('/tmp');
+  const hasDefaultDb = fs.existsSync(defaultDbPath) && fs.statSync(defaultDbPath).size > 0;
+
+  const resolveDbPath = () => {
+    if (!envDbPath) return defaultDbPath;
+    if (!envIsTmp) return envDbPath;
+    if (fs.existsSync(envDbPath)) return envDbPath;
+
+    fs.mkdirSync(path.dirname(envDbPath), { recursive: true });
+    if (hasDefaultDb) {
+      fs.copyFileSync(defaultDbPath, envDbPath);
+    }
+    return envDbPath;
+  };
+
+  dbPath = resolveDbPath();
+  db = new sqlite3.Database(dbPath);
+}
+
+const run = async (sql, params = []) => {
+  if (usePostgres) {
+    const result = await db.query(normalizeSqlForPg(adaptInsertSqlForPg(sql)), params);
+    const firstRow = result.rows?.[0] || null;
+    return {
+      lastID: firstRow?.id ?? firstRow?.user_id ?? null,
+      changes: result.rowCount || 0,
+      rows: result.rows || []
+    };
+  }
+
+  return new Promise((resolve, reject) => {
     db.run(sql, params, function onRun(err) {
       if (err) reject(err);
       else resolve(this);
     });
   });
+};
 
-const get = (sql, params = []) =>
-  new Promise((resolve, reject) => {
+const get = async (sql, params = []) => {
+  if (usePostgres) {
+    const result = await db.query(normalizeSqlForPg(sql), params);
+    return result.rows?.[0] || null;
+  }
+
+  return new Promise((resolve, reject) => {
     db.get(sql, params, (err, row) => {
       if (err) reject(err);
       else resolve(row);
     });
   });
+};
 
-const all = (sql, params = []) =>
-  new Promise((resolve, reject) => {
+const all = async (sql, params = []) => {
+  if (usePostgres) {
+    const result = await db.query(normalizeSqlForPg(sql), params);
+    return result.rows || [];
+  }
+
+  return new Promise((resolve, reject) => {
     db.all(sql, params, (err, rows) => {
       if (err) reject(err);
       else resolve(rows);
     });
   });
+};
 
 const ensureColumn = async (table, name, definition) => {
+  if (usePostgres) {
+    const columns = await all(
+      `SELECT column_name
+         FROM information_schema.columns
+        WHERE table_schema = 'public' AND table_name = ?`,
+      [table]
+    );
+    if (columns.some((column) => column.column_name === name)) return;
+    await run(`ALTER TABLE ${table} ADD COLUMN ${name} ${definition}`);
+    return;
+  }
+
   const columns = await all(`PRAGMA table_info(${table})`);
   if (columns.some((column) => column.name === name)) return;
   await run(`ALTER TABLE ${table} ADD COLUMN ${name} ${definition}`);
 };
 
 const init = async () => {
-  await run(
-    `CREATE TABLE IF NOT EXISTS users (
-      id INTEGER PRIMARY KEY AUTOINCREMENT,
-      username TEXT NOT NULL UNIQUE,
-      email TEXT NOT NULL UNIQUE,
-      password_hash TEXT NOT NULL,
-      first_name TEXT,
-      last_name TEXT,
-      gender TEXT,
-      dob TEXT,
-      created_at TEXT DEFAULT (datetime('now'))
-    )`
-  );
+  if (usePostgres) {
+    await run(
+      `CREATE TABLE IF NOT EXISTS users (
+        id SERIAL PRIMARY KEY,
+        username TEXT NOT NULL UNIQUE,
+        email TEXT NOT NULL UNIQUE,
+        password_hash TEXT NOT NULL,
+        first_name TEXT,
+        last_name TEXT,
+        gender TEXT,
+        dob TEXT,
+        is_admin INTEGER NOT NULL DEFAULT 0,
+        created_at TIMESTAMPTZ DEFAULT (${toPostgresTimestampExpression})
+      )`
+    );
 
-  await run(
-    `CREATE TABLE IF NOT EXISTS user_wallets (
-      user_id INTEGER PRIMARY KEY,
-      coins INTEGER NOT NULL DEFAULT 0,
-      updated_at TEXT DEFAULT (datetime('now')),
-      FOREIGN KEY(user_id) REFERENCES users(id) ON DELETE CASCADE
-    )`
-  );
+    await run(
+      `CREATE TABLE IF NOT EXISTS user_wallets (
+        user_id INTEGER PRIMARY KEY REFERENCES users(id) ON DELETE CASCADE,
+        coins BIGINT NOT NULL DEFAULT 0,
+        updated_at TIMESTAMPTZ DEFAULT (${toPostgresTimestampExpression})
+      )`
+    );
 
-  await run(
-    `CREATE TABLE IF NOT EXISTS user_cards (
-      id INTEGER PRIMARY KEY AUTOINCREMENT,
-      user_id INTEGER NOT NULL,
-      card_name TEXT NOT NULL,
-      card_position TEXT,
-      club TEXT,
-      started TEXT,
-      card_value INTEGER,
-      sell_value INTEGER,
-      card_note TEXT,
-      image TEXT,
-      created_at TEXT DEFAULT (datetime('now')),
-      FOREIGN KEY(user_id) REFERENCES users(id) ON DELETE CASCADE
-    )`
-  );
+    await run(
+      `CREATE TABLE IF NOT EXISTS user_cards (
+        id SERIAL PRIMARY KEY,
+        user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+        card_name TEXT NOT NULL,
+        card_position TEXT,
+        club TEXT,
+        started TEXT,
+        card_value BIGINT,
+        sell_value BIGINT,
+        card_note TEXT,
+        image TEXT,
+        created_at TIMESTAMPTZ DEFAULT (${toPostgresTimestampExpression}),
+        is_verified INTEGER NOT NULL DEFAULT 1,
+        verification_status TEXT DEFAULT 'verified',
+        verification_code TEXT,
+        verified_at TIMESTAMPTZ,
+        acquired_via TEXT
+      )`
+    );
+
+    await run(
+      `CREATE TABLE IF NOT EXISTS user_preferences (
+        user_id INTEGER PRIMARY KEY REFERENCES users(id) ON DELETE CASCADE,
+        home_layout TEXT,
+        sidebar_layout TEXT,
+        favorite_team TEXT,
+        favorite_leagues TEXT,
+        prioritize_favorite_teams INTEGER NOT NULL DEFAULT 0,
+        accent_color TEXT,
+        notifications TEXT,
+        onboarding_completed INTEGER NOT NULL DEFAULT 0,
+        updated_at TIMESTAMPTZ DEFAULT (${toPostgresTimestampExpression})
+      )`
+    );
+
+    await run(
+      `CREATE TABLE IF NOT EXISTS user_cardgame_state (
+        user_id INTEGER PRIMARY KEY REFERENCES users(id) ON DELETE CASCADE,
+        pack_state TEXT,
+        updated_at TIMESTAMPTZ DEFAULT (${toPostgresTimestampExpression})
+      )`
+    );
+
+    await run(
+      `CREATE TABLE IF NOT EXISTS news_articles (
+        id SERIAL PRIMARY KEY,
+        slug TEXT NOT NULL UNIQUE,
+        title TEXT NOT NULL,
+        meta TEXT,
+        excerpt TEXT,
+        body TEXT NOT NULL,
+        image_url TEXT,
+        uploaded_at TIMESTAMPTZ,
+        source_type TEXT DEFAULT 'manual',
+        source_id TEXT,
+        published INTEGER NOT NULL DEFAULT 1,
+        author_user_id INTEGER REFERENCES users(id) ON DELETE SET NULL,
+        created_at TIMESTAMPTZ DEFAULT (${toPostgresTimestampExpression}),
+        updated_at TIMESTAMPTZ DEFAULT (${toPostgresTimestampExpression})
+      )`
+    );
+  } else {
+    await run(
+      `CREATE TABLE IF NOT EXISTS users (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        username TEXT NOT NULL UNIQUE,
+        email TEXT NOT NULL UNIQUE,
+        password_hash TEXT NOT NULL,
+        first_name TEXT,
+        last_name TEXT,
+        gender TEXT,
+        dob TEXT,
+        created_at TEXT DEFAULT (${toSqliteTimestampExpression})
+      )`
+    );
+
+    await run(
+      `CREATE TABLE IF NOT EXISTS user_wallets (
+        user_id INTEGER PRIMARY KEY,
+        coins INTEGER NOT NULL DEFAULT 0,
+        updated_at TEXT DEFAULT (${toSqliteTimestampExpression}),
+        FOREIGN KEY(user_id) REFERENCES users(id) ON DELETE CASCADE
+      )`
+    );
+
+    await run(
+      `CREATE TABLE IF NOT EXISTS user_cards (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        user_id INTEGER NOT NULL,
+        card_name TEXT NOT NULL,
+        card_position TEXT,
+        club TEXT,
+        started TEXT,
+        card_value INTEGER,
+        sell_value INTEGER,
+        card_note TEXT,
+        image TEXT,
+        created_at TEXT DEFAULT (${toSqliteTimestampExpression}),
+        FOREIGN KEY(user_id) REFERENCES users(id) ON DELETE CASCADE
+      )`
+    );
+
+    await run(
+      `CREATE TABLE IF NOT EXISTS user_preferences (
+        user_id INTEGER PRIMARY KEY,
+        home_layout TEXT,
+        sidebar_layout TEXT,
+        favorite_team TEXT,
+        favorite_leagues TEXT,
+        prioritize_favorite_teams INTEGER NOT NULL DEFAULT 0,
+        accent_color TEXT,
+        notifications TEXT,
+        onboarding_completed INTEGER NOT NULL DEFAULT 0,
+        updated_at TEXT DEFAULT (${toSqliteTimestampExpression}),
+        FOREIGN KEY(user_id) REFERENCES users(id) ON DELETE CASCADE
+      )`
+    );
+
+    await run(
+      `CREATE TABLE IF NOT EXISTS user_cardgame_state (
+        user_id INTEGER PRIMARY KEY,
+        pack_state TEXT,
+        updated_at TEXT DEFAULT (${toSqliteTimestampExpression}),
+        FOREIGN KEY(user_id) REFERENCES users(id) ON DELETE CASCADE
+      )`
+    );
+
+    await run(
+      `CREATE TABLE IF NOT EXISTS news_articles (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        slug TEXT NOT NULL UNIQUE,
+        title TEXT NOT NULL,
+        meta TEXT,
+        excerpt TEXT,
+        body TEXT NOT NULL,
+        image_url TEXT,
+        uploaded_at TEXT,
+        source_type TEXT DEFAULT 'manual',
+        source_id TEXT,
+        published INTEGER NOT NULL DEFAULT 1,
+        author_user_id INTEGER,
+        created_at TEXT DEFAULT (${toSqliteTimestampExpression}),
+        updated_at TEXT DEFAULT (${toSqliteTimestampExpression}),
+        FOREIGN KEY(author_user_id) REFERENCES users(id) ON DELETE SET NULL
+      )`
+    );
+  }
+
+  await ensureColumn('users', 'is_admin', 'INTEGER NOT NULL DEFAULT 0');
 
   await ensureColumn('user_cards', 'is_verified', 'INTEGER NOT NULL DEFAULT 1');
   await ensureColumn('user_cards', 'verification_status', `TEXT DEFAULT 'verified'`);
   await ensureColumn('user_cards', 'verification_code', 'TEXT');
-  await ensureColumn('user_cards', 'verified_at', 'TEXT');
+  await ensureColumn('user_cards', 'verified_at', usePostgres ? 'TIMESTAMPTZ' : 'TEXT');
   await ensureColumn('user_cards', 'acquired_via', 'TEXT');
 
-  await run(
-    `CREATE TABLE IF NOT EXISTS quiz_questions (
-      id INTEGER PRIMARY KEY AUTOINCREMENT,
-      competition TEXT NOT NULL,
-      difficulty TEXT NOT NULL,
-      prompt TEXT NOT NULL,
-      explanation TEXT,
-      created_at TEXT DEFAULT (datetime('now'))
-    )`
-  );
+  if (usePostgres) {
+    await run(
+      `CREATE TABLE IF NOT EXISTS quiz_questions (
+        id SERIAL PRIMARY KEY,
+        competition TEXT NOT NULL,
+        difficulty TEXT NOT NULL,
+        prompt TEXT NOT NULL,
+        explanation TEXT,
+        created_at TIMESTAMPTZ DEFAULT (${toPostgresTimestampExpression})
+      )`
+    );
+
+    await run(
+      `CREATE TABLE IF NOT EXISTS quiz_options (
+        id SERIAL PRIMARY KEY,
+        question_id INTEGER NOT NULL REFERENCES quiz_questions(id) ON DELETE CASCADE,
+        option_index INTEGER NOT NULL,
+        option_text TEXT NOT NULL,
+        is_correct INTEGER NOT NULL DEFAULT 0,
+        UNIQUE(question_id, option_index)
+      )`
+    );
+  } else {
+    await run(
+      `CREATE TABLE IF NOT EXISTS quiz_questions (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        competition TEXT NOT NULL,
+        difficulty TEXT NOT NULL,
+        prompt TEXT NOT NULL,
+        explanation TEXT,
+        created_at TEXT DEFAULT (${toSqliteTimestampExpression})
+      )`
+    );
+
+    await run(
+      `CREATE TABLE IF NOT EXISTS quiz_options (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        question_id INTEGER NOT NULL,
+        option_index INTEGER NOT NULL,
+        option_text TEXT NOT NULL,
+        is_correct INTEGER NOT NULL DEFAULT 0,
+        FOREIGN KEY(question_id) REFERENCES quiz_questions(id) ON DELETE CASCADE,
+        UNIQUE(question_id, option_index)
+      )`
+    );
+  }
 
   await run(`CREATE INDEX IF NOT EXISTS idx_quiz_questions_comp_diff ON quiz_questions (competition, difficulty)`);
-
-  await run(
-    `CREATE TABLE IF NOT EXISTS quiz_options (
-      id INTEGER PRIMARY KEY AUTOINCREMENT,
-      question_id INTEGER NOT NULL,
-      option_index INTEGER NOT NULL,
-      option_text TEXT NOT NULL,
-      is_correct INTEGER NOT NULL DEFAULT 0,
-      FOREIGN KEY(question_id) REFERENCES quiz_questions(id) ON DELETE CASCADE,
-      UNIQUE(question_id, option_index)
-    )`
-  );
-
   await run(`CREATE INDEX IF NOT EXISTS idx_quiz_options_question ON quiz_options (question_id)`);
 
   const seedSetIfMissing = async ({ competition, difficulty, seed }) => {
@@ -264,4 +492,15 @@ const init = async () => {
   });
 };
 
-module.exports = { db, init, run, get, all };
+module.exports = {
+  db,
+  init,
+  run,
+  get,
+  all,
+  usePostgres,
+  dbPath,
+  currentTimestampExpression,
+  toSqliteTimestampExpression,
+  toPostgresTimestampExpression
+};

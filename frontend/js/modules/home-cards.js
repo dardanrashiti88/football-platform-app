@@ -1,37 +1,12 @@
-import { storage } from '../core/storage.js';
-
-const HOME_LAYOUT_KEY = 'fodrHomeCardsLayout';
-const SLOT_COUNT = 12;
-const DEFAULT_LAYOUT = ['premier', 'ucl', 'laliga', 'bundesliga', 'seriea', 'championship'];
-const COMPETITION_ORDER = [
-  'premier',
-  'ucl',
-  'laliga',
-  'bundesliga',
-  'seriea',
-  'championship',
-  'ligue1',
-  'facup',
-  'carabaocup',
-  'europa',
-  'conference',
-  'worldcup'
-];
-
-const FALLBACK_LABELS = {
-  premier: 'Premier League',
-  championship: 'EFL Championship',
-  facup: 'FA Cup',
-  carabaocup: 'Carabao Cup',
-  seriea: 'Serie A',
-  laliga: 'LaLiga',
-  bundesliga: 'Bundesliga',
-  ligue1: 'Ligue 1',
-  ucl: 'Champions League',
-  europa: 'Europa League',
-  conference: 'Conference League',
-  worldcup: 'World Cup'
-};
+import { onEvent } from '../core/events.js';
+import {
+  COMPETITION_ORDER,
+  getCompetitionConfig,
+  getDefaultCompetitionLayout,
+  normalizeCompetitionLayout,
+  SLOT_COUNT
+} from './competition-catalog.js';
+import { getPreferences, saveHomeLayout } from './preferences.js';
 
 const state = {
   layout: [],
@@ -46,46 +21,14 @@ let pickerGrid = null;
 let pickerTitle = null;
 let pickerClearBtn = null;
 
-const normalizeLayout = (layout) => {
-  const seen = new Set();
-  return Array.from({ length: SLOT_COUNT }, (_, index) => {
-    const raw = Array.isArray(layout) ? layout[index] : null;
-    const leagueId = typeof raw === 'string' ? raw.trim() : '';
-    if (!leagueId || !COMPETITION_ORDER.includes(leagueId) || seen.has(leagueId)) return null;
-    seen.add(leagueId);
-    return leagueId;
-  });
-};
-
-const getDefaultLayout = () =>
-  normalizeLayout([
-    ...DEFAULT_LAYOUT,
-    ...Array.from({ length: SLOT_COUNT - DEFAULT_LAYOUT.length }, () => null)
-  ]);
-
-const readStoredLayout = () => {
-  try {
-    const raw = storage.get(HOME_LAYOUT_KEY);
-    if (!raw) return getDefaultLayout();
-    const parsed = JSON.parse(raw);
-    const normalized = normalizeLayout(parsed);
-    return normalized.some(Boolean) ? normalized : getDefaultLayout();
-  } catch {
-    return getDefaultLayout();
-  }
-};
-
-const writeStoredLayout = () => {
-  storage.set(HOME_LAYOUT_KEY, JSON.stringify(normalizeLayout(state.layout)));
-};
-
 const getCardConfig = (leagueId) => {
+  const config = getCompetitionConfig(leagueId);
   const card = cardMap.get(leagueId);
   const logo = card?.querySelector('.league-logo img');
-  const title = card?.querySelector('.league-title')?.textContent?.trim() || FALLBACK_LABELS[leagueId] || leagueId;
+  const title = card?.querySelector('.league-title')?.textContent?.trim() || config?.label || leagueId;
   return {
     label: title,
-    logo: logo?.getAttribute('src') || '',
+    logo: logo?.getAttribute('src') || config?.logo || '',
     alt: logo?.getAttribute('alt') || title
   };
 };
@@ -143,8 +86,8 @@ const closePicker = () => {
 };
 
 const saveAndRender = () => {
-  state.layout = normalizeLayout(state.layout);
-  writeStoredLayout();
+  state.layout = normalizeCompetitionLayout(state.layout);
+  void saveHomeLayout(state.layout);
   renderLayout();
 };
 
@@ -269,7 +212,7 @@ export const initHomeCards = () => {
 
   if (!cardMap.size) return;
 
-  state.layout = readStoredLayout();
+  state.layout = normalizeCompetitionLayout(getPreferences().homeLayout || getDefaultCompetitionLayout());
   buildPicker();
   renderLayout();
 
@@ -293,5 +236,10 @@ export const initHomeCards = () => {
       event.stopImmediatePropagation();
       openPicker(Number(placeholder.dataset.slot));
     }
+  });
+
+  onEvent('fodr:preferences', () => {
+    state.layout = normalizeCompetitionLayout(getPreferences().homeLayout || getDefaultCompetitionLayout());
+    renderLayout();
   });
 };

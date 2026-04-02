@@ -24,6 +24,8 @@ import { initSidebar } from './modules/sidebar.js';
 import { initHomeCards } from './modules/home-cards.js';
 import { initCardgame, openInventoryStage, restorePackState } from './modules/cardgame.js';
 import { initMatch } from './modules/match.js';
+import { initPreferences } from './modules/preferences.js';
+import { initOnboarding } from './modules/onboarding.js';
 
 const pageParams = new URLSearchParams(window.location.search);
 const isEmbeddedMatch = pageParams.get('embedMatch') === '1';
@@ -94,6 +96,7 @@ document.addEventListener('dragstart', (event) => {
 });
 
 initViews();
+initPreferences();
 initSidebar();
 initHomeCards();
 initHome();
@@ -108,6 +111,7 @@ initGlobalSearch();
 initAuth();
 initCardgame();
 initMatch();
+initOnboarding();
 
 const savedView = requestedView || getStoredView();
 if (savedView) {
@@ -141,7 +145,7 @@ if (savedView) {
   showHome();
 }
 
-restorePackState();
+void restorePackState();
 
 const dashboardOpenBtn = document.querySelector('#dashboard-open');
 const dashboardOverlay = document.querySelector('#dashboard-overlay');
