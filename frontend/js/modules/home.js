@@ -1,5 +1,6 @@
 import { showHome, showMatch } from '../core/views.js';
 import { loadRosterForTeam, openPlayerProfile } from './players.js';
+import { notifyFollowSignalsFromMatch } from './follows.js';
 
 const PREMIER_TEAMS_URL = new URL('../../../db-api/data/competitions/premier-league/teams.json', import.meta.url);
 const PREMIER_MATCHES_URL = new URL('../../../db-api/data/competitions/premier-league/matches.json', import.meta.url);
@@ -2695,6 +2696,16 @@ const renderMatchLineups = async (match, homeTeam, awayTeam) => {
     const homeLineup = buildLineupFromRoster(homeRoster);
     const awayLineup = buildLineupFromRoster(awayRoster);
     const matchStats = buildMatchStatsPackage(match, homeLineup, awayLineup);
+
+    notifyFollowSignalsFromMatch({
+      match,
+      leagueKey,
+      homeTeam,
+      awayTeam,
+      homeLineup,
+      awayLineup,
+      matchStats
+    });
 
     const fieldLayout = getActiveFieldLineupLayout();
 

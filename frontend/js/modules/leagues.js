@@ -1,4 +1,5 @@
 import { showHome, isViewVisible } from '../core/views.js';
+import { openTeamProfile } from './players.js';
 import { setStatsAccent } from './stats.js';
 
 const PREMIER_STANDINGS_URL = new URL('../../../db-api/data/competitions/premier-league/standings.json', import.meta.url);
@@ -407,6 +408,8 @@ const buildFormBoxes = (form = []) =>
 const buildTableRow = ({ entry, team, competitionId, showLogoFallback = true }) => {
   const logo = getLogoSrc(competitionId, entry.teamId);
   const teamLabel = team?.shortName || team?.name || entry.teamName || entry.teamId;
+  const teamId = team?.id || entry.teamId || '';
+  const teamName = team?.name || team?.shortName || entry.teamName || teamId;
   const rankLabel = Number.isFinite(entry.rank) ? entry.rank : '';
   const logoMarkup = logo
     ? `<img src="${logo}" alt="${teamLabel}" loading="lazy" decoding="async" />`
@@ -416,7 +419,15 @@ const buildTableRow = ({ entry, team, competitionId, showLogoFallback = true }) 
 
   return `
     <div class="table-row">
-      <div class="row-team">
+      <div
+        class="row-team"
+        data-action="open-team-profile"
+        data-team-id="${teamId}"
+        data-team-name="${encodeURIComponent(teamName)}"
+        role="button"
+        tabindex="0"
+        aria-label="Open ${teamLabel} team page"
+      >
         <span class="row-rank">${rankLabel}</span>
         ${logoMarkup}
         <span>${teamLabel}</span>
@@ -1178,6 +1189,35 @@ export const initLeagues = () => {
       reorderLeagues(leagueId);
       reorderLeagueTables(leagueId);
       setStatsAccent(leagueId);
+    });
+  });
+
+  const openTeamFromTable = (card, target) => {
+    if (!(target instanceof Element)) return;
+    const teamTrigger = target.closest('.row-team[data-action="open-team-profile"]');
+    if (!(teamTrigger instanceof HTMLElement)) return;
+
+    const leagueKey = card.dataset.league;
+    if (!leagueKey) return;
+
+    const teamId = teamTrigger.dataset.teamId || null;
+    const encodedTeamName = teamTrigger.dataset.teamName || '';
+    const teamName = encodedTeamName ? decodeURIComponent(encodedTeamName) : null;
+    void openTeamProfile({ leagueKey, teamId, teamName });
+  };
+
+  leagueTableCards.forEach((card) => {
+    card.addEventListener('click', (event) => {
+      openTeamFromTable(card, event.target);
+    });
+
+    card.addEventListener('keydown', (event) => {
+      if (event.key !== 'Enter' && event.key !== ' ') return;
+      openTeamFromTable(card, event.target);
+      const teamTrigger = event.target instanceof Element
+        ? event.target.closest('.row-team[data-action="open-team-profile"]')
+        : null;
+      if (teamTrigger) event.preventDefault();
     });
   });
 

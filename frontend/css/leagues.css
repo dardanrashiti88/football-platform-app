@@ -284,6 +284,18 @@
   align-items: center;
   gap: 8px;
   font-size: 12px;
+  cursor: pointer;
+  transition: transform 140ms ease, opacity 140ms ease;
+}
+
+.row-team:hover,
+.row-team:focus-visible {
+  opacity: 0.88;
+}
+
+.row-team:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.45);
+  outline-offset: 2px;
 }
 
 .row-rank {

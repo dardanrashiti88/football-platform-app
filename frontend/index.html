@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FOD</title>
     <link rel="icon" type="image/svg+xml" href="../images/web-logo/favicon.svg" />
-    <link rel="apple-touch-icon" href="../images/web-logo/CUSTOM~1.PNG" />
+    <link rel="apple-touch-icon" href="../images/web-logo/logo-2.png" />
     <script>
       (() => {
         const params = new URLSearchParams(window.location.search);
@@ -58,7 +58,7 @@
     <div class="app">
       <header class="topbar">
         <button class="brand" id="brand-home" type="button" aria-label="Go to home">
-          <img src="../images/web-logo/CUSTOM~1.PNG" alt="FODR logo" />
+          <img src="../images/web-logo/logo-2.png" alt="FODR logo" />
         </button>
 
         <div class="nav-center">
@@ -158,12 +158,44 @@
               <rect x="16" y="12" width="3" height="6"></rect>
             </svg>
           </button>
-          <button class="action-btn" type="button" aria-label="Notifications">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M18 16v-5a6 6 0 1 0-12 0v5l-2 2h16z"></path>
-              <path d="M9 20a3 3 0 0 0 6 0"></path>
-            </svg>
-          </button>
+          <div class="notification-menu-wrap">
+            <button
+              class="action-btn"
+              type="button"
+              id="notifications-open"
+              aria-label="Notifications"
+              aria-expanded="false"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M18 16v-5a6 6 0 1 0-12 0v5l-2 2h16z"></path>
+                <path d="M9 20a3 3 0 0 0 6 0"></path>
+              </svg>
+              <span class="action-badge is-hidden" id="notifications-count">0</span>
+            </button>
+
+            <div
+              class="notification-menu is-hidden"
+              id="notifications-menu"
+              role="dialog"
+              aria-label="Notifications"
+              aria-hidden="true"
+            >
+              <div class="notification-menu__head">
+                <div>
+                  <div class="notification-menu__title">Notifications</div>
+                  <div class="notification-menu__meta" id="notifications-meta">0 unread</div>
+                </div>
+                <div class="notification-menu__actions">
+                  <button class="notification-chip" type="button" id="notifications-read-all">Mark all read</button>
+                  <button class="notification-chip" type="button" id="notifications-clear">Clear all</button>
+                </div>
+              </div>
+
+              <div class="notification-menu__list" id="notifications-list">
+                <div class="notification-empty">You do not have any notifications yet.</div>
+              </div>
+            </div>
+          </div>
           <button class="action-btn" type="button" id="settings-open" aria-label="Settings">
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <path d="M12 8.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z"></path>
@@ -1785,6 +1817,20 @@
               </div>
             </div>
 
+            <div class="quests-stage is-hidden" id="quests-stage">
+              <div class="quests-panel">
+                <div class="quests-header">
+                  <div>
+                    <h2>Daily Quests</h2>
+                    <p>20 missions reset every day. Easy warmups first, then medium and hard objectives.</p>
+                  </div>
+                  <div class="quests-reset" id="quests-reset-label">Refreshes daily</div>
+                </div>
+                <div class="quests-weekly" id="quests-weekly-summary"></div>
+                <div class="quests-list" id="quests-list"></div>
+              </div>
+            </div>
+
             <div class="inventory-stage is-hidden" id="inventory-stage">
               <button class="inventory-back" type="button" id="inventory-back">Back</button>
               <div class="inventory-panel">
@@ -2893,47 +2939,143 @@
           </section>
 
           <section class="profile-view is-hidden" id="profile-view">
-            <div class="profile-header">
-              <div>
-                <h2>Profile</h2>
-                <p>Show your football identity</p>
-              </div>
-              <button class="back-button profile-back" type="button" id="profile-back">Back</button>
-            </div>
-
-            <div class="profile-card">
-              <div class="profile-hero">
-                <div class="profile-avatar-wrap">
-                  <img
-                    class="profile-avatar"
-                    id="profile-avatar"
-                    src="../images/icons/Copy_of_User-removebg-preview.png"
-                    alt="Profile avatar"
-                  />
-                  <input class="profile-avatar-input" type="file" id="profile-avatar-input" accept="image/*" />
-                  <button class="profile-avatar-btn" type="button" id="profile-avatar-btn">Change photo</button>
+            <div class="profile-shell">
+              <div class="profile-header">
+                <div>
+                  <h2>Profile</h2>
+                  <p>Your football identity, saved preferences, and account activity in one place.</p>
                 </div>
-                <div class="profile-name" id="profile-name">USER</div>
-                <div class="profile-handle" id="profile-handle">@user</div>
-                <div class="profile-stats">
-                  <div class="profile-stat">
-                    <span class="count" id="profile-posts">24</span>
-                    <span class="label">Posts</span>
-                  </div>
-                  <div class="profile-stat">
-                    <span class="count" id="profile-followers">12.4k</span>
-                    <span class="label">Followers</span>
-                  </div>
-                  <div class="profile-stat">
-                    <span class="count" id="profile-following">312</span>
-                    <span class="label">Following</span>
-                  </div>
-                </div>
+                <button class="back-button profile-back" type="button" id="profile-back">Back</button>
               </div>
 
-              <div class="profile-actions">
-                <button class="profile-action primary" type="button">Edit Profile</button>
-                <button class="profile-action" type="button">Share</button>
+              <div class="profile-stage">
+                <section class="profile-hero-card">
+                  <div class="profile-hero-copy">
+                    <div class="profile-kicker">FOD Identity</div>
+                    <h3 class="profile-name" id="profile-name">USER</h3>
+                    <div class="profile-handle" id="profile-handle">@user</div>
+                    <p class="profile-identity-line" id="profile-identity-line">
+                      Built for football nights, squad debates, card pulls, and custom match tracking.
+                    </p>
+
+                    <div class="profile-chip-row">
+                      <span class="profile-chip" id="profile-member-since">Member: Guest Mode</span>
+                      <span class="profile-chip" id="profile-favorite-team">Favorite team: Not set</span>
+                      <span class="profile-chip" id="profile-alert-summary">Alerts: Ready</span>
+                    </div>
+
+                    <div class="profile-stats">
+                      <div class="profile-stat profile-stat--spotlight">
+                        <span class="count" id="profile-posts">24</span>
+                        <span class="label">Posts</span>
+                      </div>
+                      <div class="profile-stat">
+                        <span class="count" id="profile-followers">12.4k</span>
+                        <span class="label">Followers</span>
+                      </div>
+                      <div class="profile-stat">
+                        <span class="count" id="profile-following">312</span>
+                        <span class="label">Following</span>
+                      </div>
+                    </div>
+
+                    <div class="profile-actions">
+                      <button class="profile-action primary" type="button" id="profile-edit-btn">Tune Profile</button>
+                      <button class="profile-action" type="button" id="profile-share-btn">Share Handle</button>
+                    </div>
+                  </div>
+
+                  <div class="profile-avatar-wrap">
+                    <div class="profile-avatar-frame">
+                      <img
+                        class="profile-avatar"
+                        id="profile-avatar"
+                        src="../images/icons/Copy_of_User-removebg-preview.png"
+                        alt="Profile avatar"
+                      />
+                    </div>
+                    <input class="profile-avatar-input" type="file" id="profile-avatar-input" accept="image/*" />
+                    <button class="profile-avatar-btn" type="button" id="profile-avatar-btn">Change photo</button>
+                    <div class="profile-frame-studio">
+                      <div class="profile-frame-title">Frame Studio</div>
+                      <div class="profile-frame-picker" id="profile-frame-picker">
+                        <button class="profile-frame-option is-active" type="button" data-profile-frame="classic">Classic</button>
+                        <button class="profile-frame-option" type="button" data-profile-frame="royal">Royal</button>
+                        <button class="profile-frame-option" type="button" data-profile-frame="pulse">Pulse</button>
+                        <button class="profile-frame-option" type="button" data-profile-frame="emerald">Emerald</button>
+                        <button class="profile-frame-option" type="button" data-profile-frame="midnight">Midnight</button>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+
+                <aside class="profile-side-panel">
+                  <article class="profile-panel profile-panel--accent profile-panel--dna">
+                    <div class="profile-panel-kicker">Club DNA</div>
+                    <div class="profile-panel-title">Your football mix</div>
+                    <div class="profile-panel-value" id="profile-favorite-leagues">Premier League · Champions League · LaLiga</div>
+                    <p class="profile-panel-copy">
+                      Keep shaping the web around the competitions and clubs you care about most.
+                    </p>
+                  </article>
+
+                  <article class="profile-panel profile-panel--radar">
+                    <div class="profile-panel-kicker">Follow Radar</div>
+                    <div class="profile-mini-grid">
+                      <div class="profile-mini-card">
+                        <span class="profile-mini-label">Teams</span>
+                        <strong id="profile-followed-teams-count">0</strong>
+                      </div>
+                      <div class="profile-mini-card">
+                        <span class="profile-mini-label">Players</span>
+                        <strong id="profile-followed-players-count">0</strong>
+                      </div>
+                    </div>
+                  </article>
+                </aside>
+              </div>
+
+              <div class="profile-grid">
+                <article class="profile-panel profile-panel--account">
+                  <div class="profile-panel-kicker">Account Snapshot</div>
+                  <div class="profile-detail-list">
+                    <div class="profile-detail-row">
+                      <span>Email</span>
+                      <strong id="profile-account-email">Guest session</strong>
+                    </div>
+                    <div class="profile-detail-row">
+                      <span>Name</span>
+                      <strong id="profile-account-name">Guest</strong>
+                    </div>
+                    <div class="profile-detail-row">
+                      <span>Date of birth</span>
+                      <strong id="profile-account-dob">Not set</strong>
+                    </div>
+                    <div class="profile-detail-row">
+                      <span>Gender</span>
+                      <strong id="profile-account-gender">Not set</strong>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="profile-panel profile-panel--control">
+                  <div class="profile-panel-kicker">Control Room</div>
+                  <div class="profile-panel-title">What this profile drives</div>
+                  <ul class="profile-feature-list">
+                    <li>Saved home card layout and sidebar competitions</li>
+                    <li>Notification preferences for matches, goals, and messages</li>
+                    <li>Followed teams and player alerts in the topbar bell</li>
+                    <li>Avatar and identity settings tied to this device</li>
+                  </ul>
+                </article>
+
+                <article class="profile-panel profile-panel--status">
+                  <div class="profile-panel-kicker">FOD Status</div>
+                  <div class="profile-panel-title" id="profile-status-title">Ready for the next matchday</div>
+                  <p class="profile-panel-copy" id="profile-status-copy">
+                    Finish your setup, follow a few clubs, and this space becomes your football command center.
+                  </p>
+                </article>
               </div>
             </div>
           </section>

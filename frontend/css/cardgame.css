@@ -554,10 +554,307 @@
   display: none;
 }
 
+.quests-stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  gap: 24px;
+}
+
+.quests-stage.is-hidden {
+  display: none;
+}
+
+.quests-panel {
+  width: min(1820px, 100%);
+  background: rgba(12, 12, 12, 0.82);
+  border: 2px solid var(--gold);
+  border-radius: 16px;
+  padding: 24px 26px 28px;
+  box-shadow: 0 26px 60px rgba(0, 0, 0, 0.45);
+}
+
+.quests-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 18px;
+}
+
+.quests-header h2 {
+  margin: 0 0 8px;
+  font-size: 34px;
+  letter-spacing: 1px;
+}
+
+.quests-header p {
+  margin: 0;
+  max-width: 760px;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 16px;
+  line-height: 1.45;
+}
+
+.quests-reset {
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  white-space: nowrap;
+}
+
+.quests-weekly {
+  margin-bottom: 20px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(260px, 0.85fr);
+  gap: 18px;
+}
+
+.quests-weekly-card,
+.quests-weekly-reward {
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+  padding: 18px;
+}
+
+.quests-weekly-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.64);
+}
+
+.quests-weekly-title {
+  margin: 10px 0 8px;
+  font-size: 28px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+.quests-weekly-copy {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.45;
+}
+
+.quests-progress-meta {
+  margin-top: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.quests-progress-track {
+  margin-top: 10px;
+  width: 100%;
+  height: 14px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.quests-progress-fill {
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #f0c53f 0%, #f48d2a 50%, #34c759 100%);
+}
+
+.quests-weekly-reward-value {
+  margin: 12px 0 6px;
+  font-size: 40px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.quests-weekly-reward-copy {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.45;
+}
+
+.quests-weekly-status {
+  margin-top: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
+}
+
+.quests-list {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.quest-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-width: 0;
+  padding: 18px;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.025));
+}
+
+.quest-card.is-complete {
+  border-color: rgba(82, 196, 26, 0.45);
+  box-shadow: 0 0 0 1px rgba(82, 196, 26, 0.18);
+}
+
+.quest-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.quest-title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.quest-description {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.45;
+  font-size: 14px;
+}
+
+.quest-difficulty {
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  border: 1px solid transparent;
+}
+
+.quest-difficulty.easy {
+  background: rgba(76, 217, 100, 0.12);
+  color: #7dff98;
+  border-color: rgba(76, 217, 100, 0.28);
+}
+
+.quest-difficulty.medium {
+  background: rgba(245, 201, 66, 0.12);
+  color: #f5d76e;
+  border-color: rgba(245, 201, 66, 0.28);
+}
+
+.quest-difficulty.hard {
+  background: rgba(255, 89, 94, 0.12);
+  color: #ff8a8e;
+  border-color: rgba(255, 89, 94, 0.28);
+}
+
+.quest-footer {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.quest-progress-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.quest-progress-label {
+  color: rgba(255, 255, 255, 0.68);
+}
+
+.quest-progress-value {
+  color: #ffffff;
+}
+
+.quest-track {
+  width: 100%;
+  height: 10px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.quest-fill {
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #f0c53f 0%, #4cd964 100%);
+}
+
+.quest-reward-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.quest-reward {
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: #f3d15a;
+}
+
+.quest-status {
+  padding: 7px 11px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
+}
+
+.quest-status.is-complete {
+  background: rgba(76, 217, 100, 0.14);
+  border-color: rgba(76, 217, 100, 0.28);
+  color: #7dff98;
+}
+
 .cardgame-view.is-shop-open .cardgame-left,
 .cardgame-view.is-shop-open .cardgame-right,
 .cardgame-view.is-shop-open .cardgame-divider,
 .cardgame-view.is-shop-open .pack-open-stage,
+.cardgame-view.is-shop-open .quests-stage,
 .cardgame-view.is-shop-open .inventory-stage,
 .cardgame-view.is-shop-open .inventory-detail-stage {
   display: none;
@@ -1981,6 +2278,23 @@
   display: none;
 }
 
+.cardgame-view.is-quests-open .cardgame-body,
+.cardgame-view.is-quests-open .inventory-stage,
+.cardgame-view.is-quests-open .inventory-detail-stage,
+.cardgame-view.is-quests-open .pack-open-stage,
+.cardgame-view.is-quests-open .shop-stage,
+.cardgame-view.is-quests-open .shop-detail-stage {
+  display: none;
+}
+
+.cardgame-view.is-quests-open .quests-stage {
+  align-self: stretch;
+  border-top: 2px solid var(--gold);
+  border-left: 2px solid var(--gold);
+  padding-top: 16px;
+  padding-left: 12px;
+}
+
 .cardgame-view.is-inventory-open .inventory-stage {
   align-self: stretch;
   border-top: 2px solid var(--gold);
@@ -2296,6 +2610,32 @@
   }
 
   .special-pack-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .quests-weekly {
+    grid-template-columns: 1fr;
+  }
+
+  .quests-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .quest-head {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 800px) {
+  .quests-panel {
+    padding: 18px;
+  }
+
+  .quests-header {
+    flex-direction: column;
+  }
+
+  .quests-list {
     grid-template-columns: 1fr;
   }
 }

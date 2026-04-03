@@ -8,8 +8,195 @@ const PACK_OPEN_KEY = 'fodrPackOpen';
 const PACK_ID_KEY = 'fodrPackId';
 const PACK_READY_KEY = 'fodrPackReady';
 const PACK_COUNT_KEY = 'fodrPackCount';
-const DEFAULT_BALANCE = 12500000000;
+const GUEST_BALANCE = 0;
 const SHARED_CARD_PRICES_URL = '/shared/card-prices.json';
+const QUEST_STORAGE_PREFIX = 'fodrCardgameQuests';
+const QUEST_WEEKLY_TARGET = 60000;
+
+const DAILY_QUESTS = [
+  {
+    id: 'login-once',
+    title: 'Kickoff Login',
+    description: 'Sign into your account once today.',
+    difficulty: 'easy',
+    rewardPoints: 500,
+    target: 1,
+    getProgress: (stats) => stats.loginCount || 0
+  },
+  {
+    id: 'inventory-scout',
+    title: 'Inventory Scout',
+    description: 'Open your inventory once.',
+    difficulty: 'easy',
+    rewardPoints: 450,
+    target: 1,
+    getProgress: (stats) => stats.inventoryVisits || 0
+  },
+  {
+    id: 'market-warmup',
+    title: 'Market Warmup',
+    description: 'Visit the marketplace once.',
+    difficulty: 'easy',
+    rewardPoints: 450,
+    target: 1,
+    getProgress: (stats) => stats.shopVisits || 0
+  },
+  {
+    id: 'elite-starter',
+    title: 'Elite Starter',
+    description: 'Open 1 elite pack.',
+    difficulty: 'easy',
+    rewardPoints: 600,
+    target: 1,
+    getProgress: (stats) => stats.elitePackOpens || 0
+  },
+  {
+    id: 'first-save',
+    title: 'First Claim',
+    description: 'Save 1 pulled card to your inventory.',
+    difficulty: 'easy',
+    rewardPoints: 650,
+    target: 1,
+    getProgress: (stats) => stats.cardsSaved || 0
+  },
+  {
+    id: 'double-elite',
+    title: 'Double Elite Shift',
+    description: 'Open 2 elite packs in one day.',
+    difficulty: 'medium',
+    rewardPoints: 900,
+    target: 2,
+    getProgress: (stats) => stats.elitePackOpens || 0
+  },
+  {
+    id: 'special-taste',
+    title: 'Special Taste',
+    description: 'Open 1 special event pack.',
+    difficulty: 'medium',
+    rewardPoints: 1000,
+    target: 1,
+    getProgress: (stats) => stats.specialPackOpens || 0
+  },
+  {
+    id: 'three-saves',
+    title: 'Vault Builder',
+    description: 'Save 3 cards from packs.',
+    difficulty: 'medium',
+    rewardPoints: 950,
+    target: 3,
+    getProgress: (stats) => stats.cardsSaved || 0
+  },
+  {
+    id: 'sell-two',
+    title: 'Quick Trader',
+    description: 'Sell 2 cards through quick sell or inventory.',
+    difficulty: 'medium',
+    rewardPoints: 900,
+    target: 2,
+    getProgress: (stats) => stats.cardsSold || 0
+  },
+  {
+    id: 'market-buyer',
+    title: 'Market Buyer',
+    description: 'Buy 1 card from the marketplace.',
+    difficulty: 'medium',
+    rewardPoints: 1100,
+    target: 1,
+    getProgress: (stats) => stats.marketBuys || 0
+  },
+  {
+    id: 'pack-run',
+    title: 'Pack Run',
+    description: 'Open 4 packs of any type.',
+    difficulty: 'medium',
+    rewardPoints: 950,
+    target: 4,
+    getProgress: (stats) => stats.totalPackOpens || 0
+  },
+  {
+    id: 'spend-750k',
+    title: 'Spend Window',
+    description: 'Spend 750,000 F across packs or market buys.',
+    difficulty: 'medium',
+    rewardPoints: 1050,
+    target: 750000,
+    formatTarget: (value) => `${formatPlainNumber(value)} F`,
+    getProgress: (stats) => stats.coinsSpent || 0
+  },
+  {
+    id: 'double-pack',
+    title: 'Double Rip',
+    description: 'Purchase one x2 pack opening.',
+    difficulty: 'medium',
+    rewardPoints: 1200,
+    target: 1,
+    getProgress: (stats) => stats.doublePackPurchases || 0
+  },
+  {
+    id: 'inventory-loop',
+    title: 'Vault Patrol',
+    description: 'Open inventory 3 times today.',
+    difficulty: 'medium',
+    rewardPoints: 850,
+    target: 3,
+    getProgress: (stats) => stats.inventoryVisits || 0
+  },
+  {
+    id: 'market-loop',
+    title: 'Market Patrol',
+    description: 'Visit the marketplace 3 times today.',
+    difficulty: 'medium',
+    rewardPoints: 850,
+    target: 3,
+    getProgress: (stats) => stats.shopVisits || 0
+  },
+  {
+    id: 'special-three',
+    title: 'Event Hunter',
+    description: 'Open 3 special event packs.',
+    difficulty: 'hard',
+    rewardPoints: 1800,
+    target: 3,
+    getProgress: (stats) => stats.specialPackOpens || 0
+  },
+  {
+    id: 'sell-five',
+    title: 'Trade Desk Sprint',
+    description: 'Sell 5 cards today.',
+    difficulty: 'hard',
+    rewardPoints: 1600,
+    target: 5,
+    getProgress: (stats) => stats.cardsSold || 0
+  },
+  {
+    id: 'market-double',
+    title: 'Collector Sweep',
+    description: 'Buy 2 marketplace cards.',
+    difficulty: 'hard',
+    rewardPoints: 1750,
+    target: 2,
+    getProgress: (stats) => stats.marketBuys || 0
+  },
+  {
+    id: 'spend-2m',
+    title: 'Big Budget Push',
+    description: 'Spend 2,000,000 F in one day.',
+    difficulty: 'hard',
+    rewardPoints: 1900,
+    target: 2000000,
+    formatTarget: (value) => `${formatPlainNumber(value)} F`,
+    getProgress: (stats) => stats.coinsSpent || 0
+  },
+  {
+    id: 'open-eight',
+    title: 'All-In Session',
+    description: 'Open 8 packs of any type.',
+    difficulty: 'hard',
+    rewardPoints: 2000,
+    target: 8,
+    getProgress: (stats) => stats.totalPackOpens || 0
+  }
+];
 
 const pickRandom = (list) => list[Math.floor(Math.random() * list.length)];
 const formatCoins = (value) => `${Number(value || 0).toLocaleString('en-US')} F`;
@@ -27,6 +214,294 @@ const formatRelativeTime = (timestamp) => {
   if (days < 7) return `${days} day${days === 1 ? '' : 's'} ago`;
   const weeks = Math.floor(days / 7);
   return `${weeks} week${weeks === 1 ? '' : 's'} ago`;
+};
+
+const padDatePart = (value) => String(value).padStart(2, '0');
+
+const getQuestDateKey = (date = new Date()) =>
+  `${date.getFullYear()}-${padDatePart(date.getMonth() + 1)}-${padDatePart(date.getDate())}`;
+
+const getQuestWeekKey = (date = new Date()) => {
+  const local = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+  const day = (local.getDay() + 6) % 7;
+  local.setDate(local.getDate() - day);
+  return getQuestDateKey(local);
+};
+
+const createEmptyQuestStats = () => ({
+  loginCount: 0,
+  inventoryVisits: 0,
+  shopVisits: 0,
+  totalPackOpens: 0,
+  elitePackOpens: 0,
+  specialPackOpens: 0,
+  cardsSaved: 0,
+  cardsSold: 0,
+  marketBuys: 0,
+  coinsSpent: 0,
+  doublePackPurchases: 0
+});
+
+const getQuestStorageKey = (user = loadUser()) => `${QUEST_STORAGE_PREFIX}:${user?.id || 'guest'}`;
+
+const createQuestState = () => ({
+  dateKey: getQuestDateKey(),
+  weekKey: getQuestWeekKey(),
+  dailyStats: createEmptyQuestStats(),
+  weeklyPoints: 0,
+  weeklyCompleted: [],
+  rewardedCompletions: []
+});
+
+const normalizeQuestState = (value) => {
+  const todayKey = getQuestDateKey();
+  const weekKey = getQuestWeekKey();
+  const base = createQuestState();
+  const next = value && typeof value === 'object' ? { ...base, ...value } : base;
+
+  if (next.dateKey !== todayKey) {
+    next.dateKey = todayKey;
+    next.dailyStats = createEmptyQuestStats();
+    next.rewardedCompletions = [];
+  } else {
+    next.dailyStats = { ...createEmptyQuestStats(), ...(next.dailyStats || {}) };
+    next.rewardedCompletions = Array.isArray(next.rewardedCompletions) ? next.rewardedCompletions : [];
+  }
+
+  if (next.weekKey !== weekKey) {
+    next.weekKey = weekKey;
+    next.weeklyPoints = 0;
+    next.weeklyCompleted = [];
+  } else {
+    next.weeklyCompleted = Array.isArray(next.weeklyCompleted) ? next.weeklyCompleted : [];
+    next.weeklyPoints = Number.isFinite(Number(next.weeklyPoints)) ? Number(next.weeklyPoints) : 0;
+  }
+
+  return next;
+};
+
+let questState = createQuestState();
+let questsViewLocked = false;
+let questRewardSync = Promise.resolve();
+
+const getQuestProgress = (quest, stats = questState.dailyStats) => {
+  const raw = Number(quest.getProgress(stats) || 0);
+  if (!Number.isFinite(raw) || raw < 0) return 0;
+  return raw;
+};
+
+const isQuestComplete = (quest, stats = questState.dailyStats) => getQuestProgress(quest, stats) >= quest.target;
+const getQuestCompletionKey = (quest) => `${questState.dateKey}:${quest.id}`;
+const hasQuestReward = (quest) => questState.rewardedCompletions.includes(getQuestCompletionKey(quest));
+
+const persistQuestState = () => {
+  storage.set(getQuestStorageKey(), JSON.stringify(questState));
+};
+
+const refreshQuestCompletions = () => {
+  const dayPrefix = `${questState.dateKey}:`;
+  DAILY_QUESTS.forEach((quest) => {
+    if (!isQuestComplete(quest)) return;
+    const completionKey = `${dayPrefix}${quest.id}`;
+    if (questState.weeklyCompleted.includes(completionKey)) return;
+    questState.weeklyCompleted.push(completionKey);
+    questState.weeklyPoints += quest.rewardPoints;
+  });
+};
+
+const loadQuestState = () => {
+  try {
+    const raw = storage.get(getQuestStorageKey());
+    questState = normalizeQuestState(raw ? JSON.parse(raw) : null);
+  } catch {
+    questState = createQuestState();
+  }
+  refreshQuestCompletions();
+  persistQuestState();
+  return questState;
+};
+
+const syncPendingQuestRewards = () => {
+  const user = loadUser();
+  if (!user?.id) return Promise.resolve();
+
+  questRewardSync = questRewardSync
+    .then(async () => {
+      const pendingRewards = DAILY_QUESTS.filter((quest) => isQuestComplete(quest) && !hasQuestReward(quest));
+      if (!pendingRewards.length) return;
+
+      let latestCoins = null;
+      for (const quest of pendingRewards) {
+        const completionKey = getQuestCompletionKey(quest);
+        try {
+          const data = await postJson('/cardgame/quest-reward', {
+            userId: user.id,
+            amount: quest.rewardPoints,
+            questId: quest.id,
+            completionKey
+          });
+          if (!questState.rewardedCompletions.includes(completionKey)) {
+            questState.rewardedCompletions.push(completionKey);
+          }
+          if (typeof data.coins === 'number') {
+            latestCoins = data.coins;
+          }
+        } catch (error) {
+          console.warn(`Unable to credit quest reward for ${quest.id}.`, error);
+        }
+      }
+
+      persistQuestState();
+      if (latestCoins !== null) {
+        setCardgameBalance(latestCoins);
+      }
+      if (questsViewLocked) {
+        renderQuests();
+      }
+    })
+    .catch((error) => {
+      console.warn('Unable to sync quest rewards right now.', error);
+    });
+
+  return questRewardSync;
+};
+
+const formatQuestTarget = (quest, value) =>
+  quest.formatTarget ? quest.formatTarget(value) : formatPlainNumber(value);
+
+const getQuestResetCopy = () => {
+  const now = new Date();
+  const next = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
+  const diff = Math.max(0, next.getTime() - now.getTime());
+  const hours = Math.floor(diff / 3600000);
+  const minutes = Math.floor((diff % 3600000) / 60000);
+  return `Resets in ${hours}h ${minutes}m`;
+};
+
+const renderQuestSummary = () => {
+  if (!questsWeeklySummary) return;
+  const weeklyPoints = Math.min(questState.weeklyPoints, QUEST_WEEKLY_TARGET);
+  const completedToday = DAILY_QUESTS.filter((quest) => isQuestComplete(quest)).length;
+  const percent = Math.min(100, Math.round((weeklyPoints / QUEST_WEEKLY_TARGET) * 100));
+  const user = loadUser();
+  const weeklyReady = questState.weeklyPoints >= QUEST_WEEKLY_TARGET;
+  const weeklyTargetLabel = formatPlainNumber(QUEST_WEEKLY_TARGET);
+
+  questsWeeklySummary.innerHTML = `
+    <section class="quests-weekly-card">
+      <div class="quests-weekly-kicker">Weekly Track</div>
+      <div class="quests-weekly-title">${formatPlainNumber(weeklyPoints)} / ${weeklyTargetLabel} pts</div>
+      <p class="quests-weekly-copy">
+        ${user?.username ? `${user.username}, keep the momentum going.` : 'Guest progress stays in this browser.'}
+        Complete daily missions to push your weekly board to ${weeklyTargetLabel} points.
+      </p>
+      <div class="quests-progress-meta">
+        <span>${completedToday} / ${DAILY_QUESTS.length} daily quests complete</span>
+        <strong>${percent}% weekly progress</strong>
+      </div>
+      <div class="quests-progress-track">
+        <div class="quests-progress-fill" style="width: ${percent}%"></div>
+      </div>
+    </section>
+    <section class="quests-weekly-reward">
+      <div class="quests-weekly-kicker">Week Goal</div>
+      <div class="quests-weekly-reward-value">${weeklyTargetLabel}</div>
+      <p class="quests-weekly-reward-copy">
+        This week’s board is built to be tough: 5 easy quests, 10 medium pushes, and 5 hard grinders every day.
+      </p>
+      <div class="quests-weekly-status${weeklyReady ? ' is-complete' : ''}">
+        ${weeklyReady ? 'Weekly target reached' : `${formatPlainNumber(QUEST_WEEKLY_TARGET - weeklyPoints)} pts left`}
+      </div>
+    </section>
+  `;
+};
+
+const renderQuests = () => {
+  if (!questsList) return;
+  loadQuestState();
+  if (questsResetLabel) {
+    questsResetLabel.textContent = getQuestResetCopy();
+  }
+  renderQuestSummary();
+
+  questsList.innerHTML = DAILY_QUESTS.map((quest) => {
+    const progress = getQuestProgress(quest);
+    const safeProgress = Math.min(progress, quest.target);
+    const percent = Math.min(100, Math.round((safeProgress / quest.target) * 100));
+    const completed = safeProgress >= quest.target;
+    return `
+      <article class="quest-card${completed ? ' is-complete' : ''}">
+        <div class="quest-head">
+          <div>
+            <h3 class="quest-title">${quest.title}</h3>
+            <p class="quest-description">${quest.description}</p>
+          </div>
+          <span class="quest-difficulty ${quest.difficulty}">${quest.difficulty}</span>
+        </div>
+        <div class="quest-footer">
+          <div class="quest-progress-row">
+            <span class="quest-progress-label">Progress</span>
+            <span class="quest-progress-value">${formatQuestTarget(quest, safeProgress)} / ${formatQuestTarget(quest, quest.target)}</span>
+          </div>
+          <div class="quest-track">
+            <div class="quest-fill" style="width: ${percent}%"></div>
+          </div>
+          <div class="quest-reward-row">
+            <span class="quest-reward">+${formatPlainNumber(quest.rewardPoints)} points</span>
+            <span class="quest-status${completed ? ' is-complete' : ''}">${completed ? (hasQuestReward(quest) ? 'Reward claimed' : 'Reward ready') : 'In progress'}</span>
+          </div>
+        </div>
+      </article>
+    `;
+  }).join('');
+};
+
+const recordQuestAction = (type, payload = {}) => {
+  loadQuestState();
+  const stats = questState.dailyStats;
+
+  switch (type) {
+    case 'login':
+      stats.loginCount += 1;
+      break;
+    case 'inventory_open':
+      stats.inventoryVisits += 1;
+      break;
+    case 'shop_open':
+      stats.shopVisits += 1;
+      break;
+    case 'pack_purchase':
+      stats.coinsSpent += Number(payload.cost) || 0;
+      if (Number(payload.quantity) > 1) {
+        stats.doublePackPurchases += 1;
+      }
+      break;
+    case 'pack_open':
+      stats.totalPackOpens += Number(payload.count) || 1;
+      if (payload.packId === 'elite') {
+        stats.elitePackOpens += Number(payload.count) || 1;
+      } else if (payload.packId) {
+        stats.specialPackOpens += Number(payload.count) || 1;
+      }
+      break;
+    case 'card_saved':
+      stats.cardsSaved += Number(payload.count) || 1;
+      break;
+    case 'card_sold':
+      stats.cardsSold += Number(payload.count) || 1;
+      break;
+    case 'market_buy':
+      stats.marketBuys += Number(payload.count) || 1;
+      stats.coinsSpent += Number(payload.cost) || 0;
+      break;
+    default:
+      break;
+  }
+
+  refreshQuestCompletions();
+  persistQuestState();
+  renderQuests();
+  void syncPendingQuestRewards();
 };
 
 const packOpenStage = document.querySelector('#pack-open-stage');
@@ -198,6 +673,10 @@ const shopDetailConfirmYes = document.querySelector('#shop-detail-confirm-yes');
 const shopDetailConfirmNo = document.querySelector('#shop-detail-confirm-no');
 const cardgameTabs = document.querySelectorAll('.cardgame-tab');
 const cardgameView = document.querySelector('#cardgame-view');
+const questsStage = document.querySelector('#quests-stage');
+const questsList = document.querySelector('#quests-list');
+const questsWeeklySummary = document.querySelector('#quests-weekly-summary');
+const questsResetLabel = document.querySelector('#quests-reset-label');
 
 const inventoryChannel =
   typeof BroadcastChannel !== 'undefined' ? new BroadcastChannel('fodr-inventory') : null;
@@ -1321,6 +1800,7 @@ const handleShopPurchase = async (listing) => {
     if (shopDetailOpen) {
       exitShopDetail();
     }
+    recordQuestAction('market_buy', { count: 1, cost });
   } catch (err) {
     alert(err.message || 'Purchase failed.');
   }
@@ -2076,6 +2556,9 @@ export const openInventoryStage = async () => {
     return;
   }
   if (!inventoryStage || !cardgameView) return;
+  if (questsViewLocked) {
+    exitQuestsStage();
+  }
   if (inventoryDetailOpen) {
     exitInventoryDetail();
   }
@@ -2087,6 +2570,7 @@ export const openInventoryStage = async () => {
   cardgameView.classList.add('is-inventory-open');
   setCardgameTabActive('inventory');
   setStoredView('inventory');
+  recordQuestAction('inventory_open');
   try {
     const res = await fetch(`${API_BASE}/cardgame/inventory/${user.id}`);
     const data = await res.json().catch(() => ({}));
@@ -2118,10 +2602,47 @@ const closeInventoryStage = () => {
   setStoredView('cardgame');
 };
 
+const openQuestsStage = () => {
+  if (!questsStage || !cardgameView) return;
+  if (packViewLocked) {
+    exitPackStage();
+  }
+  if (inventoryViewLocked) {
+    exitInventoryStage();
+  }
+  if (inventoryDetailOpen) {
+    exitInventoryDetail();
+  }
+  if (shopViewLocked) {
+    exitShopStage();
+  }
+  if (shopDetailOpen) {
+    exitShopDetail();
+  }
+  showCardgame();
+  questsStage.classList.remove('is-hidden');
+  questsViewLocked = true;
+  cardgameView.classList.add('is-quests-open');
+  setCardgameTabActive('quests');
+  setStoredView('cardgame');
+  renderQuests();
+  void syncPendingQuestRewards();
+};
+
+const exitQuestsStage = () => {
+  if (!questsStage || !cardgameView) return;
+  questsStage.classList.add('is-hidden');
+  questsViewLocked = false;
+  cardgameView.classList.remove('is-quests-open');
+};
+
 const openShopStage = () => {
   if (!shopStage || !cardgameView) return;
   if (packViewLocked) {
     exitPackStage();
+  }
+  if (questsViewLocked) {
+    exitQuestsStage();
   }
   if (inventoryViewLocked) {
     exitInventoryStage();
@@ -2139,6 +2660,7 @@ const openShopStage = () => {
   setCardgameTabActive('shop');
   setStoredView('shop');
   renderShop();
+  recordQuestAction('shop_open');
 };
 
 const exitShopStage = () => {
@@ -2261,6 +2783,7 @@ const openPackCard = (slotIndex) => {
     slot.backImg.src = card.img;
     fillPackInfo(card);
     if (packInfoStatus) packInfoStatus.textContent = '';
+    recordQuestAction('pack_open', { packId: currentPackId, count: 1 });
   }
   slot.card.classList.add('is-open');
   slot.card.setAttribute('aria-pressed', 'true');
@@ -2331,6 +2854,9 @@ export const initCardgame = () => {
     if (packViewLocked) {
       exitPackStage();
     }
+    if (questsViewLocked) {
+      exitQuestsStage();
+    }
     if (inventoryViewLocked) {
       exitInventoryStage();
     }
@@ -2343,10 +2869,13 @@ export const initCardgame = () => {
   });
 
   const currentUser = loadUser();
+  loadQuestState();
+  renderQuests();
   if (currentUser?.id) {
     fetchCardgameBalance(currentUser.id);
+    void syncPendingQuestRewards();
   } else {
-    setCardgameBalance(DEFAULT_BALANCE);
+    setCardgameBalance(GUEST_BALANCE);
   }
 
   onEvent('fodr:user', (event) => {
@@ -2354,10 +2883,14 @@ export const initCardgame = () => {
     if (user?.id) {
       fetchCardgameBalance(user.id);
     }
+    loadQuestState();
+    recordQuestAction('login');
   });
 
   onEvent('fodr:logout', () => {
-    setCardgameBalance(DEFAULT_BALANCE);
+    setCardgameBalance(GUEST_BALANCE);
+    loadQuestState();
+    renderQuests();
   });
 
   packBuys.forEach((button) => {
@@ -2461,6 +2994,10 @@ export const initCardgame = () => {
       tab.addEventListener('click', (event) => {
         event.preventDefault();
         const label = getCardgameTabLabel(tab);
+        if (label === 'quests') {
+          openQuestsStage();
+          return;
+        }
         if (label === 'shop') {
           openShopStage();
           return;
@@ -2474,6 +3011,9 @@ export const initCardgame = () => {
         }
         if (packViewLocked && label !== 'inventory') {
           closePackStage();
+        }
+        if (questsViewLocked && label !== 'quests') {
+          exitQuestsStage();
         }
         if (inventoryViewLocked && label === 'packs') {
           closeInventoryStage();
@@ -2516,6 +3056,7 @@ export const initCardgame = () => {
             const filtered = inventoryRecords.filter((item) => Number(item.id) !== cardId);
             renderInventory(filtered);
             notifyInventoryUpdate();
+            recordQuestAction('card_sold', { count: 1 });
           })
           .catch((err) => {
             alert(err.message || 'Sell failed.');
@@ -2655,6 +3196,7 @@ export const initCardgame = () => {
             if (packInfoStatus) packInfoStatus.textContent = 'Saved both to inventory.';
             openSlots.forEach((idx) => resolvePackAfterOpen(idx));
             notifyInventoryUpdate();
+            recordQuestAction('card_saved', { count: cardsToSave.length });
           })
           .catch((err) => {
             if (packInfoStatus) packInfoStatus.textContent = err.message || 'Save failed.';
@@ -2667,6 +3209,7 @@ export const initCardgame = () => {
           if (packInfoStatus) packInfoStatus.textContent = 'Saved to inventory.';
           resolvePackAfterOpen(activeSlotIndex);
           notifyInventoryUpdate();
+          recordQuestAction('card_saved', { count: 1 });
         })
         .catch((err) => {
           if (packInfoStatus) packInfoStatus.textContent = err.message || 'Save failed.';
@@ -2697,6 +3240,7 @@ export const initCardgame = () => {
             packInfoStatus.textContent = `Sold for ${formatCoins(activeCard.sell)}.`;
           }
           resolvePackAfterOpen();
+          recordQuestAction('card_sold', { count: 1 });
         })
         .catch((err) => {
           if (packInfoStatus) packInfoStatus.textContent = err.message || 'Sell failed.';
@@ -2764,6 +3308,7 @@ export const initCardgame = () => {
             setCardgameBalance(data.coins);
           }
           finalizePurchase(1);
+          recordQuestAction('pack_purchase', { cost: pendingPackCost, quantity: 1 });
         })
         .catch((err) => {
           packPurchaseReady = false;
@@ -2802,6 +3347,7 @@ export const initCardgame = () => {
             setCardgameBalance(data.coins);
           }
           finalizePurchase(2);
+          recordQuestAction('pack_purchase', { cost: doubleCost, quantity: 2 });
         })
         .catch((err) => {
           packPurchaseReady = false;

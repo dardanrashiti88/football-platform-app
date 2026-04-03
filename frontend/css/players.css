@@ -364,6 +364,34 @@
   cursor: pointer;
 }
 
+.profile-follow-btn {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  padding: 7px 16px;
+  border-radius: 999px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+  z-index: 3;
+}
+
+.profile-follow-btn:hover {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.profile-follow-btn.is-following {
+  background: #ffffff;
+  color: var(--team-primary);
+  border-color: #ffffff;
+}
+
 .team-tabs {
   display: flex;
   gap: 12px;

@@ -26,6 +26,8 @@ import { initCardgame, openInventoryStage, restorePackState } from './modules/ca
 import { initMatch } from './modules/match.js';
 import { initPreferences } from './modules/preferences.js';
 import { initOnboarding } from './modules/onboarding.js';
+import { initNotifications } from './modules/notifications.js';
+import { initFollows } from './modules/follows.js';
 
 const pageParams = new URLSearchParams(window.location.search);
 const isEmbeddedMatch = pageParams.get('embedMatch') === '1';
@@ -97,6 +99,7 @@ document.addEventListener('dragstart', (event) => {
 
 initViews();
 initPreferences();
+initFollows();
 initSidebar();
 initHomeCards();
 initHome();
@@ -112,6 +115,7 @@ initAuth();
 initCardgame();
 initMatch();
 initOnboarding();
+initNotifications();
 
 const savedView = requestedView || getStoredView();
 if (savedView) {

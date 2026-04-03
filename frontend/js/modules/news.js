@@ -3,6 +3,15 @@ import { onEvent } from '../core/events.js';
 
 const NEWS_ITEMS = [
   {
+    id: 'isak',
+    uploadedAt: '4/3/2026',
+    textUrl: new URL('../../../news/isak/text/info', import.meta.url),
+    imageUrl: new URL(
+      '../../../news/isak/images/2-training-pitch-gallery-020426_348a077c12ac7459c77edbffd248a9b8.webp',
+      import.meta.url
+    ).href
+  },
+  {
     id: 'florian',
     uploadedAt: '3/26/2026',
     textUrl: new URL('../../../news/Florian/text/info', import.meta.url),
@@ -156,36 +165,65 @@ const renderArticle = (article, index) => {
   `;
 };
 
+const loadLocalArticles = async () =>
+  Promise.all(
+    NEWS_ITEMS.map(async (item) => {
+      const response = await fetch(item.textUrl);
+      if (!response.ok) {
+        throw new Error(`Failed to load ${item.id}`);
+      }
+      const text = await response.text();
+      return { ...item, slug: item.id, ...parseArticle(text, item) };
+    })
+  );
+
+const sortArticles = (articles = []) =>
+  [...articles].sort((left, right) => {
+    const leftTime = Date.parse(left?.uploadedAt || left?.uploadedAtLabel || '') || 0;
+    const rightTime = Date.parse(right?.uploadedAt || right?.uploadedAtLabel || '') || 0;
+    return rightTime - leftTime;
+  });
+
+const mergeArticles = (apiArticles = [], localArticles = []) => {
+  const byKey = new Map();
+  localArticles.forEach((article) => {
+    const key = article.slug || article.id;
+    byKey.set(key, article);
+  });
+  apiArticles.forEach((article) => {
+    const key = article.slug || article.id;
+    byKey.set(key, { ...byKey.get(key), ...article });
+  });
+  return sortArticles([...byKey.values()]);
+};
+
 const renderNews = async (root) => {
   root.innerHTML = '<div class="news-loading">Loading news...</div>';
+
+  let localArticles = [];
+  try {
+    localArticles = await loadLocalArticles();
+  } catch (error) {
+    console.warn('Unable to load file-based news content.', error);
+  }
 
   try {
     const apiData = await getJson('/news');
     if (Array.isArray(apiData?.articles) && apiData.articles.length) {
-      root.innerHTML = apiData.articles.map(renderArticle).join('');
+      const articles = mergeArticles(apiData.articles, localArticles);
+      root.innerHTML = articles.map(renderArticle).join('');
       return;
     }
   } catch (error) {
     console.warn('Unable to load API-backed news feed, falling back to file news.', error);
   }
 
-  try {
-    const articles = await Promise.all(
-      NEWS_ITEMS.map(async (item) => {
-        const response = await fetch(item.textUrl);
-        if (!response.ok) {
-          throw new Error(`Failed to load ${item.id}`);
-        }
-        const text = await response.text();
-        return { ...item, ...parseArticle(text, item) };
-      })
-    );
-
-    root.innerHTML = articles.map(renderArticle).join('');
-  } catch (error) {
-    console.warn('Unable to load news content.', error);
-    root.innerHTML = '<div class="news-loading">News is unavailable right now.</div>';
+  if (localArticles.length) {
+    root.innerHTML = sortArticles(localArticles).map(renderArticle).join('');
+    return;
   }
+
+  root.innerHTML = '<div class="news-loading">News is unavailable right now.</div>';
 };
 
 export const initNews = () => {

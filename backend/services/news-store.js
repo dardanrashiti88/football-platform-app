@@ -125,8 +125,45 @@ const normalizeArticleRow = (row) => ({
 const ensureNewsArticlesSeeded = async () => {
   const seedArticles = readSeedArticles();
   for (const article of seedArticles) {
-    const existing = await get('SELECT id FROM news_articles WHERE slug = ? LIMIT 1', [article.slug]);
-    if (existing) continue;
+    const existing = await get(
+      'SELECT id FROM news_articles WHERE slug = ? OR (source_type = ? AND source_id = ?) LIMIT 1',
+      [article.slug, article.sourceType, article.sourceId]
+    );
+    if (existing) {
+      await run(
+        `UPDATE news_articles
+            SET slug = ?,
+                title = ?,
+                meta = ?,
+                excerpt = ?,
+                body = ?,
+                image_url = ?,
+                uploaded_at = ?,
+                published = ?,
+                source_type = ?,
+                source_id = ?,
+                author_user_id = ?,
+                updated_at = ?
+          WHERE id = ?`,
+        [
+          article.slug,
+          article.title,
+          article.meta || null,
+          article.excerpt || null,
+          article.body,
+          article.imageUrl || null,
+          article.uploadedAt,
+          article.published,
+          article.sourceType,
+          article.sourceId,
+          article.authorUserId,
+          article.uploadedAt,
+          existing.id
+        ]
+      );
+      continue;
+    }
+
     await run(
       `INSERT INTO news_articles
         (slug, title, meta, excerpt, body, image_url, uploaded_at, published, source_type, source_id, author_user_id, updated_at)

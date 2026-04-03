@@ -1,4 +1,12 @@
 import { showPlayers } from '../core/views.js';
+import { onEvent } from '../core/events.js';
+import {
+  isPlayerFollowed,
+  isTeamFollowed,
+  notifyNextFixtureForTeam,
+  togglePlayerFollow,
+  toggleTeamFollow
+} from './follows.js';
 
 const PREMIER_TEAMS_URL = new URL(
   '../../../db-api/data/competitions/premier-league/teams.json',
@@ -66,6 +74,10 @@ const UCL_PLAYERS_URL = new URL(
   '../../../db-api/data/competitions/champions-league/players.json',
   import.meta.url
 );
+const UCL_AGGREGATE_SQUADS_URL = new URL(
+  '../../../db-api/comps-teamplayers-info/champions-league/champions-league-25-26.csv',
+  import.meta.url
+);
 
 const PREMIER_STANDINGS_URL = new URL(
   '../../../db-api/data/competitions/premier-league/standings.json',
@@ -129,6 +141,27 @@ const CARABAO_MATCHES_URL = new URL(
   '../../../db-api/history-data/carabao-table-history/season-2526.csv',
   import.meta.url
 );
+
+const CROSS_LEAGUE_PLAYER_SOURCES = [
+  { leagueKey: 'premier', url: PREMIER_PLAYERS_URL },
+  { leagueKey: 'seriea', url: SERIEA_PLAYERS_URL },
+  { leagueKey: 'laliga', url: LALIGA_PLAYERS_URL },
+  { leagueKey: 'bundesliga', url: BUNDESLIGA_PLAYERS_URL }
+];
+
+const UCL_AGGREGATE_SQUAD_MAP = {
+  psg: { block: 7, entryLeague: 'ligue1', entryTeamId: 'psg' },
+  marseille: { block: 17 },
+  porto: { block: 23 },
+  'sporting-cp': { block: 24 },
+  benfica: { block: 31 },
+  psv: { block: 32 },
+  'slavia-prague': { block: 34 },
+  'club-brugge': { block: 35 },
+  'union-sg': { block: 37 },
+  'fc-copenhagen': { block: 42 },
+  galatasaray: { block: 43 }
+};
 const CHAMPIONSHIP_MATCHES_URL = new URL(
   '../../../db-api/history-data/ELFchampionship-league-table-history/season-2526.csv',
   import.meta.url
@@ -822,6 +855,8 @@ const matchesCache = new Map();
 const cupMatchesCache = new Map();
 const standingsCache = new Map();
 const teamsListCache = new Map();
+const crossLeaguePlayersCache = new Map();
+let uclAggregateBlocksCache = null;
 let playersInfoIndex = null;
 const colorCache = new Map();
 const pendingColorPromises = new Map();
@@ -1180,6 +1215,129 @@ const parsePlayersCsv = (text) => {
     rows.push(record);
   }
   return rows;
+};
+
+const loadCrossLeaguePlayers = async (leagueKey, url) => {
+  if (!url) return [];
+  const cacheKey = `players:${leagueKey}`;
+  if (crossLeaguePlayersCache.has(cacheKey)) return crossLeaguePlayersCache.get(cacheKey);
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      crossLeaguePlayersCache.set(cacheKey, []);
+      return [];
+    }
+    const data = await response.json();
+    const list = Array.isArray(data) ? data : [];
+    crossLeaguePlayersCache.set(cacheKey, list);
+    return list;
+  } catch (error) {
+    console.warn(`Unable to load cross-league players for ${leagueKey}.`, error);
+    crossLeaguePlayersCache.set(cacheKey, []);
+    return [];
+  }
+};
+
+const getPlayersInfoEntryByKey = (leagueKey, teamId) =>
+  playersInfoIndex?.[leagueKey]?.[teamId] || null;
+
+const findMatchingExternalTeam = async (team, leagueKey) => {
+  const teams = await loadTeamsList(leagueKey);
+  return teams.find((candidate) =>
+    playerBelongsToTeam(
+      {
+        teamId: candidate?.id,
+        teamName: candidate?.name || candidate?.shortName || '',
+        aliases: candidate?.aliases || []
+      },
+      team
+    )
+  ) || null;
+};
+
+const loadUclAggregateBlocks = async () => {
+  if (uclAggregateBlocksCache) return uclAggregateBlocksCache;
+  try {
+    const response = await fetch(UCL_AGGREGATE_SQUADS_URL);
+    if (!response.ok) {
+      uclAggregateBlocksCache = new Map();
+      return uclAggregateBlocksCache;
+    }
+    const text = await response.text();
+    const headerLine = 'Player Name,Position,Squad Number,Nationality,Age,Appearances,Goals,Assists,Minutes Played,Goals Plus Assists,Clean Sheets,Yellow Cards,Red Cards,Home Grown,Notes';
+    const rawLines = String(text || '').replace(/\r\n/g, '\n').split('\n');
+    const blocks = new Map();
+    let current = [];
+    let blockIndex = 0;
+
+    rawLines.forEach((line) => {
+      const trimmed = line.trim();
+      if (!trimmed || trimmed === 'Copy' || trimmed === 'Ucl 2526 squads · CSV') return;
+      if (trimmed === headerLine) {
+        if (current.length) {
+          blockIndex += 1;
+          blocks.set(blockIndex, parsePlayersCsv([headerLine, ...current].join('\n')));
+          current = [];
+        }
+        return;
+      }
+      current.push(line);
+    });
+
+    if (current.length) {
+      blockIndex += 1;
+      blocks.set(blockIndex, parsePlayersCsv([headerLine, ...current].join('\n')));
+    }
+
+    uclAggregateBlocksCache = blocks;
+    return blocks;
+  } catch (error) {
+    console.warn('Unable to parse the aggregate Champions League squad file.', error);
+    uclAggregateBlocksCache = new Map();
+    return uclAggregateBlocksCache;
+  }
+};
+
+const loadCrossLeagueRosterForUclTeam = async (team) => {
+  for (const source of CROSS_LEAGUE_PLAYER_SOURCES) {
+    const matchedTeam = await findMatchingExternalTeam(team, source.leagueKey);
+    if (!matchedTeam) continue;
+
+    const externalEntry = getPlayersInfoEntryByKey(source.leagueKey, matchedTeam.id);
+    if (externalEntry?.csv) {
+      try {
+        const response = await fetch(externalEntry.csv);
+        if (response.ok) {
+          const rows = parsePlayersCsv(await response.text());
+          if (rows.length) {
+            return buildRosterFromCsv(rows, externalEntry, source.leagueKey, matchedTeam.id);
+          }
+        }
+      } catch (error) {
+        console.warn(`Unable to load ${source.leagueKey} CSV roster for ${matchedTeam.id}.`, error);
+      }
+    }
+
+    const players = await loadCrossLeaguePlayers(source.leagueKey, source.url);
+    const filtered = players.filter((player) => playerBelongsToTeam(player, matchedTeam));
+    if (filtered.length) {
+      return buildRosterFromPlayerList(filtered, externalEntry, source.leagueKey, matchedTeam.id);
+    }
+  }
+
+  return [];
+};
+
+const loadAggregateUclRosterForTeam = async (team) => {
+  const mapping = UCL_AGGREGATE_SQUAD_MAP[team?.id];
+  if (!mapping?.block) return [];
+  const blocks = await loadUclAggregateBlocks();
+  const rows = blocks.get(mapping.block) || [];
+  if (!rows.length) return [];
+  const sourceEntry = mapping.entryLeague && mapping.entryTeamId
+    ? getPlayersInfoEntryByKey(mapping.entryLeague, mapping.entryTeamId)
+    : null;
+  return buildRosterFromCsv(rows, sourceEntry, 'ucl', team.id);
 };
 
 const positionGroupFor = (value = '') => {
@@ -2019,9 +2177,27 @@ export const loadRosterForTeam = async (team, leagueKey) => {
   }
 
   const fallbackPlayers = state.players.filter((player) => playerBelongsToTeam(player, team));
-  const fallback = fallbackPlayers.length
-    ? buildRosterFromPlayerList(fallbackPlayers, entry, leagueKey, team.id)
-    : buildRosterFromPhotoList(entry);
+  if (fallbackPlayers.length) {
+    const fallback = buildRosterFromPlayerList(fallbackPlayers, entry, leagueKey, team.id);
+    rosterCache.set(cacheKey, fallback);
+    return fallback;
+  }
+
+  if (leagueKey === 'ucl') {
+    const crossLeagueRoster = await loadCrossLeagueRosterForUclTeam(team);
+    if (crossLeagueRoster.length) {
+      rosterCache.set(cacheKey, crossLeagueRoster);
+      return crossLeagueRoster;
+    }
+
+    const aggregateRoster = await loadAggregateUclRosterForTeam(team);
+    if (aggregateRoster.length) {
+      rosterCache.set(cacheKey, aggregateRoster);
+      return aggregateRoster;
+    }
+  }
+
+  const fallback = buildRosterFromPhotoList(entry);
   rosterCache.set(cacheKey, fallback);
   return fallback;
 };
@@ -2586,6 +2762,12 @@ const renderTeamProfile = (playersGrid) => {
   exitButton.type = 'button';
   exitButton.dataset.action = 'exit-team-profile';
   hero.appendChild(exitButton);
+  hero.appendChild(
+    buildFollowButton({
+      active: isTeamFollowed(team.id),
+      type: 'team'
+    })
+  );
 
   const heroInner = createTextElement('div', 'team-hero-inner');
   const heroTitle = createTextElement('div', 'team-hero-title');
@@ -2691,6 +2873,17 @@ const renderTeamProfile = (playersGrid) => {
   }
 
   playersGrid.replaceChildren(teamProfile);
+
+  notifyNextFixtureForTeam(
+    {
+      id: team.id,
+      name: team.name,
+      shortName: team.shortName,
+      leagueKey: state.activeLeague,
+      logo: getLogoForTeam(team, state.activeLeague)
+    },
+    state.fixtures || []
+  );
 };
 
 const buildPlayerStatChip = (label, value) => {
@@ -2698,6 +2891,18 @@ const buildPlayerStatChip = (label, value) => {
   chip.appendChild(createTextElement('span', 'player-profile-stat-label', label));
   chip.appendChild(createTextElement('span', 'player-profile-stat-value', formatStatValue(value)));
   return chip;
+};
+
+const buildFollowButton = ({ active = false, type = 'team' } = {}) => {
+  const button = createTextElement(
+    'button',
+    `profile-follow-btn${active ? ' is-following' : ''}`,
+    active ? 'Following' : 'Follow'
+  );
+  button.type = 'button';
+  button.dataset.action = type === 'player' ? 'toggle-player-follow' : 'toggle-team-follow';
+  button.setAttribute('aria-pressed', active ? 'true' : 'false');
+  return button;
 };
 
 const renderPlayerProfile = (playersGrid) => {
@@ -2718,6 +2923,12 @@ const renderPlayerProfile = (playersGrid) => {
   exitButton.type = 'button';
   exitButton.dataset.action = 'exit-player-profile';
   hero.appendChild(exitButton);
+  hero.appendChild(
+    buildFollowButton({
+      active: isPlayerFollowed(profile.key),
+      type: 'player'
+    })
+  );
 
   const logoTrack = createTextElement('div', 'player-profile-logo-track');
   if (profile.teamLogo) {
@@ -2889,6 +3100,34 @@ export const openPlayerProfile = async ({ leagueKey, teamId, playerName, teamNam
   }
 
   openPlayerProfileInTeam(playerName, playersGrid);
+};
+
+export const openTeamProfile = async ({ leagueKey, teamId = null, teamName = null } = {}) => {
+  if (!leagueKey) return;
+
+  const teamRow = document.querySelector('#players-team-row');
+  const playersGrid = document.querySelector('#players-grid');
+  const panel = document.querySelector('.players-panel');
+  const searchInput = document.querySelector('#players-search-input');
+  if (!teamRow || !playersGrid) return;
+
+  showPlayers();
+
+  await loadLeagueData({
+    leagueKey,
+    teamRow,
+    playersGrid,
+    panel,
+    searchInput,
+    requestedTeamId: teamId,
+    requestedTeamName: teamName
+  });
+
+  const resolvedTeamId = resolveRequestedTeamId(state.teams, teamId, teamName) || state.activeTeamId;
+  if (!resolvedTeamId) return;
+  if (state.activeTeamId !== resolvedTeamId) {
+    await loadTeamProfile(resolvedTeamId, teamRow, playersGrid, panel);
+  }
 };
 
 const buildTeamPill = (team, onSelect) => {
@@ -3212,6 +3451,33 @@ export const initPlayers = () => {
       closePlayerProfile(playersGrid);
       return;
     }
+    const teamFollowBtn = target.closest('[data-action="toggle-team-follow"]');
+    if (teamFollowBtn && state.activeTeamId) {
+      const activeTeam = state.teams.find((team) => team.id === state.activeTeamId);
+      if (!activeTeam) return;
+      toggleTeamFollow({
+        id: activeTeam.id,
+        name: activeTeam.name,
+        shortName: activeTeam.shortName,
+        leagueKey: state.activeLeague,
+        logo: getLogoForTeam(activeTeam, state.activeLeague)
+      });
+      renderPlayers(playersGrid);
+      return;
+    }
+    const playerFollowBtn = target.closest('[data-action="toggle-player-follow"]');
+    if (playerFollowBtn && state.activePlayerProfile) {
+      togglePlayerFollow({
+        key: state.activePlayerProfile.key,
+        name: state.activePlayerProfile.name,
+        teamId: state.activePlayerProfile.teamId,
+        teamName: state.activePlayerProfile.teamName,
+        leagueKey: state.activeLeague,
+        photo: state.activePlayerProfile.photo
+      });
+      renderPlayerProfile(playersGrid);
+      return;
+    }
     const tabBtn = target.closest('.team-tab');
     if (tabBtn && tabBtn.dataset.tab) {
       state.activeTab = tabBtn.dataset.tab;
@@ -3243,6 +3509,11 @@ export const initPlayers = () => {
     if (!playerCard || !playerCard.dataset.playerName) return;
     event.preventDefault();
     openPlayerProfileInTeam(playerCard.dataset.playerName, playersGrid);
+  });
+
+  onEvent('fodr:follows', () => {
+    if (!state.activeTeamId) return;
+    renderPlayers(playersGrid);
   });
 
   const initialLeague =

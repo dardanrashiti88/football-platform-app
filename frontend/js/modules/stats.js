@@ -9,6 +9,10 @@ const PREMIER_PLAYER_STATS_URL = new URL(
   '../../../db-api/data/competitions/premier-league/player-stats.json',
   import.meta.url
 );
+const CHAMPIONSHIP_PLAYER_STATS_URL = new URL(
+  '../../../db-api/data/competitions/championship/player-stats.json',
+  import.meta.url
+);
 const PREMIER_TEAM_STATS_URL = new URL(
   '../../../db-api/data/competitions/premier-league/team-stats.json',
   import.meta.url
@@ -83,6 +87,62 @@ const SERIEA_TEAM_LOGOS = {
   'us-lecce': new URL('../../../images/Teams-logos/serie-a/lecce.webp', import.meta.url).href,
   'acf-fiorentina': new URL('../../../images/Teams-logos/serie-a/fiorentina.webp', import.meta.url).href,
   'hellas-verona': new URL('../../../images/Teams-logos/serie-a/verona.webp', import.meta.url).href
+};
+
+const CHAMPIONSHIP_TEAM_LOGOS = {
+  'birmingham-city': new URL('../../../images/Teams-logos/EFLchampionship/birmingham.png', import.meta.url).href,
+  'blackburn-rovers': new URL(
+    '../../../images/Teams-logos/EFLchampionship/blackburn rovers.png',
+    import.meta.url
+  ).href,
+  'bristol-city': new URL('../../../images/Teams-logos/EFLchampionship/bristolcity.png', import.meta.url).href,
+  'charlton-athletic': new URL('../../../images/Teams-logos/EFLchampionship/charlton.png', import.meta.url)
+    .href,
+  'coventry-city': new URL(
+    '../../../images/Teams-logos/EFLchampionship/coventry city.png',
+    import.meta.url
+  ).href,
+  'derby-county': new URL('../../../images/Teams-logos/EFLchampionship/derbycounty.png', import.meta.url).href,
+  'hull-city': new URL('../../../images/Teams-logos/EFLchampionship/hullcity.png', import.meta.url).href,
+  'ipswich-town': new URL('../../../images/Teams-logos/EFLchampionship/ipswichtown.png', import.meta.url)
+    .href,
+  'leicester-city': new URL(
+    '../../../images/Teams-logos/EFLchampionship/leicestercity.png',
+    import.meta.url
+  ).href,
+  middlesbrough: new URL('../../../images/Teams-logos/EFLchampionship/middlesbrough.png', import.meta.url)
+    .href,
+  millwall: new URL('../../../images/Teams-logos/EFLchampionship/millwall.png', import.meta.url).href,
+  'norwich-city': new URL('../../../images/Teams-logos/EFLchampionship/norwich.png', import.meta.url).href,
+  'oxford-united': new URL('../../../images/Teams-logos/EFLchampionship/oxfordunited.png', import.meta.url)
+    .href,
+  portsmouth: new URL('../../../images/Teams-logos/EFLchampionship/portsmouth.png', import.meta.url).href,
+  'preston-north-end': new URL(
+    '../../../images/Teams-logos/EFLchampionship/prestonnorthend.png',
+    import.meta.url
+  ).href,
+  'queens-park-rangers': new URL(
+    '../../../images/Teams-logos/EFLchampionship/queenparkrangers.png',
+    import.meta.url
+  ).href,
+  'sheffield-united': new URL(
+    '../../../images/Teams-logos/EFLchampionship/sheffieldunited.png',
+    import.meta.url
+  ).href,
+  'sheffield-wednesday': new URL(
+    '../../../images/Teams-logos/EFLchampionship/sheffieldwednesday.png',
+    import.meta.url
+  ).href,
+  southampton: new URL('../../../images/Teams-logos/EFLchampionship/southampton.png', import.meta.url).href,
+  'stoke-city': new URL('../../../images/Teams-logos/EFLchampionship/stroke.png', import.meta.url).href,
+  'swansea-city': new URL('../../../images/Teams-logos/EFLchampionship/swanseacity.png', import.meta.url)
+    .href,
+  watford: new URL('../../../images/Teams-logos/EFLchampionship/watford.png', import.meta.url).href,
+  'west-bromwich-albion': new URL(
+    '../../../images/Teams-logos/EFLchampionship/westbromwich albion.png',
+    import.meta.url
+  ).href,
+  wrexham: new URL('../../../images/Teams-logos/EFLchampionship/wrexham.png', import.meta.url).href
 };
 
 const BUNDESLIGA_TEAM_LOGOS = {
@@ -160,6 +220,10 @@ const LEAGUE_CONFIGS = {
     teamStatsUrl: PREMIER_TEAM_STATS_URL,
     teamLogos: PREMIER_TEAM_LOGOS
   },
+  championship: {
+    playerStatsUrl: CHAMPIONSHIP_PLAYER_STATS_URL,
+    teamLogos: CHAMPIONSHIP_TEAM_LOGOS
+  },
   seriea: {
     teamStatsUrl: SERIEA_TEAM_STATS_URL,
     teamLogos: SERIEA_TEAM_LOGOS
@@ -183,7 +247,9 @@ const LEAGUE_CONFIGS = {
 
 const PLAYER_STAT_CARDS = [
   { key: 'goals', title: 'Goals' },
+  { key: 'penaltyGoals', title: 'Penalty goals' },
   { key: 'assists', title: 'Assists' },
+  { key: 'expectedAssists', title: 'Expected assists', format: (value) => formatDecimal(value) },
   { key: 'expectedGoals', title: 'Expected goals', format: (value) => formatDecimal(value) },
   { key: 'cleanSheets', title: 'Clean sheets' },
   { key: 'yellowCards', title: 'Yellow cards' },

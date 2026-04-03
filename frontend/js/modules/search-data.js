@@ -17,6 +17,90 @@ const MOBILE_FIXTURES_URL = new URL('../../../mobile-version/data/fixtures.json'
 export const normalizeSearchText = (value = '') =>
   String(value).toLowerCase().trim().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 
+const normalizeKey = (value = '') => normalizeSearchText(value).replace(/[^a-z0-9]/g, '');
+
+const PLAYER_NAME_DISPLAY_OVERRIDES = {
+  alexisak: 'Alexander Isak'
+};
+
+const PHOTO_STRATEGY_OVERRIDES = {
+  'premier:liverpool': 'name'
+};
+
+const getPlayerDisplayName = (name = '') => {
+  const key = normalizeKey(name);
+  return PLAYER_NAME_DISPLAY_OVERRIDES[key] || String(name || '').trim();
+};
+
+const getPhotoStrategy = (leagueKey, teamId, entry) =>
+  entry?.photoStrategy || PHOTO_STRATEGY_OVERRIDES[`${leagueKey}:${teamId}`] || 'index';
+
+const buildPhotoNameLookup = (photos = []) => {
+  const lookup = new Map();
+  photos.forEach((path) => {
+    const filename = String(path || '').split('/').pop() || '';
+    const base = filename.replace(/\.[^.]+$/, '');
+    if (!base || /^[0-9]+$/.test(base)) return;
+    lookup.set(normalizeKey(base), path);
+  });
+  return lookup;
+};
+
+const getNameParts = (name = '') => {
+  const parts = normalizeSearchText(name).split(' ').filter(Boolean);
+  return {
+    first: parts[0] || '',
+    last: parts[parts.length - 1] || ''
+  };
+};
+
+const findPhotoBySubstring = (playerKey, lookup) => {
+  if (!lookup) return null;
+  let bestPath = null;
+  let bestLen = 0;
+  for (const [photoKey, path] of lookup.entries()) {
+    if (!photoKey || photoKey.length < 4) continue;
+    if (playerKey.includes(photoKey) || photoKey.includes(playerKey)) {
+      if (photoKey.length > bestLen) {
+        bestLen = photoKey.length;
+        bestPath = path;
+      }
+    }
+  }
+  return bestPath;
+};
+
+const resolvePlayerPhoto = (playerName, entry, index, leagueKey, teamId, hints) => {
+  const key = normalizeKey(playerName);
+  const photos = entry?.photos || [];
+  const lookup = hints?.photoLookup || buildPhotoNameLookup(photos);
+  const strategy = getPhotoStrategy(leagueKey, teamId, entry);
+
+  if (strategy === 'name') {
+    const direct = lookup.get(key);
+    if (direct) return direct;
+  }
+
+  if (strategy === 'none') return null;
+
+  if (lookup && (strategy === 'name' || strategy === 'index')) {
+    const { first, last } = getNameParts(playerName);
+    const firstKey = normalizeKey(first);
+    const lastKey = normalizeKey(last);
+    if (lastKey && hints?.lastCounts?.get?.(lastKey) === 1 && lookup.get(lastKey)) {
+      return lookup.get(lastKey);
+    }
+    if (firstKey && hints?.firstCounts?.get?.(firstKey) === 1 && lookup.get(firstKey)) {
+      return lookup.get(firstKey);
+    }
+    const partial = findPhotoBySubstring(key, lookup);
+    if (partial) return partial;
+  }
+
+  if (strategy === 'name') return null;
+  return photos[index] || null;
+};
+
 const parseCsv = (text) => {
   const lines = String(text || '')
     .replace(/\r\n/g, '\n')
@@ -105,8 +189,25 @@ export const loadPlayersIndex = async () => {
                 if (!text) return;
                 const rows = parseCsv(text);
                 const teamName = teamsByLeague?.get(`${leagueKey}:${teamId}`) || teamId;
+                const photoLookup = buildPhotoNameLookup(entry?.photos || []);
+                const firstCounts = new Map();
+                const lastCounts = new Map();
+
                 rows.forEach((row) => {
-                  const name = row['Player Name'] || row.Name || row.Player || '';
+                  const rawName = row['Player Name'] || row.Name || row.Player || '';
+                  if (!rawName) return;
+                  const { first, last } = getNameParts(rawName);
+                  const firstKey = normalizeKey(first);
+                  const lastKey = normalizeKey(last);
+                  if (firstKey) firstCounts.set(firstKey, (firstCounts.get(firstKey) || 0) + 1);
+                  if (lastKey) lastCounts.set(lastKey, (lastCounts.get(lastKey) || 0) + 1);
+                });
+
+                const nameHints = { firstCounts, lastCounts, photoLookup };
+
+                rows.forEach((row, indexInTeam) => {
+                  const rawName = row['Player Name'] || row.Name || row.Player || '';
+                  const name = getPlayerDisplayName(rawName);
                   if (!name) return;
                   entries.push({
                     type: 'player',
@@ -114,7 +215,8 @@ export const loadPlayersIndex = async () => {
                     leagueKey,
                     leagueLabel: COMPETITIONS[leagueKey]?.label || leagueKey,
                     teamId,
-                    teamName
+                    teamName,
+                    photo: resolvePlayerPhoto(name, entry, indexInTeam, leagueKey, teamId, nameHints)
                   });
                 });
               })

@@ -39,9 +39,21 @@ const renderSection = (title, items) => {
         .map((part) => part[0] || '')
         .join('')
         .slice(0, 2);
-      const iconMarkup = item.logo
-        ? `<img class="search-item-icon" src="${escapeHtml(item.logo)}" alt="${escapeHtml(label)}" />`
-        : `<span class="search-item-icon fallback">${escapeHtml(initials || '?')}</span>`;
+      const iconMarkup =
+        item.type === 'player' && item.photo
+          ? `
+            <span class="search-item-media search-item-media--player">
+              <img class="search-item-photo" src="${escapeHtml(item.photo)}" alt="${escapeHtml(label)}" />
+              ${
+                item.logo
+                  ? `<img class="search-item-club-badge" src="${escapeHtml(item.logo)}" alt="${escapeHtml(item.meta || label)}" />`
+                  : ''
+              }
+            </span>
+          `
+          : item.logo
+            ? `<img class="search-item-icon" src="${escapeHtml(item.logo)}" alt="${escapeHtml(label)}" />`
+            : `<span class="search-item-icon fallback">${escapeHtml(initials || '?')}</span>`;
 
       return `
         <button
@@ -212,7 +224,8 @@ const searchIndex = async (query) => {
         leagueKey: player.leagueKey,
         teamId: player.teamId,
         name: player.name,
-        meta: player.teamName,
+        meta: `${player.teamName} · ${player.leagueLabel}`,
+        photo: player.photo || '',
         logo: await getLogoByName(player.leagueKey, player.teamName)
       }))
   );

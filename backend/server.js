@@ -717,6 +717,27 @@ app.post('/api/cardgame/sell', async (req, res) => {
   }
 });
 
+app.post('/api/cardgame/quest-reward', async (req, res) => {
+  try {
+    const { userId, amount } = req.body || {};
+    const parsedUser = Number(userId);
+    const parsedAmount = Number(amount);
+    if (!parsedUser || !Number.isFinite(parsedAmount) || parsedAmount <= 0) {
+      return res.status(400).json({ error: 'Invalid quest reward request.' });
+    }
+    const wallet = await ensureWallet(parsedUser);
+    const nextCoins = wallet.coins + parsedAmount;
+    await run(`UPDATE user_wallets SET coins = ?, updated_at = ${currentTimestampExpression} WHERE user_id = ?`, [
+      nextCoins,
+      parsedUser
+    ]);
+    res.json({ coins: nextCoins, rewarded: parsedAmount });
+  } catch (err) {
+    console.error('Quest reward error:', err);
+    res.status(500).json({ error: 'Server error.' });
+  }
+});
+
 app.get('/api/cardgame/state/:userId', async (req, res) => {
   try {
     const userId = Number(req.params.userId);
