@@ -6,6 +6,35 @@
   border: 2px solid var(--sidebar-border);
   font-weight: 600;
   box-shadow: 0 2px 0 var(--sidebar-border);
+  min-width: 220px;
+  text-align: center;
+}
+
+.day-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.day-nav-btn {
+  min-width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  border: 2px solid var(--sidebar-border);
+  background: var(--white);
+  color: var(--ink);
+  box-shadow: 0 2px 0 var(--sidebar-border);
+  font-size: 18px;
+  font-weight: 900;
+  line-height: 1;
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.15s ease, color 0.15s ease;
+}
+
+.day-nav-btn:hover {
+  transform: translateY(-1px);
+  background: var(--home-blue);
+  color: var(--white);
 }
 
 

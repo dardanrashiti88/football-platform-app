@@ -817,10 +817,15 @@ const LEAGUE_DEFAULT_COLORS = {
 const PLAYER_PROFILE_LIBRARY = {
   alexanderisak: {
     animationTeamId: 'liverpool',
+    preferredFoot: 'Right',
+    height: '1.92 m',
+    marketValue: 'N/A',
+    positionMap: ['st'],
     currentSeasonOverrides: {
       appearances: '16',
       rating: 'N/A'
     },
+    trophies: [{ title: 'Copa del Rey', season: '19/20', count: '1' }],
     seasons: [
       { season: '20/21', club: 'Real Sociedad' },
       { season: '21/22', club: 'Real Sociedad' },
@@ -2273,21 +2278,123 @@ const findRosterPlayer = (roster = [], playerName = '') => {
 const getPlayerCurrentTeam = () =>
   state.teams.find((team) => team.id === state.activeTeamId) || null;
 
+const INVALID_STAT_MARKERS = new Set(['?', 'n/a', 'na', 'null', 'none', 'undefined', 'no']);
+
+const isMeaningfulStat = (value) => {
+  const text = String(value ?? '').trim();
+  if (!text) return false;
+  return !INVALID_STAT_MARKERS.has(text.toLowerCase());
+};
+
 const formatStatValue = (value, fallback = '—') => {
   const text = String(value ?? '').trim();
-  if (!text || text === '?') return fallback;
+  if (!isMeaningfulStat(text)) return fallback;
   return text;
+};
+
+const parseStatNumber = (value) => {
+  const text = String(value ?? '')
+    .replace(/,/g, '')
+    .trim();
+  if (!isMeaningfulStat(text)) return null;
+  const parsed = Number.parseFloat(text);
+  return Number.isFinite(parsed) ? parsed : null;
 };
 
 const computeGoalContributions = (player, fallback = '—') => {
   const direct = String(player?.goalContributions || '').trim();
-  if (direct && direct !== '?') return direct;
+  if (isMeaningfulStat(direct)) return direct;
   const goals = Number.parseInt(player?.goals, 10);
   const assists = Number.parseInt(player?.assists, 10);
   if (Number.isFinite(goals) || Number.isFinite(assists)) {
     return String((Number.isFinite(goals) ? goals : 0) + (Number.isFinite(assists) ? assists : 0));
   }
   return fallback;
+};
+
+const normalizeMetricForProfile = (value, { allowZero = true } = {}) => {
+  if (!isMeaningfulStat(value)) return 'N/A';
+  const text = String(value).trim();
+  if (!allowZero && parseStatNumber(text) === 0) return 'N/A';
+  return text;
+};
+
+const buildPlayerPulse = (player = {}, position = '') => {
+  const appearances = parseStatNumber(player.appearances) || 0;
+  const goals = parseStatNumber(player.goals) || 0;
+  const assists = parseStatNumber(player.assists) || 0;
+  const minutes = parseStatNumber(player.minutes) || 0;
+  const cleanSheets = parseStatNumber(player.cleanSheets) || 0;
+  const yellow = parseStatNumber(player.yellow) || 0;
+  const red = parseStatNumber(player.red) || 0;
+  const appearanceBase = Math.max(appearances, 1);
+  const minutesPerAppearance = appearances > 0 && minutes > 0 ? Math.round(minutes / appearances) : null;
+  const isKeeper = normalizeString(position).includes('keeper') || normalizeString(position).includes('gk');
+  const attackBase = isKeeper ? cleanSheets * 10 : goals * 16;
+  const creationBase = isKeeper ? 0 : assists * 14;
+  const availabilityBase = appearances * 4 + Math.min(minutes / 18, 40);
+  const disciplineBase = Math.max(0, 100 - yellow * 8 - red * 28);
+  const momentumBase = Math.max(
+    35,
+    Math.min(96, 44 + (attackBase + creationBase) / appearanceBase * 7 + Math.min(appearances, 20) * 1.2 - yellow * 1.8 - red * 7)
+  );
+
+  const buildLevel = (value) => Math.max(22, Math.min(98, Math.round(value)));
+  const levels = [
+    buildLevel(momentumBase - 8),
+    buildLevel(momentumBase - 2),
+    buildLevel(momentumBase + 3),
+    buildLevel(momentumBase - 1),
+    buildLevel(momentumBase + 6)
+  ];
+
+  const summary =
+    momentumBase >= 82
+      ? 'Red hot'
+      : momentumBase >= 68
+        ? 'Sharp'
+        : momentumBase >= 56
+          ? 'Steady'
+          : 'Finding rhythm';
+
+  return {
+    summary,
+    levels,
+    metrics: [
+      { label: isKeeper ? 'Shot Stop' : 'Threat', value: buildLevel(isKeeper ? cleanSheets * 8 + 36 : goals * 12 + 34) },
+      { label: isKeeper ? 'Claiming' : 'Creation', value: buildLevel(isKeeper ? appearances * 2.4 + 28 : assists * 14 + 28) },
+      { label: 'Load', value: buildLevel(availabilityBase) },
+      { label: 'Discipline', value: buildLevel(disciplineBase) }
+    ],
+    minutesPerAppearance: minutesPerAppearance ? `${minutesPerAppearance} mins/app` : 'Minutes trend unavailable'
+  };
+};
+
+const POSITION_MAP_LAYOUT = [
+  { key: 'gk', label: 'GK', x: 50, y: 92, roles: ['gk'] },
+  { key: 'lb', label: 'LB', x: 15, y: 72, roles: ['lb'] },
+  { key: 'cb1', label: 'CB', x: 38, y: 76, roles: ['cb'] },
+  { key: 'cb2', label: 'CB', x: 62, y: 76, roles: ['cb'] },
+  { key: 'rb', label: 'RB', x: 85, y: 72, roles: ['rb'] },
+  { key: 'cm1', label: 'CM', x: 30, y: 52, roles: ['cm', 'dm'] },
+  { key: 'cm2', label: 'CM', x: 70, y: 52, roles: ['cm', 'dm'] },
+  { key: 'cam', label: 'CAM', x: 50, y: 35, roles: ['am'] },
+  { key: 'lw', label: 'LW', x: 15, y: 18, roles: ['lw'] },
+  { key: 'st', label: 'ST', x: 50, y: 10, roles: ['st'] },
+  { key: 'rw', label: 'RW', x: 85, y: 18, roles: ['rw'] }
+];
+
+const resolvePositionMap = (profile = {}) => {
+  if (Array.isArray(profile.positionMap) && profile.positionMap.length) return profile.positionMap;
+  const position = normalizeString(profile.position);
+  if (position.includes('keeper') || position.includes('gk')) return ['gk'];
+  if (position.includes('wing')) return ['lw', 'rw'];
+  if (position.includes('striker') || position.includes('forward') || position.includes('fwd')) return ['st'];
+  if (position.includes('attacking')) return ['am'];
+  if (position.includes('fullback') || position.includes('wing-back') || position.includes('back')) return ['lb', 'rb'];
+  if (position.includes('centre-back') || position.includes('center-back') || position.includes('def')) return ['cb'];
+  if (position.includes('mid')) return ['cm'];
+  return ['cm'];
 };
 
 const buildPlayerSeasonEntries = (player, team) => {
@@ -2300,15 +2407,15 @@ const buildPlayerSeasonEntries = (player, team) => {
   const currentSeason = {
     season: '25/26',
     club: currentClub,
-    appearances: formatStatValue(currentSeasonSource?.appearances, 'N/A'),
-    goals: formatStatValue(currentSeasonSource?.goals, 'N/A'),
-    assists: formatStatValue(currentSeasonSource?.assists, 'N/A'),
-    minutes: formatStatValue(currentSeasonSource?.minutes, 'N/A'),
+    appearances: normalizeMetricForProfile(currentSeasonSource?.appearances),
+    goals: normalizeMetricForProfile(currentSeasonSource?.goals),
+    assists: normalizeMetricForProfile(currentSeasonSource?.assists),
+    minutes: normalizeMetricForProfile(currentSeasonSource?.minutes, { allowZero: false }),
     goalContributions: formatStatValue(
       profile?.currentSeasonOverrides?.goalContributions ?? computeGoalContributions(currentSeasonSource, 'N/A'),
       'N/A'
     ),
-    rating: formatStatValue(currentSeasonSource?.rating, 'N/A')
+    rating: normalizeMetricForProfile(currentSeasonSource?.rating)
   };
 
   if (!profile?.seasons?.length) return [currentSeason];
@@ -2345,6 +2452,11 @@ const buildPlayerProfileData = (player, team) => {
   const currentSeason = seasons.at(-1) || seasons[0] || null;
   const logoTeamId = profile?.animationTeamId || team?.id || '';
   const logoTeam = state.teams.find((entry) => entry.id === logoTeamId) || team || null;
+  const pulse = buildPlayerPulse(player, player?.position || profile?.position || '');
+  const positionMap = resolvePositionMap({
+    position: player?.position,
+    positionMap: profile?.positionMap
+  });
 
   return {
     key: playerProfileKey(player?.name),
@@ -2358,6 +2470,14 @@ const buildPlayerProfileData = (player, team) => {
     teamLogo: getLogoForTeam(logoTeam, state.activeLeague),
     photo: player?.photo || '',
     notes: player?.notes || '',
+    preferredFoot: profile?.preferredFoot || 'N/A',
+    height: profile?.height || 'N/A',
+    marketValue: profile?.marketValue || 'N/A',
+    shirtNumber: formatStatValue(player?.number, 'N/A'),
+    homeGrown: formatStatValue(player?.homeGrown, 'N/A'),
+    positionMap,
+    trophies: Array.isArray(profile?.trophies) ? profile.trophies : [],
+    pulse,
     seasons,
     currentSeason: currentSeason || {
       season: '25/26',
@@ -2893,6 +3013,134 @@ const buildPlayerStatChip = (label, value) => {
   return chip;
 };
 
+const buildPlayerIntelRow = (label, value, emphasize = false) => {
+  const row = createTextElement('div', `player-profile-intel-row${emphasize ? ' is-emphasis' : ''}`);
+  row.appendChild(createTextElement('span', 'player-profile-intel-label', label));
+  row.appendChild(createTextElement('strong', 'player-profile-intel-value', formatStatValue(value, 'N/A')));
+  return row;
+};
+
+const buildPlayerFieldElement = (profile, { compact = false } = {}) => {
+  const field = createTextElement('div', `player-profile-field${compact ? ' player-profile-field--compact' : ''}`);
+
+  const stripes = createTextElement('div', 'player-profile-field-stripes');
+  for (let index = 0; index < 10; index += 1) {
+    stripes.appendChild(createTextElement('span', `player-profile-field-stripe${index % 2 === 0 ? ' is-dark' : ''}`));
+  }
+  field.appendChild(stripes);
+  field.appendChild(createTextElement('div', 'player-profile-field-texture'));
+  field.appendChild(createTextElement('div', 'player-profile-field-boundary'));
+  field.appendChild(createTextElement('div', 'player-profile-field-half'));
+
+  const centerCircle = createTextElement('div', 'player-profile-field-circle');
+  centerCircle.appendChild(createTextElement('span', 'player-profile-field-spot player-profile-field-spot--center'));
+  field.appendChild(centerCircle);
+
+  const topBox = createTextElement('div', 'player-profile-field-box player-profile-field-box--top');
+  topBox.appendChild(createTextElement('div', 'player-profile-field-six player-profile-field-six--top'));
+  topBox.appendChild(createTextElement('div', 'player-profile-field-arc player-profile-field-arc--top'));
+  field.appendChild(topBox);
+
+  const bottomBox = createTextElement('div', 'player-profile-field-box player-profile-field-box--bottom');
+  bottomBox.appendChild(createTextElement('div', 'player-profile-field-six player-profile-field-six--bottom'));
+  bottomBox.appendChild(createTextElement('div', 'player-profile-field-arc player-profile-field-arc--bottom'));
+  field.appendChild(bottomBox);
+
+  field.appendChild(createTextElement('span', 'player-profile-field-spot player-profile-field-spot--top'));
+  field.appendChild(createTextElement('span', 'player-profile-field-spot player-profile-field-spot--bottom'));
+
+  ['tl', 'tr', 'bl', 'br'].forEach((corner) =>
+    field.appendChild(createTextElement('span', `player-profile-field-corner player-profile-field-corner--${corner}`))
+  );
+
+  field.appendChild(createTextElement('div', 'player-profile-field-goal player-profile-field-goal--top'));
+  field.appendChild(createTextElement('div', 'player-profile-field-goal player-profile-field-goal--bottom'));
+  field.appendChild(createTextElement('div', 'player-profile-field-light'));
+
+  POSITION_MAP_LAYOUT.forEach((zone) => {
+    const marker = createTextElement(
+      'span',
+      `player-profile-field-node${zone.roles.some((role) => profile.positionMap.includes(role)) ? ' is-active' : ''}`,
+      zone.label
+    );
+    marker.style.left = `${zone.x}%`;
+    marker.style.top = `${zone.y}%`;
+    field.appendChild(marker);
+  });
+
+  return field;
+};
+
+const buildPositionMapCard = (profile) => {
+  const card = createTextElement('article', 'player-profile-panel player-profile-panel--map');
+  const header = createTextElement('div', 'player-profile-section-header');
+  header.appendChild(createTextElement('span', 'player-profile-section-kicker', 'Position Map'));
+  header.appendChild(createTextElement('h3', 'player-profile-section-title', 'Role footprint'));
+  card.appendChild(header);
+  card.appendChild(buildPlayerFieldElement(profile));
+  card.appendChild(
+    createTextElement(
+      'p',
+      'player-profile-panel-note',
+      `${profile.position || 'Player'} role view using the live field style from the match experience.`
+    )
+  );
+  return card;
+};
+
+const buildTrophiesCard = (profile) => {
+  const card = createTextElement('article', 'player-profile-panel player-profile-panel--wide');
+  const header = createTextElement('div', 'player-profile-section-header');
+  header.appendChild(createTextElement('span', 'player-profile-section-kicker', 'Trophies'));
+  header.appendChild(createTextElement('h3', 'player-profile-section-title', 'Honours cabinet'));
+  card.appendChild(header);
+
+  if (!profile.trophies.length) {
+    card.appendChild(createTextElement('div', 'player-profile-empty', 'No trophy history loaded yet.'));
+    return card;
+  }
+
+  const grid = createTextElement('div', 'player-profile-trophy-grid');
+  profile.trophies.forEach((entry) => {
+    const tile = createTextElement('div', 'player-profile-trophy');
+    tile.appendChild(createTextElement('span', 'player-profile-trophy-count', entry.count || '1'));
+    tile.appendChild(createTextElement('strong', 'player-profile-trophy-title', entry.title || 'Honour'));
+    tile.appendChild(createTextElement('span', 'player-profile-trophy-season', entry.season || '—'));
+    grid.appendChild(tile);
+  });
+  card.appendChild(grid);
+  return card;
+};
+
+const buildRecentFormCard = (profile) => {
+  const card = createTextElement('article', 'player-profile-panel');
+  const header = createTextElement('div', 'player-profile-section-header');
+  header.appendChild(createTextElement('span', 'player-profile-section-kicker', 'Recent Form'));
+  header.appendChild(createTextElement('h3', 'player-profile-section-title', profile.pulse.summary));
+  card.appendChild(header);
+
+  const strip = createTextElement('div', 'player-profile-form-strip');
+  profile.pulse.levels.forEach((value, index) => {
+    const item = createTextElement('div', 'player-profile-form-item');
+    item.style.setProperty('--player-form-level', `${value}%`);
+    item.appendChild(createTextElement('span', 'player-profile-form-match', `M${index + 1}`));
+    item.appendChild(createTextElement('strong', 'player-profile-form-score', String(value)));
+    strip.appendChild(item);
+  });
+  card.appendChild(strip);
+
+  const metrics = createTextElement('div', 'player-profile-form-metrics');
+  profile.pulse.metrics.forEach((metric) => {
+    const item = createTextElement('div', 'player-profile-form-metric');
+    item.appendChild(createTextElement('span', 'player-profile-form-metric-label', metric.label));
+    item.appendChild(createTextElement('strong', 'player-profile-form-metric-value', `${metric.value}%`));
+    metrics.appendChild(item);
+  });
+  card.appendChild(metrics);
+  card.appendChild(createTextElement('p', 'player-profile-panel-note', profile.pulse.minutesPerAppearance));
+  return card;
+};
+
 const buildFollowButton = ({ active = false, type = 'team' } = {}) => {
   const button = createTextElement(
     'button',
@@ -2979,6 +3227,27 @@ const renderPlayerProfile = (playersGrid) => {
   heroLayout.append(photoWrap, summary);
   hero.appendChild(heroLayout);
   wrapper.appendChild(hero);
+
+  const insightsGrid = createTextElement('section', 'player-profile-insights-grid');
+
+  const intelCard = createTextElement('article', 'player-profile-panel');
+  const intelHeader = createTextElement('div', 'player-profile-section-header');
+  intelHeader.appendChild(createTextElement('span', 'player-profile-section-kicker', 'Player Intel'));
+  intelHeader.appendChild(createTextElement('h3', 'player-profile-section-title', 'Bio + market'));
+  intelCard.appendChild(intelHeader);
+  const intelList = createTextElement('div', 'player-profile-intel-list');
+  intelList.appendChild(buildPlayerIntelRow('Preferred foot', profile.preferredFoot, true));
+  intelList.appendChild(buildPlayerIntelRow('Height', profile.height));
+  intelList.appendChild(buildPlayerIntelRow('Market value', profile.marketValue));
+  intelList.appendChild(buildPlayerIntelRow('Shirt no.', profile.shirtNumber));
+  intelList.appendChild(buildPlayerIntelRow('Home grown', profile.homeGrown));
+  intelCard.appendChild(intelList);
+  insightsGrid.appendChild(intelCard);
+
+  insightsGrid.appendChild(buildPositionMapCard(profile));
+  insightsGrid.appendChild(buildRecentFormCard(profile));
+  insightsGrid.appendChild(buildTrophiesCard(profile));
+  wrapper.appendChild(insightsGrid);
 
   const currentSeasonCard = createTextElement('section', 'player-profile-season-card');
   const currentSeasonHeader = createTextElement('div', 'player-profile-section-header');

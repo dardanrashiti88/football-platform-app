@@ -438,6 +438,10 @@ const worldcupFixturesState = {
   matchesById: new Map()
 };
 
+const homeDateState = {
+  selectedDate: new Date()
+};
+
 const UCL_STAGE_LABELS = {
   round_of_32: 'R32',
   round_of_16: 'R16',
@@ -467,6 +471,55 @@ const formatMatchDate = (matchDate) =>
     month: 'short',
     year: 'numeric'
   }).format(new Date(matchDate));
+
+const toDayStart = (value = new Date()) => {
+  const date = value instanceof Date ? new Date(value) : new Date(value);
+  date.setHours(0, 0, 0, 0);
+  return date;
+};
+
+const formatHomeSelectedDate = (value) => {
+  const selected = toDayStart(value);
+  const today = toDayStart(new Date());
+  const diffDays = Math.round((selected.getTime() - today.getTime()) / 86400000);
+
+  if (diffDays === 0) {
+    return `Today · ${selected.toLocaleDateString('en-GB', {
+      weekday: 'short',
+      day: '2-digit',
+      month: 'short'
+    })}`;
+  }
+
+  if (diffDays === -1) {
+    return `Yesterday · ${selected.toLocaleDateString('en-GB', {
+      weekday: 'short',
+      day: '2-digit',
+      month: 'short'
+    })}`;
+  }
+
+  if (diffDays === 1) {
+    return `Tomorrow · ${selected.toLocaleDateString('en-GB', {
+      weekday: 'short',
+      day: '2-digit',
+      month: 'short'
+    })}`;
+  }
+
+  return selected.toLocaleDateString('en-GB', {
+    weekday: 'short',
+    day: '2-digit',
+    month: 'short',
+    year: 'numeric'
+  });
+};
+
+const renderHomeDateNavigator = () => {
+  const label = document.querySelector('#home-date-label');
+  if (!label) return;
+  label.textContent = formatHomeSelectedDate(homeDateState.selectedDate);
+};
 
 const TEAM_CODE_OVERRIDES = {
   liverpool: 'LIV',
@@ -2623,13 +2676,44 @@ const buildBenchSlotMarkup = (player, side, team, leagueKey) => {
   `;
 };
 
+const buildMatchFieldChromeMarkup = () => `
+  <div class="match-field-chrome" aria-hidden="true">
+    <div class="match-field-stripes">
+      ${Array.from({ length: 10 }, (_, index) => `<span class="match-field-stripe${index % 2 === 0 ? ' is-dark' : ''}"></span>`).join('')}
+    </div>
+    <div class="match-field-texture"></div>
+    <div class="match-field-boundary"></div>
+    <div class="match-field-half"></div>
+    <div class="match-field-circle">
+      <span class="match-field-spot match-field-spot--center"></span>
+    </div>
+    <div class="match-field-penalty match-field-penalty--left">
+      <div class="match-field-six match-field-six--left"></div>
+      <span class="match-field-spot match-field-spot--left"></span>
+      <div class="match-field-arc match-field-arc--left"></div>
+    </div>
+    <div class="match-field-penalty match-field-penalty--right">
+      <div class="match-field-six match-field-six--right"></div>
+      <span class="match-field-spot match-field-spot--right"></span>
+      <div class="match-field-arc match-field-arc--right"></div>
+    </div>
+    <span class="match-field-corner match-field-corner--tl"></span>
+    <span class="match-field-corner match-field-corner--tr"></span>
+    <span class="match-field-corner match-field-corner--bl"></span>
+    <span class="match-field-corner match-field-corner--br"></span>
+    <div class="match-field-goal match-field-goal--left"></div>
+    <div class="match-field-goal match-field-goal--right"></div>
+    <div class="match-field-light"></div>
+  </div>
+`;
+
 const renderEmptyMatchLineups = (message = 'Lineups coming soon') => {
   const field = document.querySelector('.field');
   const homeBench = document.querySelector('.bench-left');
   const awayBench = document.querySelector('.bench-right');
   renderScorerStrips([], []);
   if (field) {
-    field.innerHTML = `<div class="field-empty-state">${message}</div>`;
+    field.innerHTML = `${buildMatchFieldChromeMarkup()}<div class="field-empty-state">${message}</div>`;
   }
   if (homeBench) {
     homeBench.innerHTML = Array.from({ length: MATCH_BENCH_SIZE }, () =>
@@ -2665,7 +2749,7 @@ const renderMatchLineups = async (match, homeTeam, awayTeam) => {
     return;
   }
 
-  field.innerHTML = '<div class="field-empty-state">Loading lineups...</div>';
+  field.innerHTML = `${buildMatchFieldChromeMarkup()}<div class="field-empty-state">Loading lineups...</div>`;
   homeBench.innerHTML = Array.from({ length: MATCH_BENCH_SIZE }, () =>
     '<div class="bench-slot bench-slot--home bench-slot--empty"></div>'
   ).join('');
@@ -2710,6 +2794,7 @@ const renderMatchLineups = async (match, homeTeam, awayTeam) => {
     const fieldLayout = getActiveFieldLineupLayout();
 
     field.innerHTML = [
+      buildMatchFieldChromeMarkup(),
       ...fieldLayout.home.map((slot, index) =>
         buildFieldPlayerMarkup(
           homeLineup.starters[index],
@@ -5216,6 +5301,25 @@ export const initHome = () => {
   const matchBack = document.querySelector('#match-back');
   const cupExit = document.querySelector('#cup-exit');
   const cupOverlay = document.querySelector('#cup-overlay');
+  const homeDatePrev = document.querySelector('#home-date-prev');
+  const homeDateNext = document.querySelector('#home-date-next');
+
+  homeDateState.selectedDate = toDayStart(homeDateState.selectedDate);
+  renderHomeDateNavigator();
+
+  homeDatePrev?.addEventListener('click', () => {
+    homeDateState.selectedDate = toDayStart(
+      new Date(homeDateState.selectedDate.getTime() - 86400000)
+    );
+    renderHomeDateNavigator();
+  });
+
+  homeDateNext?.addEventListener('click', () => {
+    homeDateState.selectedDate = toDayStart(
+      new Date(homeDateState.selectedDate.getTime() + 86400000)
+    );
+    renderHomeDateNavigator();
+  });
 
   leagueView?.addEventListener('click', (event) => {
     const target = event.target;

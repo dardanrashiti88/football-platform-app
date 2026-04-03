@@ -707,13 +707,228 @@
   position: relative;
   height: 780px;
   border-radius: 14px;
-  border: 3px solid #f1e8c8;
-  background-image: url("../../images/Field-image/field.jpg");
-  background-size: cover;
-  background-position: center;
+  border: 8px solid #1a3a17;
+  background: #2d5a27;
   overflow: hidden;
   isolation: isolate;
-  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.12);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.08),
+    0 14px 28px rgba(0, 0, 0, 0.2);
+}
+
+.match-field-chrome,
+.match-field-texture,
+.match-field-boundary,
+.match-field-half,
+.match-field-circle,
+.match-field-penalty,
+.match-field-six,
+.match-field-arc,
+.match-field-spot,
+.match-field-corner,
+.match-field-goal,
+.match-field-light {
+  position: absolute;
+  pointer-events: none;
+}
+
+.match-field-chrome {
+  inset: 0;
+  z-index: 0;
+}
+
+.match-field-stripes {
+  position: absolute;
+  inset: 0;
+  display: flex;
+}
+
+.match-field-stripe {
+  flex: 1;
+}
+
+.match-field-stripe.is-dark {
+  background: rgba(6, 78, 59, 0.16);
+}
+
+.match-field-texture {
+  inset: 0;
+  opacity: 0.08;
+  background-image:
+    radial-gradient(circle at 20% 25%, rgba(255, 255, 255, 0.14) 0 1px, transparent 1px),
+    radial-gradient(circle at 80% 40%, rgba(255, 255, 255, 0.1) 0 1px, transparent 1px),
+    radial-gradient(circle at 40% 80%, rgba(255, 255, 255, 0.12) 0 1px, transparent 1px);
+  background-size: 22px 22px, 26px 26px, 18px 18px;
+}
+
+.match-field-boundary {
+  inset: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+}
+
+.match-field-half {
+  top: 16px;
+  bottom: 16px;
+  left: 50%;
+  width: 2px;
+  background: rgba(255, 255, 255, 0.8);
+  transform: translateX(-50%);
+}
+
+.match-field-circle {
+  top: 50%;
+  left: 50%;
+  width: 20%;
+  aspect-ratio: 1 / 1;
+  transform: translate(-50%, -50%);
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.match-field-penalty {
+  top: 50%;
+  width: 16%;
+  height: 40%;
+  transform: translateY(-50%);
+  border: 2px solid rgba(255, 255, 255, 0.8);
+}
+
+.match-field-penalty--left {
+  left: 16px;
+  border-left: 0;
+}
+
+.match-field-penalty--right {
+  right: 16px;
+  border-right: 0;
+}
+
+.match-field-six {
+  top: 50%;
+  width: 35%;
+  height: 45%;
+  transform: translateY(-50%);
+  border: 2px solid rgba(255, 255, 255, 0.8);
+}
+
+.match-field-six--left {
+  left: 0;
+  border-left: 0;
+}
+
+.match-field-six--right {
+  right: 0;
+  border-right: 0;
+}
+
+.match-field-spot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.96);
+  transform: translate(-50%, -50%);
+}
+
+.match-field-spot--center {
+  position: static;
+  transform: none;
+}
+
+.match-field-spot--left {
+  right: 20%;
+  top: 50%;
+}
+
+.match-field-spot--right {
+  left: 20%;
+  top: 50%;
+}
+
+.match-field-arc {
+  top: 50%;
+  width: 50%;
+  height: 40%;
+  transform: translateY(-50%);
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+}
+
+.match-field-arc--left {
+  right: -25%;
+  clip-path: inset(0 0 0 50%);
+}
+
+.match-field-arc--right {
+  left: -25%;
+  clip-path: inset(0 50% 0 0);
+}
+
+.match-field-corner {
+  width: 16px;
+  height: 16px;
+}
+
+.match-field-corner--tl {
+  top: 16px;
+  left: 16px;
+  border-right: 2px solid rgba(255, 255, 255, 0.8);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.8);
+  border-bottom-right-radius: 100%;
+}
+
+.match-field-corner--tr {
+  top: 16px;
+  right: 16px;
+  border-left: 2px solid rgba(255, 255, 255, 0.8);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.8);
+  border-bottom-left-radius: 100%;
+}
+
+.match-field-corner--bl {
+  bottom: 16px;
+  left: 16px;
+  border-right: 2px solid rgba(255, 255, 255, 0.8);
+  border-top: 2px solid rgba(255, 255, 255, 0.8);
+  border-top-right-radius: 100%;
+}
+
+.match-field-corner--br {
+  bottom: 16px;
+  right: 16px;
+  border-left: 2px solid rgba(255, 255, 255, 0.8);
+  border-top: 2px solid rgba(255, 255, 255, 0.8);
+  border-top-left-radius: 100%;
+}
+
+.match-field-goal {
+  top: 50%;
+  width: 8px;
+  height: 12%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.4);
+}
+
+.match-field-goal--left {
+  left: 0;
+  border-left: 0;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+.match-field-goal--right {
+  right: 0;
+  border-right: 0;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+
+.match-field-light {
+  inset: 0;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.12), transparent 38%, rgba(255, 255, 255, 0.08));
 }
 
 .player {
@@ -869,6 +1084,7 @@
 .field-empty-state {
   position: absolute;
   inset: 0;
+  z-index: 1;
   display: grid;
   place-items: center;
   padding: 24px;
@@ -1731,44 +1947,15 @@ body.match-mobile-embed-mode .bench-player-name {
 body.match-mobile-embed-mode .field {
   width: 100%;
   height: min(104vh, 1180px);
-  background: none;
+  border-width: 6px;
 }
 
 body.match-mobile-embed-mode .field::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 47%;
-  width: 188%;
-  height: 84%;
-  background-image: url("../../images/Field-image/field.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  transform: translate(-50%, -50%) rotate(90deg);
-  transform-origin: center;
-  z-index: 0;
-  display: block;
+  content: none;
 }
 
 body.match-mobile-embed-mode .field::after {
-  content: "";
-  position: absolute;
-  inset: 8px;
-  border: 2px solid rgba(255, 255, 255, 0.28);
-  border-radius: 12px;
-  background:
-    linear-gradient(
-      90deg,
-      transparent 0 2.8%,
-      rgba(255, 255, 255, 0.24) 2.8% 3.4%,
-      transparent 3.4% 96.6%,
-      rgba(255, 255, 255, 0.24) 96.6% 97.2%,
-      transparent 97.2% 100%
-    );
-  pointer-events: none;
-  z-index: 1;
-  display: block;
+  content: none;
 }
 
 body.match-mobile-embed-mode .player {
