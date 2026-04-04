@@ -7,6 +7,7 @@ import {
   togglePlayerFollow,
   toggleTeamFollow
 } from './follows.js';
+import { loadPlayersIndex, normalizeSearchText } from './search-data.js';
 
 const PREMIER_TEAMS_URL = new URL(
   '../../../db-api/data/competitions/premier-league/teams.json',
@@ -850,7 +851,12 @@ const state = {
   activePlayerProfile: null,
   activeLeague: 'premier',
   searchTerm: '',
-  profileKey: null
+  profileKey: null,
+  compareOpen: false,
+  compareQuery: '',
+  compareTargetProfile: null,
+  compareLoading: false,
+  compareIndex: null
 };
 
 const leagueCache = new Map();
@@ -860,6 +866,7 @@ const matchesCache = new Map();
 const cupMatchesCache = new Map();
 const standingsCache = new Map();
 const teamsListCache = new Map();
+const playersListCache = new Map();
 const crossLeaguePlayersCache = new Map();
 let uclAggregateBlocksCache = null;
 let playersInfoIndex = null;
@@ -2262,6 +2269,13 @@ const createTextElement = (tagName, className, text) => {
 
 const playerProfileKey = (name = '') => normalizeKey(name);
 
+const resetPlayerCompareState = () => {
+  state.compareOpen = false;
+  state.compareQuery = '';
+  state.compareTargetProfile = null;
+  state.compareLoading = false;
+};
+
 const findRosterPlayer = (roster = [], playerName = '') => {
   const wanted = normalizeString(playerName);
   if (!wanted) return null;
@@ -2299,6 +2313,34 @@ const parseStatNumber = (value) => {
   if (!isMeaningfulStat(text)) return null;
   const parsed = Number.parseFloat(text);
   return Number.isFinite(parsed) ? parsed : null;
+};
+
+const loadPlayersListForLeague = async (leagueKey) => {
+  const cacheKey = `players-list:${leagueKey}`;
+  if (playersListCache.has(cacheKey)) return playersListCache.get(cacheKey);
+
+  const cached = leagueCache.get(leagueKey)?.players;
+  if (Array.isArray(cached) && cached.length) {
+    playersListCache.set(cacheKey, cached);
+    return cached;
+  }
+
+  const config = getLeagueConfig(leagueKey);
+  if (!config?.playersUrl) return [];
+
+  try {
+    const response = await fetch(config.playersUrl);
+    if (!response.ok) return [];
+    const data = await response.json();
+    const players = Array.isArray(data)
+      ? data.filter((player) => !config.competitionId || player.competitionId === config.competitionId)
+      : [];
+    playersListCache.set(cacheKey, players);
+    return players;
+  } catch (error) {
+    console.warn('Unable to load players list', error);
+    return [];
+  }
 };
 
 const computeGoalContributions = (player, fallback = '—') => {
@@ -2445,13 +2487,17 @@ const buildPlayerSeasonEntries = (player, team) => {
   });
 };
 
-const buildPlayerProfileData = (player, team) => {
+const buildPlayerProfileData = (player, team, leagueKey = state.activeLeague) => {
   const profile = PLAYER_PROFILE_LIBRARY[playerProfileKey(player?.name)] || null;
   const flagUrl = getFlagUrl(player?.nationality);
   const seasons = buildPlayerSeasonEntries(player, team);
   const currentSeason = seasons.at(-1) || seasons[0] || null;
   const logoTeamId = profile?.animationTeamId || team?.id || '';
-  const logoTeam = state.teams.find((entry) => entry.id === logoTeamId) || team || null;
+  const logoTeam =
+    (team?.id && normalizeKey(team.id) === normalizeKey(logoTeamId) ? team : null)
+    || state.teams.find((entry) => entry.id === logoTeamId)
+    || team
+    || null;
   const pulse = buildPlayerPulse(player, player?.position || profile?.position || '');
   const positionMap = resolvePositionMap({
     position: player?.position,
@@ -2467,7 +2513,8 @@ const buildPlayerProfileData = (player, team) => {
     flagUrl,
     teamId: team?.id || '',
     teamName: team?.name || team?.shortName || '',
-    teamLogo: getLogoForTeam(logoTeam, state.activeLeague),
+    teamLogo: getLogoForTeam(logoTeam, leagueKey),
+    leagueKey,
     photo: player?.photo || '',
     notes: player?.notes || '',
     preferredFoot: profile?.preferredFoot || 'N/A',
@@ -3141,6 +3188,107 @@ const buildRecentFormCard = (profile) => {
   return card;
 };
 
+const ensurePlayerCompareIndex = async () => {
+  if (Array.isArray(state.compareIndex)) return state.compareIndex;
+  const entries = await loadPlayersIndex();
+  state.compareIndex = Array.isArray(entries) ? entries : [];
+  return state.compareIndex;
+};
+
+const getPlayerCompareResults = (profile) => {
+  const clean = normalizeSearchText(state.compareQuery);
+  if (!clean || !Array.isArray(state.compareIndex)) return [];
+
+  const seen = new Set();
+  return state.compareIndex
+    .filter((entry) => {
+      const entryKey = playerProfileKey(entry.name);
+      if (entryKey === profile.key) return false;
+      const haystack = normalizeSearchText(`${entry.name} ${entry.teamName || ''} ${entry.leagueLabel || ''}`);
+      if (!haystack.includes(clean)) return false;
+      const dedupeKey = `${entryKey}:${normalizeKey(entry.teamId)}:${entry.leagueKey}`;
+      if (seen.has(dedupeKey)) return false;
+      seen.add(dedupeKey);
+      return true;
+    })
+    .slice(0, 8);
+};
+
+const resolveCompareTeam = async (entry) => {
+  const teams = entry.leagueKey === state.activeLeague && state.teams.length
+    ? state.teams
+    : await loadTeamsList(entry.leagueKey);
+
+  return (
+    teams.find((team) =>
+      [team.id, team.name, team.shortName]
+        .map((value) => normalizeKey(value))
+        .includes(normalizeKey(entry.teamId || entry.teamName || ''))
+    )
+    || teams.find((team) => normalizeKey(team.name || team.shortName || team.id) === normalizeKey(entry.teamName || ''))
+    || {
+      id: entry.teamId || normalizeKey(entry.teamName || entry.name),
+      name: entry.teamName || 'Club',
+      shortName: entry.teamName || 'Club'
+    }
+  );
+};
+
+const resolveComparePlayerProfile = async (entry) => {
+  const team = await resolveCompareTeam(entry);
+  let player = null;
+
+  try {
+    const roster = await loadRosterForTeam(team, entry.leagueKey);
+    player = findRosterPlayer(roster, entry.name);
+  } catch (error) {
+    console.warn('Unable to load compare roster', error);
+  }
+
+  if (!player) {
+    const players = await loadPlayersListForLeague(entry.leagueKey);
+    player = players.find(
+      (candidate) =>
+        playerProfileKey(candidate?.name) === playerProfileKey(entry.name) && playerBelongsToTeam(candidate, team)
+    );
+  }
+
+  const safePlayer = {
+    name: entry.name,
+    position: '',
+    number: '',
+    nationality: '',
+    age: '',
+    appearances: '',
+    goals: '',
+    assists: '',
+    goalContributions: '',
+    minutes: '',
+    cleanSheets: '',
+    yellow: '',
+    red: '',
+    homeGrown: '',
+    notes: '',
+    photo: entry.photo || '',
+    ...(player || {})
+  };
+
+  if (!safePlayer.photo && entry.photo) safePlayer.photo = entry.photo;
+  return buildPlayerProfileData(safePlayer, team, entry.leagueKey);
+};
+
+const buildCompareButton = (active = false) => {
+  const button = createTextElement(
+    'button',
+    `profile-compare-btn${active ? ' is-active' : ''}`,
+    'Compare'
+  );
+  button.type = 'button';
+  button.dataset.action = 'toggle-player-compare';
+  button.setAttribute('aria-pressed', active ? 'true' : 'false');
+  return button;
+};
+
 const buildFollowButton = ({ active = false, type = 'team' } = {}) => {
   const button = createTextElement(
     'button',
@@ -3151,6 +3299,241 @@ const buildFollowButton = ({ active = false, type = 'team' } = {}) => {
   button.dataset.action = type === 'player' ? 'toggle-player-follow' : 'toggle-team-follow';
   button.setAttribute('aria-pressed', active ? 'true' : 'false');
   return button;
+};
+
+const buildPlayerCompareCard = (profile, { title = '', searchable = false } = {}) => {
+  const card = createTextElement(
+    'article',
+    `player-compare-card${searchable ? ' is-search-side' : ' is-locked-side'}`
+  );
+
+  const top = createTextElement('div', 'player-compare-card-top');
+  top.appendChild(createTextElement('span', 'player-compare-card-kicker', title));
+  if (profile?.teamLogo) {
+    const logo = document.createElement('img');
+    logo.className = 'player-compare-card-logo';
+    logo.src = profile.teamLogo;
+    logo.alt = profile.teamName || 'Club';
+    top.appendChild(logo);
+  }
+  card.appendChild(top);
+
+  const body = createTextElement('div', 'player-compare-card-body');
+  const media = createTextElement('div', 'player-compare-card-media');
+  if (profile?.photo) {
+    const image = document.createElement('img');
+    image.src = profile.photo;
+    image.alt = profile.name || 'Player';
+    image.loading = 'lazy';
+    image.decoding = 'async';
+    media.appendChild(image);
+  } else {
+    media.appendChild(createTextElement('span', 'player-compare-card-fallback', getInitials(profile?.name || 'P')));
+  }
+
+  const details = createTextElement('div', 'player-compare-card-details');
+  details.appendChild(createTextElement('strong', 'player-compare-card-name', profile?.name || 'Pick a player'));
+  details.appendChild(
+    createTextElement(
+      'span',
+      'player-compare-card-meta',
+      [profile?.teamName, profile?.position].filter(Boolean).join(' · ') || 'Type a player name to compare'
+    )
+  );
+
+  const chips = createTextElement('div', 'player-compare-card-chips');
+  [
+    ['Apps', profile?.currentSeason?.appearances],
+    ['Goals', profile?.currentSeason?.goals],
+    ['Assists', profile?.currentSeason?.assists],
+    ['Rating', profile?.currentSeason?.rating]
+  ].forEach(([label, value]) => {
+    const chip = createTextElement('span', 'player-compare-card-chip');
+    chip.appendChild(createTextElement('span', 'player-compare-card-chip-label', label));
+    chip.appendChild(createTextElement('strong', 'player-compare-card-chip-value', formatStatValue(value, 'N/A')));
+    chips.appendChild(chip);
+  });
+
+  details.appendChild(chips);
+  body.append(media, details);
+  card.appendChild(body);
+  return card;
+};
+
+const buildPlayerCompareResult = (entry) => {
+  const button = createTextElement('button', 'player-compare-result');
+  button.type = 'button';
+  button.dataset.action = 'select-player-compare';
+  button.dataset.playerName = entry.name || '';
+  button.dataset.teamId = entry.teamId || '';
+  button.dataset.teamName = entry.teamName || '';
+  button.dataset.leagueKey = entry.leagueKey || '';
+
+  const media = createTextElement('span', 'player-compare-result-media');
+  if (entry.photo) {
+    const image = document.createElement('img');
+    image.src = entry.photo;
+    image.alt = entry.name || '';
+    image.loading = 'lazy';
+    image.decoding = 'async';
+    media.appendChild(image);
+  } else {
+    media.appendChild(createTextElement('span', 'player-compare-result-fallback', getInitials(entry.name)));
+  }
+
+  const text = createTextElement('span', 'player-compare-result-text');
+  text.appendChild(createTextElement('strong', 'player-compare-result-name', entry.name));
+  text.appendChild(
+    createTextElement(
+      'span',
+      'player-compare-result-meta',
+      [entry.teamName, entry.leagueLabel].filter(Boolean).join(' · ')
+    )
+  );
+
+  button.append(media, text);
+  return button;
+};
+
+const buildPlayerCompareMetricRow = (label, leftValue, rightValue) => {
+  const row = createTextElement('div', 'player-compare-row');
+  row.appendChild(createTextElement('span', 'player-compare-value player-compare-value--left', formatStatValue(leftValue, 'N/A')));
+
+  const middle = createTextElement('div', 'player-compare-middle');
+  middle.appendChild(createTextElement('span', 'player-compare-label', label));
+
+  const bar = createTextElement('div', 'player-compare-bar');
+  const leftFill = createTextElement('span', 'player-compare-fill player-compare-fill--left');
+  const rightFill = createTextElement('span', 'player-compare-fill player-compare-fill--right');
+  const leftNumber = parseStatNumber(leftValue);
+  const rightNumber = parseStatNumber(rightValue);
+
+  if (leftNumber !== null || rightNumber !== null) {
+    const total = Math.max((leftNumber || 0) + (rightNumber || 0), 1);
+    leftFill.style.width = `${Math.max(0, ((leftNumber || 0) / total) * 100)}%`;
+    rightFill.style.width = `${Math.max(0, ((rightNumber || 0) / total) * 100)}%`;
+  } else {
+    leftFill.style.width = '50%';
+    rightFill.style.width = '50%';
+  }
+
+  bar.append(leftFill, rightFill);
+  middle.appendChild(bar);
+  row.appendChild(middle);
+  row.appendChild(createTextElement('span', 'player-compare-value player-compare-value--right', formatStatValue(rightValue, 'N/A')));
+  return row;
+};
+
+const buildPlayerCompareSection = (profile) => {
+  const section = createTextElement('section', 'player-compare-shell');
+  const header = createTextElement('div', 'player-profile-section-header');
+  header.appendChild(createTextElement('span', 'player-profile-section-kicker', 'Player Compare'));
+  header.appendChild(createTextElement('h3', 'player-profile-section-title', 'Head to head lab'));
+  section.appendChild(header);
+
+  const stage = createTextElement('div', 'player-compare-stage');
+  stage.appendChild(buildPlayerCompareCard(profile, { title: 'Locked player' }));
+  stage.appendChild(createTextElement('div', 'player-compare-vs', 'VS'));
+
+  const selector = createTextElement('div', 'player-compare-selector');
+  if (state.compareTargetProfile) {
+    selector.appendChild(buildPlayerCompareCard(state.compareTargetProfile, { title: 'Selected player', searchable: true }));
+    const clearButton = createTextElement('button', 'player-compare-clear', 'Remove');
+    clearButton.type = 'button';
+    clearButton.dataset.action = 'clear-player-compare';
+    selector.appendChild(clearButton);
+  } else {
+    const inputWrap = createTextElement('label', 'player-compare-search');
+    inputWrap.appendChild(createTextElement('span', 'player-compare-search-label', 'Type another player'));
+    const input = document.createElement('input');
+    input.className = 'player-compare-input';
+    input.type = 'search';
+    input.placeholder = 'Search by player or club';
+    input.value = state.compareQuery;
+    input.autocomplete = 'off';
+    input.dataset.action = 'player-compare-query';
+    inputWrap.appendChild(input);
+    selector.appendChild(inputWrap);
+
+    if (state.compareLoading) {
+      selector.appendChild(createTextElement('div', 'player-compare-empty', 'Loading players...'));
+    } else {
+      selector.appendChild(
+        createTextElement('div', 'player-compare-empty', 'Pick the second player and we will line up the season numbers side by side.')
+      );
+    }
+
+    const results = getPlayerCompareResults(profile);
+    if (results.length) {
+      const resultsList = createTextElement('div', 'player-compare-results');
+      results.forEach((entry) => resultsList.appendChild(buildPlayerCompareResult(entry)));
+      selector.appendChild(resultsList);
+    } else if (state.compareQuery && !state.compareLoading) {
+      selector.appendChild(createTextElement('div', 'player-compare-empty is-subtle', 'No players found for that search yet.'));
+    }
+  }
+
+  stage.appendChild(selector);
+  section.appendChild(stage);
+
+  if (state.compareTargetProfile) {
+    const statsCard = createTextElement('div', 'player-compare-stats');
+    [
+      ['Age', profile.age, state.compareTargetProfile.age],
+      ['Apps', profile.currentSeason.appearances, state.compareTargetProfile.currentSeason.appearances],
+      ['Goals', profile.currentSeason.goals, state.compareTargetProfile.currentSeason.goals],
+      ['Assists', profile.currentSeason.assists, state.compareTargetProfile.currentSeason.assists],
+      ['Minutes', profile.currentSeason.minutes, state.compareTargetProfile.currentSeason.minutes],
+      ['G+A', profile.currentSeason.goalContributions, state.compareTargetProfile.currentSeason.goalContributions],
+      ['Rating', profile.currentSeason.rating, state.compareTargetProfile.currentSeason.rating]
+    ].forEach(([label, left, right]) => {
+      statsCard.appendChild(buildPlayerCompareMetricRow(label, left, right));
+    });
+    section.appendChild(statsCard);
+  }
+
+  return section;
+};
+
+const focusPlayerCompareInput = (playersGrid) => {
+  requestAnimationFrame(() => {
+    const input = playersGrid.querySelector('[data-action="player-compare-query"]');
+    if (input instanceof HTMLInputElement) {
+      input.focus();
+      const end = input.value.length;
+      input.setSelectionRange(end, end);
+    }
+  });
+};
+
+const refreshPlayerCompareSection = (playersGrid, { focusInput = false } = {}) => {
+  const shell = playersGrid.querySelector('.player-profile-shell');
+  if (!shell || !state.activePlayerProfile) return;
+
+  const existing = shell.querySelector('.player-compare-shell');
+  if (state.compareOpen) {
+    const nextSection = buildPlayerCompareSection(state.activePlayerProfile);
+    const anchor = shell.querySelector('.player-profile-insights-grid');
+    if (existing) {
+      existing.replaceWith(nextSection);
+    } else if (anchor) {
+      shell.insertBefore(nextSection, anchor);
+    } else {
+      shell.appendChild(nextSection);
+    }
+  } else {
+    existing?.remove();
+  }
+
+  const compareButton = shell.querySelector('[data-action="toggle-player-compare"]');
+  if (compareButton instanceof HTMLButtonElement) {
+    compareButton.classList.toggle('is-active', state.compareOpen);
+    compareButton.setAttribute('aria-pressed', state.compareOpen ? 'true' : 'false');
+  }
+
+  if (focusInput && state.compareOpen) {
+    focusPlayerCompareInput(playersGrid);
+  }
 };
 
 const renderPlayerProfile = (playersGrid) => {
@@ -3171,6 +3554,7 @@ const renderPlayerProfile = (playersGrid) => {
   exitButton.type = 'button';
   exitButton.dataset.action = 'exit-player-profile';
   hero.appendChild(exitButton);
+  hero.appendChild(buildCompareButton(state.compareOpen));
   hero.appendChild(
     buildFollowButton({
       active: isPlayerFollowed(profile.key),
@@ -3227,6 +3611,10 @@ const renderPlayerProfile = (playersGrid) => {
   heroLayout.append(photoWrap, summary);
   hero.appendChild(heroLayout);
   wrapper.appendChild(hero);
+
+  if (state.compareOpen) {
+    wrapper.appendChild(buildPlayerCompareSection(profile));
+  }
 
   const insightsGrid = createTextElement('section', 'player-profile-insights-grid');
 
@@ -3332,11 +3720,13 @@ const openPlayerProfileInTeam = (playerName, playersGrid) => {
   if (!team) return;
   const player = findRosterPlayer(state.roster, playerName);
   if (!player) return;
+  resetPlayerCompareState();
   state.activePlayerProfile = buildPlayerProfileData(player, team);
   renderPlayerProfile(playersGrid);
 };
 
 const closePlayerProfile = (playersGrid) => {
+  resetPlayerCompareState();
   state.activePlayerProfile = null;
   renderTeamProfile(playersGrid);
 };
@@ -3517,6 +3907,7 @@ const loadTeamProfile = async (teamId, teamRow, playersGrid, panel) => {
   if (!teamId) return;
   state.activeTeamId = teamId;
   state.activePlayerProfile = null;
+  resetPlayerCompareState();
   updateActivePill(teamRow);
   applyTeamTheme(panel, teamId);
   const team = state.teams.find((item) => item.id === teamId);
@@ -3564,6 +3955,7 @@ const loadTeamProfile = async (teamId, teamRow, playersGrid, panel) => {
 const exitTeamProfile = (teamRow, playersGrid) => {
   state.activeTeamId = null;
   state.activePlayerProfile = null;
+  resetPlayerCompareState();
   state.roster = [];
   state.fixtures = [];
   state.fixtureVisibleCount = 10;
@@ -3616,6 +4008,7 @@ const loadLeagueData = async ({
   state.activeLeague = leagueKey;
   state.activeTeamId = null;
   state.activePlayerProfile = null;
+  resetPlayerCompareState();
   state.searchTerm = '';
   state.roster = [];
   state.fixtures = [];
@@ -3707,7 +4100,7 @@ export const initPlayers = () => {
     });
   });
 
-  playersGrid.addEventListener('click', (event) => {
+  playersGrid.addEventListener('click', async (event) => {
     const target = event.target;
     if (!(target instanceof Element)) return;
     const exitBtn = target.closest('[data-action="exit-team-profile"]');
@@ -3747,6 +4140,48 @@ export const initPlayers = () => {
       renderPlayerProfile(playersGrid);
       return;
     }
+    const playerCompareBtn = target.closest('[data-action="toggle-player-compare"]');
+    if (playerCompareBtn && state.activePlayerProfile) {
+      state.compareOpen = !state.compareOpen;
+      state.compareQuery = '';
+      state.compareTargetProfile = null;
+      if (state.compareOpen && !Array.isArray(state.compareIndex)) {
+        state.compareLoading = true;
+        refreshPlayerCompareSection(playersGrid);
+        try {
+          await ensurePlayerCompareIndex();
+        } finally {
+          state.compareLoading = false;
+        }
+      }
+      refreshPlayerCompareSection(playersGrid, { focusInput: state.compareOpen });
+      return;
+    }
+    const clearCompareBtn = target.closest('[data-action="clear-player-compare"]');
+    if (clearCompareBtn) {
+      state.compareTargetProfile = null;
+      state.compareQuery = '';
+      refreshPlayerCompareSection(playersGrid, { focusInput: true });
+      return;
+    }
+    const selectCompareBtn = target.closest('[data-action="select-player-compare"]');
+    if (selectCompareBtn && state.activePlayerProfile) {
+      state.compareLoading = true;
+      refreshPlayerCompareSection(playersGrid);
+      try {
+        state.compareTargetProfile = await resolveComparePlayerProfile({
+          name: selectCompareBtn.dataset.playerName || '',
+          teamId: selectCompareBtn.dataset.teamId || '',
+          teamName: selectCompareBtn.dataset.teamName || '',
+          leagueKey: selectCompareBtn.dataset.leagueKey || state.activeLeague
+        });
+        state.compareQuery = '';
+      } finally {
+        state.compareLoading = false;
+      }
+      refreshPlayerCompareSection(playersGrid, { focusInput: true });
+      return;
+    }
     const tabBtn = target.closest('.team-tab');
     if (tabBtn && tabBtn.dataset.tab) {
       state.activeTab = tabBtn.dataset.tab;
@@ -3767,6 +4202,25 @@ export const initPlayers = () => {
       );
       state.activePlayerProfile = null;
       renderPlayers(playersGrid);
+    }
+  });
+
+  playersGrid.addEventListener('input', async (event) => {
+    const target = event.target;
+    if (!(target instanceof HTMLInputElement)) return;
+    if (target.dataset.action !== 'player-compare-query') return;
+    state.compareQuery = target.value;
+    if (!Array.isArray(state.compareIndex)) {
+      state.compareLoading = true;
+      refreshPlayerCompareSection(playersGrid);
+      try {
+        await ensurePlayerCompareIndex();
+      } finally {
+        state.compareLoading = false;
+      }
+      refreshPlayerCompareSection(playersGrid, { focusInput: true });
+    } else {
+      refreshPlayerCompareSection(playersGrid, { focusInput: true });
     }
   });
 
