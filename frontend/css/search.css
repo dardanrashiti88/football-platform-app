@@ -25,6 +25,11 @@
   box-shadow: 0 24px 50px rgba(0, 0, 0, 0.5);
 }
 
+body.theme-night .global-search-panel {
+  background: #0b1220;
+  border-color: rgba(148, 163, 184, 0.2);
+}
+
 .global-search-bar {
   display: flex;
   align-items: center;

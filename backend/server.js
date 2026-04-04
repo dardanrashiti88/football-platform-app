@@ -224,7 +224,30 @@ const DEFAULT_PREFERENCES = {
     matches: true,
     goals: true,
     social: true,
-    directMessages: true
+    directMessages: true,
+    quietMode: false,
+    autoReadOnOpen: false
+  },
+  ui: {
+    darkMode: false,
+    compactMode: false,
+    animationsEnabled: true,
+    searchShortcutEnabled: true
+  },
+  launch: {
+    defaultView: 'home',
+    rememberLastView: true
+  },
+  cardgame: {
+    confirmQuickSell: true,
+    confirmDiscard: true,
+    openInventoryAfterSave: false
+  },
+  privacy: {
+    profileVisibility: 'public',
+    showOnlineStatus: true,
+    showFollowCounts: true,
+    showEmailOnProfile: true
   },
   onboardingComplete: false,
   updatedAt: null
@@ -241,7 +264,32 @@ const normalizePreferences = (raw = {}) => ({
     matches: raw.notifications?.matches !== false,
     goals: raw.notifications?.goals !== false,
     social: raw.notifications?.social !== false,
-    directMessages: raw.notifications?.directMessages !== false
+    directMessages: raw.notifications?.directMessages !== false,
+    quietMode: raw.notifications?.quietMode === true,
+    autoReadOnOpen: raw.notifications?.autoReadOnOpen === true
+  },
+  ui: {
+    darkMode: raw.ui?.darkMode === true,
+    compactMode: raw.ui?.compactMode === true,
+    animationsEnabled: raw.ui?.animationsEnabled !== false,
+    searchShortcutEnabled: raw.ui?.searchShortcutEnabled !== false
+  },
+  launch: {
+    defaultView: ['home', 'leagues', 'players', 'stats', 'news', 'cardgame'].includes(raw.launch?.defaultView)
+      ? raw.launch.defaultView
+      : DEFAULT_PREFERENCES.launch.defaultView,
+    rememberLastView: raw.launch?.rememberLastView !== false
+  },
+  cardgame: {
+    confirmQuickSell: raw.cardgame?.confirmQuickSell !== false,
+    confirmDiscard: raw.cardgame?.confirmDiscard !== false,
+    openInventoryAfterSave: raw.cardgame?.openInventoryAfterSave === true
+  },
+  privacy: {
+    profileVisibility: raw.privacy?.profileVisibility === 'private' ? 'private' : 'public',
+    showOnlineStatus: raw.privacy?.showOnlineStatus !== false,
+    showFollowCounts: raw.privacy?.showFollowCounts !== false,
+    showEmailOnProfile: raw.privacy?.showEmailOnProfile !== false
   },
   onboardingComplete: Boolean(raw.onboardingComplete),
   updatedAt: raw.updatedAt ? String(raw.updatedAt) : null
@@ -250,7 +298,8 @@ const normalizePreferences = (raw = {}) => ({
 const readPreferencesRecord = async (userId) => {
   const row = await get(
     `SELECT user_id, home_layout, sidebar_layout, favorite_team, favorite_leagues,
-            prioritize_favorite_teams, accent_color, notifications, onboarding_completed, updated_at
+            prioritize_favorite_teams, accent_color, notifications, ui_settings, launch_settings, cardgame_settings,
+            privacy_settings, onboarding_completed, updated_at
        FROM user_preferences
       WHERE user_id = ?`,
     [userId]
@@ -266,6 +315,10 @@ const readPreferencesRecord = async (userId) => {
     prioritizeFavoriteTeams: Number(row.prioritize_favorite_teams) === 1,
     accentColor: row.accent_color,
     notifications: parseJsonField(row.notifications, DEFAULT_PREFERENCES.notifications),
+    ui: parseJsonField(row.ui_settings, DEFAULT_PREFERENCES.ui),
+    launch: parseJsonField(row.launch_settings, DEFAULT_PREFERENCES.launch),
+    cardgame: parseJsonField(row.cardgame_settings, DEFAULT_PREFERENCES.cardgame),
+    privacy: parseJsonField(row.privacy_settings, DEFAULT_PREFERENCES.privacy),
     onboardingComplete: Number(row.onboarding_completed) === 1,
     updatedAt: row.updated_at
   });
@@ -286,6 +339,10 @@ const savePreferencesRecord = async (userId, rawPreferences = {}) => {
     preferences.prioritizeFavoriteTeams ? 1 : 0,
     preferences.accentColor,
     JSON.stringify(preferences.notifications),
+    JSON.stringify(preferences.ui),
+    JSON.stringify(preferences.launch),
+    JSON.stringify(preferences.cardgame),
+    JSON.stringify(preferences.privacy),
     preferences.onboardingComplete ? 1 : 0,
     preferences.updatedAt,
     userId
@@ -302,6 +359,10 @@ const savePreferencesRecord = async (userId, rawPreferences = {}) => {
               prioritize_favorite_teams = ?,
               accent_color = ?,
               notifications = ?,
+              ui_settings = ?,
+              launch_settings = ?,
+              cardgame_settings = ?,
+              privacy_settings = ?,
               onboarding_completed = ?,
               updated_at = ?
         WHERE user_id = ?`,
@@ -310,8 +371,8 @@ const savePreferencesRecord = async (userId, rawPreferences = {}) => {
   } else {
     await run(
       `INSERT INTO user_preferences
-        (home_layout, sidebar_layout, favorite_team, favorite_leagues, prioritize_favorite_teams, accent_color, notifications, onboarding_completed, updated_at, user_id)
-       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+        (home_layout, sidebar_layout, favorite_team, favorite_leagues, prioritize_favorite_teams, accent_color, notifications, ui_settings, launch_settings, cardgame_settings, privacy_settings, onboarding_completed, updated_at, user_id)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
       payload
     );
   }
@@ -320,32 +381,40 @@ const savePreferencesRecord = async (userId, rawPreferences = {}) => {
 };
 
 const readCardgameState = async (userId) => {
-  const row = await get('SELECT pack_state, updated_at FROM user_cardgame_state WHERE user_id = ?', [userId]);
-  if (!row) return { packState: null, updatedAt: null };
+  const row = await get('SELECT pack_state, progress_state, updated_at FROM user_cardgame_state WHERE user_id = ?', [userId]);
+  if (!row) return { packState: null, progressState: null, updatedAt: null };
   return {
     packState: parseJsonField(row.pack_state, null),
+    progressState: parseJsonField(row.progress_state, null),
     updatedAt: row.updated_at || null
   };
 };
 
-const saveCardgameState = async (userId, packState) => {
-  const serialized = JSON.stringify(packState || null);
+const saveCardgameState = async (userId, updates = {}) => {
   const updatedAt = new Date().toISOString();
-  const existing = await get('SELECT user_id FROM user_cardgame_state WHERE user_id = ?', [userId]);
+  const existing = await get('SELECT user_id, pack_state, progress_state FROM user_cardgame_state WHERE user_id = ?', [userId]);
+  const hasPackState = Object.prototype.hasOwnProperty.call(updates, 'packState');
+  const hasProgressState = Object.prototype.hasOwnProperty.call(updates, 'progressState');
+
+  const nextPackState =
+    hasPackState ? JSON.stringify(updates.packState ?? null) : existing?.pack_state ?? null;
+  const nextProgressState =
+    hasProgressState ? JSON.stringify(updates.progressState ?? null) : existing?.progress_state ?? null;
 
   if (existing) {
     await run(
       `UPDATE user_cardgame_state
           SET pack_state = ?,
+              progress_state = ?,
               updated_at = ?
         WHERE user_id = ?`,
-      [serialized, updatedAt, userId]
+      [nextPackState, nextProgressState, updatedAt, userId]
     );
   } else {
     await run(
-      `INSERT INTO user_cardgame_state (pack_state, updated_at, user_id)
-       VALUES (?, ?, ?)`,
-      [serialized, updatedAt, userId]
+      `INSERT INTO user_cardgame_state (pack_state, progress_state, updated_at, user_id)
+       VALUES (?, ?, ?, ?)`,
+      [nextPackState, nextProgressState, updatedAt, userId]
     );
   }
 
@@ -564,6 +633,120 @@ app.post('/api/auth/login', async (req, res) => {
   }
 });
 
+app.put('/api/account/:userId', async (req, res) => {
+  try {
+    const userId = Number(req.params.userId);
+    if (!userId) {
+      return res.status(400).json({ error: 'Invalid user.' });
+    }
+
+    const user = await get('SELECT * FROM users WHERE id = ?', [userId]);
+    if (!user) {
+      return res.status(404).json({ error: 'User not found.' });
+    }
+
+    const {
+      username,
+      email,
+      currentPassword,
+      newPassword
+    } = req.body || {};
+
+    const updates = [];
+    const params = [];
+
+    if (username) {
+      const nextUsername = String(username).trim();
+      if (nextUsername.length < 3) {
+        return res.status(400).json({ error: 'Username must be at least 3 characters.' });
+      }
+      const conflict = await get('SELECT id FROM users WHERE username = ? AND id != ?', [nextUsername, userId]);
+      if (conflict) {
+        return res.status(409).json({ error: 'Username already exists.' });
+      }
+      updates.push('username = ?');
+      params.push(nextUsername);
+    }
+
+    if (email) {
+      const nextEmail = String(email).trim().toLowerCase();
+      if (!currentPassword) {
+        return res.status(400).json({ error: 'Current password is required to change email.' });
+      }
+      const ok = await bcrypt.compare(String(currentPassword), user.password_hash);
+      if (!ok) {
+        return res.status(401).json({ error: 'Current password is incorrect.' });
+      }
+      const conflict = await get('SELECT id FROM users WHERE email = ? AND id != ?', [nextEmail, userId]);
+      if (conflict) {
+        return res.status(409).json({ error: 'Email already exists.' });
+      }
+      updates.push('email = ?');
+      params.push(nextEmail);
+    }
+
+    if (newPassword) {
+      if (!currentPassword) {
+        return res.status(400).json({ error: 'Current password is required to change password.' });
+      }
+      const ok = await bcrypt.compare(String(currentPassword), user.password_hash);
+      if (!ok) {
+        return res.status(401).json({ error: 'Current password is incorrect.' });
+      }
+      if (String(newPassword).length < 6) {
+        return res.status(400).json({ error: 'New password must be at least 6 characters.' });
+      }
+      const nextHash = await bcrypt.hash(String(newPassword), 10);
+      updates.push('password_hash = ?');
+      params.push(nextHash);
+    }
+
+    if (!updates.length) {
+      return res.status(400).json({ error: 'No account changes provided.' });
+    }
+
+    params.push(userId);
+    await run(`UPDATE users SET ${updates.join(', ')} WHERE id = ?`, params);
+    const nextUser = await get('SELECT * FROM users WHERE id = ?', [userId]);
+    res.json({ user: sanitizeUser(nextUser) });
+  } catch (err) {
+    console.error('Account update error:', err);
+    res.status(500).json({ error: 'Server error.' });
+  }
+});
+
+app.delete('/api/account/:userId', async (req, res) => {
+  try {
+    const userId = Number(req.params.userId);
+    if (!userId) {
+      return res.status(400).json({ error: 'Invalid user.' });
+    }
+
+    const { currentPassword, confirmation } = req.body || {};
+    const user = await get('SELECT * FROM users WHERE id = ?', [userId]);
+    if (!user) {
+      return res.status(404).json({ error: 'User not found.' });
+    }
+    if (String(confirmation || '').trim().toUpperCase() !== 'DELETE') {
+      return res.status(400).json({ error: 'Type DELETE to confirm account removal.' });
+    }
+    if (!currentPassword) {
+      return res.status(400).json({ error: 'Current password is required to delete the account.' });
+    }
+
+    const ok = await bcrypt.compare(String(currentPassword), user.password_hash);
+    if (!ok) {
+      return res.status(401).json({ error: 'Current password is incorrect.' });
+    }
+
+    await run('DELETE FROM users WHERE id = ?', [userId]);
+    res.json({ ok: true });
+  } catch (err) {
+    console.error('Account delete error:', err);
+    res.status(500).json({ error: 'Server error.' });
+  }
+});
+
 app.get('/api/preferences/:userId', async (req, res) => {
   try {
     const userId = Number(req.params.userId);
@@ -758,7 +941,14 @@ app.put('/api/cardgame/state/:userId', async (req, res) => {
     if (!userId) {
       return res.status(400).json({ error: 'Invalid user.' });
     }
-    const state = await saveCardgameState(userId, req.body?.packState || null);
+    const updates = {};
+    if (Object.prototype.hasOwnProperty.call(req.body || {}, 'packState')) {
+      updates.packState = req.body?.packState ?? null;
+    }
+    if (Object.prototype.hasOwnProperty.call(req.body || {}, 'progressState')) {
+      updates.progressState = req.body?.progressState ?? null;
+    }
+    const state = await saveCardgameState(userId, updates);
     res.json(state);
   } catch (err) {
     console.error('Cardgame state save error:', err);

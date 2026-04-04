@@ -3,6 +3,7 @@ import { storage } from '../core/storage.js';
 import { onEvent } from '../core/events.js';
 import { registerBeforeViewChange, setStoredView, showCardgame } from '../core/views.js';
 import { loadUser, openAuthModal, showAuthMessage } from './auth.js';
+import { getPreferences } from './preferences.js';
 
 const PACK_OPEN_KEY = 'fodrPackOpen';
 const PACK_ID_KEY = 'fodrPackId';
@@ -11,7 +12,16 @@ const PACK_COUNT_KEY = 'fodrPackCount';
 const GUEST_BALANCE = 0;
 const SHARED_CARD_PRICES_URL = '/shared/card-prices.json';
 const QUEST_STORAGE_PREFIX = 'fodrCardgameQuests';
+const CARDGAME_PROGRESS_STORAGE_PREFIX = 'fodrCardgameProgress';
 const QUEST_WEEKLY_TARGET = 60000;
+const CARD_RARITY_XP = {
+  common: 25,
+  elite: 50,
+  gold: 100,
+  special: 5000
+};
+const CARDGAME_LEVEL_BASE_XP = 500;
+const CARDGAME_LEVEL_STEP_XP = 250;
 
 const DAILY_QUESTS = [
   {
@@ -321,6 +331,159 @@ const loadQuestState = () => {
   return questState;
 };
 
+const getCardgameProgressStorageKey = (user = loadUser()) => `${CARDGAME_PROGRESS_STORAGE_PREFIX}:${user?.id || 'guest'}`;
+
+const createCardgameProgressState = () => ({
+  totalXp: 0
+});
+
+const normalizeCardgameProgressState = (value) => {
+  const rawTotalXp = Number(value?.totalXp ?? value?.xp ?? 0);
+  return {
+    totalXp: Number.isFinite(rawTotalXp) && rawTotalXp > 0 ? Math.floor(rawTotalXp) : 0
+  };
+};
+
+const getXpNeededForLevel = (level) => CARDGAME_LEVEL_BASE_XP + Math.max(0, level - 1) * CARDGAME_LEVEL_STEP_XP;
+
+const getCardgameLevelMeta = (totalXp) => {
+  const safeTotalXp = Math.max(0, Math.floor(Number(totalXp) || 0));
+  let level = 1;
+  let spentXp = 0;
+  let currentRequirement = getXpNeededForLevel(level);
+
+  while (safeTotalXp >= spentXp + currentRequirement) {
+    spentXp += currentRequirement;
+    level += 1;
+    currentRequirement = getXpNeededForLevel(level);
+  }
+
+  const currentLevelXp = safeTotalXp - spentXp;
+  const remainingXp = Math.max(0, currentRequirement - currentLevelXp);
+  const progressPercent = currentRequirement > 0 ? Math.min(100, Math.round((currentLevelXp / currentRequirement) * 100)) : 100;
+
+  return {
+    totalXp: safeTotalXp,
+    level,
+    currentLevelXp,
+    nextLevelXp: currentRequirement,
+    remainingXp,
+    progressPercent
+  };
+};
+
+const getCardgameLevelBadge = (level) => {
+  if (level >= 25) return 'Legend';
+  if (level >= 18) return 'Elite';
+  if (level >= 12) return 'Star';
+  if (level >= 7) return 'Pro';
+  if (level >= 3) return 'Rising';
+  return 'Rookie';
+};
+
+let cardgameProgressState = createCardgameProgressState();
+let cardgameProgressFlashTimer = null;
+
+const renderCardgameProgress = () => {
+  const meta = getCardgameLevelMeta(cardgameProgressState.totalXp);
+  if (cardgameLevelValue) {
+    cardgameLevelValue.textContent = String(meta.level);
+  }
+  if (cardgameLevelBadge) {
+    cardgameLevelBadge.textContent = getCardgameLevelBadge(meta.level);
+  }
+  if (cardgameLevelFill) {
+    cardgameLevelFill.style.width = `${meta.progressPercent}%`;
+  }
+  if (cardgameLevelXp) {
+    cardgameLevelXp.textContent = `${formatPlainNumber(meta.totalXp)} XP`;
+  }
+  if (cardgameLevelNext) {
+    cardgameLevelNext.textContent = `${formatPlainNumber(meta.remainingXp)} XP to LV ${meta.level + 1}`;
+  }
+};
+
+const persistCardgameProgressState = () => {
+  storage.set(getCardgameProgressStorageKey(), JSON.stringify(cardgameProgressState));
+};
+
+const setCardgameProgressState = (nextState, { persist = true } = {}) => {
+  cardgameProgressState = normalizeCardgameProgressState(nextState);
+  if (persist) {
+    persistCardgameProgressState();
+  }
+  renderCardgameProgress();
+  return cardgameProgressState;
+};
+
+const loadCardgameProgressState = () => {
+  try {
+    const raw = storage.get(getCardgameProgressStorageKey());
+    setCardgameProgressState(raw ? JSON.parse(raw) : null, { persist: true });
+  } catch {
+    setCardgameProgressState(null, { persist: true });
+  }
+  return cardgameProgressState;
+};
+
+const syncCardgameProgressToAccount = async (overrideState = cardgameProgressState) => {
+  const user = loadUser();
+  if (!user?.id) return;
+  try {
+    await putJson(`/cardgame/state/${user.id}`, {
+      progressState: normalizeCardgameProgressState(overrideState)
+    });
+  } catch (error) {
+    console.warn('Unable to sync cardgame progression yet.', error);
+  }
+};
+
+const showCardgameProgressFlash = (copy) => {
+  if (!cardgameLevelFlash) return;
+  cardgameLevelFlash.textContent = copy;
+  cardgameLevelFlash.classList.add('is-visible');
+  if (cardgameProgressFlashTimer) {
+    window.clearTimeout(cardgameProgressFlashTimer);
+  }
+  cardgameProgressFlashTimer = window.setTimeout(() => {
+    cardgameLevelFlash.classList.remove('is-visible');
+  }, 2200);
+};
+
+const getCardRarityKey = (card, fallbackPackId = '') => {
+  const rawRarity = String(card?.rarityKey || card?.rarity || card?.packKey || fallbackPackId || '')
+    .trim()
+    .toLowerCase();
+
+  if (!rawRarity) return 'common';
+  if (rawRarity.includes('common')) return 'common';
+  if (rawRarity.includes('elite')) return 'elite';
+  if (rawRarity.includes('gold')) return 'gold';
+  if (rawRarity.includes('special')) return 'special';
+  if (['liverpool', 'mancity', 'brazil', 'ultimate'].includes(rawRarity)) return 'special';
+  return 'common';
+};
+
+const awardCardgameXp = (card, fallbackPackId = '') => {
+  const rarityKey = getCardRarityKey(card, fallbackPackId);
+  const gainedXp = CARD_RARITY_XP[rarityKey] || 0;
+  if (gainedXp <= 0) return;
+
+  const before = getCardgameLevelMeta(cardgameProgressState.totalXp);
+  const nextTotalXp = cardgameProgressState.totalXp + gainedXp;
+  setCardgameProgressState({ totalXp: nextTotalXp });
+
+  const after = getCardgameLevelMeta(cardgameProgressState.totalXp);
+  const rewardLabel = rarityKey === 'special' ? 'SPECIAL' : rarityKey.toUpperCase();
+  const flashCopy =
+    after.level > before.level
+      ? `+${formatPlainNumber(gainedXp)} XP · ${rewardLabel} card · LV ${before.level} -> LV ${after.level}`
+      : `+${formatPlainNumber(gainedXp)} XP · ${rewardLabel} card`;
+
+  showCardgameProgressFlash(flashCopy);
+  void syncCardgameProgressToAccount();
+};
+
 const syncPendingQuestRewards = () => {
   const user = loadUser();
   if (!user?.id) return Promise.resolve();
@@ -547,6 +710,12 @@ const packSaveBtn = document.querySelector('#pack-save');
 const packSellBtn = document.querySelector('#pack-sell');
 const packDiscardBtn = document.querySelector('#pack-discard');
 const cardgameBalanceValue = document.querySelector('#cardgame-balance-value');
+const cardgameLevelValue = document.querySelector('#cardgame-level-value');
+const cardgameLevelBadge = document.querySelector('#cardgame-level-badge');
+const cardgameLevelFill = document.querySelector('#cardgame-level-fill');
+const cardgameLevelXp = document.querySelector('#cardgame-level-xp');
+const cardgameLevelNext = document.querySelector('#cardgame-level-next');
+const cardgameLevelFlash = document.querySelector('#cardgame-level-flash');
 const inventoryBtn = document.querySelector('#cardgame-inventory-btn');
 const inventoryStage = document.querySelector('#inventory-stage');
 const inventoryPanel = document.querySelector('.inventory-panel');
@@ -1245,22 +1414,27 @@ const ultimateShopCards = [
 
 liverpoolPackCards.forEach((card) => {
   card.packKey = 'liverpool';
+  card.rarityKey = 'special';
 });
 
 elitePackCards.forEach((card) => {
   card.packKey = 'elite';
+  card.rarityKey = 'elite';
 });
 
 mancityPackCards.forEach((card) => {
   card.packKey = 'mancity';
+  card.rarityKey = 'special';
 });
 
 brazilPackCards.forEach((card) => {
   card.packKey = 'brazil';
+  card.rarityKey = 'special';
 });
 
 ultimateShopCards.forEach((card) => {
   card.packKey = 'ultimate';
+  card.rarityKey = 'special';
 });
 
 const shopSellers = ['AnfieldVault', 'IconDealer', 'ScoutHQ', 'LegendsMarket', 'RedLineTrade', 'GoalPostX'];
@@ -2784,6 +2958,7 @@ const openPackCard = (slotIndex) => {
     fillPackInfo(card);
     if (packInfoStatus) packInfoStatus.textContent = '';
     recordQuestAction('pack_open', { packId: currentPackId, count: 1 });
+    awardCardgameXp(card, currentPackId);
   }
   slot.card.classList.add('is-open');
   slot.card.setAttribute('aria-pressed', 'true');
@@ -2794,11 +2969,13 @@ const openPackCard = (slotIndex) => {
 
 export const restorePackState = async () => {
   let remotePackState = null;
+  let remoteProgressState;
   const currentUser = loadUser();
   if (currentUser?.id) {
     try {
       const remote = await getJson(`/cardgame/state/${currentUser.id}`);
       remotePackState = remote?.packState || null;
+      remoteProgressState = remote?.progressState;
       if (remotePackState) {
         storage.set(PACK_OPEN_KEY, remotePackState.open ? 'true' : 'false');
         if (remotePackState.packId) {
@@ -2813,9 +2990,22 @@ export const restorePackState = async () => {
           storage.remove(PACK_COUNT_KEY);
         }
       }
+
+      if (remoteProgressState && typeof remoteProgressState === 'object') {
+        storage.set(
+          getCardgameProgressStorageKey(currentUser),
+          JSON.stringify(normalizeCardgameProgressState(remoteProgressState))
+        );
+      }
     } catch (error) {
       console.warn('Unable to restore the pack state from the account.', error);
     }
+  }
+
+  if (currentUser?.id && remoteProgressState && typeof remoteProgressState === 'object') {
+    setCardgameProgressState(remoteProgressState, { persist: true });
+  } else {
+    loadCardgameProgressState();
   }
 
   const restorePackOpen = storage.get(PACK_OPEN_KEY) === 'true';
@@ -2871,6 +3061,7 @@ export const initCardgame = () => {
   const currentUser = loadUser();
   loadQuestState();
   renderQuests();
+  loadCardgameProgressState();
   if (currentUser?.id) {
     fetchCardgameBalance(currentUser.id);
     void syncPendingQuestRewards();
@@ -2882,15 +3073,19 @@ export const initCardgame = () => {
     const user = event.detail?.user;
     if (user?.id) {
       fetchCardgameBalance(user.id);
+      void restorePackState();
     }
     loadQuestState();
-    recordQuestAction('login');
+    if (event.detail?.reason === 'auth-login' || event.detail?.reason === 'auth-register') {
+      recordQuestAction('login');
+    }
   });
 
   onEvent('fodr:logout', () => {
     setCardgameBalance(GUEST_BALANCE);
     loadQuestState();
     renderQuests();
+    loadCardgameProgressState();
   });
 
   packBuys.forEach((button) => {
@@ -3039,6 +3234,7 @@ export const initCardgame = () => {
     inventoryList.addEventListener('click', (event) => {
       const sellBtn = event.target.closest('.inventory-sell');
       if (sellBtn) {
+        const preferences = getPreferences();
         const user = loadUser();
         if (!user) {
           openAuthModal('login');
@@ -3047,6 +3243,10 @@ export const initCardgame = () => {
         }
         const cardId = Number(sellBtn.dataset.cardId);
         if (!cardId) return;
+        if (preferences.cardgame?.confirmQuickSell !== false) {
+          const confirmed = window.confirm('Quick sell this card?');
+          if (!confirmed) return;
+        }
         postJson('/cardgame/inventory/sell', { userId: user.id, cardId })
           .then((data) => {
             if (typeof data.coins === 'number') {
@@ -3197,6 +3397,11 @@ export const initCardgame = () => {
             openSlots.forEach((idx) => resolvePackAfterOpen(idx));
             notifyInventoryUpdate();
             recordQuestAction('card_saved', { count: cardsToSave.length });
+            if (getPreferences().cardgame?.openInventoryAfterSave === true) {
+              window.setTimeout(() => {
+                void openInventoryStage();
+              }, 180);
+            }
           })
           .catch((err) => {
             if (packInfoStatus) packInfoStatus.textContent = err.message || 'Save failed.';
@@ -3210,6 +3415,11 @@ export const initCardgame = () => {
           resolvePackAfterOpen(activeSlotIndex);
           notifyInventoryUpdate();
           recordQuestAction('card_saved', { count: 1 });
+          if (getPreferences().cardgame?.openInventoryAfterSave === true) {
+            window.setTimeout(() => {
+              void openInventoryStage();
+            }, 180);
+          }
         })
         .catch((err) => {
           if (packInfoStatus) packInfoStatus.textContent = err.message || 'Save failed.';
@@ -3220,6 +3430,7 @@ export const initCardgame = () => {
   if (packSellBtn) {
     packSellBtn.addEventListener('click', (event) => {
       event.preventDefault();
+      const preferences = getPreferences();
       const user = loadUser();
       if (!user) {
         openAuthModal('login');
@@ -3230,6 +3441,10 @@ export const initCardgame = () => {
       if (!activeCard) {
         if (packInfoStatus) packInfoStatus.textContent = 'Open the pack first.';
         return;
+      }
+      if (preferences.cardgame?.confirmQuickSell !== false) {
+        const confirmed = window.confirm(`Quick sell ${activeCard.name} for ${formatCoins(activeCard.sell)}?`);
+        if (!confirmed) return;
       }
       postJson('/cardgame/sell', { userId: user.id, amount: activeCard.sell })
         .then((data) => {
@@ -3251,6 +3466,11 @@ export const initCardgame = () => {
   if (packDiscardBtn) {
     packDiscardBtn.addEventListener('click', (event) => {
       event.preventDefault();
+      const preferences = getPreferences();
+      if (preferences.cardgame?.confirmDiscard !== false) {
+        const confirmed = window.confirm('Discard this pulled card?');
+        if (!confirmed) return;
+      }
       resolvePackAfterOpen();
     });
   }

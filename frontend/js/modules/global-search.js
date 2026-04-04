@@ -9,6 +9,7 @@ import {
   loadTeamsIndex,
   normalizeSearchText
 } from './search-data.js';
+import { getPreferences } from './preferences.js';
 
 const searchOpenBtn = document.querySelector('#global-search-open');
 const searchOverlay = document.querySelector('#global-search');
@@ -326,6 +327,25 @@ export const initGlobalSearch = () => {
   document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape') {
       closeOverlay();
+      return;
+    }
+
+    const preferences = getPreferences();
+    if (preferences.ui?.searchShortcutEnabled === false) return;
+
+    const target = event.target;
+    const isTypingField =
+      target instanceof HTMLInputElement ||
+      target instanceof HTMLTextAreaElement ||
+      target instanceof HTMLSelectElement ||
+      target?.isContentEditable === true;
+
+    const isSlash = event.key === '/';
+    const isShortcutK = (event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 'k';
+
+    if ((isSlash && !isTypingField) || isShortcutK) {
+      event.preventDefault();
+      openOverlay();
     }
   });
 };

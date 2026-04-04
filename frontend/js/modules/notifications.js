@@ -128,6 +128,12 @@ const openMenu = () => {
   menu.classList.remove('is-hidden');
   menu.setAttribute('aria-hidden', 'false');
   bellButton.setAttribute('aria-expanded', 'true');
+  const preferences = getPreferences();
+  if (preferences.notifications?.autoReadOnOpen === true) {
+    state.items = state.items.map((item) => ({ ...item, read: true }));
+    saveState();
+    render();
+  }
 };
 
 const closeMenu = () => {
@@ -176,6 +182,10 @@ const runNotificationAction = (action) => {
 };
 
 export const pushMainNotification = (payload) => {
+  const preferences = getPreferences();
+  if (preferences.notifications?.quietMode === true && payload?.force !== true) {
+    return null;
+  }
   const notification = buildNotification(payload);
   const existingIndex = notification.id
     ? state.items.findIndex((item) => item.id === notification.id)
@@ -323,7 +333,8 @@ export const initNotifications = () => {
       pushMainNotification({
         title: 'Signed In',
         message: `${user.username} is now logged in on this device.`,
-        category: 'Account'
+        category: 'Account',
+        force: true
       });
     }
   });
@@ -342,6 +353,12 @@ export const initNotifications = () => {
       category: 'News',
       action: 'news'
     });
+  });
+
+  onEvent('fodr:notifications:clear', () => {
+    state.items = [];
+    saveState();
+    render();
   });
 
   window.addEventListener('storage', (event) => {

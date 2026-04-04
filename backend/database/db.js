@@ -179,6 +179,10 @@ const init = async () => {
         prioritize_favorite_teams INTEGER NOT NULL DEFAULT 0,
         accent_color TEXT,
         notifications TEXT,
+        ui_settings TEXT,
+        launch_settings TEXT,
+        cardgame_settings TEXT,
+        privacy_settings TEXT,
         onboarding_completed INTEGER NOT NULL DEFAULT 0,
         updated_at TIMESTAMPTZ DEFAULT (${toPostgresTimestampExpression})
       )`
@@ -188,6 +192,7 @@ const init = async () => {
       `CREATE TABLE IF NOT EXISTS user_cardgame_state (
         user_id INTEGER PRIMARY KEY REFERENCES users(id) ON DELETE CASCADE,
         pack_state TEXT,
+        progress_state TEXT,
         updated_at TIMESTAMPTZ DEFAULT (${toPostgresTimestampExpression})
       )`
     );
@@ -261,6 +266,10 @@ const init = async () => {
         prioritize_favorite_teams INTEGER NOT NULL DEFAULT 0,
         accent_color TEXT,
         notifications TEXT,
+        ui_settings TEXT,
+        launch_settings TEXT,
+        cardgame_settings TEXT,
+        privacy_settings TEXT,
         onboarding_completed INTEGER NOT NULL DEFAULT 0,
         updated_at TEXT DEFAULT (${toSqliteTimestampExpression}),
         FOREIGN KEY(user_id) REFERENCES users(id) ON DELETE CASCADE
@@ -271,6 +280,7 @@ const init = async () => {
       `CREATE TABLE IF NOT EXISTS user_cardgame_state (
         user_id INTEGER PRIMARY KEY,
         pack_state TEXT,
+        progress_state TEXT,
         updated_at TEXT DEFAULT (${toSqliteTimestampExpression}),
         FOREIGN KEY(user_id) REFERENCES users(id) ON DELETE CASCADE
       )`
@@ -304,6 +314,11 @@ const init = async () => {
   await ensureColumn('user_cards', 'verification_code', 'TEXT');
   await ensureColumn('user_cards', 'verified_at', usePostgres ? 'TIMESTAMPTZ' : 'TEXT');
   await ensureColumn('user_cards', 'acquired_via', 'TEXT');
+  await ensureColumn('user_preferences', 'ui_settings', 'TEXT');
+  await ensureColumn('user_preferences', 'launch_settings', 'TEXT');
+  await ensureColumn('user_preferences', 'cardgame_settings', 'TEXT');
+  await ensureColumn('user_preferences', 'privacy_settings', 'TEXT');
+  await ensureColumn('user_cardgame_state', 'progress_state', 'TEXT');
 
   if (usePostgres) {
     await run(

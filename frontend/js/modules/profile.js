@@ -175,9 +175,14 @@ const applyProfileData = (user) => {
   const identityLineEl = document.querySelector('#profile-identity-line');
   const statusTitleEl = document.querySelector('#profile-status-title');
   const statusCopyEl = document.querySelector('#profile-status-copy');
+  const shareBtn = document.querySelector('#profile-share-btn');
   const preferences = getPreferences();
   const followedTeams = getFollowedTeams();
   const followedPlayers = getFollowedPlayers();
+  const isPrivateProfile = preferences?.privacy?.profileVisibility === 'private';
+  const showFollowCounts = preferences?.privacy?.showFollowCounts !== false;
+  const showOnlineStatus = preferences?.privacy?.showOnlineStatus !== false;
+  const showEmailOnProfile = preferences?.privacy?.showEmailOnProfile !== false;
 
   const username = user?.username ? String(user.username) : 'Guest';
   setText(nameEl, username.toUpperCase());
@@ -189,9 +194,9 @@ const applyProfileData = (user) => {
   );
   setText(alertSummaryEl, formatAlertSummary(preferences));
   setText(favoriteLeaguesEl, formatFavoriteLeagues(preferences));
-  setText(followedTeamsEl, String(followedTeams.length));
-  setText(followedPlayersEl, String(followedPlayers.length));
-  setText(emailEl, user?.email ? String(user.email) : 'Guest session');
+  setText(followedTeamsEl, showFollowCounts ? String(followedTeams.length) : 'Hidden');
+  setText(followedPlayersEl, showFollowCounts ? String(followedPlayers.length) : 'Hidden');
+  setText(emailEl, showEmailOnProfile ? (user?.email ? String(user.email) : 'Guest session') : 'Hidden');
   setText(
     accountNameEl,
     [user?.first_name, user?.last_name].filter(Boolean).join(' ') || (user?.username ? String(user.username) : 'Guest')
@@ -210,20 +215,45 @@ const applyProfileData = (user) => {
       : 'Log in when you want this profile, your follows, and your cardgame state to stick to the account.'
   );
 
+  if (shareBtn instanceof HTMLButtonElement) {
+    shareBtn.disabled = isPrivateProfile;
+    shareBtn.textContent = isPrivateProfile ? 'Private Profile' : 'Share Handle';
+  }
+
   if (user?.posts) {
     setText(postsEl, user.posts);
   }
   if (user?.followers) {
-    setText(followersEl, user.followers);
+    setText(followersEl, showFollowCounts ? user.followers : 'Hidden');
   }
   if (user?.following) {
-    setText(followingEl, user.following);
+    setText(followingEl, showFollowCounts ? user.following : 'Hidden');
   }
 
   if (!user) {
     setText(postsEl, '0');
-    setText(followersEl, '0');
-    setText(followingEl, '0');
+    setText(followersEl, showFollowCounts ? '0' : 'Hidden');
+    setText(followingEl, showFollowCounts ? '0' : 'Hidden');
+  }
+
+  if (user && isPrivateProfile) {
+    setText(statusTitleEl, 'Private profile enabled');
+    setText(
+      statusCopyEl,
+      'Handle sharing is locked right now and profile-facing counts stay limited to your own view.'
+    );
+  } else if (user && !showOnlineStatus) {
+    setText(statusTitleEl, 'Online status hidden');
+    setText(
+      statusCopyEl,
+      `${followedTeams.length} followed teams and ${followedPlayers.length} followed players are still shaping your alerts, but your online presence stays hidden.`
+    );
+  } else if (user && showOnlineStatus) {
+    setText(statusTitleEl, 'Profile synced and online');
+    setText(
+      statusCopyEl,
+      `${followedTeams.length} followed teams and ${followedPlayers.length} followed players are shaping your alerts right now.`
+    );
   }
 
   if (!avatar) return;

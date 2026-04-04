@@ -54,6 +54,47 @@
   box-shadow: 0 2px 0 #111111;
 }
 
+body.theme-night .settings-header,
+body.theme-night .settings-card {
+  background: #121925;
+  color: #f5f7fb;
+  border-color: #334155;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+}
+
+body.theme-night .settings-header p,
+body.theme-night .meta,
+body.theme-night .settings-card h3 {
+  color: rgba(235, 241, 247, 0.82);
+}
+
+body.theme-night .select,
+body.theme-night .settings-input,
+body.theme-night .settings-textarea,
+body.theme-night .file-input {
+  background: #0b1220;
+  color: #f5f7fb;
+  border-color: #334155;
+}
+
+body.theme-night .toggle-slider {
+  background: #263245;
+  border-color: #334155;
+}
+
+body.compact-ui .settings-view {
+  gap: 14px;
+}
+
+body.compact-ui .settings-grid {
+  gap: 14px;
+}
+
+body.compact-ui .settings-card {
+  padding: 14px;
+  gap: 11px;
+}
+
 .settings-card h3 {
   font-size: 16px;
   font-weight: 700;

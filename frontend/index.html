@@ -1070,36 +1070,6 @@
                 </div>
               </article>
 
-              <article class="league-table-card facup" data-league="facup">
-                <div class="table-head">
-                  <div class="head-left">
-                    <img class="head-logo" src="../images/comp-logos/facup.png" alt="FA Cup" />
-                    <span class="flag flag-eng" aria-hidden="true"></span>
-                    <span class="head-title">FA Cup</span>
-                  </div>
-                </div>
-                <div class="table-body">
-                  <div class="table-row empty"><span>FA Cup view coming soon.</span></div>
-                </div>
-              </article>
-
-              <article class="league-table-card carabaocup" data-league="carabaocup">
-                <div class="table-head">
-                  <div class="head-left">
-                    <img
-                      class="head-logo"
-                      src="../images/comp-logos/carabao-cup-crest.svg"
-                      alt="Carabao Cup"
-                    />
-                    <span class="flag flag-eng" aria-hidden="true"></span>
-                    <span class="head-title">Carabao Cup</span>
-                  </div>
-                </div>
-                <div class="table-body">
-                  <div class="table-row empty"><span>Carabao Cup view coming soon.</span></div>
-                </div>
-              </article>
-
               <article class="league-table-card seriea" data-league="seriea">
                 <div class="table-head">
                   <div class="head-left">
@@ -1813,9 +1783,28 @@
                 <button class="cardgame-tab" type="button" id="cardgame-inventory-btn">Inventory</button>
                 <button class="cardgame-tab" type="button">Shop</button>
               </div>
-              <div class="cardgame-balance">
-                <span id="cardgame-balance-value">12500000000</span>
-                <span class="coin">F</span>
+              <div class="cardgame-toolbar-meta">
+                <div class="cardgame-balance">
+                  <span id="cardgame-balance-value">12500000000</span>
+                  <span class="coin">F</span>
+                </div>
+                <section class="cardgame-level-panel" aria-label="Cardgame level progress">
+                  <div class="cardgame-level-top">
+                    <div>
+                      <span class="cardgame-level-kicker">Cardgame Level</span>
+                      <strong class="cardgame-level-value">LV <span id="cardgame-level-value">1</span></strong>
+                    </div>
+                    <span class="cardgame-level-badge" id="cardgame-level-badge">Rookie</span>
+                  </div>
+                  <div class="cardgame-level-track" aria-hidden="true">
+                    <div class="cardgame-level-fill" id="cardgame-level-fill"></div>
+                  </div>
+                  <div class="cardgame-level-meta">
+                    <span id="cardgame-level-xp">0 XP</span>
+                    <span id="cardgame-level-next">500 XP to LV 2</span>
+                  </div>
+                  <div class="cardgame-level-flash" id="cardgame-level-flash" aria-live="polite"></div>
+                </section>
               </div>
             </div>
 
@@ -3096,27 +3085,31 @@
                 <h3>Account</h3>
                 <div class="setting-item">
                   <span>Change username</span>
-                  <button class="setting-btn" type="button">Edit</button>
+                  <button class="setting-btn" type="button" id="settings-edit-username">Edit</button>
                 </div>
                 <div class="setting-item">
                   <span>Change email</span>
-                  <button class="setting-btn" type="button">Edit</button>
+                  <button class="setting-btn" type="button" id="settings-edit-email">Edit</button>
                 </div>
                 <div class="setting-item">
                   <span>Change password</span>
-                  <button class="setting-btn" type="button">Update</button>
+                  <button class="setting-btn" type="button" id="settings-change-password">Update</button>
                 </div>
                 <div class="setting-item">
                   <span>Upload / change profile picture</span>
-                  <input class="file-input" type="file" />
+                  <input class="file-input" type="file" id="settings-avatar-input" accept="image/*" />
                 </div>
                 <div class="setting-item danger">
                   <span>Delete account</span>
-                  <button class="setting-btn danger" type="button">Delete</button>
+                  <button class="setting-btn danger" type="button" id="settings-delete-account">Delete</button>
                 </div>
                 <div class="setting-item">
                   <span>Log out</span>
                   <button class="setting-btn" type="button" id="logout-btn">Log out</button>
+                </div>
+                <div class="setting-item">
+                  <span>Account actions status</span>
+                  <span class="meta" id="settings-account-status">Ready</span>
                 </div>
               </div>
 
@@ -3150,32 +3143,57 @@
                     <span class="toggle-slider"></span>
                   </label>
                 </div>
-              </div>
-
-              <div class="settings-card">
-                <h3>Social Preferences</h3>
                 <div class="setting-item">
-                  <span>Manage blocked users</span>
-                  <button class="setting-btn" type="button">View</button>
-                </div>
-                <div class="setting-item">
-                  <span>Who can send direct messages</span>
-                  <select class="select">
-                    <option>Everyone</option>
-                    <option>Followers only</option>
-                  </select>
-                </div>
-                <div class="setting-item">
-                  <span>Show follower count</span>
+                  <span>Quiet mode for in-app alerts</span>
                   <label class="toggle">
-                    <input type="checkbox" checked />
+                    <input type="checkbox" id="settings-notify-quiet" />
                     <span class="toggle-slider"></span>
                   </label>
                 </div>
                 <div class="setting-item">
-                  <span>Show online status</span>
+                  <span>Auto-mark notifications read when opened</span>
                   <label class="toggle">
-                    <input type="checkbox" />
+                    <input type="checkbox" id="settings-notify-auto-read" />
+                    <span class="toggle-slider"></span>
+                  </label>
+                </div>
+                <div class="setting-item">
+                  <span>Clear notification history</span>
+                  <button class="setting-btn" type="button" id="settings-clear-notifications">Clear</button>
+                </div>
+              </div>
+
+              <div class="settings-card">
+                <h3>Experience</h3>
+                <div class="setting-item">
+                  <span>Default launch page</span>
+                  <select class="select" id="settings-default-view">
+                    <option value="home">Home</option>
+                    <option value="leagues">Leagues</option>
+                    <option value="players">Teams</option>
+                    <option value="stats">Statistics</option>
+                    <option value="news">News</option>
+                    <option value="cardgame">Cardgame</option>
+                  </select>
+                </div>
+                <div class="setting-item">
+                  <span>Remember last opened page</span>
+                  <label class="toggle">
+                    <input type="checkbox" id="settings-remember-last-view" checked />
+                    <span class="toggle-slider"></span>
+                  </label>
+                </div>
+                <div class="setting-item">
+                  <span>Compact interface</span>
+                  <label class="toggle">
+                    <input type="checkbox" id="settings-compact-mode" />
+                    <span class="toggle-slider"></span>
+                  </label>
+                </div>
+                <div class="setting-item">
+                  <span>Keyboard shortcut for search (`/` or `Ctrl/Cmd + K`)</span>
+                  <label class="toggle">
+                    <input type="checkbox" id="settings-search-shortcut" checked />
                     <span class="toggle-slider"></span>
                   </label>
                 </div>
@@ -3214,7 +3232,32 @@
                 <div class="setting-item">
                   <span>Animations</span>
                   <label class="toggle">
-                    <input type="checkbox" checked />
+                    <input type="checkbox" id="settings-animations" checked />
+                    <span class="toggle-slider"></span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="settings-card">
+                <h3>Cardgame</h3>
+                <div class="setting-item">
+                  <span>Confirm before quick sell</span>
+                  <label class="toggle">
+                    <input type="checkbox" id="settings-cardgame-confirm-sell" checked />
+                    <span class="toggle-slider"></span>
+                  </label>
+                </div>
+                <div class="setting-item">
+                  <span>Confirm before discarding a pulled card</span>
+                  <label class="toggle">
+                    <input type="checkbox" id="settings-cardgame-confirm-discard" checked />
+                    <span class="toggle-slider"></span>
+                  </label>
+                </div>
+                <div class="setting-item">
+                  <span>Open inventory after saving a pack card</span>
+                  <label class="toggle">
+                    <input type="checkbox" id="settings-cardgame-open-inventory" />
                     <span class="toggle-slider"></span>
                   </label>
                 </div>
@@ -3248,6 +3291,10 @@
                   <button class="setting-btn" type="button" id="settings-open-onboarding">Open</button>
                 </div>
                 <div class="setting-item">
+                  <span>Reset all saved preferences</span>
+                  <button class="setting-btn" type="button" id="settings-reset-preferences">Reset</button>
+                </div>
+                <div class="setting-item">
                   <span>Preferences status</span>
                   <span class="meta" id="settings-preferences-status">Ready</span>
                 </div>
@@ -3258,24 +3305,30 @@
                 <div class="setting-item">
                   <span>Public / Private profile</span>
                   <label class="toggle">
-                    <input type="checkbox" />
+                    <input type="checkbox" id="settings-private-profile" />
                     <span class="toggle-slider"></span>
                   </label>
                 </div>
                 <div class="setting-item">
-                  <span>Hide posts from non-followers</span>
+                  <span>Show follow counts on profile</span>
                   <label class="toggle">
-                    <input type="checkbox" />
+                    <input type="checkbox" id="settings-show-follow-counts" checked />
                     <span class="toggle-slider"></span>
                   </label>
                 </div>
                 <div class="setting-item">
-                  <span>Who can comment on posts</span>
-                  <select class="select">
-                    <option>Everyone</option>
-                    <option>Followers only</option>
-                    <option>No one</option>
-                  </select>
+                  <span>Show online status on profile</span>
+                  <label class="toggle">
+                    <input type="checkbox" id="settings-show-online-status" checked />
+                    <span class="toggle-slider"></span>
+                  </label>
+                </div>
+                <div class="setting-item">
+                  <span>Show email inside profile snapshot</span>
+                  <label class="toggle">
+                    <input type="checkbox" id="settings-show-email-profile" checked />
+                    <span class="toggle-slider"></span>
+                  </label>
                 </div>
               </div>
 

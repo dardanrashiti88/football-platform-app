@@ -24,7 +24,7 @@ import { initSidebar } from './modules/sidebar.js';
 import { initHomeCards } from './modules/home-cards.js';
 import { initCardgame, openInventoryStage, restorePackState } from './modules/cardgame.js';
 import { initMatch } from './modules/match.js';
-import { initPreferences } from './modules/preferences.js';
+import { getLaunchPreferences, initPreferences } from './modules/preferences.js';
 import { initOnboarding } from './modules/onboarding.js';
 import { initNotifications } from './modules/notifications.js';
 import { initFollows } from './modules/follows.js';
@@ -117,7 +117,12 @@ initMatch();
 initOnboarding();
 initNotifications();
 
-const savedView = requestedView || getStoredView();
+const launchPreferences = getLaunchPreferences();
+const savedView =
+  requestedView ||
+  (launchPreferences.rememberLastView !== false ? getStoredView() : null) ||
+  launchPreferences.defaultView ||
+  'home';
 if (savedView) {
   switch (savedView) {
     case 'inventory':

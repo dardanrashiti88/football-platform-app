@@ -20,7 +20,30 @@ const defaultPreferences = () => ({
     matches: true,
     goals: true,
     social: true,
-    directMessages: true
+    directMessages: true,
+    quietMode: false,
+    autoReadOnOpen: false
+  },
+  ui: {
+    darkMode: false,
+    compactMode: false,
+    animationsEnabled: true,
+    searchShortcutEnabled: true
+  },
+  launch: {
+    defaultView: 'home',
+    rememberLastView: true
+  },
+  cardgame: {
+    confirmQuickSell: true,
+    confirmDiscard: true,
+    openInventoryAfterSave: false
+  },
+  privacy: {
+    profileVisibility: 'public',
+    showOnlineStatus: true,
+    showFollowCounts: true,
+    showEmailOnProfile: true
   },
   onboardingComplete: false,
   updatedAt: null
@@ -74,7 +97,32 @@ const normalizePreferences = (raw = {}) => {
       matches: raw.notifications?.matches !== false,
       goals: raw.notifications?.goals !== false,
       social: raw.notifications?.social !== false,
-      directMessages: raw.notifications?.directMessages !== false
+      directMessages: raw.notifications?.directMessages !== false,
+      quietMode: raw.notifications?.quietMode === true,
+      autoReadOnOpen: raw.notifications?.autoReadOnOpen === true
+    },
+    ui: {
+      darkMode: raw.ui?.darkMode === true,
+      compactMode: raw.ui?.compactMode === true,
+      animationsEnabled: raw.ui?.animationsEnabled !== false,
+      searchShortcutEnabled: raw.ui?.searchShortcutEnabled !== false
+    },
+    launch: {
+      defaultView: ['home', 'leagues', 'players', 'stats', 'news', 'cardgame'].includes(raw.launch?.defaultView)
+        ? raw.launch.defaultView
+        : defaults.launch.defaultView,
+      rememberLastView: raw.launch?.rememberLastView !== false
+    },
+    cardgame: {
+      confirmQuickSell: raw.cardgame?.confirmQuickSell !== false,
+      confirmDiscard: raw.cardgame?.confirmDiscard !== false,
+      openInventoryAfterSave: raw.cardgame?.openInventoryAfterSave === true
+    },
+    privacy: {
+      profileVisibility: raw.privacy?.profileVisibility === 'private' ? 'private' : 'public',
+      showOnlineStatus: raw.privacy?.showOnlineStatus !== false,
+      showFollowCounts: raw.privacy?.showFollowCounts !== false,
+      showEmailOnProfile: raw.privacy?.showEmailOnProfile !== false
     },
     onboardingComplete: Boolean(raw.onboardingComplete),
     updatedAt: raw.updatedAt ? String(raw.updatedAt) : null
@@ -106,9 +154,35 @@ const persistLocal = (preferences, user = readCurrentUser()) => {
   }
 };
 
+const applyRuntimePreferences = (preferences) => {
+  const root = document.documentElement;
+  const body = document.body;
+  const app = document.querySelector('.app');
+  if (!root || !body) return;
+
+  root.style.setProperty('--ui-accent', preferences.accentColor);
+
+  const darkMode = preferences.ui?.darkMode === true;
+  const compactMode = preferences.ui?.compactMode === true;
+  const reducedMotion = preferences.ui?.animationsEnabled === false;
+
+  root.classList.toggle('theme-night', darkMode);
+  body.classList.toggle('theme-night', darkMode);
+  app?.classList.toggle('theme-night', darkMode);
+
+  root.classList.toggle('compact-ui', compactMode);
+  body.classList.toggle('compact-ui', compactMode);
+  app?.classList.toggle('compact-ui', compactMode);
+
+  root.classList.toggle('reduce-motion', reducedMotion);
+  body.classList.toggle('reduce-motion', reducedMotion);
+  app?.classList.toggle('reduce-motion', reducedMotion);
+};
+
 const applyPreferences = (preferences, { emit = true } = {}) => {
   state.preferences = normalizePreferences(preferences);
   persistLocal(state.preferences);
+  applyRuntimePreferences(state.preferences);
   if (emit) {
     emitEvent('fodr:preferences', { preferences: state.preferences });
   }
@@ -126,6 +200,10 @@ const pushRemotePreferences = async (userId, preferences) => {
 };
 
 export const getPreferences = () => state.preferences;
+export const getLaunchPreferences = () => state.preferences.launch || defaultPreferences().launch;
+export const getDefaultPreferences = () => defaultPreferences();
+
+export const resetPreferences = async () => updatePreferences(defaultPreferences());
 
 export const updatePreferences = async (patch, { skipRemote = false } = {}) => {
   const next = normalizePreferences({

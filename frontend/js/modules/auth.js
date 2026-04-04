@@ -80,13 +80,13 @@ export const loadUser = () => {
   }
 };
 
-const saveUser = (user) => {
+export const syncSessionUser = (user, options = {}) => {
   storage.set(USER_KEY, JSON.stringify(user));
   setUserLabel(user);
-  emitEvent('fodr:user', { user });
+  emitEvent('fodr:user', { user, reason: options.reason || 'session-update' });
 };
 
-const clearUser = () => {
+export const logoutCurrentUser = () => {
   storage.remove(USER_KEY);
   setUserLabel(null);
   emitEvent('fodr:logout');
@@ -168,7 +168,7 @@ export const initAuth = () => {
       const password = form.get('password');
       try {
         const data = await postJson('/auth/login', { email, password });
-        saveUser(data.user);
+        syncSessionUser(data.user, { reason: 'auth-login' });
         showAuthMessage('Logged in successfully.', 'success');
         setTimeout(closeAuthModal, 600);
       } catch (err) {
@@ -204,7 +204,7 @@ export const initAuth = () => {
       };
       try {
         const data = await postJson('/auth/register', payload);
-        saveUser(data.user);
+        syncSessionUser(data.user, { reason: 'auth-register' });
         showAuthMessage('Account created.', 'success');
         setTimeout(closeAuthModal, 600);
       } catch (err) {
@@ -215,7 +215,7 @@ export const initAuth = () => {
 
   if (logoutBtn) {
     logoutBtn.addEventListener('click', () => {
-      clearUser();
+      logoutCurrentUser();
       closeProfileMenu();
     });
   }

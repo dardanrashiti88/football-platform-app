@@ -23,6 +23,27 @@
   position: relative;
 }
 
+body.theme-night .auth-window,
+body.theme-night .form-container {
+  background: #101826;
+  color: #eef3f8;
+  border-color: #334155;
+}
+
+body.theme-night .title,
+body.theme-night .auth-message,
+body.theme-night .auth-tab,
+body.theme-night .input {
+  color: #eef3f8;
+}
+
+body.theme-night .input,
+body.theme-night .auth-tab,
+body.theme-night .auth-close {
+  background: #0b1220;
+  border-color: #334155;
+}
+
 .auth-close {
   position: absolute;
   top: 12px;
