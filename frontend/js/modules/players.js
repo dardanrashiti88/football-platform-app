@@ -8,6 +8,12 @@ import {
   toggleTeamFollow
 } from './follows.js';
 import { loadPlayersIndex, normalizeSearchText } from './search-data.js';
+import {
+  ensurePlayerCompareIndex,
+  focusPlayerCompareInput,
+  getPlayerCompareResults,
+  resolveComparePlayerProfile
+} from './players/player-compare.js';
 import { createPlayerProfileView } from './players/player-profile-view.js';
 
 const PREMIER_TEAMS_URL = new URL(
@@ -582,13 +588,6 @@ const FLAG_URLS = {
   algeria: '../images/Flags/algeria.png',
   'ivorycoast': '../images/Flags/CIV.png',
   canada: '../images/Flags/canada.png'
-};
-
-const POSITION_ORDER = {
-  Goalkeeper: 0,
-  Defender: 1,
-  Midfielder: 2,
-  Forward: 3
 };
 
 const TEAM_COLORS = {
@@ -3054,95 +3053,6 @@ const renderTeamProfile = (playersGrid) => {
   );
 };
 
-const ensurePlayerCompareIndex = async () => {
-  if (Array.isArray(state.compareIndex)) return state.compareIndex;
-  const entries = await loadPlayersIndex();
-  state.compareIndex = Array.isArray(entries) ? entries : [];
-  return state.compareIndex;
-};
-
-const getPlayerCompareResults = (profile) => {
-  const clean = normalizeSearchText(state.compareQuery);
-  if (!clean || !Array.isArray(state.compareIndex)) return [];
-
-  const seen = new Set();
-  return state.compareIndex
-    .filter((entry) => {
-      const entryKey = playerProfileKey(entry.name);
-      if (entryKey === profile.key) return false;
-      const haystack = normalizeSearchText(`${entry.name} ${entry.teamName || ''} ${entry.leagueLabel || ''}`);
-      if (!haystack.includes(clean)) return false;
-      const dedupeKey = `${entryKey}:${normalizeKey(entry.teamId)}:${entry.leagueKey}`;
-      if (seen.has(dedupeKey)) return false;
-      seen.add(dedupeKey);
-      return true;
-    })
-    .slice(0, 8);
-};
-
-const resolveCompareTeam = async (entry) => {
-  const teams = entry.leagueKey === state.activeLeague && state.teams.length
-    ? state.teams
-    : await loadTeamsList(entry.leagueKey);
-
-  return (
-    teams.find((team) =>
-      [team.id, team.name, team.shortName]
-        .map((value) => normalizeKey(value))
-        .includes(normalizeKey(entry.teamId || entry.teamName || ''))
-    )
-    || teams.find((team) => normalizeKey(team.name || team.shortName || team.id) === normalizeKey(entry.teamName || ''))
-    || {
-      id: entry.teamId || normalizeKey(entry.teamName || entry.name),
-      name: entry.teamName || 'Club',
-      shortName: entry.teamName || 'Club'
-    }
-  );
-};
-
-const resolveComparePlayerProfile = async (entry) => {
-  const team = await resolveCompareTeam(entry);
-  let player = null;
-
-  try {
-    const roster = await loadRosterForTeam(team, entry.leagueKey);
-    player = findRosterPlayer(roster, entry.name);
-  } catch (error) {
-    console.warn('Unable to load compare roster', error);
-  }
-
-  if (!player) {
-    const players = await loadPlayersListForLeague(entry.leagueKey);
-    player = players.find(
-      (candidate) =>
-        playerProfileKey(candidate?.name) === playerProfileKey(entry.name) && playerBelongsToTeam(candidate, team)
-    );
-  }
-
-  const safePlayer = {
-    name: entry.name,
-    position: '',
-    number: '',
-    nationality: '',
-    age: '',
-    appearances: '',
-    goals: '',
-    assists: '',
-    goalContributions: '',
-    minutes: '',
-    cleanSheets: '',
-    yellow: '',
-    red: '',
-    homeGrown: '',
-    notes: '',
-    photo: entry.photo || '',
-    ...(player || {})
-  };
-
-  if (!safePlayer.photo && entry.photo) safePlayer.photo = entry.photo;
-  return buildPlayerProfileData(safePlayer, team, entry.leagueKey);
-};
-
 const buildCompareButton = (active = false) => {
   const button = createTextElement(
     'button',
@@ -3185,7 +3095,14 @@ const renderPlayerProfile = (playersGrid) => {
       query: state.compareQuery,
       loading: state.compareLoading,
       targetProfile: state.compareTargetProfile,
-      results: getPlayerCompareResults(profile)
+      results: getPlayerCompareResults({
+        query: state.compareQuery,
+        compareIndex: state.compareIndex,
+        profileKey: profile.key,
+        normalizeSearchText,
+        playerProfileKey,
+        normalizeKey
+      })
     },
     buildFollowButton,
     buildCompareButton,
@@ -3196,17 +3113,6 @@ const renderPlayerProfile = (playersGrid) => {
     positionMapLayout: POSITION_MAP_LAYOUT
   });
   playersGrid.replaceChildren(wrapper);
-};
-
-const focusPlayerCompareInput = (playersGrid) => {
-  requestAnimationFrame(() => {
-    const input = playersGrid.querySelector('[data-action="player-compare-query"]');
-    if (input instanceof HTMLInputElement) {
-      input.focus();
-      const end = input.value.length;
-      input.setSelectionRange(end, end);
-    }
-  });
 };
 
 const openPlayerProfileInTeam = (playerName, playersGrid) => {
@@ -3332,38 +3238,6 @@ const updateActivePill = (teamRow) => {
     pill.classList.toggle('is-active', isActive);
     pill.setAttribute('aria-pressed', isActive ? 'true' : 'false');
   });
-};
-
-const buildGroupHeader = (label) => {
-  const header = document.createElement('div');
-  header.className = 'players-group';
-  header.textContent = label;
-  return header;
-};
-
-const buildPlayerCard = (player) => {
-  const row = document.createElement('div');
-  row.className = 'player-card';
-  const name = document.createElement('span');
-  name.className = 'player-card-name';
-  name.textContent = player.name;
-  const meta = document.createElement('div');
-  meta.className = 'player-card-meta';
-  const position = document.createElement('span');
-  position.textContent = player.position || '-';
-  const nationality = document.createElement('span');
-  nationality.textContent = player.nationality || '-';
-  meta.append(position, nationality);
-  row.append(name, meta);
-
-  return row;
-};
-
-const sortPlayers = (a, b) => {
-  const posA = POSITION_ORDER[a.position] ?? 9;
-  const posB = POSITION_ORDER[b.position] ?? 9;
-  if (posA !== posB) return posA - posB;
-  return a.name.localeCompare(b.name);
 };
 
 const renderPlayers = (playersGrid) => {
@@ -3644,7 +3518,10 @@ export const initPlayers = () => {
         state.compareLoading = true;
         renderPlayerProfile(playersGrid);
         try {
-          await ensurePlayerCompareIndex();
+          state.compareIndex = await ensurePlayerCompareIndex({
+            currentIndex: state.compareIndex,
+            loadPlayersIndex
+          });
         } finally {
           state.compareLoading = false;
         }
@@ -3666,12 +3543,26 @@ export const initPlayers = () => {
       state.compareLoading = true;
       renderPlayerProfile(playersGrid);
       try {
-        state.compareTargetProfile = await resolveComparePlayerProfile({
-          name: selectCompareBtn.dataset.playerName || '',
-          teamId: selectCompareBtn.dataset.teamId || '',
-          teamName: selectCompareBtn.dataset.teamName || '',
-          leagueKey: selectCompareBtn.dataset.leagueKey || state.activeLeague
-        });
+        state.compareTargetProfile = await resolveComparePlayerProfile(
+          {
+            name: selectCompareBtn.dataset.playerName || '',
+            teamId: selectCompareBtn.dataset.teamId || '',
+            teamName: selectCompareBtn.dataset.teamName || '',
+            leagueKey: selectCompareBtn.dataset.leagueKey || state.activeLeague
+          },
+          {
+            activeLeague: state.activeLeague,
+            activeTeams: state.teams,
+            loadTeamsList,
+            normalizeKey,
+            loadRosterForTeam,
+            findRosterPlayer,
+            loadPlayersListForLeague,
+            playerBelongsToTeam,
+            playerProfileKey,
+            buildPlayerProfileData
+          }
+        );
         state.compareQuery = '';
       } finally {
         state.compareLoading = false;
@@ -3711,7 +3602,10 @@ export const initPlayers = () => {
       state.compareLoading = true;
       renderPlayerProfile(playersGrid);
       try {
-        await ensurePlayerCompareIndex();
+        state.compareIndex = await ensurePlayerCompareIndex({
+          currentIndex: state.compareIndex,
+          loadPlayersIndex
+        });
       } finally {
         state.compareLoading = false;
       }
