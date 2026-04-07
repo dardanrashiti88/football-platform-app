@@ -9458,6 +9458,7 @@ export default function App() {
             src="/images/web-logo/logo-2.png"
             alt="FODR logo"
             className="h-12 w-auto object-contain drop-shadow-[0_6px_14px_rgba(0,0,0,0.18)]"
+            style={isDarkMode ? undefined : { filter: 'brightness(0) saturate(100%) contrast(1.25)' }}
             loading="lazy"
           />
           <span className="font-black text-xl tracking-tighter uppercase">FODR</span>
