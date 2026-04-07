@@ -1,36 +1,22 @@
 import { useEffect, useState } from 'react';
 import { cn } from '../lib/cn';
+import {
+  buildChatLabelFromHandle,
+  countConversationUnreadMessages,
+  getDashboardChatStorageKey,
+  markConversationAsRead,
+  persistDashboardChats,
+  readDashboardChats,
+  sortChatConversations,
+  type ChatConversation,
+  type ChatMessage,
+  type DashboardUser,
+} from '../lib/chat-storage';
 
 type DashboardCard = {
   id: string | number;
   name?: string;
   edition?: string;
-};
-
-type DashboardUser =
-  | {
-      id?: string | number;
-      userId?: string | number;
-      email?: string;
-      username?: string;
-    }
-  | null;
-
-type ChatMessage = {
-  id: string;
-  from: 'you';
-  text: string;
-  createdAt: string;
-};
-
-type ChatConversation = {
-  id: string;
-  cardId: string;
-  handle: string;
-  label: string;
-  updatedAt: string;
-  createdAt: string;
-  messages: ChatMessage[];
 };
 
 type ChatsViewProps = {
@@ -42,31 +28,15 @@ type ChatsViewProps = {
   onAction: (message: string) => void;
 };
 
-const sortConversations = (items: ChatConversation[]) =>
-  [...items].sort((a, b) => {
-    const left = new Date(b.updatedAt || b.createdAt).getTime();
-    const right = new Date(a.updatedAt || a.createdAt).getTime();
-    return left - right;
-  });
-
 const formatTimestamp = (value?: string) => {
   if (!value) return 'Now';
   const parsed = new Date(value);
   if (Number.isNaN(parsed.getTime())) return 'Now';
   return new Intl.DateTimeFormat('en-GB', {
     hour: '2-digit',
-    minute: '2-digit'
+    minute: '2-digit',
   }).format(parsed);
 };
-
-const buildLabelFromHandle = (value: string) =>
-  String(value || '')
-    .trim()
-    .replace(/^@+/, '')
-    .split(/[\s._-]+/)
-    .filter(Boolean)
-    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
-    .join(' ') || 'Collector';
 
 const buildInitials = (label: string) => {
   const parts = String(label || '')
@@ -88,9 +58,7 @@ export const ChatsView = ({
   const panelBorder = isDarkMode ? 'border-white/10' : 'border-gray-100';
   const muted = isDarkMode ? 'text-gray-400' : 'text-gray-500';
   const chipBg = isDarkMode ? 'bg-white/10' : 'bg-gray-100';
-  const chatStorageKey = user
-    ? `fodr-dashboard-chats:${String(user?.id ?? user?.userId ?? user?.email ?? user?.username ?? 'user')}`
-    : null;
+  const chatStorageKey = getDashboardChatStorageKey(user);
 
   const [selectedChatId, setSelectedChatId] = useState<string | null>(null);
   const [messageInput, setMessageInput] = useState('');
@@ -107,47 +75,13 @@ export const ChatsView = ({
       return;
     }
 
-    try {
-      const validCardIds = new Set(cards.map((card) => String(card.id)));
-      const raw = localStorage.getItem(chatStorageKey);
-      const parsed = raw ? JSON.parse(raw) : [];
-      const normalized = Array.isArray(parsed)
-        ? parsed
-            .filter((item) => item && typeof item === 'object' && validCardIds.has(String(item.cardId)))
-            .map((item) => ({
-              id: String(item.id || `chat-${item.cardId}`),
-              cardId: String(item.cardId),
-              handle: String(item.handle || '').replace(/^@+/, ''),
-              label: String(item.label || buildLabelFromHandle(String(item.handle || 'collector'))),
-              updatedAt: String(item.updatedAt || item.createdAt || new Date().toISOString()),
-              createdAt: String(item.createdAt || item.updatedAt || new Date().toISOString()),
-              messages: Array.isArray(item.messages)
-                ? item.messages
-                    .filter((message) => message && typeof message === 'object')
-                    .map((message) => ({
-                      id: String(message.id || `msg-${Date.now()}`),
-                      from: 'you' as const,
-                      text: String(message.text || ''),
-                      createdAt: String(message.createdAt || new Date().toISOString()),
-                    }))
-                    .filter((message) => message.text.trim())
-                : [],
-            }))
-        : [];
-
-      setConversations(sortConversations(normalized));
-    } catch {
-      setConversations([]);
-    }
+    const validCardIds = new Set(cards.map((card) => String(card.id)));
+    setConversations(readDashboardChats(chatStorageKey, validCardIds));
   }, [chatStorageKey, cards]);
 
   useEffect(() => {
     if (!chatStorageKey) return;
-    try {
-      localStorage.setItem(chatStorageKey, JSON.stringify(conversations));
-    } catch {
-      // Ignore storage failures for dashboard chats.
-    }
+    persistDashboardChats(chatStorageKey, conversations);
   }, [chatStorageKey, conversations]);
 
   useEffect(() => {
@@ -155,10 +89,25 @@ export const ChatsView = ({
       setSelectedChatId(null);
       return;
     }
+
     if (!selectedChatId || !conversations.some((conversation) => conversation.id === selectedChatId)) {
       setSelectedChatId(conversations[0].id);
     }
   }, [selectedChatId, conversations]);
+
+  useEffect(() => {
+    if (!selectedChatId) return;
+    setConversations((prev) => {
+      let changed = false;
+      const next = prev.map((conversation) => {
+        if (conversation.id !== selectedChatId) return conversation;
+        const updatedConversation = markConversationAsRead(conversation);
+        if (updatedConversation !== conversation) changed = true;
+        return updatedConversation;
+      });
+      return changed ? sortChatConversations(next) : prev;
+    });
+  }, [selectedChatId]);
 
   const activeConversation =
     conversations.find((conversation) => conversation.id === selectedChatId) ?? conversations[0] ?? null;
@@ -167,7 +116,7 @@ export const ChatsView = ({
     : null;
   const activeThread = activeConversation?.messages || [];
   const availableCards = cards.filter(
-    (card) => !conversations.some((conversation) => String(conversation.cardId) === String(card.id))
+    (card) => !conversations.some((conversation) => String(conversation.cardId) === String(card.id)),
   );
 
   useEffect(() => {
@@ -203,13 +152,13 @@ export const ChatsView = ({
       id: `chat-${selectedCard.id}-${Date.now()}`,
       cardId: String(selectedCard.id),
       handle: cleanedHandle,
-      label: cleanedLabel || buildLabelFromHandle(cleanedHandle),
+      label: cleanedLabel || buildChatLabelFromHandle(cleanedHandle),
       createdAt,
       updatedAt: createdAt,
       messages: [],
     };
 
-    setConversations((prev) => sortConversations([thread, ...prev]));
+    setConversations((prev) => sortChatConversations([thread, ...prev]));
     setSelectedChatId(thread.id);
     setNewChatHandle('');
     setNewChatLabel('');
@@ -225,10 +174,11 @@ export const ChatsView = ({
       from: 'you',
       text: messageInput.trim(),
       createdAt,
+      read: true,
     };
 
     setConversations((prev) =>
-      sortConversations(
+      sortChatConversations(
         prev.map((conversation) =>
           conversation.id === activeConversation.id
             ? {
@@ -236,9 +186,9 @@ export const ChatsView = ({
                 updatedAt: createdAt,
                 messages: [...conversation.messages, nextMessage],
               }
-            : conversation
-        )
-      )
+            : conversation,
+        ),
+      ),
     );
     setMessageInput('');
     setChatNote(`Message saved in ${activeConversation.label}.`);
@@ -250,7 +200,8 @@ export const ChatsView = ({
       <div className="flex flex-col gap-2">
         <h2 className="text-2xl font-bold tracking-tight">Chats</h2>
         <p className={cn('text-sm', muted)}>
-          Clean message threads for {user?.username ? `@${String(user.username).toLowerCase()}` : 'your account'} and the cards you want to discuss.
+          Clean message threads for {user?.username ? `@${String(user.username).toLowerCase()}` : 'your account'} and
+          the cards you want to discuss.
         </p>
       </div>
 
@@ -259,7 +210,9 @@ export const ChatsView = ({
           <div className="text-sm">
             {loading && <span className="font-bold">Syncing chat cards…</span>}
             {!loading && error && <span className="font-bold text-red-400">{error}</span>}
-            {!loading && !error && !user && <span className="font-bold text-orange-400">Login in FODR to open your saved chat threads.</span>}
+            {!loading && !error && !user && (
+              <span className="font-bold text-orange-400">Login in FODR to open your saved chat threads.</span>
+            )}
           </div>
         </div>
       )}
@@ -269,7 +222,8 @@ export const ChatsView = ({
           <div className="flex flex-col gap-2">
             <div className="text-sm font-bold">Start A New Chat</div>
             <p className={cn('text-xs', muted)}>
-              Pick one of your verified cards, add the collector handle, and open a real thread. No random traders, no seeded fake messages.
+              Pick one of your verified cards, add the collector handle, and open a real thread. No random traders, no
+              seeded fake messages.
             </p>
           </div>
           <div className="mt-4 grid grid-cols-1 gap-3 xl:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)_minmax(0,1fr)_auto]">
@@ -305,13 +259,17 @@ export const ChatsView = ({
               disabled={!availableCards.length}
               className={cn(
                 'px-5 py-3 rounded-2xl text-sm font-bold text-white transition-colors',
-                availableCards.length ? 'bg-orange-500 hover:bg-orange-600' : 'bg-gray-400 cursor-not-allowed'
+                availableCards.length ? 'bg-orange-500 hover:bg-orange-600' : 'bg-gray-400 cursor-not-allowed',
               )}
             >
               Open Chat
             </button>
           </div>
-          {chatNote && <div className={cn('mt-3 text-xs font-semibold', isDarkMode ? 'text-orange-300' : 'text-orange-600')}>{chatNote}</div>}
+          {chatNote && (
+            <div className={cn('mt-3 text-xs font-semibold', isDarkMode ? 'text-orange-300' : 'text-orange-600')}>
+              {chatNote}
+            </div>
+          )}
         </div>
       )}
 
@@ -322,43 +280,53 @@ export const ChatsView = ({
             <span className={cn('text-[10px] uppercase tracking-widest', muted)}>{conversations.length} threads</span>
           </div>
           <div className="space-y-3">
-            {conversations.map((conversation) => (
-              <button
-                key={conversation.id}
-                onClick={() => setSelectedChatId(conversation.id)}
-                className={cn(
-                  'w-full rounded-2xl border p-3 text-left transition-all',
-                  panelBorder,
-                  panelBg,
-                  selectedChatId === conversation.id && 'ring-2 ring-orange-400/50'
-                )}
-              >
-                <div className="flex items-start gap-3">
-                  <div className="h-12 w-12 rounded-2xl bg-orange-500/15 text-orange-400 flex items-center justify-center text-sm font-black uppercase">
-                    {buildInitials(conversation.label)}
+            {conversations.map((conversation) => {
+              const unreadIncomingCount = countConversationUnreadMessages(conversation);
+              const lastMessage = conversation.messages[conversation.messages.length - 1];
+              const card = cards.find((entry) => String(entry.id) === String(conversation.cardId));
+
+              return (
+                <button
+                  key={conversation.id}
+                  onClick={() => setSelectedChatId(conversation.id)}
+                  className={cn(
+                    'w-full rounded-2xl border p-3 text-left transition-all',
+                    panelBorder,
+                    panelBg,
+                    selectedChatId === conversation.id && 'ring-2 ring-orange-400/50',
+                  )}
+                >
+                  <div className="flex items-start gap-3">
+                    <div className="h-12 w-12 rounded-2xl bg-orange-500/15 text-orange-400 flex items-center justify-center text-sm font-black uppercase">
+                      {buildInitials(conversation.label)}
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center justify-between gap-2">
+                        <div className="text-sm font-bold truncate">{conversation.label}</div>
+                        <div className="flex items-center gap-2">
+                          {unreadIncomingCount > 0 && (
+                            <span className="rounded-full bg-orange-500 px-2 py-0.5 text-[10px] font-bold uppercase tracking-widest text-white">
+                              {unreadIncomingCount} new
+                            </span>
+                          )}
+                          <span className={cn('text-[10px] uppercase tracking-widest', muted)}>
+                            {conversation.messages.length} msg
+                          </span>
+                        </div>
+                      </div>
+                      <div className={cn('mt-1 text-[10px] uppercase tracking-widest', muted)}>
+                        @{conversation.handle}
+                      </div>
+                      <div className={cn('mt-2 text-xs truncate', muted)}>
+                        {lastMessage
+                          ? lastMessage.text
+                          : `No messages yet · ${card?.name || 'Card'}${card?.edition ? ` · ${card.edition}` : ''}`}
+                      </div>
+                    </div>
                   </div>
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-center justify-between gap-2">
-                      <div className="text-sm font-bold truncate">{conversation.label}</div>
-                      <span className={cn('text-[10px] uppercase tracking-widest', muted)}>
-                        {conversation.messages.length} msg
-                      </span>
-                    </div>
-                    <div className={cn('mt-1 text-[10px] uppercase tracking-widest', muted)}>
-                      @{conversation.handle}
-                    </div>
-                    <div className={cn('mt-2 text-xs truncate', muted)}>
-                      {(() => {
-                        const card = cards.find((entry) => String(entry.id) === String(conversation.cardId));
-                        const lastMessage = conversation.messages[conversation.messages.length - 1];
-                        if (lastMessage) return lastMessage.text;
-                        return `No messages yet · ${card?.name || 'Card'}${card?.edition ? ` · ${card.edition}` : ''}`;
-                      })()}
-                    </div>
-                  </div>
-                </div>
-              </button>
-            ))}
+                </button>
+              );
+            })}
             {conversations.length === 0 && !loading && (
               <div className={cn('rounded-2xl border border-dashed p-5 text-center text-sm', panelBorder, muted)}>
                 No chats yet. Open one from your verified cards and your messages will stay here.
@@ -376,9 +344,7 @@ export const ChatsView = ({
                 </div>
                 <div className="flex-1">
                   <div className="text-lg font-bold">{activeConversation.label}</div>
-                  <div className={cn('text-[10px] uppercase tracking-widest', muted)}>
-                    @{activeConversation.handle}
-                  </div>
+                  <div className={cn('text-[10px] uppercase tracking-widest', muted)}>@{activeConversation.handle}</div>
                   <div className={cn('mt-1 text-xs', muted)}>
                     {activeCard ? `Discussing ${activeCard.name} · ${activeCard.edition}` : 'Card unavailable'}
                   </div>
@@ -397,17 +363,32 @@ export const ChatsView = ({
                     No messages in this thread yet. Start the conversation below.
                   </div>
                 ) : (
-                  activeThread.map((message) => (
-                    <div
-                      key={message.id}
-                      className="max-w-[78%] rounded-2xl px-4 py-3 text-sm leading-relaxed ml-auto bg-orange-500 text-white"
-                    >
-                      <div>{message.text}</div>
-                      <div className="mt-2 text-[10px] uppercase tracking-widest text-orange-100">
-                        You · {formatTimestamp(message.createdAt)}
+                  activeThread.map((message) => {
+                    const isOwnMessage = message.from === 'you';
+                    return (
+                      <div
+                        key={message.id}
+                        className={cn(
+                          'max-w-[78%] rounded-2xl px-4 py-3 text-sm leading-relaxed',
+                          isOwnMessage
+                            ? 'ml-auto bg-orange-500 text-white'
+                            : isDarkMode
+                              ? 'mr-auto border border-white/10 bg-white/5 text-white'
+                              : 'mr-auto border border-gray-200 bg-gray-50 text-gray-900',
+                        )}
+                      >
+                        <div>{message.text}</div>
+                        <div
+                          className={cn(
+                            'mt-2 text-[10px] uppercase tracking-widest',
+                            isOwnMessage ? 'text-orange-100' : muted,
+                          )}
+                        >
+                          {isOwnMessage ? 'You' : activeConversation.label} · {formatTimestamp(message.createdAt)}
+                        </div>
                       </div>
-                    </div>
-                  ))
+                    );
+                  })
                 )}
               </div>
 

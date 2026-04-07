@@ -5,6 +5,12 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import { cn } from './lib/cn';
+import {
+  DASHBOARD_CHAT_STORAGE_EVENT,
+  countUnreadChatUsers,
+  getDashboardChatStorageKey,
+  readDashboardChats,
+} from './lib/chat-storage';
 import { ChatsView } from './views/ChatsView';
 import sharedCardPricesData from '@shared/card-prices.json';
 import { 
@@ -8744,6 +8750,7 @@ export default function App() {
     }
   })();
   const userId = Number(fodrUser?.id) || queryUserId || null;
+  const chatStorageKey = getDashboardChatStorageKey(fodrUser);
   const [liveInventoryCards, setLiveInventoryCards] = useState<any[]>([]);
   const [inventoryLoading, setInventoryLoading] = useState(false);
   const [inventoryError, setInventoryError] = useState<string | null>(null);
@@ -8754,6 +8761,7 @@ export default function App() {
   const [notificationUnreadOnly, setNotificationUnreadOnly] = useState(false);
   const [profileMenuOpen, setProfileMenuOpen] = useState(false);
   const [dashboardToast, setDashboardToast] = useState<string | null>(null);
+  const [chatBadgeCount, setChatBadgeCount] = useState(0);
   const [notifications, setNotifications] = useState<any[]>(() => ([
     {
       id: 'nt-1',
@@ -9265,6 +9273,48 @@ export default function App() {
   const verifiedInventoryCards = liveInventoryCards.filter((card) => card.isVerified);
   const pendingVerificationCards = liveInventoryCards.filter((card) => !card.isVerified);
 
+  useEffect(() => {
+    if (!chatStorageKey) {
+      setChatBadgeCount(0);
+      return;
+    }
+
+    const refreshChatBadge = () => {
+      const validCardIds = new Set(
+        liveInventoryCards.filter((card) => card.isVerified).map((card) => String(card.id))
+      );
+      const unreadUsers = countUnreadChatUsers(readDashboardChats(chatStorageKey, validCardIds));
+      setChatBadgeCount(unreadUsers);
+    };
+
+    refreshChatBadge();
+
+    const handleStorage = (event: StorageEvent) => {
+      if (!event.key || event.key === chatStorageKey) {
+        refreshChatBadge();
+      }
+    };
+
+    const handleChatUpdate = (event: Event) => {
+      const detail =
+        event instanceof CustomEvent && event.detail && typeof event.detail === 'object'
+          ? (event.detail as { storageKey?: string })
+          : null;
+
+      if (!detail?.storageKey || detail.storageKey === chatStorageKey) {
+        refreshChatBadge();
+      }
+    };
+
+    window.addEventListener('storage', handleStorage);
+    window.addEventListener(DASHBOARD_CHAT_STORAGE_EVENT, handleChatUpdate as EventListener);
+
+    return () => {
+      window.removeEventListener('storage', handleStorage);
+      window.removeEventListener(DASHBOARD_CHAT_STORAGE_EVENT, handleChatUpdate as EventListener);
+    };
+  }, [chatStorageKey, liveInventoryCards]);
+
   const topUtilityButtons = [
     { key: 'Realtime Overview', label: 'Pulse', icon: Activity },
     { key: 'Inventory Dashboard', label: 'Vault', icon: LayoutGrid },
@@ -9499,7 +9549,7 @@ export default function App() {
               label="Chats"
               active={activeView === 'Chats'}
               onClick={() => {setActiveView('Chats'); setSelectedCard(null);}}
-              badge={verifiedInventoryCards.length > 0 ? String(Math.min(verifiedInventoryCards.length, 6)) : undefined}
+              badge={chatBadgeCount > 0 ? String(chatBadgeCount) : undefined}
             />
             <SidebarItem
               icon={Mail}
