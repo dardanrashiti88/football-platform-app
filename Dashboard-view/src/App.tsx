@@ -11,6 +11,12 @@ import {
   getDashboardChatStorageKey,
   readDashboardChats,
 } from './lib/chat-storage';
+import {
+  downloadReportBundlePdf,
+  downloadReportCsv,
+  downloadReportPdf,
+  getReportDownloadTimestamp,
+} from './lib/report-export';
 import { ChatsView } from './views/ChatsView';
 import sharedCardPricesData from '@shared/card-prices.json';
 import { 
@@ -1494,6 +1500,11 @@ const OperationsDeckView = ({ isDarkMode, config }: { isDarkMode: boolean; confi
   const panelBorder = isDarkMode ? 'border-white/10' : 'border-gray-100';
   const muted = isDarkMode ? 'text-gray-400' : 'text-gray-500';
   const chipBg = isDarkMode ? 'bg-white/10' : 'bg-gray-100';
+  const chartTickColor = isDarkMode ? '#94a3b8' : '#64748b';
+  const chartGridColor = isDarkMode ? 'rgba(148,163,184,0.14)' : 'rgba(15,23,42,0.08)';
+  const trendPanelClass = isDarkMode
+    ? 'bg-[radial-gradient(circle_at_top_left,rgba(249,115,22,0.08),transparent_40%),linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0.02))] border-white/10'
+    : 'bg-[radial-gradient(circle_at_top_left,rgba(249,115,22,0.10),transparent_38%),linear-gradient(180deg,#ffffff,#f8fafc)] border-gray-100 shadow-sm';
   const [activePreset, setActivePreset] = useState(config.presets[0]);
   const [rangeState, setRangeState] = useState({ intensity: 68, threshold: 42, cadence: 24 });
   const [statusNote, setStatusNote] = useState<string | null>(null);
@@ -2097,9 +2108,15 @@ const ReportsView = ({ isDarkMode }: { isDarkMode: boolean }) => {
     setReportList((prev) => prev.map((report) => (report.id === id ? { ...report, ...updates } : report)));
   };
   const handleGenerate = (id: string) => {
-    updateReport(id, { status: 'Queued', lastRun: 'Just now' });
     const report = reportList.find((item) => item.id === id);
-    const message = `${report?.title ?? 'Report'} queued`;
+    if (!report) return;
+
+    downloadReportPdf(report);
+    updateReport(id, {
+      status: 'Ready',
+      lastRun: getReportDownloadTimestamp(),
+    });
+    const message = `${report.title} PDF generated`;
     setReportActionMessage(message);
     emitDashboardAction(message);
   };
@@ -2116,7 +2133,11 @@ const ReportsView = ({ isDarkMode }: { isDarkMode: boolean }) => {
         <div className="flex flex-wrap items-center gap-2">
           <button
             onClick={() => {
-              filteredReports.forEach((report) => updateReport(report.id, { status: 'Queued', lastRun: 'Just now' }));
+              if (!filteredReports.length) return;
+              downloadReportBundlePdf(filteredReports);
+              filteredReports.forEach((report) =>
+                updateReport(report.id, { status: 'Ready', lastRun: getReportDownloadTimestamp() })
+              );
               const message = `Bundle generated for ${filteredReports.length} reports`;
               setReportActionMessage(message);
               emitDashboardAction(message);
@@ -2127,7 +2148,9 @@ const ReportsView = ({ isDarkMode }: { isDarkMode: boolean }) => {
           </button>
           <button
             onClick={() => {
-              const message = 'Reports center exported';
+              if (!filteredReports.length) return;
+              downloadReportBundlePdf(filteredReports);
+              const message = 'Reports center PDF exported';
               setReportActionMessage(message);
               emitDashboardAction(message);
             }}
@@ -2287,7 +2310,12 @@ const ReportsView = ({ isDarkMode }: { isDarkMode: boolean }) => {
               <div className="mt-6 flex flex-wrap gap-2">
                 <button
                   onClick={() => {
-                    const message = `${selectedReport.title} PDF download prepared`;
+                    downloadReportPdf(selectedReport);
+                    updateReport(selectedReport.id, {
+                      status: 'Ready',
+                      lastRun: getReportDownloadTimestamp(),
+                    });
+                    const message = `${selectedReport.title} PDF downloaded`;
                     setReportActionMessage(message);
                     emitDashboardAction(message);
                   }}
@@ -2297,7 +2325,8 @@ const ReportsView = ({ isDarkMode }: { isDarkMode: boolean }) => {
                 </button>
                 <button
                   onClick={() => {
-                    const message = `${selectedReport.title} CSV download prepared`;
+                    downloadReportCsv(selectedReport);
+                    const message = `${selectedReport.title} CSV downloaded`;
                     setReportActionMessage(message);
                     emitDashboardAction(message);
                   }}
@@ -7095,8 +7124,10 @@ const RealtimeOverview = ({ isDarkMode }: { isDarkMode: boolean }) => {
   const changeScale = activeRangeConfig.changeScale;
 
   const overviewTabs = ['Realtime Overview', 'Day on Day', 'Week on Week', 'SQR', 'Keyword Performance'];
-  const sparkUp = '0,18 10,12 20,15 30,8 40,10 50,4';
-  const sparkDown = '0,4 10,10 20,8 30,14 40,12 50,18';
+  const sparkProfiles = {
+    up: [18, 13, 15, 9, 10, 4],
+    down: [4, 9, 8, 14, 12, 18],
+  } as const;
   const tableHeaderClass = cn(
     'text-[10px] uppercase tracking-widest border-t',
     isDarkMode ? 'text-gray-500 border-white/5' : 'text-gray-400 border-gray-100'
@@ -7107,6 +7138,11 @@ const RealtimeOverview = ({ isDarkMode }: { isDarkMode: boolean }) => {
   const tableSubtleText = isDarkMode ? 'text-gray-400' : 'text-gray-500';
   const detailPanelBg = isDarkMode ? 'bg-white/5' : 'bg-gray-50';
   const detailBorder = isDarkMode ? 'border-white/10' : 'border-gray-200';
+  const chartTickColor = isDarkMode ? '#94a3b8' : '#64748b';
+  const chartGridColor = isDarkMode ? 'rgba(148,163,184,0.14)' : 'rgba(15,23,42,0.08)';
+  const chartPanelClass = isDarkMode
+    ? 'bg-[radial-gradient(circle_at_top_left,rgba(249,115,22,0.08),transparent_38%),linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0.02))] border-white/10'
+    : 'bg-[radial-gradient(circle_at_top_left,rgba(249,115,22,0.10),transparent_38%),linear-gradient(180deg,#ffffff,#f8fafc)] border-gray-100 shadow-sm';
 
   const toggleTopMenu = () => {
     setTopRangeOpen((prev) => !prev);
@@ -7131,6 +7167,46 @@ const RealtimeOverview = ({ isDarkMode }: { isDarkMode: boolean }) => {
   const pushOverviewAction = (message: string) => {
     setOverviewActionNote(message);
     emitDashboardAction(message);
+  };
+
+  const buildSparklinePath = (values: number[]) =>
+    values
+      .map((value, index) => `${index === 0 ? 'M' : 'L'} ${index * 12} ${value}`)
+      .join(' ');
+
+  const buildSparklineAreaPath = (values: number[]) =>
+    `${buildSparklinePath(values)} L ${(values.length - 1) * 12} 22 L 0 22 Z`;
+
+  const renderTrendTooltip = ({ active, payload, label }: any) => {
+    if (!active || !Array.isArray(payload) || payload.length === 0) return null;
+
+    return (
+      <div
+        className={cn(
+          'min-w-[220px] rounded-2xl border px-4 py-3 shadow-2xl backdrop-blur-xl',
+          isDarkMode ? 'border-white/10 bg-[#050816]/95 text-white' : 'border-gray-200 bg-white/95 text-gray-900',
+        )}
+      >
+        <div className={cn('text-[10px] font-bold uppercase tracking-[0.24em]', isDarkMode ? 'text-gray-400' : 'text-gray-500')}>
+          {activeRangeConfig.label} Snapshot
+        </div>
+        <div className="mt-1 text-sm font-bold">{label}</div>
+        <div className="mt-3 space-y-2">
+          {payload.map((entry: any) => (
+            <div key={entry.dataKey} className="flex items-center justify-between gap-4 text-xs">
+              <div className="flex items-center gap-2 min-w-0">
+                <span
+                  className="h-2.5 w-2.5 rounded-full shadow-[0_0_10px_currentColor]"
+                  style={{ backgroundColor: entry.color, color: entry.color }}
+                />
+                <span className="truncate font-semibold">{entry.name}</span>
+              </div>
+              <span className="font-black">{typeof entry.value === 'number' ? `$${entry.value.toFixed(1)}M` : entry.value}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
   };
 
   const resolveDateRange = () => {
@@ -7302,12 +7378,15 @@ const RealtimeOverview = ({ isDarkMode }: { isDarkMode: boolean }) => {
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 xl:grid-cols-9 gap-3">
         {miniMetrics.map((item) => {
           const scaledChange = formatChange(item.change);
+          const sparkId = `${item.title}-${item.subtitle}`.replace(/[^a-z0-9]+/gi, '-').toLowerCase();
           return (
             <div
               key={item.title + item.subtitle}
               className={cn(
-                "rounded-2xl border p-3 flex flex-col gap-2 transition-all",
-                isDarkMode ? "bg-white/5 border-white/10" : "bg-white border-gray-100 shadow-sm"
+                "rounded-2xl border p-3 flex flex-col gap-2 transition-all overflow-hidden",
+                isDarkMode
+                  ? "bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.05),transparent_45%),linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0.03))] border-white/10"
+                  : "bg-[radial-gradient(circle_at_top_left,rgba(249,115,22,0.10),transparent_42%),linear-gradient(180deg,#ffffff,#f8fafc)] border-gray-100 shadow-sm"
               )}
             >
               <div className="flex items-start justify-between gap-2">
@@ -7315,12 +7394,36 @@ const RealtimeOverview = ({ isDarkMode }: { isDarkMode: boolean }) => {
                   <div className="text-[10px] uppercase tracking-widest text-gray-400">{item.title}</div>
                   <div className="text-[10px] uppercase tracking-widest text-gray-500">{item.subtitle}</div>
                 </div>
-                <svg width="52" height="22" viewBox="0 0 50 22">
-                  <polyline
+                <svg width="58" height="26" viewBox="0 0 60 24" className="shrink-0">
+                  <defs>
+                    <linearGradient id={`spark-fill-${sparkId}`} x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stopColor={item.color} stopOpacity="0.35" />
+                      <stop offset="100%" stopColor={item.color} stopOpacity="0" />
+                    </linearGradient>
+                    <linearGradient id={`spark-line-${sparkId}`} x1="0" y1="0" x2="1" y2="0">
+                      <stop offset="0%" stopColor={item.color} stopOpacity="0.55" />
+                      <stop offset="100%" stopColor={item.color} stopOpacity="1" />
+                    </linearGradient>
+                    <filter id={`spark-glow-${sparkId}`} x="-60%" y="-80%" width="220%" height="260%">
+                      <feGaussianBlur stdDeviation="2" result="sparkBlur" />
+                      <feMerge>
+                        <feMergeNode in="sparkBlur" />
+                        <feMergeNode in="SourceGraphic" />
+                      </feMerge>
+                    </filter>
+                  </defs>
+                  <path
+                    d={buildSparklineAreaPath(item.trend === 'up' ? [...sparkProfiles.up] : [...sparkProfiles.down])}
+                    fill={`url(#spark-fill-${sparkId})`}
+                  />
+                  <path
+                    d={buildSparklinePath(item.trend === 'up' ? [...sparkProfiles.up] : [...sparkProfiles.down])}
                     fill="none"
-                    stroke={item.color}
-                    strokeWidth="2"
-                    points={item.trend === 'up' ? sparkUp : sparkDown}
+                    stroke={`url(#spark-line-${sparkId})`}
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    filter={`url(#spark-glow-${sparkId})`}
                   />
                 </svg>
               </div>
@@ -7342,14 +7445,23 @@ const RealtimeOverview = ({ isDarkMode }: { isDarkMode: boolean }) => {
       )}
 
       <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
-        <div className={cn("xl:col-span-2 rounded-3xl border p-6", isDarkMode ? "bg-white/5 border-white/10" : "bg-white border-gray-100 shadow-sm")}>
+        <div className={cn("xl:col-span-2 rounded-3xl border p-6", chartPanelClass)}>
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <div className="flex flex-col gap-2">
               <div className="text-sm font-bold">Trends</div>
               <div className="flex flex-wrap gap-3 text-[10px] uppercase tracking-widest text-gray-400">
                 {trendSeries.map((series) => (
-                  <div key={series.key} className="flex items-center gap-2">
-                    <span className="inline-flex h-2 w-2 rounded-full" style={{ backgroundColor: series.color }} />
+                  <div
+                    key={series.key}
+                    className={cn(
+                      'flex items-center gap-2 rounded-full border px-3 py-1.5',
+                      isDarkMode ? 'border-white/10 bg-white/5' : 'border-gray-200 bg-white/75'
+                    )}
+                  >
+                    <span
+                      className="inline-flex h-[3px] w-5 rounded-full shadow-[0_0_8px_currentColor]"
+                      style={{ backgroundColor: series.color, color: series.color }}
+                    />
                     <span>{series.label}</span>
                   </div>
                 ))}
@@ -7360,14 +7472,51 @@ const RealtimeOverview = ({ isDarkMode }: { isDarkMode: boolean }) => {
           <div className="h-[340px] mt-6">
             <ResponsiveContainer width="100%" height="100%">
               <LineChart data={rangeData}>
-                <CartesianGrid strokeDasharray="3 3" vertical={true} stroke={isDarkMode ? "rgba(255,255,255,0.1)" : "rgba(0,0,0,0.1)"} />
-                <XAxis dataKey="name" axisLine={true} tickLine={true} tick={{ fontSize: 10, fill: '#9ca3af' }} />
-                <YAxis axisLine={true} tickLine={true} tick={{ fontSize: 10, fill: '#9ca3af' }} />
-                <Tooltip
-                  contentStyle={{ backgroundColor: isDarkMode ? '#111' : '#fff', border: 'none', borderRadius: '12px' }}
-                />
+                <defs>
+                  {trendSeries.map((series) => {
+                    const safeId = series.key.replace(/[^a-z0-9]+/gi, '-').toLowerCase();
+                    return (
+                      <filter
+                        key={safeId}
+                        id={`trend-glow-${safeId}`}
+                        x="-40%"
+                        y="-40%"
+                        width="180%"
+                        height="180%"
+                      >
+                        <feGaussianBlur stdDeviation="3" result="coloredBlur" />
+                        <feMerge>
+                          <feMergeNode in="coloredBlur" />
+                          <feMergeNode in="SourceGraphic" />
+                        </feMerge>
+                      </filter>
+                    );
+                  })}
+                </defs>
+                <CartesianGrid strokeDasharray="4 10" vertical={false} stroke={chartGridColor} />
+                <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{ fontSize: 11, fill: chartTickColor }} dy={10} />
+                <YAxis axisLine={false} tickLine={false} tick={{ fontSize: 11, fill: chartTickColor }} width={48} />
+                <Tooltip content={renderTrendTooltip} cursor={{ stroke: isDarkMode ? 'rgba(249,115,22,0.28)' : 'rgba(249,115,22,0.18)', strokeWidth: 2, strokeDasharray: '4 8' }} />
                 {trendSeries.map((series) => (
-                  <Line key={series.key} type="monotone" dataKey={series.key} stroke={series.color} strokeWidth={2.5} dot={false} />
+                  <Line
+                    key={series.key}
+                    type="monotone"
+                    dataKey={series.key}
+                    name={series.label}
+                    stroke={series.color}
+                    strokeWidth={3.25}
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    dot={false}
+                    activeDot={{
+                      r: 5,
+                      strokeWidth: 2,
+                      fill: series.color,
+                      stroke: isDarkMode ? '#050816' : '#ffffff',
+                    }}
+                    filter={`url(#trend-glow-${series.key.replace(/[^a-z0-9]+/gi, '-').toLowerCase()})`}
+                    animationDuration={900}
+                  />
                 ))}
               </LineChart>
             </ResponsiveContainer>
@@ -7750,6 +7899,11 @@ const MyRealtimeOverview = ({
   const panelBorder = isDarkMode ? 'border-white/10' : 'border-gray-100';
   const muted = isDarkMode ? 'text-gray-400' : 'text-gray-500';
   const chipBg = isDarkMode ? 'bg-white/10' : 'bg-gray-100';
+  const chartTickColor = isDarkMode ? '#94a3b8' : '#64748b';
+  const chartGridColor = isDarkMode ? 'rgba(148,163,184,0.14)' : 'rgba(15,23,42,0.08)';
+  const trendPanelClass = isDarkMode
+    ? 'bg-[radial-gradient(circle_at_top_left,rgba(249,115,22,0.08),transparent_40%),linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0.02))] border-white/10'
+    : 'bg-[radial-gradient(circle_at_top_left,rgba(249,115,22,0.10),transparent_38%),linear-gradient(180deg,#ffffff,#f8fafc)] border-gray-100 shadow-sm';
 
   const allUniqueInventory = React.useMemo(() => {
     const sorted = [...(cards || [])].sort((a, b) => {
@@ -8003,6 +8157,41 @@ const MyRealtimeOverview = ({
     acc[offer.status] = (acc[offer.status] || 0) + 1;
     return acc;
   }, {});
+
+  const renderInventoryTrendTooltip = ({ active, payload, label }: any) => {
+    if (!active || !Array.isArray(payload) || payload.length === 0) return null;
+
+    return (
+      <div
+        className={cn(
+          'min-w-[220px] rounded-2xl border px-4 py-3 shadow-2xl backdrop-blur-xl',
+          isDarkMode ? 'border-white/10 bg-[#050816]/95 text-white' : 'border-gray-200 bg-white/95 text-gray-900',
+        )}
+      >
+        <div className={cn('text-[10px] font-bold uppercase tracking-[0.24em]', isDarkMode ? 'text-gray-400' : 'text-gray-500')}>
+          Portfolio Trend
+        </div>
+        <div className="mt-1 text-sm font-bold">{label}</div>
+        <div className="mt-3 space-y-2">
+          {payload.map((entry: any) => {
+            const numeric = Number(entry.value) || 0;
+            return (
+              <div key={entry.dataKey} className="flex items-center justify-between gap-4 text-xs">
+                <div className="flex items-center gap-2 min-w-0">
+                  <span
+                    className="h-2.5 w-2.5 rounded-full shadow-[0_0_10px_currentColor]"
+                    style={{ backgroundColor: entry.color, color: entry.color }}
+                  />
+                  <span className="truncate font-semibold">{entry.name}</span>
+                </div>
+                <span className="font-black">${Math.round(numeric * 1_000_000).toLocaleString()}</span>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    );
+  };
 
   return (
     <div className="p-6 lg:p-8 flex flex-col gap-8">
@@ -8301,7 +8490,7 @@ const MyRealtimeOverview = ({
       </div>
 
       <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
-        <div className={cn('xl:col-span-2 rounded-3xl border p-6', panelBg, panelBorder)}>
+        <div className={cn('xl:col-span-2 rounded-3xl border p-6', trendPanelClass)}>
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <div>
               <div className="text-sm font-bold">My Cards Trend</div>
@@ -8311,8 +8500,17 @@ const MyRealtimeOverview = ({
             </div>
           <div className="flex flex-wrap items-center gap-3 text-[10px] uppercase tracking-widest text-gray-400">
               {inventoryTrendSeries.map((series) => (
-                <span key={series.key} className="inline-flex items-center gap-1">
-                  <span className="h-2 w-2 rounded-full" style={{ backgroundColor: series.color }} />
+                <span
+                  key={series.key}
+                  className={cn(
+                    'inline-flex items-center gap-2 rounded-full border px-3 py-1.5',
+                    isDarkMode ? 'border-white/10 bg-white/5' : 'border-gray-200 bg-white/75'
+                  )}
+                >
+                  <span
+                    className="h-[3px] w-5 rounded-full shadow-[0_0_8px_currentColor]"
+                    style={{ backgroundColor: series.color, color: series.color }}
+                  />
                   {series.label}
                 </span>
               ))}
@@ -8326,23 +8524,60 @@ const MyRealtimeOverview = ({
             ) : (
               <ResponsiveContainer width="100%" height="100%">
                 <LineChart data={inventoryTrendData}>
-                  <CartesianGrid strokeDasharray="3 3" vertical={true} stroke={isDarkMode ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.08)'} />
-                  <XAxis dataKey="name" axisLine={true} tickLine={true} tick={{ fontSize: 10, fill: '#9ca3af' }} />
+                  <defs>
+                    {inventoryTrendSeries.map((series) => {
+                      const safeId = series.key.replace(/[^a-z0-9]+/gi, '-').toLowerCase();
+                      return (
+                        <filter
+                          key={safeId}
+                          id={`inventory-trend-glow-${safeId}`}
+                          x="-40%"
+                          y="-40%"
+                          width="180%"
+                          height="180%"
+                        >
+                          <feGaussianBlur stdDeviation="3" result="coloredBlur" />
+                          <feMerge>
+                            <feMergeNode in="coloredBlur" />
+                            <feMergeNode in="SourceGraphic" />
+                          </feMerge>
+                        </filter>
+                      );
+                    })}
+                  </defs>
+                  <CartesianGrid strokeDasharray="4 10" vertical={false} stroke={chartGridColor} />
+                  <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{ fontSize: 11, fill: chartTickColor }} dy={10} />
                   <YAxis
-                    axisLine={true}
-                    tickLine={true}
-                    tick={{ fontSize: 10, fill: '#9ca3af' }}
+                    axisLine={false}
+                    tickLine={false}
+                    tick={{ fontSize: 11, fill: chartTickColor }}
+                    width={58}
                     tickFormatter={(value) => `${value}M`}
                   />
                   <Tooltip
-                    contentStyle={{ backgroundColor: isDarkMode ? '#111' : '#fff', border: 'none', borderRadius: '12px' }}
-                    formatter={(value: any) => {
-                      const numeric = Number(value) || 0;
-                      return `$${Math.round(numeric * 1_000_000).toLocaleString()}`;
-                    }}
+                    content={renderInventoryTrendTooltip}
+                    cursor={{ stroke: isDarkMode ? 'rgba(249,115,22,0.28)' : 'rgba(249,115,22,0.18)', strokeWidth: 2, strokeDasharray: '4 8' }}
                   />
                   {inventoryTrendSeries.map((series) => (
-                    <Line key={series.key} type="monotone" dataKey={series.key} stroke={series.color} strokeWidth={2.5} dot={false} />
+                    <Line
+                      key={series.key}
+                      type="monotone"
+                      dataKey={series.key}
+                      name={series.label}
+                      stroke={series.color}
+                      strokeWidth={3.25}
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      dot={false}
+                      activeDot={{
+                        r: 5,
+                        strokeWidth: 2,
+                        fill: series.color,
+                        stroke: isDarkMode ? '#050816' : '#ffffff',
+                      }}
+                      filter={`url(#inventory-trend-glow-${series.key.replace(/[^a-z0-9]+/gi, '-').toLowerCase()})`}
+                      animationDuration={900}
+                    />
                   ))}
                 </LineChart>
               </ResponsiveContainer>
