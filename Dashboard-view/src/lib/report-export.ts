@@ -1,4 +1,4 @@
-type ReportRecord = {
+export type DashboardReport = {
   id: string;
   category: string;
   title: string;
@@ -117,7 +117,7 @@ const reportMetricMap: Record<string, ReportMetric[]> = {
   ],
 };
 
-const getReportMetrics = (report: ReportRecord) =>
+const getReportMetrics = (report: DashboardReport) =>
   reportMetricMap[report.category] || [
     { label: 'Coverage', value: 'Standard', note: 'Default report package' },
     { label: 'Updated', value: report.lastRun, note: 'Most recent run window' },
@@ -125,13 +125,13 @@ const getReportMetrics = (report: ReportRecord) =>
     { label: 'Schedule', value: report.autoSchedule ? 'Automatic' : 'Manual', note: report.frequency },
   ];
 
-const buildNarrative = (report: ReportRecord) => [
+const buildNarrative = (report: DashboardReport) => [
   `${report.title} is generated from the ${report.category.toLowerCase()} desk and packaged for ${report.owner}.`,
   `${report.description} This export reflects the most recent ${report.frequency.toLowerCase()} run captured at ${report.lastRun}.`,
   `The current delivery mode is ${report.autoSchedule ? 'automatic' : 'manual'}, with an output target of ${report.format}.`,
 ];
 
-const buildTextPages = (report: ReportRecord) => {
+const buildTextPages = (report: DashboardReport) => {
   const pages: Array<Array<{ text: string; size?: number; bold?: boolean; gapAfter?: number }>> = [[]];
   let y = PDF_START_Y;
   let currentPage = pages[0];
@@ -188,7 +188,7 @@ const buildTextPages = (report: ReportRecord) => {
   return pages;
 };
 
-const buildBundlePages = (reports: ReportRecord[]) => {
+const buildBundlePages = (reports: DashboardReport[]) => {
   const pages: Array<Array<{ text: string; size?: number; bold?: boolean; gapAfter?: number }>> = [[]];
   let y = PDF_START_Y;
   let currentPage = pages[0];
@@ -309,19 +309,19 @@ const triggerDownload = (filename: string, blob: Blob) => {
   setTimeout(() => URL.revokeObjectURL(url), 1000);
 };
 
-export const downloadReportPdf = (report: ReportRecord) => {
+export const downloadReportPdf = (report: DashboardReport) => {
   const blob = createPdfBlob(buildTextPages(report));
   triggerDownload(`${slugify(report.title)}.pdf`, blob);
   return blob;
 };
 
-export const downloadReportBundlePdf = (reports: ReportRecord[]) => {
+export const downloadReportBundlePdf = (reports: DashboardReport[]) => {
   const blob = createPdfBlob(buildBundlePages(reports));
   triggerDownload(`fodr-reports-bundle-${new Date().toISOString().slice(0, 10)}.pdf`, blob);
   return blob;
 };
 
-export const downloadReportCsv = (report: ReportRecord) => {
+export const downloadReportCsv = (report: DashboardReport) => {
   const rows = [
     ['Report', report.title],
     ['Category', report.category],
